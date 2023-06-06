@@ -1,0 +1,73 @@
+<!-- Boulevard Booking Widget -->
+
+<script>
+  (function (a) {
+    const url = new URLSearchParams(window.location.search);
+    
+    function setCookie(cname, cvalue, exdays) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      let expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    
+    function getCookie(cname) {
+      let name = cname + "=";
+      let ca = document.cookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+    
+    function storeCookieInfo(urlParams) {
+      for (const [prop] of Object.entries(urlParams)) {
+        var urlValue = url.get(prop);
+        var cookieValue = getCookie(prop);
+
+        if (!cookieValue) {
+          if (urlValue) {
+            setCookie(prop, urlValue, 0.0416); // Stores the cookie for 1 hour
+            b.urlParams[prop] = urlValue;
+          }
+        } else {
+          b.urlParams[prop] = cookieValue;
+        }
+      }
+    }
+
+    var b = {
+      businessId: 'b3a446e2-62bf-49b9-8dfa-fb14c5c43d2c',
+      urlParams: {
+        utm_source: '',
+        utm_medium: '',
+        utm_campaign: '',
+        utm_term: '',
+        utm_content: '',
+        gclid: ''
+      }
+    };
+    
+    storeCookieInfo(b.urlParams);
+
+    var c = a.createElement('script');
+    var d = a.querySelector('script');
+    
+    c.src = 'https://static.joinboulevard.com/injector.min.js';
+    c.async = true;
+    c.onload = function () {
+      blvd.init(b);
+    };
+    
+    d.parentNode.insertBefore(c, d);
+  })(document);
+
+</script>
+
+<!-- End Boulevard Booking Widget -->

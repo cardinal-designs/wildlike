@@ -1,0 +1,41 @@
+<script>
+  window.ImmerssData = {
+    customerId: null,
+    wishList: [],
+    RecentlyViewed: [],
+    cart: []
+  }
+
+  {% if customer %}
+    window.ImmerssData.customerId = {{ customer.id }};
+  {% endif %}
+
+  {% if cart %}
+    {% for item in cart.items %}
+      window.ImmerssData.cart.push([{{ item.title | json }}, {{ item.product_id }}, {{ item.variant_id }}, {{ item.quantity }}]);
+    {% endfor %}
+  {% endif %}
+
+  window.ImmerssData.RecentlyViewed = JSON.parse(window.localStorage.getItem("immerss-recent-products")) || [];
+
+  {% if request.page_type == 'product' %}
+    var immersRecentlyViewedNonUnique = window.ImmerssData.RecentlyViewed;
+    immersRecentlyViewedNonUnique.unshift([{{ product.title | json }}, {{ product.id }}, {{ product.variants[0].id }}]);
+
+    /* Get only unique product_id and limit to 20 */
+    var immersRecentlyViewedUnique = [];
+    var foundProducts = [];
+    for(var i = 0; i < immersRecentlyViewedNonUnique.length; i++) {
+      if(foundProducts[immersRecentlyViewedNonUnique[i][1]] || i >= 20){
+        continue;
+      }
+      foundProducts[immersRecentlyViewedNonUnique[i][1]] = true;
+
+      immersRecentlyViewedUnique.push(immersRecentlyViewedNonUnique[i]);
+    }
+
+    window.ImmerssData.RecentlyViewed = immersRecentlyViewedUnique;
+    window.localStorage.setItem("immerss-recent-products", JSON.stringify(window.ImmerssData.RecentlyViewed));
+  {% endif %}
+  
+</script>

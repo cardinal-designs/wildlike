@@ -1,0 +1,40 @@
+{% assign blocks_length = section.blocks | size %}
+{% if blocks_length > 0 %}
+  <div class="three-column-content-blocks-container three-column-content-blocks-container-simple">
+    <div class="three-column-content-blocks">
+      {% for block in section.blocks %}
+        <div class="three-column-content-blocks__block">
+          <p class="h7 contact-section-block-heading">{{ block.settings.header }}</p>
+          {% if block.settings.body != blank %}<div class="body-md client-generated">{{ block.settings.body }}</div>{% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Content Blocks (Simple)",
+    "settings": [],
+    "max_blocks": 3,
+    "blocks": [
+      {
+        "type": "contact_info_block",
+        "name": "Contact Info Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body Copy"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+

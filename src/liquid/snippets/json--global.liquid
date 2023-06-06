@@ -1,0 +1,73 @@
+{% capture cart_colors %}
+  {
+    "cta": {{ settings.cart_cta | json }},
+    "bubbleBg": {{ settings.cart_bubble | json }},
+    "bubbleText": {{ settings.cart_bubble_text | json }},
+    "shippingBg": {{ settings.cart_shipping_bg | json }},
+    "shippingText": {{ settings.cart_shipping_text | json }},
+    "shippingProgress": {{ settings.cart_shipping_progress | json }}
+  }
+{% endcapture %}
+
+{
+  "bronto": {
+    "enabled": {{ settings.enable_bronto | json }},
+    "id": {{ settings.bronto_directadd_id | json }},
+    "list1": {{ settings.bronto_newsletter_id | json }},
+    "list2": {{ settings.bronto_master_id | json }},
+    "list3": {{ settings.bronto_checkout_id | json }}
+  },
+  "fileUrl": "{{ 'test.jpg' | file_url }}",
+  "schema": {
+    "productTile": {
+      "badges": {
+        "sale": [{{ settings.badge_sale_copy_color | json }}, {{ settings.badge_sale_bg_color | json }}],
+        "new": [{{ settings.badge_new_copy_color | json }}, {{ settings.badge_new_bg_color | json }}],
+        "bestSeller": [{{ settings.badge_best_seller_copy_color | json }}, {{ settings.badge_best_seller_bg_color | json }}],
+        "limited": [{{ settings.badge_limited_copy_color | json }}, {{ settings.badge_limited_bg_color | json }}],
+        "clearance": [{{ settings.badge_clearance_copy_color | json }}, {{ settings.badge_clearance_bg_color | json }}],
+        "dealOfTheWeek": [{{ settings.badge_dotw_copy_color | json }}, {{ settings.badge_dotw_bg_color | json }}]
+      },
+      "subtitle_pretext": {{ settings.product_tile_subtitle_pretext | json }}
+    },
+  },
+  "comparePriceColor": {{ settings.compare_price_color | json }},
+  "shop": {
+    "domain": {{ shop.domain | json }},
+    "name": {{ shop.name | json }}
+  },
+  "template": {{ template | json }},
+  "cart": {
+    "modalEnabled": {{ settings.cart_enable_modal | json }},
+    "colors": {{ cart_colors }}
+  },
+  "reviewSource": {{ settings.review_source | json }},
+  "header": {
+    "topOffset":
+      {% if settings.header_variation == 'design_1' %}
+        {{ 150 }}
+      {% elsif settings.header_variation == 'design_2' %}
+        {{ 200 }}
+      {% else %}
+        {{ 0 }}
+      {% endif %},
+    "topOffsetMobile":
+      {% if settings.header_variation == 'design_1' %}
+        {{ 86 }}
+      {% elsif settings.header_variation == 'design_2' %}
+        {{ 120 }}
+      {% else %}
+        {{ 0 }}
+      {% endif %}
+  },
+  "callForPriceNumber": {
+    "display": {{ settings.call_for_price_number | json }},
+    "tel": {{ settings.call_for_price_number | replace: " ", "-" | replace: "(", "tel:+1-" | remove: ")" | json }}
+  },
+  "themeTemplates": {
+    "header": {{ settings.header_design | json }},
+    "footer": {{ settings.footer_design | json }},
+    "collection": {{ settings.collection_template | json }},
+    "product": {{ settings.pdp_design | json }}
+  }
+}

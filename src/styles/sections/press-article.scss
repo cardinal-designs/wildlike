@@ -1,0 +1,119 @@
+.press-article {
+  .article {
+    &__top-line {
+      height: 100%;
+      padding: 32px 21px;
+
+      @include desktop-up {
+        padding: 32px 47px;
+      }
+    }
+
+    &__arrow-icon {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: 2px;
+    }
+
+    &__breadcrumb {
+      font-size: rem(16);
+      line-height: rem(24);
+    }
+
+    &__container {
+      width: 100%;
+      padding: 0 16px !important;
+      margin-bottom: 56px;
+
+      @include desktop-up {
+        width: 916px;
+        margin-top: 72px;
+        margin-bottom: 104px;
+        padding: 0 !important;
+      }
+
+      &:has(> .article__content > iframe) {
+        @include desktop-up {
+          margin-bottom: 66px;
+        }
+      }
+    }
+
+    &__header {
+      text-align: center;
+    }
+
+    &__date {
+      margin: 20px 0 40px;
+      font-size: 16px;
+      line-height: 24px;
+
+      @include desktop-up {
+        margin: 20px 0 72px;
+      }
+    }
+
+    &__content {
+      margin: 0 auto;
+
+      &:has(> .article__image) {
+        background-color: $color-black-100;
+        width: 343px;
+
+        @include desktop-up {
+          width: 732px;
+        }
+      }
+
+      iframe {
+        margin-bottom: 40px;
+
+        @include desktop-up {
+          margin-bottom: 36px;
+        }
+      }
+    }
+
+    &__image {
+      display: block;
+      width: 311px;
+      margin: 16px 16px 32px 16px;
+
+      @include desktop-up {
+        width: 660px;
+        margin: 0 auto;
+        padding-top: 36px;
+      }
+    }
+
+    &__button-container {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+
+      @include desktop-up {
+        margin: 36px auto;
+      }
+    }
+
+    &__view-article-button {
+      text-transform: uppercase;
+      font-size: 18px;
+      height: 100%;
+      padding: 14px 48px;
+
+      @include desktop-up {
+        height: 52px;
+        padding-left: 46px;
+        padding-right: 56px;
+      }
+    }
+
+    &__view-article-icon {
+      display: inline-block;
+      height: 100%;
+      vertical-align: text-top;
+    }
+  } // article
+} // press-article

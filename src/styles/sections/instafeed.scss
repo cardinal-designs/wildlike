@@ -1,0 +1,11 @@
+.instafeed {
+  h2 {
+    @include h2-mobile;
+    margin-bottom: 14px;
+
+    @include tablet-up {
+      @include h3-tablet-up;
+      margin-bottom: 28px;
+    }
+  }
+}

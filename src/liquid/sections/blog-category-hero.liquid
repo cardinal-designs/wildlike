@@ -1,0 +1,32 @@
+<div class="blog__hero">
+  <!-- Desktop -->
+  <div class="blog__hero-with-image flex-justify-start flex-align-center hidden-mobile-tablet" 
+  style="background-image: url('{{ blog.metafields.custom_fields["hero_image"] }});">
+    {% if  blog.metafields.custom_fields["text_color"] == "Light" %}
+      {% assign textColor = "color-white" %}
+    {% else %}
+      {% assign textColor = "color-black" %}
+    {% endif %}
+    <div class="blog__hero-container">
+      <div class="blog__hero-text">
+        <div class="blog__hero-heading-copy">
+          <h1 class="blog__header">{{ blog.metafields.custom_fields["hero_heading"] }}</h2>
+          <p class="blog__subheader subheader">{{ blog.metafields.custom_fields["hero_subheading"] }}</p>
+          <p class="blog__copy body-md">{{ blog.metafields.custom_fields["hero_body_copy"] }}</p>
+        </div>
+        <div class="blog__hero-background" style="{% if blog.metafields.custom_fields["hero-overlay-color"] %}background-color: {{ blog.metafields.custom_fields["hero-overlay-color"] }};{% endif %} {% if blog.metafields.custom_fields["overlay_opacity"] %}opacity: {{ blog.metafields.custom_fields["overlay_opacity"] | divided_by: 100.0 }};{% endif %}"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile -->
+  <div class="blog__hero-with-image flex-justify-start flex-align-center hidden-desktop"
+    {% if blog.metafields.custom_fields["mobile_image"] %}style="background-image: url('{{ blog.metafields.custom_fields["mobile_image"] }});"
+    {% else %}style="background-image: url('{{ blog.metafields.custom_fields["hero_image"] }});"
+    {% endif %}>
+  </div>
+  <div class="blog__hero-text hidden-desktop {{ textColor }}">
+    <h1 class="blog__header">{{ blog.metafields.custom_fields["hero_heading"] }}</h1>
+    <p class="blog__subheader subheader">{{ blog.metafields.custom_fields["hero_subheading"] }}</p>
+    <p class="blog__copy body-md">{{ blog.metafields.custom_fields["hero_body_copy"] }}</p>
+  </div>
+</div>

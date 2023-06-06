@@ -1,0 +1,410 @@
+{% capture json_product %}{% render 'json--product' %}{% endcapture %}
+{% if product.metafields.custom_fields.magnet_product != blank and product.metafields.custom_fields.magnet_product != '' %}
+  {% assign magnet_product = all_products[product.metafields.custom_fields.magnet_product] %}
+{% capture json_magnet_product %}{% render 'json--product', product: magnet_product %}{% endcapture %}
+{% endif %}
+
+
+{% if product.metafields.custom_fields["designer_collection"] != blank %}
+{% assign designer_collection = collections[product.metafields.custom_fields.designer_collection] %}
+{% capture json_designer_collection %}
+  {
+    description: {{ designer_collection.description | json }}
+  }
+{% endcapture %}
+{% endif %}
+
+
+{% assign upsell_product = all_products[product.metafields.custom_fields.d2_upsell_product] %}
+{% capture upsell_product_json %}{% render 'json--product', product: upsell_product %}{% endcapture %}
+
+{% assign sidebar_collection_handle = product.metafields.custom_fields.d2_product_widget_collection | default: product.metafields.custom_fields.d2_collection_link %}
+{% capture recommendationsSidebarCollection %}
+  {% assign collection_items = collections[sidebar_collection_handle].products | limit: 3 %}
+  [
+  {% for collection_item in collection_items %}
+    {% render 'json--product', product: collection_item %}
+    {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ]
+{% endcapture %}
+
+{% if product.metafields.custom_fields.d2_override_related_products != blank %}
+  {% capture overrideRelatedProducts %}
+    {% assign collection_items = collections[product.metafields.custom_fields.d2_override_related_products].products %}
+    {% assign product_count = 0 %}
+    [
+    {% for collection_item in collection_items %}
+      {% if product_count == 6 %}
+        {% break %}
+      {% endif %}
+      {% if collection_item.available %}
+        {% render 'json--product', product: collection_item %}
+        {% assign product_count = product_count | plus: 1 %}
+        {% unless product_count == 6 %},{% endunless %}
+      {% endif %}
+    {% endfor %}
+    ]
+  {% endcapture %}
+{% endif %}
+
+{% capture value_props %}
+  {% assign hide = product.metafields.custom_fields.d2_show_value_props | default: false %}
+  {% assign sectionHeading = product.metafields.custom_fields.d2_value_props_heading | default: section.settings.pdp_vp_section_heading %}
+  {% assign backgroundColor = product.metafields.custom_fields.d2_value_props_background | default: section.settings.pdp_vp_background_color %}
+  {% assign backgroundColorProductValueProps = section.settings.pdp_value_props_background_color %}
+  {% assign borderColor = product.metafields.custom_fields.d2_value_props_background | default: section.settings.pdp_vp_background_color %}
+  {% assign dividerColor = product.metafields.custom_fields.d2_value_props_background | default: section.settings.pdp_vp_background_color %}
+  {% assign textColor = product.metafields.custom_fields.d2_value_props_url | default: section.settings.pdp_vp_text_color %}
+  {% assign linkUrl = product.metafields.d2_value_props_url | default: section.settings.pdp_vp_link_url %}
+  {% assign linkText = product.metafields.d2_value_props_url-text | default: section.settings.pdp_vp_link_text %}
+  {% assign icon0 = product.metafields.custom_fields.d2_prop1_image | default: section.settings.pdp_vp_icon_0 %}
+  {% assign title0 = product.metafields.custom_fields.d2_prop1_heading | default: section.settings.pdp_vp_title_0 %}
+  {% assign body0 = product.metafields.custom_fields.d2_prop1_text | default: section.settings.pdp_vp_body_0 %}
+  {% assign icon1 = product.metafields.custom_fields.d2_prop2_image | default: section.settings.pdp_vp_icon_1 %}
+  {% assign title1 = product.metafields.custom_fields.d2_prop2_heading | default: section.settings.pdp_vp_title_1 %}
+  {% assign body1 = product.metafields.custom_fields.d2_prop2_text | default: section.settings.pdp_vp_body_1 %}
+  {% assign icon2 = product.metafields.custom_fields.d2_prop3_image | default: section.settings.pdp_vp_icon_2 %}
+  {% assign title2 = product.metafields.custom_fields.d2_prop3_heading | default: section.settings.pdp_vp_title_2 %}
+  {% assign body2 = product.metafields.custom_fields.d2_prop3_text | default: section.settings.pdp_vp_body_2 %}
+  {% assign icon3 = product.metafields.custom_fields.d2_prop3_image | default: section.settings.pdp_vp_icon_3 %}
+  {% assign title3 = product.metafields.custom_fields.d2_prop3_heading | default: section.settings.pdp_vp_title_3 %}
+  {% assign body3 = product.metafields.custom_fields.d2_prop3_text | default: section.settings.pdp_vp_body_3 %}
+
+  {
+    "settings": {
+      "hide": {{ hide | json }},
+      "sectionHeading": {{ sectionHeading | json }},
+      "backgroundColor": {{ section.settings.pdp_value_props_background_color | json }},
+      "backgroundColorProductValueProps" : {{ backgroundColorProductValueProps | json }},
+      "borderColor": {{ borderColor | json }},
+      "dividerColor": {{ dividerColor | json }},
+      "textColor": {{ textColor | json }},
+      "linkUrl": {{ linkUrl | json }},
+      "linkText": {{ linkText | json }},
+    },
+    "blocks": [
+      {
+        "settings": {
+          "icon": {{ icon0 | json }},
+          "title": {{ title0 | json }},
+          "body": {{ body0 | json }},
+        }
+      },
+      {
+        "settings": {
+          "icon": {{ icon1 | json }},
+          "title": {{ title1 | json }},
+          "body": {{ body1 | json }},
+        }
+      },
+      {
+        "settings": {
+          "icon": {{ icon2 | json }},
+          "title": {{ title2 | json }},
+          "body": {{ body2 | json }}
+        }
+      },
+      {
+        "settings": {
+          "icon": {{ icon3 | json }},
+          "title": {{ title3 | json }},
+          "body": {{ body3 | json }}
+        }
+      }
+    ]
+  }
+{% endcapture %}
+
+{% capture featured_collections %}
+{
+  "heading": {{ section.settings.cl_heading | json }},
+  "headingColor": {{ section.settings.cl_heading_color | json }},
+  "backgroundColor": {{ section.settings.cl_background_color | json }},
+  "blocks": [
+    {% for block in section.blocks %}
+      {% if block.type == 'cl_collection' %}
+        {
+          "url": {{ block.settings.cl_link | json }},
+          "title": {{ block.settings.cl_link_text | json }},
+          "image": {{ block.settings.cl_image | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endif %}
+    {% endfor %}
+  ]
+}
+{% endcapture %}
+
+{% capture product_settings %}
+  {
+    "atcCtaClass": {{ section.settings.atc_cta_class | json }},
+    "atcCtaIconHtml": {{ section.settings.atc_cta_icon_html | json }},
+    "accordionName": {{ section.settings.pdp_accordion_name | json }},
+    "accordionContent": {{ section.settings.pdp_accordion_content | json }},
+    "recommendationsHeading": {{ section.settings.pdp_recommendations_heading | json }},
+    "recommendationsSidebarCollection": {{ recommendationsSidebarCollection }},
+    {% if product.metafields.custom_fields.d2_override_related_products != blank %}
+      "overrideRelatedProducts": {{ overrideRelatedProducts }},
+    {% endif %}
+    "hideReviews": {{ section.settings.pdp_hide_reviews | json }},
+    "upsellImg": {{ section.settings.pdp_global_info_section_img | json }},
+    "upsellHeading": {{ section.settings.pdp_global_info_section_heading | json }},
+    "upsellHeadingColor": {{ section.settings.pdp_global_info_section_heading_color | json }},
+    "upsellCopy": {{ section.settings.pdp_upsell_copy | json }},
+    "upsellCtaCopy": {{ section.settings.pdp_upsell_cta_copy | json }},
+    "upsellCtaUrl": {{ section.settings.pdp_upsell_cta_url | json }},
+    "upsellCardProduct": {{ upsell_product_json  }},
+    "productRecSidebarHeading": {{ section.settings.pdp_product_rec_sidebar_heading | json }},
+    "wishlistEnabled": {{ settings.wishlist_enabled | json }},
+    "registryEnabled": {{ settings.myregistry_enabled | json }},
+    "valueProps": {{ value_props }},
+    "featuredCollections": {{ featured_collections }},
+    "blocks": [
+      {% for block in section.blocks %}
+        {}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ],
+    {% comment %} From General Settings {% endcomment %}
+    "subtitlePretext": {{ settings.product_tile_subtitle_pretext | json }},
+    "showSKU": {{ settings.display_sku_pdp }}
+  }
+{% endcapture %}
+
+{% capture _swym %}
+  {
+    "settings": {{ shop.metafields.swym | json }},
+    shop: {{ shop | json }}
+  }
+{% endcapture %}
+
+<product-display
+  product-page-template="{{ settings.pdp_design }}"
+  :settings="{{ product_settings | escape | strip }}"
+  :collection="{{ collection | json | escape | strip  }}"
+  :product="{{ json_product | escape | strip }}"
+  :custom-fields="{{ product.metafields.custom_fields | json | escape | strip  }}"
+  :display-vendor="{{ settings.display_vendor_pdp }}"
+  :customer="{{ customer.has_account | json }}"
+  {% if magnet_product %}
+  :magnet-product="{{ json_magnet_product | escape | strip }}"
+  {% endif %}
+  product-tile-text-alignment={{ settings.product_tile_text_alignment | json }}
+  {% if json_designer_collection %}
+  :json-designer-collection="{{ json_designer_collection | escape | strip }}"
+  {% endif %}
+  :swym="{{ _swym | escape | strip }}"
+  />
+
+
+{% schema %}
+  {
+    "name": "Product Page",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "The following content is global and will appear on all product pages across the site."
+      },
+      {
+        "type": "header",
+        "content": "Shipping Details"
+      },
+      {
+        "type": "text",
+        "label": "Section Name",
+        "id": "pdp_accordion_name",
+        "default": "Shipping",
+        "info": "Defaults to \"Shipping\""
+      },
+      {
+        "type": "richtext",
+        "label": "Section Content",
+        "id": "pdp_accordion_content",
+        "info": "If left blank, this accordion will not appear on the PDP."
+      },
+      {
+        "type": "header",
+        "content": "Product Recommendations"
+      },
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "pdp_recommendations_heading",
+        "default": "You May Also Like",
+        "info": "Defaults to \"You May Also Like\""
+      },
+      {
+        "type": "header",
+        "content": "Reviews"
+      },
+      {
+        "type": "checkbox",
+        "label": "Hide Reviews",
+        "id": "pdp_hide_reviews",
+        "info": "Check the box if you don’t want reviews to display on the product pages."
+      },
+      {
+        "type": "header",
+        "content": "Global Product Info Section"
+      },
+      {
+        "type": "paragraph",
+        "content": "These are the Global Product Info Section settings. If an image is selected below, this section will show on every product page."
+      },
+      {
+        "label": "Global Product Info Section Image",
+        "type": "image_picker",
+        "id": "pdp_global_info_section_img",
+        "info": "Recommended size is "
+      },
+      {
+        "label": "Global Product Info Section Heading",
+        "type": "text",
+        "id": "pdp_global_info_section_heading"
+      },
+      {
+        "label": "Global Product Info Section Heading Color",
+        "type": "color",
+        "id": "pdp_global_info_section_heading_color",
+        "default" : "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Related Products Widget"
+      },
+      {
+        "label": "Heading",
+        "type": "text",
+        "id": "pdp_product_rec_sidebar_heading",
+        "info": "Displays in the right column of PDP if enabled on a product and viewport width > 1440px"
+      },
+      {
+        "type": "header",
+        "content": "Value Props"
+      },
+      {
+        "type": "paragraph",
+        "content": "Add content here for this section if the content will be the same for all products."
+      },
+      {
+        "type": "color",
+        "id": "pdp_value_props_background_color",
+        "label": "Background Color",
+        "default": "#F7F6F2"
+      },
+      {
+        "type": "image_picker",
+        "id": "pdp_vp_icon_0",
+        "label": "Prop 1 - Image"
+      },
+      {
+        "type": "text",
+        "id": "pdp_vp_title_0",
+        "label": "Prop 1 - Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "pdp_vp_body_0",
+        "label": "Prop 1 - Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "pdp_vp_icon_1",
+        "label": "Prop 2 - Image"
+      },
+      {
+        "type": "text",
+        "id": "pdp_vp_title_1",
+        "label": "Prop 2 - Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "pdp_vp_body_1",
+        "label": "Prop 2 - Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "pdp_vp_icon_2",
+        "label": "Prop 3 - Image"
+      },
+      {
+        "type": "text",
+        "id": "pdp_vp_title_2",
+        "label": "Prop 3 - Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "pdp_vp_body_2",
+        "label": "Prop 3 - Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "pdp_vp_icon_3",
+        "label": "Prop 4 - Image"
+      },
+      {
+        "type": "text",
+        "id": "pdp_vp_title_3",
+        "label": "Prop 4 - Heading"
+      },
+      {
+        "type": "textarea",
+        "id": "pdp_vp_body_3",
+        "label": "Prop 4 - Text"
+      },
+      {
+        "type": "header",
+        "content": "Featured Collections"
+      },
+      {
+        "type": "paragraph",
+        "content": "The below settings are used inconjunction with \"Collection\" blocks"
+      },
+      {
+        "label": "Section Heading",
+        "id": "cl_heading",
+        "type": "text",
+        "info": "Optional"
+      },
+      {
+        "label": "Section Heading Color",
+        "id": "cl_heading_color",
+        "type": "select",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "label": "Section Background Color ",
+        "id": "cl_background_color",
+        "type": "select",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-white"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Collection",
+        "type": "cl_collection",
+        "limit": 6,
+        "settings": [
+          {
+            "label": "Link",
+            "id": "cl_link",
+            "type": "url"
+          },
+          {
+            "label": "Link Text",
+            "id": "cl_link_text",
+            "type": "text",
+            "info": "Optional"
+          },
+          {
+            "label": "Image",
+            "id": "cl_image",
+            "type": "image_picker",
+            "info": "Recommended minumum image dimensions: 336x82px"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

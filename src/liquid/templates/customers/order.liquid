@@ -1,0 +1,169 @@
+{% comment %}
+  The data-label attributes on <td> elements are mobile-friendly
+  helpers used for responsive-table labels
+{% endcomment %}
+
+<div class="customers account-dash order-detail-template">
+  {% render 'account--header', active: '/account' %}
+
+  <div class="account-content-area">
+    <div id="order-detail-content" class="panel">
+      <div class="order-detail-header">
+        <h1 class="account-order-back-container order-detail__heading">
+          <a href="/account">
+            <icon class="back-arrow" name="chevron-left" size="14px" /></a>
+            Order {{ order.name }}
+          </h1>
+        <span class="order-date">{{ order.created_at | date: "%b %d, %Y" }}</span>
+      </div>
+      <div class="orders-content__main">
+        {% if order.cancelled %}
+          {%- assign cancelled_at = order.cancelled_at | date: "%m/%d/%Y" -%}
+          <div class="order-detail-cancellation-info">
+            <p><strong>Cancelled On:</strong> {{ cancelled_at }}</p>
+            <p><strong>Reason:</strong> {{ order.cancel_reason }}</p>
+            <p><strong>Payment Status:</strong> {{ order.financial_status_label }}</p>
+          </div>
+        {% endif %}
+
+        <div class="order-details order-addresses">
+          <div class="order-details-content">
+            <h2 class="h6 order-details-heading">{{ 'customer.order.shipping_address' | t }}</h2>
+            {{ order.shipping_address | format_address }}
+          </div>
+          <div class="detail">
+            <h2 class="h6 order-details-heading">{{ 'customer.order.billing_address' | t }}</h2>
+            <p class="order-details-content">
+              {{ order.billing_address | format_address }}
+            </p>
+          </div>
+        </div>
+
+        <div class="order-details">
+          <div class="detail">
+            <h2 class="h6 order-details-heading">Shipping Method</h2>
+            {% for shipping_method in order.shipping_methods %}
+              <p class="order-details-heading">{{ 'customer.order.shipping' | t }}</p>
+              <p class="order-details-content">
+                {{ shipping_method.original_price | money_without_trailing_zeros }}
+                <br>
+                {{ shipping_method.title }}
+                <br>
+                <br>
+                <a class="track-shipment link link--secondary" href="{{ order.order_status_url }}">
+                  Track Package
+                </a>
+              </p>
+            {% endfor %}
+          </div>
+          <div class="detail">
+            <h2 class="h6 order-details-heading">Billing Method</h2>
+            {% for transaction in order.transactions %}
+              {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
+                {% if transaction.payment_details.credit_card_company %}
+                  {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} - {{ transaction.payment_details.credit_card_last_four_digits }}{% endcapture %}
+                {% else %}
+                  {% capture transaction_name %}{{ transaction.gateway | replace: "_", " " }}{% endcapture %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+
+            <p class="order-details-content">{{ transaction_name }}</p>
+          </div>
+        </div>
+
+        <div class="order-line-items">
+          <h2>Order Items</h2>
+          {% for line_item in order.line_items %}
+            <div class="order-line-item-card">
+              <div class="order-line-item-prod-image-details-container">
+                <div class="order-line-item-prod-image-container">
+                  <img src="{{ line_item.image | img_url: '300x300' }}" alt="{{ line_item.title }}">
+                </div>
+
+                <div class="order-line-item-details-container">
+                  <p class="order-line-item-product-title">{{ line_item.product.title | link_to: line_item.product.url }}</p>
+                  <div class="order-line-item-variant-details">
+                    {% if settings.product_tile_subtitle_pretext != blank %}
+                      <span>{{ settings.product_tile_subtitle_pretext }}: </span>
+                    {% endif %}
+                      <span>{{ line_item.sku }}</span>
+                  </div>
+                  {% unless line_item.product.has_only_default_variant %}
+                    <ul class="order-line-item-variant-details">
+                      {% for option in line_item.options_with_values %}
+                        <li>{{ option.name }}: {{ option.value }}</li>
+                      {% endfor %}
+                    </ul>
+                  {% endunless %}
+                  <p class="order-line-item-qty-details">Qty: {{ line_item.quantity }}</p>
+                </div>
+              </div>
+
+              <div class="order-line-item-price-container">
+                <p class="body-md">{{ line_item.final_line_price | money_without_trailing_zeros }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="order-totals">
+          <div class="order-total-details-main-container">
+            <div class="order-total-detail-container">
+              <p class="order-total-detail-heading">Subtotal</p>
+              <p class="body-md">{{ order.subtotal_price | money_without_trailing_zeros }}</p>
+            </div>
+            {% for discount in order.discounts %}
+              {% if discount.code !== blank %}
+                {% assign discount_active  = true %}
+              {% endif %}
+            {% endfor %}
+            {% if discount_active %}
+              {% for discount in order.discounts %}
+                <div class="order-total-detail-container">
+                  <p class="order-total-detail-heading">Discount</p>
+                  <div class="order-total-detail-discount-container">
+                    <p class="body-md">{{ discount.code }}</p>
+                    <p class="body-md">{{ discount.savings | money_without_trailing_zeros}}</p>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+            {% for tax_line in order.tax_lines %}
+              <div class="order-total-detail-container">
+               <p class="order-total-detail-heading">Taxes</p>
+               <p class="body-md">{{ tax_line.price | money_without_trailing_zeros}}</p>
+              </div>
+            {% endfor %}
+            {% for shipping_method in order.shipping_methods %}
+              <div class="order-total-detail-container">
+               <p class="order-total-detail-heading">Shipping</p>
+               <p class="body-md">{{ shipping_method.price | money_without_trailing_zeros}}</p>
+              </div>
+            {% endfor %}
+            <div class="order-total-container">
+              <p class="order-total-main-heading">Total</p>
+              <p class="body-md">{{ order.total_price | money_without_trailing_zeros}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="need-help u-hidden-tablet-up">
+        {% if settings.account_help_title != blank %}
+          <p class="account-help-title">{{ settings.account_help_title }}</p>
+        {% endif %}
+        {% if settings.account_help_email != blank %}
+          <a class="account-help-phone-email link link--secondary" href="mailto:{{ settings.account_help_email }}">{{ settings.account_help_email }}</a>
+        {% endif %}
+        {% if  settings.account_help_phone != blank %}
+          <a class="account-help-phone-email link link--secondary" href="tel:{{ settings.account_help_phone }}">{{ settings.account_help_phone }}</a>
+        {% endif %}
+        {% if settings.account_ccpa_title != blank and settings.account_ccpa_link != blank %}
+        <div class="account-ccpa">
+          <p class="account-ccpa__title">Remove my information (CCPA)</p>
+          <a href="{{ settings.account_ccpa_link }}" class="account-help-phone-email link link--secondary">{{ settings.account_ccpa_title }}</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

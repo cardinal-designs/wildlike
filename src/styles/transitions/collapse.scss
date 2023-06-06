@@ -1,0 +1,9 @@
+.collapse-enter-active, .collapse-leave-active {
+  transition: max-height .3s;
+  max-height: 2000px;
+  overflow: hidden;
+}
+.collapse-enter, .collapse-leave-to /* .collapse-leave-active below version 2.1.8 */ {
+  max-height: 0;
+  overflow: hidden;
+}

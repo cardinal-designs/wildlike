@@ -1,0 +1,25 @@
+<section class="section-title-booking">
+  <h2 class="section-title-booking__title">{{ section.settings.title_copy }}</h2>
+</section>
+
+{% schema %}
+  {
+    "name": "Title Booking",
+    "class": "title-booking",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title_copy",
+        "label": "Title Copy",
+        "default": "Types of piercings",
+        "info": "Default is : 'Types of piercings'"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero Banner",
+        "category": "Hero Sections"
+      }
+    ]
+  }
+{% endschema %}

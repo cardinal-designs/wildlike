@@ -1,0 +1,54 @@
+
+
+{%- section 'blog-category-hero' -%}
+{%- section 'blog-category-links' -%}
+
+<div class="container blog-wrapper">
+  {% if canonical_url contains "tagged" %}
+    <div class="blog__tagged-container">
+      <h3>Post's in {{ blog.title }} tagged with "{{ current_tags.first }}"</h3>
+    </div>
+  {% endif %}
+
+  {% if blog.articles.size > 0 %}
+    {%- paginate blog.articles by 9 -%}
+
+      {% comment %} Article Grid {% endcomment %}
+      <div class="article__container">
+        {%- for article in blog.articles -%}
+          <div class="article__column clip-transition">
+            <div class="article__columns">
+              {%- if article.image -%}
+                <a class="article-preview__image-wrapper" href="{{ article.url }}">
+                  <img class="article-preview__image" src="{{ article.image | img_url: '1024x1024' }}" alt="{{ article.img.alt }}" />
+                </a>
+              {%- endif -%}
+              <div class="article-preview__content">
+                <a class="article-preview__title-link" href="{{ article.url }}">
+                  <h2 class="article-preview__title h6-mobile h6-desktop-up">{{ article.title }}</h3>
+                </a>
+                <div class="article-preview__excerpt">
+                  {%- if article.excerpt.size > 0 -%}
+                    <p class="article-preview__excerpt-text body-md-mobile body-md-desktop">{{ article.excerpt | strip_html | escape | truncate: 100 }}</p>
+                  {%- else -%}
+                    <p class="article-preview__excerpt-text body-md-mobile body-md-desktop">{{ article.content | strip_html | escape | truncate: 100 }}</p>
+                  {%- endif -%}
+                </div>
+                <v-link class="body-md-mobile" primary href="{{ article.url }}">Read More</v-link>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {% comment %} Blog Pagination {% endcomment %}
+      {%- if paginate.pages > 1 -%}
+        {%- include 'pagination-blog' -%}
+      {%- endif -%}
+    {%- endpaginate -%}
+  {% else %}
+    <div class="article__container no-articles">
+      <h3 class="article-no-article-title">There are currently no articles!</h3>
+    </div>
+  {% endif %}
+</div>

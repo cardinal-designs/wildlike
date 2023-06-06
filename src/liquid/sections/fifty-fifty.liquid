@@ -1,0 +1,214 @@
+{% capture schema %}
+  {
+    "settings": {
+      "layout": {{ section.settings.ff_layout | json }},
+      "imageDesktop": {{ section.settings.ff_image_desktop | json }},
+      "imageMobile": {{ section.settings.ff_image_mobile | json }},
+      "imageWidth": {{ section.settings.ff_image_width | json }},
+      "preheader": {{ section.settings.ff_preheader | json }},
+      "header": {{ section.settings.ff_header | json }},
+      "subheader": {{ section.settings.ff_subheader | json }},
+      "body": {{ section.settings.ff_body | json }},
+      "textAlignment": {{ section.settings.ff_text_alignment | json }},
+      "backgroundColor": {{ section.settings.ff_background_color | json }},
+      "preheaderColor": {{ section.settings.ff_preheader_color | json }},
+      "headerColor": {{ section.settings.ff_header_color | json }},
+      "subheaderColor": {{ section.settings.ff_subheader_color | json }},
+      "bodyColor": {{ section.settings.ff_body_color | json }},
+      "ctaText": {{ section.settings.ff_cta_text | json }},
+      "ctaUrl": {{ section.settings.ff_cta_url | json }},
+      "ctaStyle": {{ section.settings.ff_cta_style | json }},
+      "marginTop": {{ section.settings.margin_top | json }},
+      "marginBottom": {{ section.settings.margin_bottom | json }},
+      "maxWidth": {{ section.settings.max_width | json }},
+    }
+  }
+{% endcapture %}
+
+<fifty-fifty :schema="{{ schema | escape | strip }}" />
+
+{% schema %}
+  {
+    "name": "FiftyFifty",
+    "class": "fifty-fifty container",
+    "settings": [
+      {
+        "type":      "select",
+        "id":        "max_width",
+        "label":     "Section Max Width",
+        "options": [
+          {"value": "none", "label": "100%"},
+          {"value": "1440px", "label": "1440px"}
+        ],
+        "default":   "none"
+      },
+      {
+        "type": "header",
+        "content": "Section Margins",
+        "info": "Customize the margin spacing on the top and bottom of this section."
+      },
+      {
+        "label": "Top Padding",
+        "id": "margin_top",
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 56
+      },
+      {
+        "label": "Bottom Padding",
+        "id": "margin_bottom",
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 56
+      },
+      {
+        "type": "header",
+        "content": "Layout"
+      },
+      {
+        "type":      "select",
+        "id":        "ff_layout",
+        "label":     "Layout",
+        "options": [
+          {"value": "", "label": "Image on Left"},
+          {"value": "sw--reverse", "label": "Image on Right"}
+        ],
+        "default":   ""
+      },
+      {
+        "type": "header",
+        "content": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "ff_image_desktop",
+        "label": "Desktop Image",
+        "info": "Minimum Dimensions: 1814x1538"
+      },
+      {
+        "type": "image_picker",
+        "id": "ff_image_mobile",
+        "label": "Mobile Image",
+        "info": "Same minumum dimensions as desktop. Image will be automatically resized."
+      },
+      {
+        "type": "select",
+        "id": "ff_image_width",
+        "label": "Image Column Width",
+        "options": [
+          {"label": "40%", "value": "sw--40"},
+          {"label": "50%", "value": "sw--50"},
+          {"label": "60%", "value": "sw--60"}
+        ],
+        "default": "sw--50"
+      },
+      {
+        "type": "header",
+        "content": "Text Content"
+      },
+      {
+        "type": "text",
+        "id": "ff_preheader",
+        "label": "Preheader"
+      },
+      {
+        "type": "text",
+        "id": "ff_header",
+        "label": "Header"
+      },
+      {
+        "type": "text",
+        "id": "ff_subheader",
+        "label": "Subheader"
+      },
+      {
+        "type": "richtext",
+        "id": "ff_body",
+        "label": "Body Copy"
+      },
+      {
+        "type": "select",
+        "id": "ff_text_alignment",
+        "label": "Text Alignment",
+        "options": [
+          {"label": "Left", "value": ""},
+          {"label": "Center", "value": "text-center"}
+        ],
+        "default": ""
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "label": "Background Color",
+        "id": "ff_background_color",
+        "type": "select",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-grey"
+      },
+      {
+        "label": "Preheader Color",
+        "id": "ff_preheader_color",
+        "type": "select",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "label": "Header Color",
+        "id": "ff_header_color",
+        "type": "select",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "label": "Subheader Color",
+        "id": "ff_subheader_color",
+        "type": "select",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "label": "Body Copy Color",
+        "id": "ff_body_color",
+        "type": "select",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "type": "header",
+        "content": "Link"
+      },
+      {
+        "type": "text",
+        "id": "ff_cta_text",
+        "label": "CTA Text",
+        "info": "Optional"
+      },
+      {
+        "type": "url",
+        "id": "ff_cta_url",
+        "label": "CTA Link",
+        "info": "Optional"
+      },
+      {
+        "label": "CTA Layout",
+        "id": "ff_cta_style",
+        "type": "select",
+        "options": <%- uikit.buttonAndLinkOptions -%>
+      }
+    ],
+    "presets": [
+      {
+        "name": "FiftyFifty",
+        "category": "Content Blocks"
+      }
+    ]
+  }
+{% endschema %}

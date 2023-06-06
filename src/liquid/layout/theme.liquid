@@ -1,0 +1,91 @@
+
+<!doctype html>
+<html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
+  <head>
+    {%- include 'template-head' -%}
+    {{ content_for_header }}
+    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/TJLo42s1qgbR0d05AUgPFg" async></script>
+    <!-- - Commenting our NOSTO / Might use later - -->
+    <!-- {% include 'nosto-script' with 'shopify-44440289445' %} -->
+
+  </head>
+
+  <body class="template-{{ template.name | handle }} layout--default">
+    {%- include 'gtm-body-script' -%}
+    {%- include 'icon-store' -%}
+
+    <div id="app" v-cloak>
+      {% if settings.header_variation == 'design_1' %}
+        {%- include 'header' -%}
+      {% elsif settings.header_variation == 'design_2' %}
+        <portal-target name="featured-offers-modal-portal" class="featured-offers__modal-portal" data-featured-offers-portal></portal-target>
+        {% section 'featured-offers' %}
+      {% endif %}
+
+      <div id="MainContentWrapper">
+        <main role="main" id="MainContent">
+          {{ content_for_layout }}
+        </main>
+      </div>
+
+      {%- render 'footer' -%}
+
+      <toast></toast>
+      <video-modal></video-modal>
+      <portal-target name="pdp-modal-portal" class="pb-var-select"></portal-target>
+      <full-overlay></full-overlay>
+      {%- capture cart_empty_links -%}
+        [
+          {
+            "text": {{ settings.cart_link_text_1 | json }},
+            "url": {{ settings.cart_empty_url_1 | json }}
+          },
+          {
+            "text": {{ settings.cart_link_text_2 | json }},
+            "url": {{ settings.cart_empty_url_2 | json }}
+          },
+          {
+            "text": {{ settings.cart_link_text_3 | json }},
+            "url": {{ settings.cart_empty_url_3 | json }}
+          },
+          {
+            "text": {{ settings.cart_link_text_4 | json }},
+            "url": {{ settings.cart_empty_url_4 | json }}
+          },
+          {
+            "text": {{ settings.cart_link_text_5 | json }},
+            "url": {{ settings.cart_empty_url_5 | json }}
+          }
+        ]
+      {%- endcapture -%}
+
+      <sidecart
+        :cart-object="{{ cart | json | escape | strip }}"
+        {% if settings.cart_shipping_promo_enable != blank %}
+          :shipping-promo-enabled="{{ settings.cart_shipping_promo_enable }}"
+          :shipping-promo-total="{{ settings.cart_shipping_promo_total }}"
+          shipping-promo-copy="{{ settings.cart_shipping_promo_copy }}"
+        {% endif %}
+        {% if settings.cart_promo_message != blank %}
+          promo-message="{{ settings.cart_promo_message }}"
+        {% endif %}
+        :empty-link-array="{{ cart_empty_links | escape | strip }}"
+        empty-text="{{ settings.cart_empty_message }}">
+      </sidecart>
+
+    </div>
+
+    {%- include 'template-scripts' -%}
+
+    {% if settings.html_block != blank %}
+      {{ settings.html_block }}
+    {% endif %}
+    {% if settings.css_block != blank %}
+      <style>
+        {{ settings.css_block }}
+      </style>
+    {% endif %}
+    <!-- {% include 'nosto-tagging' %} -->
+    {%- include 'BLVD-widget' -%}
+  </body>
+</html>

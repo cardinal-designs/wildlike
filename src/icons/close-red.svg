@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Atoms/Icons/Close</title>
+    <g id="Atoms/Icons/Close" stroke="none" stroke-width="2" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(6.000000, 5.000000)" fill="#f20202">
+            <polygon id="Rectangle" transform="translate(10.500000, 11.000000) rotate(-315.000000) translate(-10.500000, -11.000000) " points="11.5 -2.5 9.5 -2.5 9.5 24.5 11.5 24.5"></polygon>
+            <polygon id="Rectangle" transform="translate(10.500000, 11.000000) rotate(-45.000000) translate(-10.500000, -11.000000) " points="11.5 -2.5 9.5 -2.5 9.5 24.5 11.5 24.5"></polygon>
+        </g>
+    </g>
+</svg>

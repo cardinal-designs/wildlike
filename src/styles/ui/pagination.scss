@@ -1,0 +1,35 @@
+
+.pagination {
+  text-align: center;
+
+  &__item--prev {
+    margin-right: $grid-gutter / 2;
+  }
+
+  &__item--next {
+    margin-left: $grid-gutter / 2;
+  }
+
+  &__link {
+    display: inline-block;
+    font-family: $font-family-primary;
+    line-height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    margin-left: $grid-gutter / 2;
+    margin-right: $grid-gutter / 2;
+    &-text {
+      color: $color-black-900;
+    }
+    
+    &, &:hover {
+      color: $color-black-900;
+      text-decoration: none;
+    }
+
+    &--active {
+      color: $color-white;
+      background-color: $color-accent-1;
+    }
+  }
+}

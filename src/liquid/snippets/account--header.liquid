@@ -1,0 +1,61 @@
+<div class="account-nav-desktop">
+  <div class="account-nav-desktop-header">
+    <div>
+      <h1 class="h3 account-nav-desktop-header__welcome">Hello, {{ customer.first_name }}</h1>
+      <p class="body-md">{{ customer.email }}</p>
+    </div>
+  </div>
+  <nav class="account-nav">
+    <ul>
+      <li>
+        <a id="orders" class="account-nav-menu-item {% if active == '/account' %}active{% endif %}" href="/account">
+          Order History{% if active == '/account' %}<icon class="arrow-icon" name="chevron-right" size="12px"/>{% endif %}
+        </a>
+      </li>
+      <li>
+        <a id="addresses" class="account-nav-menu-item {% if active == '/account/addresses' %}active{% endif %}" href="/account/addresses">
+          Address Book{% if active == '/account/addresses' %}<icon class="arrow-icon" name="chevron-right" size="12px"/>{% endif %}
+        </a>
+      </li>
+      {% if settings.account_link_1_title != blank and settings.account_link_1_link != blank %}
+        <li><a id="addresses" class="account-nav-menu-item" href="{{ settings.account_link_1_link }}">{{ settings.account_link_1_title }}</a></li>
+      {% endif %}
+      {% if settings.account_link_2_title != blank and settings.account_link_2_link != blank %}
+        <li><a id="addresses" class="account-nav-menu-item" href="{{ settings.account_link_2_link }}">{{ settings.account_link_2_title }}</a></li>
+      {% endif %}
+      <li><a id="logout" class="account-nav-menu-logout" href="{{ routes.account_logout_url }}"><span class="link__content">Log Out</span></a></li>
+    </ul>
+  </nav>
+  <div class="need-help">
+    {% if settings.account_help_title != blank %}
+      <p class="account-help-title">{{ settings.account_help_title }}</p>
+    {% endif %}
+    {% if settings.account_help_email != blank %}
+      <a class="account-help-phone-email link link--secondary" href="mailto:{{ settings.account_help_email }}">{{ settings.account_help_email }}</a>
+    {% endif %}
+    {% if  settings.account_help_phone != blank %}
+      <a class="account-help-phone-email link link--secondary" href="tel:{{ settings.account_help_phone }}">{{ settings.account_help_phone }}</a>
+    {% endif %}
+    {% if settings.account_ccpa_title != blank and settings.account_ccpa_link != blank %}
+    <div class="account-ccpa">
+      <p class="account-ccpa__title">Remove my information (CCPA)</p>
+      <a href="{{ settings.account_ccpa_link }}" class="account-help-phone-email link link--secondary">{{ settings.account_ccpa_title }}</a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div class="account-nav-mobile">
+  <div class="account-nav-mobile-header">
+    <div>
+      <h1>Hello, {{ customer.first_name }}</h1>
+      <p class="account-nav-mobile-header__email">{{ customer.email }}</p>
+    </div>
+    <a class="logout-mobile link link--secondary" href="{{ routes.account_logout_url }}">Log Out</a>
+  </div>
+  <div class="input account-nav-mobile-select">
+    {% capture account_nav_links %}
+      {% render 'account-nav-link-options' %}
+    {% endcapture %}
+    <account-select-nav :selected="'{{ active_link }}'" :options="{{ account_nav_links | escape | strip }}" />
+  </div>
+</div>

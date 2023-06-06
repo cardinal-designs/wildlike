@@ -1,0 +1,25 @@
+{% comment %} NOTE: Only one nested level. {% endcomment %}
+{
+  "handle": {{ linklist.handle | json }},
+  "title": {{ linklist.title | json }},
+  "links": [
+    {% for link in linklist.links %}
+      {
+        "title": {{ link.title | json }},
+        "url": {{ link.url | json }}
+        {% if link.levels > 0 %}
+        ,"links": [
+          {% for link in link.links %}
+          {
+            "title": {{ link.title | json }},
+            "url": {{ link.url | json }},
+          }
+          {% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+        {% endif %}
+      }
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

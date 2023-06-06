@@ -1,0 +1,28 @@
+.clip-transition {
+  @supports (clip-path: inset(10px)) {
+    img, [data-clip-img] {
+      clip-path: inset(0%);
+      transition: clip-path .2s ease-in;
+      display: relative;
+    }
+
+    &:hover img,
+    &:focus img,
+    &:hover [data-clip-img],
+    &:focus [data-clip-img] {
+      clip-path: inset(3%);
+    }
+  
+    &:hover img + .badge,
+    &:focus img + .badge,
+    &:hover [data-clip-img] + .badge,
+    &:focus [data-clip-img] + .badge {
+      top: 3%;
+      left: calc(3% + 28px);
+    }
+
+    .badge {
+      transition: top .2s ease-in, left .2s ease-in;
+    }
+  }
+}

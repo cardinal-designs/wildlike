@@ -1,0 +1,10 @@
+.badge {
+  text-transform: uppercase;
+  font-family: $font-family-primary;
+  font-weight: 500;
+  font-size: rem(10);
+  letter-spacing: 1.1px;
+  z-index: 4; // above hover image but under overflow content
+  pointer-events: none;
+  position: absolute;
+}

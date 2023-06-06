@@ -1,0 +1,81 @@
+<div class="blog__hero">
+  <!-- Desktop -->
+  <div class="blog__hero-with-image flex-justify-start flex-align-center hidden-mobile-tablet"
+    style="background-image: url('{{ section.settings.image | img_url: '1600x' }});">
+    <div class="blog__hero-container">
+      <div class="blog__hero-text">
+        <div class="blog__hero-heading-copy">
+          <h1 class="blog__header">{{ section.settings.heading }}</h2>
+          <p class="blog__subheader subheader">{{ section.settings.subheading }}</p>
+          <p class="blog__copy body-md">{{ section.settings.copy }}</p>
+        </div>
+        <div class="blog__hero-background" style="{% if blog.metafields.custom_fields["hero-overlay-color"] %}background-color: {{ blog.metafields.custom_fields["hero-overlay-color"] }};{% endif %} {% if blog.metafields.custom_fields["overlay_opacity"] %}opacity: {{ blog.metafields.custom_fields["overlay_opacity"] | divided_by: 100.0 }};{% endif %}"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile -->
+  <div class="blog__hero-with-image flex-justify-start flex-align-center hidden-desktop"
+    {% if section.settings.mobile_image %}style="background-image: url('{{ section.settings.mobile_image | img_url: '768x' }});"
+    {% else %}style="background-image: url('{{ section.settings.image | img_url: '1600x' }});"
+    {% endif %}>
+  </div>
+  <div class="blog__hero-text hidden-desktop {{ section.settings.text_color }}">
+    <h1 class="blog__header">{{ section.settings.heading }}</h2>
+    <p class="blog__subheader subheader">{{ section.settings.subheading }}</p>
+    <p class="blog__copy body-md">{{ section.settings.copy }}</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Press Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "select",
+      "id": "text_color",
+      "label": "Text Color",
+      "options": [
+        {
+          "value": "color-white",
+          "label": "White"
+        },
+        {
+          "value": "color-black",
+          "label": "Black"
+        }
+      ],
+      "default": "color-white"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Copy"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Press Hero"
+    }
+  ]
+}
+{% endschema %}

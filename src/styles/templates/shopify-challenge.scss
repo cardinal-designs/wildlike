@@ -1,0 +1,44 @@
+.shopify-challenge__container {
+  padding: 64px;
+}
+
+.shopify-challenge__button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  background-color: transparent;
+  transition: 0.3s ease all;
+  text-decoration: none;
+  white-space: nowrap;
+  color: $color-black-900;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  height: 46px;
+  min-width: 160px;
+  border: 1px solid $color-black-900;
+  font-size: 18px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-family: $font-family-primary;
+  font-weight: 700;
+
+  * {
+    vertical-align: middle;
+  }
+
+  &:hover {
+    background-color: $color-black-900;
+    color: $color-white;
+    border-color: $color-black-900;
+    font-style: italic;
+  }
+}
+
+.shopify-challenge__container .errors,
+.footer .errors {
+  background-color: transparent;
+  border-color: transparent;
+  color: $color-util-error;
+  font-size: 16px;
+}

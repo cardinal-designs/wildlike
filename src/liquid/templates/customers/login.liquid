@@ -1,0 +1,86 @@
+<div class="customers login-template">
+  {% if settings.account_image != blank %}
+    <div class="login-splash" style="background-image: url('{{ settings.account_image | img_url:'1440x' }}');"></div>
+  {% endif %}
+  <div class="login-form">
+    <h1 class="login-form__header">{{ settings.login_heading }}</h1>
+    <p class="login-form__blurb">{{ settings.login_blurb }}</p>
+    <div class="form-state-tabs">
+      <v-button disabled class="tab tab--active" tag="a" label="Log In" :secondary="true"></v-button>
+      <v-button href="/account/register" class="tab" tag="a" label="Create Account" :secondary="true"></v-button>
+    </div>
+    <div data-login-form>
+      <div class="form-container">
+        {% form 'customer_login' %}
+          <div class="login-fields">
+            <div class="input">
+              <label for="CustomerEmail" class="label-hidden">Email</label>
+              <input type="email" name="customer[email]" id="CustomerEmail"
+                class="customer-login-input{% if form.errors contains 'email' %} input-error{% endif %}" placeholder="Email"
+                class="customer-login-input"
+                spellcheck="false" autocomplete="off" autocapitalize="off" autofocus>
+            </div>
+            <div class="input">
+              <label for="CustomerPassword" class="label-hidden">Password</label>
+              <input type="password" name="customer[password]" id="CustomerPassword"
+                class="customer-login-input{% if form.errors contains 'password' %} input-error{% endif %}"
+                placeholder="Password">
+            </div>
+            {% if form.errors %}
+              {{ form.errors | default_errors }}
+            {% endif %}
+          </div>
+          <div class="login-buttons">
+            <input type="submit" class="account-button button" value="{{ 'customer.login.sign_in' | t }}">
+            <a class="account-link link" href="#recover" @click.prevent="$refs.recoveryModal.open()" data-recover-toggle><span class="link__content">Forgot Password?</span></a>
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+
+  {% form 'recover_customer_password' %}
+    <modal ref="recoveryModal" {% if form.posted_successfully? or form.errors %}:auto-open="true"{% endif %}>
+      <template v-slot:content>
+        <div class="login-recovery-modal" data-recover-form>
+          <div class="login-recovery-form{% if form.posted_successfully? %} u-hidden{% endif %}">
+
+            <h2>Reset Password</h2>
+            <p>We will send you an email to reset your password.</p>
+
+            <div class="login-reset-form-container">
+              <div class="input">
+                <label for="RecoverEmail" class="label-hidden">
+                  {{ 'customer.recover_password.email' | t }}
+                </label>
+                <input type="email" name="email" id="RecoverEmail" onkeydown="return event.key != 'Enter';" placeholder="{{ 'customer.recover_password.email' | t }}"
+                class="customer-login-input"
+                  spellcheck="false" autocomplete="off" autocapitalize="off" required="required">
+              </div>
+
+              {% if form.errors %}
+                {{ form.errors | default_errors }}
+              {% endif %}
+              <div class="button-container">
+                <input type="submit" class="button login-reset-cta login-reset-cta--submit" value="Send">
+              </div>
+              <div class="button-container">
+                <input type="button" @click.prevent="$refs.recoveryModal.close()" class="button login-reset-cta login-reset-cta--cancel" value="Cancel">
+              </div>
+            </div>
+          </div>
+
+          <div class="recovery-sent {% if form.posted_successfully? %}{% else %}u-hidden{% endif %}">
+            <h2>Password Sent!</h2>
+            <div class="form-success" data-reset-success>
+              <p id="confirm_text">We’ve sent a link to your email that you can use to reset your password.</p>
+              <div class="button-container">
+                <input type="button" @click.prevent="$refs.recoveryModal.close()" class="button button--secondary" value="Close">
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </modal>
+  {% endform %}
+</div>

@@ -1,0 +1,69 @@
+{% render 'scripts--bronto' %}
+{% render 'scripts--yotpo', widget: true %}
+
+{% if settings.pobox_disabled %}
+  {% assign poBoxErrorMessage = settings.pobox_error_message | default: 'Invalid Address - No PO Boxes allowed' %}
+  <script type="text/javascript">
+    // Don't allow PO Boxes for shiping address
+    function addressHasPOBox() {
+      var shippingAddress = document.querySelector('#checkout_shipping_address_address1');
+      if (!shippingAddress) return false;
+
+      var addressValue = shippingAddress.value.toUpperCase();
+      var checkPOBox = ['P.O. BOX','PO BOX','POBOX','P.O BOX','PO. BOX','P.O.BOX'];
+      for (let i = 0; i < checkPOBox.length; i++) {
+        const checkString = checkPOBox[i];
+
+        if (addressValue.includes(checkString)) return true;
+      }
+
+      return false;
+    }
+
+    function validateShippingAddress() {
+      var customerInfoForm = document.querySelector('[data-customer-information-form]');
+
+      if (!customerInfoForm) return false;
+      var addressContainer = document.querySelector('[data-address-field="address1"]');
+      var submitButton = document.querySelector('#continue_button');
+      var errorMessage = document.querySelector('#error-for-address1');
+      var hasPOBox = addressHasPOBox();
+      if (hasPOBox) {
+        addressContainer.classList.add('field--error');
+        submitButton.classList.remove('btn--loading');
+
+        if (errorMessage) {
+          errorMessage.innerHTML = {{ poBoxErrorMessage | json }};
+        } else {
+          var node = document.createElement("p");
+          node.classList.add('field__message');
+          node.classList.add('field__message--error');
+          node.setAttribute('id', 'error-for-address1')
+          node.innerHTML = {{ poBoxErrorMessage | json }}
+          addressContainer.appendChild(node);
+        }
+      } else {
+        addressContainer.classList.remove('field--error');
+      }
+      submitButton.removeAttribute('disabled');
+
+      return hasPOBox;
+    }
+
+    document.addEventListener("submit", function(e) {
+      var target = e.target;
+
+      if (target.matches('[data-customer-information-form]')) {
+        if (validateShippingAddress()) {
+          e.preventDefault();
+        }
+      }
+    });
+
+    ["page:load", "page:change"].forEach(function(event) {
+      document.addEventListener(event, function(e) {
+        validateShippingAddress();
+      });
+    });
+  </script>
+{% endif %}

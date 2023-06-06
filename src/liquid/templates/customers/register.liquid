@@ -1,0 +1,75 @@
+<div class="customers register-template">
+  {% if settings.account_image != blank %}
+    <div class="login-splash" style="background-image: url('{{ settings.account_image | img_url:'1440x' }}');"></div>
+  {% endif %}
+  <div class="login-form">
+    <h1 class="login-form__header">{{ settings.register_heading }}</h1>
+    <p class="login-form__blurb">{{ settings.login_blurb }}</p>
+    <div class="form-state-tabs">
+      <v-button href="/account/login" class="tab" tag="a" label="Log In" :secondary="true"></v-button>
+      <v-button disabled class="tab tab--active" tag="a" label="Create Account" :secondary="true"></v-button>
+    </div>
+    <div class="form-container register">
+      {% form 'create_customer', return_to: '/?new_user' %}
+        {% if form.errors %}
+          <p>
+            {{ form.errors | default_errors }}
+          </p>
+        {% endif %}
+        <div class="register-fields">
+          <div class="input">
+            <label for="FirstName" class="label-hidden">
+              {{ 'customer.register.first_name' | t }} *
+            </label>
+            <input required type="text"
+              class="customer-register-input"
+              name="customer[first_name]"
+              id="FirstName"
+              placeholder="{{ 'customer.register.first_name' | t }}"
+              autofocus
+              {% if form.first_name %}value="{{ form.first_name }}"{% endif %}>
+          </div>
+          <div class="input">
+            <label for="LastName" class="label-hidden">
+              {{ 'customer.register.last_name' | t }} *
+            </label>
+            <input required type="text"
+              class="customer-register-input"
+              name="customer[last_name]"
+              id="LastName"
+              placeholder="{{ 'customer.register.last_name' | t }}"
+              {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+          </div>
+          <div class="input">
+            <label for="Email" class="label-hidden">
+              {{ 'customer.register.email' | t }} *
+            </label>
+            <input required type="email"
+              name="customer[email]"
+              id="Email"
+              class="customer-register-input{% if form.errors contains 'email' %} input-error{% endif %}"
+              placeholder="{{ 'customer.register.email' | t }}"
+              value="{% if form.email %}{{ form.email }}{% endif %}"
+              spellcheck="false"
+              autocomplete="off"
+              autocapitalize="off">
+          </div>
+          <customer-password-input label="{{ 'customer.register.password' | t }} *" errors="{{form.errors}}" placeholder="{{ 'customer.register.password' | t }}"></customer-password-input>
+          <div class="input">
+            <label for="AcceptMarketing" class="label-hidden">
+              <input type="checkbox"
+              name="customer[accepts_marketing]"
+              class="customer-register-input input--checkbox"
+              id="AcceptMarketing"
+              checked="checked" >
+              Sign me up for emails to receive discounts and special offers
+            </label>
+          </div>
+          <div class="button-container">
+            <input disabled id="create_user" type="submit" value="Create Account" class="account-button button button--secondary">
+          </div>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</div>

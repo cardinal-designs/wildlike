@@ -1,0 +1,33 @@
+{% comment %} Do not Edit this Line - Call for price button code Starts Here {% endcomment %}
+{% capture cfp_app_content %} 
+  {% render 'cws-callforprice-button' %}{% endcapture %}
+{% unless cfp_app_content contains 'Liquid error' %}	
+  {% render 'cws-callforprice-button', product: product  %}
+{% endunless %}
+{% comment %} Do not Edit this Line - Call for price button code Ends Here {% endcomment %}
+					
+
+{% if product.type == 'Gift Card' %}
+  <!-- Gift Card Template -->
+  {% section 'product-display-gift-card' %}
+{% else %}
+  <!-- Product Template and Yotpo Review-->
+  {% section 'product-display-bourdain' %}
+{% endif %}
+<div class="container">
+  <div class="nosto_element" id="productpage-nosto-2"></div>
+  <div class="nosto_element" id="productpage-nosto-3"></div>
+</div>
+{% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
+  <div class="container yotpo-container">
+    <h2 class="product-page-yotpo-title" >Customer Reviews</h2>
+    <div
+      class="yotpo yotpo-main-widget"
+      data-product-id="{{ product.id }}"
+      data-name="{{ product.title | escape }}"
+      data-url="{{ shop.url }}{{ product.url }}"
+      data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}"
+      data-description="{{ product.description | escape }}">
+    </div>
+  </div>
+{% endif %}

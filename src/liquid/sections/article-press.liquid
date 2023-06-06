@@ -1,0 +1,71 @@
+{% assign video_link = article.metafields.article.video_link %}
+{% assign featured_products = article.metafields.custom.featured_in_article %}
+{% assign external_url = article.metafields.article.url %}
+
+<div class="press-article">
+  <!-- Breadcrumbs -->
+  <div class="article__top-line">
+    <a class="article__breadcrumb" href="{{ blog.url }}">
+      <span class="article__arrow-icon">{% render 'icon-arrow-back' %}</span>
+      Back to all articles
+    </a>
+  </div>
+  <!-- Article -->
+  <article role="article" class="article__container">
+    <!-- Article Header -->
+    <div class="article__header">
+      <h1 class="h2 article__main-title">{{ article.title }}</h1>
+      <div class="article__date">{{ article.published_at | date: "%B %Y" }}</div>
+    </div>
+
+  <!-- Article Main -->
+    <div class="article__content">
+      {%- if video_link == blank and article.image -%}
+        <img class="article__image"
+          src="{{ article.image | img_url: '1400x' }}"
+          srcset="{{ article.image | img_url: '768x' }} 768w,
+                  {{ article.image | img_url: '1024x' }} 1024w,
+                  {{ article.image | img_url: '1400x' }} 1400w"
+          alt="{{ article.image.alt }}"
+        />
+      {%- endif -%}
+
+      {% if video_link != blank %}
+        {% assign id = video_link | split: '?v=' | last %}
+        <you-tube-video video="{{ id }}"></you-tube-video>
+      {% endif %}
+
+      {% if external_url != blank %}
+        <div class="article__button-container">
+          <a href="{{ article.metafields.article.url }}" class="button button--primary article__view-article-button">
+            View Article
+            <span class="article__view-article-icon">{% render 'icon-external-link' %}</span>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </article>
+
+
+  {% if article.metafields.custom_fields.featured_products %}
+    {% assign featured_products = article.metafields.custom_fields.featured_products | split: '|' %}
+    {%- capture products_info -%}
+      {
+        "heading": "Featured in This Article",
+        enableCta: false,
+        marginTop: 0,
+        marginBottom: 0,
+        products: [
+          {% for product in featured_products limit: 4 %}
+            {%- render 'json--product', product: all_products[product], order: forloop.index -%}{%- unless forloop.last -%},{%- endunless -%}
+          {% endfor %}
+        ]
+      }
+    {%- endcapture -%}
+
+    <featured-in-article
+      :products-info="{{ products_info | escape | strip }}"
+      :enable-simple-tile="false"
+    ></featured-in-article>
+  {% endif %}
+</div>

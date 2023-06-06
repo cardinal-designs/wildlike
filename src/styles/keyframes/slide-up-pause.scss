@@ -1,0 +1,31 @@
+@keyframes swap-up {
+  0% {
+    transform: translateY(0);
+  }
+
+  10% {
+    transform: translateY(-30px);
+  }
+
+  100% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes swap-right {
+  0% {
+    transform: translateX(0);
+  }
+
+  5% {
+    transform: translateX(100%); // check up
+  }
+
+  95% {
+    transform: translateX(100%); // check up
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

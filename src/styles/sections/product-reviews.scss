@@ -1,0 +1,278 @@
+.spr-badge {
+  &[data-rating="0.0"] {
+    display: none !important;
+  }
+}
+
+#shopify-product-reviews {
+  margin-top: 0 !important;
+}
+
+.spr-container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  border: none !important;
+  border-top: 1px solid $color-grey !important;
+  padding: 15px 0 48px 0 !important;
+  @include tablet-up {
+    padding: 23px 0 56px 0 !important;
+  }
+}
+.spr-content, .spr-header {
+  margin: 0 auto;
+}
+.spr-header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include h4-desktop;
+  @include mobile-only {
+    @include h4-mobile;
+  }
+}
+.spr-summary-actions-newreview, .spr-button-primary {
+  font-family: $button-font-family;
+  border: $button-primary-border;
+  color: $button-primary-color;
+  font-weight: $button-font-weight;
+  font-size: 1rem;
+  position: relative;
+  background: transparent;
+  transition: all .3s ease;
+  height: 100%;
+  letter-spacing: normal;
+  line-height: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 12px 42px;
+  display: flex;
+  width: fit-content;
+  max-width: 229px;
+  margin: 0 auto;
+  float: none !important;
+  border-radius: 0 !important;
+  align-items: center;
+  justify-content: center;
+
+  @include mobile-only {
+    margin-top: 16px;
+    display: block;
+  }
+  &:hover {
+    background: $button-primary-color;
+    color: $color-white;
+  }
+}
+.spr-review-reportreview {
+  color: $color-white;
+}
+[class^="spr-icon-"]:before, [class*=" spr-icon-"]:before {
+  color: $color-black-900;
+}
+.spr-form-input-text,
+.spr-form-input-textarea,
+.spr-form-input-email {
+  margin-top: 8px !important;
+  padding: 8px;
+  font-size: rem(14);
+  line-height: 1.25;
+  font-family: $font-family-primary;
+  color: $color-black-900;
+  padding: 12px 12px;
+  margin: 0;
+  background-color: $color-white;
+  border: 1px solid $form-color-grey;
+  width: 100%;
+  transition: border-color 0.5s ease, background-color .1s ease;
+  box-shadow: none !important;
+  border-radius: 0;
+  appearance: none;
+  &:hover, &:active {
+    border-color: $color-black-900;
+  }
+
+  &:disabled:hover {
+    background-color: $color-white;
+  }
+
+  &:hover {
+    background-color: $color-white;
+  }
+
+  .error & {
+    border-color: $color-util-error;
+    background-color: $color-util-error;
+  }
+}
+
+
+
+
+
+
+
+.spr-starrating {
+  padding-left: 0;
+  padding-top: 8px;
+}
+.spr-form-title {
+  padding-bottom: 8px;
+}
+.spr-review-header-starratings,
+.spr-review-header-title,
+.spr-review-header-byline {
+  margin-bottom: 8px !important;
+}
+.spr-review {
+  border-color: $color-grey !important;
+  @include tablet-up {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+  }
+}
+.spr-summary-actions {
+  display: block;
+  margin: $grid-gutter auto 0;
+}
+.spr-summary {
+  text-align: center;
+}
+.spr-summary-caption {
+  display: inline-block;
+}
+.spr-badge-starrating, .spr-summary-starrating {
+  margin: 0;
+  vertical-align: middle;
+}
+.spr-icon {
+  background-image: url("https://cdn.shopify.com/s/files/1/0274/2589/8540/files/stars.png?v=1580518548");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  position: static;
+  top: 3px !important;
+  width: 12px !important;
+  height: 12px !important;
+  text-indent: -30000px;
+  margin-right: 2px;
+  margin-bottom: 0;
+}
+.spr-icon.spr-icon-star-empty,
+.spr-icon.spr-icon.spr-icon-star-empty {
+  background-position: center;
+  opacity: 1;
+}
+.spr-icon.spr-icon-star-empty.spr-icon-star-hover {
+  background-position: center;
+}
+.spr-icon.spr-icon-star {
+  background-position: center;
+}
+.spr-icon.spr-icon-star-half,
+.spr-icon.spr-icon-star-half-alt {
+  // background-image: url("/assets/star_half.png");
+  background-position: center;
+  opacity: 1;
+}
+.spr-form-review-rating {
+  padding-bottom: 8px;
+}
+.spr-review-header-byline {
+  opacity: 1 !important;
+}
+
+.spr-pagination {
+  & > div {
+    position: relative;
+  }
+}
+
+.spr-pagination-prev,
+.spr-pagination-next {
+  top: 50%;
+  transform: translateY(-50%);
+
+
+  a {
+    color: $color-black-900;
+
+    &:hover,
+    &:focus {
+      color: $link-primary-hover-color;
+    }
+  }
+}
+
+.spr-pagination-page {
+  &,
+  a {
+    font-size: rem(20);
+    line-height: 28px;
+    color: $color-black-900;
+  }
+
+  a {
+    &:hover,
+    &:focus {
+      color: $link-primary-hover-color;
+    }
+  }
+}
+
+@include product-reviews;
+
+/* YOTPO CSS FOR PDP REVIEWS */
+
+.yotpo-container {
+  padding-top: 76px;
+  padding-bottom: 80px;
+  @include mobile-only {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+}
+
+.yotpo-logo-title,
+.yotpo-label.yotpo-small-box,
+.yotpo-default-button.yotpo-icon-btn.pull-right.yotpo-hidden-mobile.write-question-button,
+.promoted-products-box,
+.questions.pull-left,
+.yotpo-default-button.yotpo-icon-btn.pull-right.yotpo-hidden-mobile.write-button.write-review-button,
+.yotpo-nav.yotpo-nav-primary,
+.yotpo-no-reviews,
+.yotpo-icon-seperator {
+  display: none !important;
+}
+
+h2.product-page-yotpo-title {
+font-size: 32px;
+@include mobile-only {
+  font-size: 24px;
+  text-align: center;
+}
+}
+
+
+.yotpo .yotpo-regular-box {
+padding: 25px 0 22px;
+margin: 0 10px;
+border-top: 0px !important;
+}
+
+.yotpo .yotpo-review .yotpo-header .yotpo-icon-profile {
+margin-right: 32px !important;
+}
+
+.yotpo .yotpo-review .yotpo-main, .yotpo .yotpo-review .yotpo-footer{
+margin-left: 77px !important;
+}
+
+span.y-label.yotpo-user-name.yotpo-font-bold.pull-left,
+.yotpo-user-letter,
+.content-title,
+.content-review,
+.label-helpful,
+yotpo-icon {
+  color: $color-black-900 !important;
+}

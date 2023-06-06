@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Order History", 
+    "value": "/account"
+  },
+  {
+    "label": "Address Book", 
+    "value": "/account/addresses"
+  }{% if settings.account_link_1_title != blank and settings.account_link_1_link != blank %},
+  {
+    "label": {{ settings.account_link_1_title | json }}, 
+    "value": {{ settings.account_link_1_link | json }}
+  }{% endif %}{% if settings.account_link_2_title != blank and settings.account_link_2_link != blank %},
+  {
+    "label": {{ settings.account_link_2_title | json }}, 
+    "value": {{ settings.account_link_2_link | json }}
+  }{% endif %}{% if settings.account_ccpa_title != blank and settings.account_ccpa_link != blank %},
+  {
+    "label": {{ settings.account_ccpa_title | json }}, 
+    "value": {{ settings.account_ccpa_link | json }}
+  }{% endif %}
+]

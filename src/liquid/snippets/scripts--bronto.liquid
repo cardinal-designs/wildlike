@@ -1,0 +1,45 @@
+<script type="text/javascript">
+function addBrontoPixel (email, isCheckout) {
+  var brontoData = window.bvaccel.bronto;
+
+  if (!brontoData.enabled || brontoData.id.length <= 0 || (brontoData.list1.length <= 0 && brontoData.list2.length <= 0) || (isCheckout && brontoData.list3.length <= 0)) {
+    return;
+  }
+
+  var pixelURL = 'http://app.bronto.com/public/?q=direct_add&fn=Public_DirectAddForm&id=' + brontoData.id + '&email=' + encodeURIComponent(email);
+
+  if (brontoData.list1.length > 0) {
+    pixelURL += '&list1=' + brontoData.list1;
+  }
+  if (brontoData.list2.length > 0) {
+    pixelURL += '&list2=' + brontoData.list2;
+  }
+  if (isCheckout && brontoData.list3.length > 0) {
+    pixelURL += '&list3=' + brontoData.list3;
+  }
+
+  document.querySelector('body').insertAdjacentHTML('beforeend', '<img src="' + pixelURL + '" width="0" height="0" border="0" alt="" />');
+}
+
+document.addEventListener("submit", function(e) {
+  var target = e.target;
+  var customerEmail;
+
+  if (target.matches('.newsletter-form')) {
+    customerEmail = document.querySelector('.newsletter-form [name="contact[email]"]').value;
+    addBrontoPixel(customerEmail);
+  } else if (target.matches('[data-customer-information-form]') && document.querySelector('[name="checkout[buyer_accepts_marketing]"]:checked')) {
+    if (document.querySelector('#checkout_email_or_phone')) {
+      customerEmail = document.querySelector('#checkout_email_or_phone').value;
+    } else if (document.querySelector('[name="checkout[email]"]')) {
+      customerEmail = document.querySelector('[name="checkout[email]"]').value;
+    } 
+    addBrontoPixel(customerEmail, true);
+  }  else if (target.matches('#create_customer')) {
+    if (document.querySelector('[name="customer[email]"]')) {
+      customerEmail = document.querySelector('[name="customer[email]"]').value;
+    } 
+    addBrontoPixel(customerEmail, true);
+  }
+})
+</script>

@@ -1,0 +1,101 @@
+<div class="account-dash">
+  {% render 'account--header', active: '/account' %}
+
+  <div class="account-content-area">
+    <div id="orders-content" class="panel">
+      <h2 class="orders-content__heading">{{ 'customer.orders.title' | t }}</h2>
+
+      {% paginate customer.orders by 10 %}
+        {% if customer.orders.size != 0 %}
+          <div class="orders-content__main table-wrapper">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th class="h6 accounts-order-data-head">Order</th>
+                  <th class="h6 accounts-order-data-head">Date</th>
+                  <th class="h6 accounts-order-data-head">Status</th>
+                  <th class="h6 accounts-order-data-head">Total</th>
+                  <th class="h6 accounts-order-data-head-icon"><icon name="chevron-right" size="10px" /></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for order in customer.orders %}
+                  <tr>
+                    <td class="accounts-order-data" data-label="{{ 'customer.orders.order_number' | t }}"><a href="{{ order.customer_url }}" class="link link--secondary">{{ order.name }}</a></td>
+                    <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: "%b %d, %Y" }}</td>
+                    <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                    <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                    <td class="account-order-icon"><a href="{{ order.customer_url }}"><icon name="chevron-right" size="10px" /></a></td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <div class="orders-content__main table-wrapper">
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th class="h6 accounts-order-data-head">Order</th>
+                <th class="h6 accounts-order-data-head">Date</th>
+                <th class="h6 accounts-order-data-head">Status</th>
+                <th class="h6 accounts-order-data-head">Total</th>
+                <th class="h6 accounts-order-data-head-icon"><icon name="chevron-right" size="10px" /></th>
+              </tr>
+            </thead>
+          </table>
+          <div class="no-orders">
+            <p>You have no order history</p>
+            <p class="no-order-link-container">
+              <v-link primary href="{{ settings.no_orders_link }}">Start Shopping</v-link>
+            </p>
+          </div>
+          </div>
+        {% endif %}
+        <div class="need-help u-hidden-tablet-up">
+          {% if settings.account_help_title != blank %}
+            <p class="account-help-title">{{ settings.account_help_title }}</p>
+          {% endif %}
+          {% if settings.account_help_email != blank %}
+            <a class="account-help-phone-email link link--secondary" href="mailto:{{ settings.account_help_email }}">{{ settings.account_help_email }}</a>
+          {% endif %}
+          {% if  settings.account_help_phone != blank %}
+            <a class="account-help-phone-email link link--secondary" href="tel:{{ settings.account_help_phone }}">{{ settings.account_help_phone }}</a>
+          {% endif %}
+          {% if settings.account_ccpa_title != blank and settings.account_ccpa_link != blank %}
+          <div class="account-ccpa">
+            <p class="account-ccpa__title">Remove my information (CCPA)</p>
+            <a href="{{ settings.account_ccpa_link }}" class="account-help-phone-email link link--secondary">{{ settings.account_ccpa_title }}</a>
+          </div>
+          {% endif %}
+        </div>
+        <div class="value-prop__container">
+          {% if settings.account_value_prop_1_title != blank and settings.account_value_prop_1_image != blank %}
+            {% render 'value-prop-tile', image: settings.account_value_prop_1_image, title: settings.account_value_prop_1_title, copy: settings.account_value_prop_1_copy %}
+          {% endif %}
+          {% if settings.account_value_prop_2_title != blank and settings.account_value_prop_2_image != blank %}
+            {% render 'value-prop-tile', image: settings.account_value_prop_2_image, title: settings.account_value_prop_2_title, copy: settings.account_value_prop_2_copy %}
+          {% endif %}
+          {% if settings.account_value_prop_3_title != blank and settings.account_value_prop_3_image != blank %}
+            {% render 'value-prop-tile', image: settings.account_value_prop_3_image, title: settings.account_value_prop_3_title, copy: settings.account_value_prop_3_copy %}
+          {% endif %}
+          {% if settings.account_value_prop_4_title != blank and settings.account_value_prop_4_image != blank %}
+            {% render 'value-prop-tile', image: settings.account_value_prop_4_image, title: settings.account_value_prop_4_title, copy: settings.account_value_prop_4_copy %}
+          {% endif %}
+        </div>
+
+        {% if paginate.pages > 1 %}
+          <div class="account__pagination">
+            <div class="container">
+              <div class="pagination">
+                <div class="pagination__items">
+                  {{ paginate | default_pagination: next: '<i class="icon icon--right-t"></i>', previous: '<i class="icon icon--left-t"></i>' }}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endpaginate %}
+    </div>
+  </div>
+</div>

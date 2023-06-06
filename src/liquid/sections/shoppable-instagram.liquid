@@ -1,0 +1,31 @@
+{% capture hero_schema %}
+  {
+    "title": {{ section.settings.title | json }}
+  }
+{% endcapture %}
+
+<shoppable-instagram :hero-schema="{{ hero_schema | escape | strip }}"/>
+
+{% schema %}
+  {
+    "name": "Shoppable Instagram",
+    "class": "shoppable-instagram container",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Shoppable Instagram"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "title"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Shoppable Instagram",
+        "category": "Content Blocks"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,68 @@
+.value-prop__container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px;
+  background: $color-black-100;
+}
+
+.value-prop__tile {
+  position: relative;
+  padding: 24px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+  &:not(:last-of-type)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 80%;
+    background: $color-black-400;
+  }
+  @include tablet-up {
+    border-bottom: 0;
+    width: 50%;
+    &:first-of-type::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1px;
+      width: 80%;
+      background: $color-black-400;
+    }
+    &:last-of-type::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1px;
+      width: 80%;
+      background: $color-black-400;
+    }
+  }
+}
+
+
+.value-prop__image {
+  width: 20%;
+  padding-right: 20px;
+}
+
+.value-prop__content {
+  width: 75%;
+}
+.value-prop__title {
+  margin-bottom: 8px;
+}
+.value-prop__copy {
+  font-size: 14px;
+  line-height: 21px;
+  font-family: $font-family-secondary;
+  font-weight: 600;
+}

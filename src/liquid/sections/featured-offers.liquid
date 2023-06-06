@@ -1,0 +1,72 @@
+<!-- featured offers -->
+{%- capture offers_settings -%}
+  {
+    {% for setting in section.settings %}
+      {{ setting | json }}: {{ section.settings[setting] | json }}
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  }
+{%- endcapture -%}
+{%- capture offers_blocks -%}
+  [
+    {% for block in section.blocks %}
+      {
+        "id": {{ block.id | json }},
+        "type": {{ block.type | json }},
+        "settings": {{ block.settings | json }}
+      }
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+{%- endcapture -%}
+
+<featured-offers-container :settings="{{ offers_settings | escape }}" :blocks="{{ offers_blocks | escape }}"></featured-offers-container>
+
+{% schema %}
+  {
+    "name": "Featured Offers",
+    "settings": [
+      { "type": "header", "content": "Settings" },
+      {
+        "type": "checkbox",
+        "id": "enableFeaturedOffers",
+        "label": "Enable Featured Offers"
+      },
+      {
+        "type": "text",
+        "id": "mobileHeadingText",
+        "label": "Mobile Heading Text",
+        "info": "This text appears above the offers on mobile. This should be less than 10 characters."
+      }
+    ],
+    "max_blocks": 4,
+    "blocks": [
+      {
+        "type": "offer",
+        "name": "Offer",
+        "settings": [
+          {
+            "id": "offerImage",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "offerText",
+            "type": "text",
+            "label": "Text"
+          },
+          {
+            "id": "offerLink",
+            "type": "url",
+            "label": "Link"
+          },
+          {
+            "id": "offerLinkText",
+            "type": "text",
+            "label": "Link Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

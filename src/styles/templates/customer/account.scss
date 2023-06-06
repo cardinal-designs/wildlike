@@ -1,0 +1,1314 @@
+// Account Dash - shared by account.liquid,
+.account-dash {
+  max-width: $container-max-width;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 auto 40px auto;
+  .account-nav-desktop {
+    display: none;
+    width: 100%;
+
+    @include desktop-up {
+      max-width: 344px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .account-nav-menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 264px;
+      width: 100%;
+      padding: 0 0 0 20px;
+      font-family: $font-family-primary;
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 1px;
+
+      text-decoration: none;
+      color: $color-black-900;
+      line-height: 46px;
+
+      @include tablet-up {
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: $color-grey;
+        }
+      }
+
+      &.active {
+        background: $color-black-100;
+        @include tablet-up {
+          &:hover {
+            background-color: $color-white;
+          }
+        }
+        &:hover {
+          background-color: $color-grey;
+        }
+      }
+      .arrow-icon {
+        margin-right: 20px;
+        fill: $color-black-900;
+      }
+    }
+    .account-nav-menu-logout {
+      padding-left: 20px;
+      font-style: normal;
+      font-weight: 600;
+      @include desktop-up {
+        font-family: $font-family-primary;
+        font-weight: 900;
+        font-style: italic;
+      }
+    }
+
+    .account-nav-ccpa-link {
+      padding: 0 0 0 20px;
+      font-family: $font-family-primary;
+      color: $color-black-900;
+      line-height: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 16px;
+
+      &:before {
+        background: $color-black-900;
+        margin-left: 20px;
+      }
+    }
+    @include tablet-up {
+      display: flex;
+    }
+
+    @include desktop-up {
+      display: block;
+    }
+  }
+
+  .need-help {
+    padding-left: 20px;
+    margin: 24px 0 80px;
+    @include desktop-up {
+      margin-top: 0;
+    }
+    .account-help-title {
+      margin-bottom: 8px;
+      font-family: $font-family-primary;
+      font-style: italic;
+      font-size: 1.2em;
+      font-weight: 900;
+      line-height: 18px;
+      text-transform: uppercase;
+      margin-top: 0;
+    }
+    .account-help-phone-email {
+      display: block;
+      margin: 0;
+      margin-bottom: 4px;
+      line-height: normal;
+      color: $color-black-900;
+      font-family: $font-family-secondary;
+      font-weight: 600;
+
+      &::before {
+        background: $color-black-900;
+      }
+    }
+
+  }
+
+  .account-ccpa {
+    margin-top: 40px;
+  }
+  .account-ccpa__title {
+    margin-bottom: 8px;
+    font-family: $font-family-secondary;
+    font-weight: 600;
+  }
+
+  .account-nav {
+    margin-bottom: 120px;
+  }
+
+  .account-nav-desktop-header {
+    display: none;
+    margin-bottom: 32px;
+
+    @include desktop-up {
+      display: flex;
+      padding-left: 20px;
+
+      p {
+        letter-spacing: 0.2px;
+      }
+    }
+  }
+  .account-nav-desktop-header__welcome {
+    margin: 0 0 12px 0;
+    font-size: rem($font-size-h3-mobile);
+    font-family: $font-family-primary;
+    line-height: normal;
+    text-align: left;
+    font-weight: 900;
+  }
+  nav {
+    display: none;
+
+    @include desktop-up {
+      display: block;
+      width: 100%;
+    }
+  }
+  .account-nav-mobile {
+    display: block;
+    padding: 16px;
+
+    select {
+      margin: 12px 0 0;
+    }
+
+    @include desktop-up {
+      display: none;
+    }
+
+    .account-nav-mobile-select {
+      border: 1px solid $form-color-grey;
+
+      select {
+        display: none;
+      }
+    }
+  }
+  .account-content-area {
+    margin: 0;
+    width: 100%;
+    max-width: 800px;
+    .panel {
+      display: flex;
+      flex-direction: column;
+    }
+    @include tablet-up {
+      width: 100%;
+      h2 {
+        line-height: 22px;
+        display: inline-block;
+      }
+    }
+    @include desktop-up {
+      padding: 0 3vw;
+    }
+  }
+
+  .orders-content__main {
+    margin: 0 auto;
+    margin-bottom: 16px;
+    padding: 16px;
+    min-height: 367px;
+    width: 100%;
+    max-width: 800px;
+    background-color: $color-black-100;
+  }
+  .table-wrapper {
+    @include tablet-up {
+      max-width: 100%;
+    }
+
+    .no-orders {
+      text-align: center;
+      margin-top: 60px;
+
+      p {
+        margin: 0;
+        font-family: $font-family-secondary;
+        font-weight: 600;
+      }
+    }
+    .no-order-link-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px !important;
+
+      a {
+        &:visited {
+          color: $color-brand-primary;
+          &:before {
+            background: $color-brand-primary;
+          }
+
+          svg {
+            fill: $color-brand-primary;
+          }
+        }
+      }
+    }
+    thead {
+      border-bottom: 1px solid #d8d8d8;
+      padding: 0 17px;
+    }
+    th {
+      display: inline-block;
+      width: 25%;
+      padding: 0;
+      color: $color-black-900;
+      font-family: $font-family-primary;
+      font-size: 1.2em;
+      font-weight: 900;
+
+      &.accounts-order-data-head-icon {
+        width: 0;
+        @include desktop-up {
+          width: 5%;
+        }
+      }
+    }
+  }
+  .orders-table {
+    font-family: $font-family-secondary;
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+
+    * {
+      font-size: rem(14);
+    }
+
+    a {
+      text-decoration: none;
+      color: $color-black-900;
+      font-family: $font-family-secondary;
+    }
+
+    td {
+      width: 25%;
+      display: inline-block;
+      font-family: $font-family-secondary;
+
+      &.account-order-icon {
+        width: 5%;
+      }
+
+      img {
+        width: 12px;
+        height: 12px;
+      }
+    }
+    .accounts-order-data {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  }
+  @include tablet-up {
+    padding: 60px 46px;
+    flex-direction: column;
+  }
+  @include desktop-up {
+    flex-direction: row;
+  }
+}
+
+.accounts-order-data-head-icon {
+  opacity: 0;
+}
+
+.customer-address-container {
+  .input,
+  .label-select-container {
+    label {
+      display: inline-block;
+    }
+    input:not(.vs__search):not([type="radio"]):not([type="checkbox"]),
+    select,
+    textarea,
+    .v-select {
+      height: 44px;
+      width: 100%;
+      border-radius: 0;
+      border: 1px solid $color-black-300;
+      color: $color-black-900;
+      font-size: 16px;
+      line-height: 22px;
+      padding: 0 0 0 15px;
+      margin-bottom: 0;
+      font-family: $font-family-secondary;
+      font-weight : 600;
+
+      &:hover{
+        border-color: $color-accent-3-700;
+      }
+    }
+
+    span:not(.vs__selected) {
+      color: $color-black-900;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .vs__search,
+    .vs__dropdown-toggle {
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background-color: transparent;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .vs__selected {
+      margin: 0;
+      padding: 0;
+      height: 50px;
+      line-height: 50px;
+    }
+
+    .vs__dropdown {
+      &-menu {
+        border: 1px solid $color-brand-primary;
+        width: calc(100% + 2px);
+        left: -1px;
+      }
+
+      &-option {
+        height: 50px;
+        line-height: 50px;
+        font-size: rem(16);
+
+        &--highlight {
+          background-color: $color-black-900;
+          color: $color-black-900;
+        }
+      }
+    }
+
+    &--radio-group,
+    &--checkbox-group {
+      margin: 0;
+      padding: 0;
+
+      label {
+        display: inline-block;
+        position: relative;
+        line-height: 22px;
+        padding-left: 28px;
+        margin: 12px 0 0 12px;
+        font-family: $font-family-primary;
+        font-size: rem(16);
+        font-weight: 400;
+        text-transform: none;
+        letter-spacing: normal;
+        color: $color-black-900;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        &:before {
+          display: none;
+        }
+
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+        }
+
+        .radio-toggle,
+        .checkbox-toggle {
+          position: absolute;
+          top: 1px;
+          left: 0;
+          height: 16px;
+          width: 16px;
+        }
+      }
+    }
+
+    &--checkbox-group {
+      .checkbox-toggle {
+        border-radius: 1px;
+        border: 1px solid $color-black-900;
+      }
+
+      .checkbox-checkmark.icon {
+        display: none;
+        position: relative;
+        fill: $color-white;
+        left: 2px;
+        top: 2px;
+      }
+
+      label:hover input:not([disabled="disabled"]) ~ .checkbox-toggle {
+        border: 1px solid $color-brand-primary;
+      }
+
+      input:checked {
+        & ~ .checkbox-toggle {
+          border: 1px solid $color-brand-primary;
+          background-color: $color-brand-primary;
+        }
+
+        & ~ .checkbox-toggle .checkbox-checkmark {
+          display: block;
+        }
+      }
+
+      input[disabled="disabled"] {
+        & ~ .checkbox-toggle {
+          border: 1px solid $color-black-900;
+          background-color: $color-black-900;
+        }
+
+        & ~ .checkbox-toggle .checkbox-checkmark.icon {
+          fill: $color-black-900;
+        }
+      }
+    }
+
+    &--radio-group {
+      .radio-toggle {
+        background-color: $color-white;
+        border: 1px solid $color-black-900;
+        border-radius: 50%;
+
+        &::after {
+          content: "";
+          position: absolute;
+          display: none;
+          top: 3px;
+          left: 3px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: $color-brand-primary;
+        }
+      }
+
+      label:hover input:not([disabled="disabled"]) ~ .radio-toggle {
+        border: 1px solid $color-brand-primary;
+      }
+
+      input:checked {
+        & ~ .radio-toggle {
+          border: 1px solid $color-brand-primary;
+        }
+
+        & ~ .radio-toggle::after {
+          display: block;
+        }
+      }
+
+      input[disabled="disabled"] {
+        & ~ .radio-toggle {
+          border: 1px solid $color-black-900;
+          background-color: $color-black-900;
+        }
+
+        & ~ .radio-toggle::after {
+          background-color: $color-black-900;
+        }
+      }
+    }
+  }
+}
+
+.account-nav-mobile-select .vs__selected {
+  &:hover {
+    background-color: $color-white;
+  }
+}
+
+.edit-address-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+
+  .default-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+
+
+    input {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: $form-checkbox-border;
+      position: relative;
+      margin-right: $form-input-label-margin-right;
+      background: none;
+      cursor: pointer;
+
+      &:not(:disabled):hover {
+        background: none;
+        border: $form-checkbox-border-hover;
+      }
+
+      &:active {
+        background: none;
+        border: $form-checkbox-border-active;
+      }
+
+      &:not(:disabled):checked {
+        background: none;
+        border: $form-checkbox-border-selected;
+      }
+
+      &:disabled {
+        border: $form-checkbox-border-disabled;
+        background-color: $form-checkbox-background-disabled;
+      }
+
+      &:disabled:checked {
+        border-color: $form-checkbox-border-disabled;
+        background-color: white;
+      }
+
+      &:checked::after {
+        content: '';
+        background-size: contain;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 10px;
+        height: 10px;
+        background-position: center;
+        z-index: 1;
+        background-image: none;
+        background-color: $form-checkbox-check-box-color;
+      }
+
+      &:disabled:checked::after {
+        background-color: $form-checkbox-check-box-color-disabled;
+      }
+    }
+
+    label {
+      font-size: rem(16);
+      line-height: 100%;
+      display: inline-block;
+      vertical-align: top;
+      font-weight: 600;
+      font-family: $font-family-secondary;
+    }
+  }
+}
+.customer-address-form {
+  background-color: $color-black-100;
+  padding: 24px 16px;
+  margin: 0 0 24px 0;
+  font-family: $font-family-primary;
+
+  @include tablet-up {
+    padding: 24px 50px;
+  }
+  .input {
+    margin: 0 0 16px;
+
+    label {
+      color: $color-black-900;
+      margin-bottom: 8px;
+    }
+  }
+  .input--checkbox-group {
+    label {
+      margin-left: 0;
+    }
+  }
+  .button-group {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet-up {
+      flex-direction: row-reverse;
+      justify-content: space-evenly;
+    }
+    .button-container {
+      margin: 10px 0;
+      @include tablet-up {
+        width: 49%;
+      }
+    }
+  }
+}
+.customer-address {
+  background: $color-black-100;
+  padding: 16px;
+  margin: 0 0 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+
+  @include tablet-up {
+    padding: 24px 40px;
+  }
+}
+
+.edit,
+.delete {
+  text-transform: none;
+  letter-spacing: normal;
+  margin-bottom: 7px;
+  font-weight: 400;
+  font-family: $font-family-secondary;
+}
+.customer-address-name {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: $font-family-secondary;
+
+  @include tablet-up {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.customer-address-details span {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: $font-family-secondary;
+
+  @include tablet-up {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+.customer-address-name,
+.customer-address-details {
+  margin: 0;
+}
+.address-name {
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-black-900;
+}
+.address-name {
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-black-900;
+}
+.customer-address-default-title {
+  font-family: $font-family-primary;
+  text-transform: uppercase;
+  font-style: italic;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+.address-default {
+  font-size: 12px;
+  color: $color-brand-primary;
+  font-weight: normal;
+  margin-left: 4px;
+}
+.customer-address-details {
+  font-family: $font-family-secondary;
+  font-size: 16px;
+  color: $color-black-900;
+  line-height: 22px;
+  display: flex;
+  flex-direction: column;
+}
+.new-address-button {
+  @include body-md;
+
+  background-color: $color-black-100;
+  font-family: $font-family-secondary;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  color: $color-black-900;
+  padding: 24px 0;
+  width: 100%;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: none;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $color-grey;
+  }
+  span {
+    margin-right: 8px;
+  }
+}
+
+.account-content-area {
+  padding: 18px 0;
+  padding-top: 0;
+  margin-bottom: 0 auto 80px;
+  @include tablet-up {
+    padding: 0;
+  }
+}
+
+.order-detail-template {
+  .order-detail-container {
+    background-color: $color-white;
+    padding: 18px;
+    line-height: 24px;
+    font-family: $font-family-primary;
+    @include tablet-up {
+      padding: 50px 48px;
+    }
+  }
+  .account-content-area {
+    margin: 0;
+    width: 100%;
+    .panel {
+      display: flex;
+      flex-direction: column;
+      margin: 16px;
+      @include tablet-up {
+        margin: 0;
+      }
+      .order-detail-header {
+        display: flex;
+        justify-content: space-between;
+        .order-date {
+          display: block;
+          width: 100%;
+          font-family: $font-family-primary;
+          font-size: 1rem;
+          font-weight: 900;
+          line-height: 22px;
+          color: $color-black-900;
+          text-align: right;
+          font-style: italic;
+        }
+      }
+    }
+  }
+  .order-detail-container {
+    .money {
+      font-family: $font-family-primary;
+    }
+  }
+  .order-detail-cancellation-info {
+    p {
+      margin: 0 0 1em 0;
+    }
+  }
+  .order-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    @include tablet-up {
+      justify-content: flex-start;
+    }
+
+    .detail {
+      width: 45%;
+
+      @include tablet-up {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 50%;
+      }
+
+      p {
+        line-height: 150%;
+        font-family: $font-family-secondary;
+        font-weight: 400;
+        font-size: 1rem;
+
+        @include tablet-up {
+          font-size: 16px;
+        }
+      }
+    }
+    .track-shipment {
+      font-weight: 400;
+      text-decoration: underline;
+    }
+  }
+
+  .order-line-items {
+    margin: 0 0 24px 0;
+
+    @include tablet-up {
+      margin: 0 0 40px 0;
+    }
+  }
+  .order-line-item-card {
+    padding: 30px 0 18px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 11px;
+    line-height: 18px;
+    border-bottom: 1px solid #d8d8d8;
+
+    @include tablet-up {
+      align-items: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: $color-black-900;
+    }
+    img {
+      width: 120px;
+      align-self: center;
+      margin: 0;
+
+      @include tablet-up {
+        width: 144px;
+      }
+    }
+    table {
+      width: 100%;
+      max-width: 150px;
+      td {
+        height: 18px;
+      }
+    }
+  }
+  .order-totals {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+    padding-bottom: 12px;
+    @include tablet-up {
+      padding-bottom: 0;
+    }
+    table {
+      width: 70%;
+      border-collapse: collapse;
+      @include tablet-up {
+        width: 50%;
+      }
+    }
+    .order-total-title {
+      font-size: 16px;
+    }
+    .total {
+      border-top: 1px solid #d8d8d8;
+    }
+    .subtotal {
+      color: $color-brand-primary;
+    }
+  }
+}
+
+.order-line-item-prod-image-details-container {
+  display: flex;
+}
+
+.order-line-item-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  @include tablet-up {
+    justify-content: center;
+  }
+}
+
+.order-line-item-product-title {
+  margin: 0;
+}
+
+.order-line-item-product-title a {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-weight: 900;
+  line-height: 20px;
+  display: block;
+  font-family: $font-family-primary;
+  text-transform: uppercase;
+  font-style: italic;
+
+
+  @include tablet-up {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.order-line-item-variant-details li,
+.order-line-item-qty-details {
+  color: $color-black-900;
+  line-height: 20px;
+  font-family: $font-family-secondary;
+  font-weight: 400;
+}
+
+.order-line-item-qty-details {
+  margin-top: 1px;
+  margin-bottom: 0;
+
+  @include tablet-up {
+    margin-top: 4px;
+  }
+}
+
+.order-line-item-prod-image-container {
+  margin-right: 16px;
+
+  @include tablet-up {
+    margin-right: 24px;
+  }
+}
+
+.order-line-item-price-container p {
+  margin: 0;
+  margin-left: 4px;
+  line-height: 20px;
+  font-family: $font-family-secondary;
+  font-weight: 400;
+
+  @include tablet-up {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+#orders-content {
+  margin: 14px;
+  margin-top: 0;
+
+  @include tablet-up {
+    margin: 0;
+  }
+}
+
+#orders-content h2,
+#addresses-content h2 {
+  display: none;
+
+  @include tablet-up {
+    display: block;
+  }
+}
+.addresses-content__heading,
+.orders-content__heading,
+.order-detail__heading {
+  margin-bottom: 17px;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: left;
+}
+
+.orders-table thead tr {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+
+  @include tablet-up {
+    padding-bottom: 16px;
+  }
+}
+
+.orders-table tbody tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d8d8d8;
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  @include tablet-up {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.orders-table tbody tr:last-child {
+  border-bottom: 0;
+}
+
+.account-nav-mobile-select .input,
+.account-nav-mobile-select .vs__dropdown-toggle {
+  border: 0 !important;
+  margin-bottom: 0;
+}
+
+.account-nav-mobile-select .vs__actions {
+  display: flex;
+  padding-right: 22px;
+}
+
+.account-nav-mobile-select .vs__open-indicator {
+  fill: $color-black-900;
+}
+
+.account-dash .input {
+  [type="text"],
+  [type="password"],
+  [type="date"],
+  [type="datetime"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="week"],
+  [type="email"],
+  [type="number"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="url"],
+  [type="color"],
+  textarea,
+  .vs__selected {
+    font-size: 16px;
+    line-height: 22px;
+    height: 44px;
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+
+.account-order-icon {
+  display: block;
+  opacity: 0;
+
+  @include tablet-up {
+    opacity: 1;
+  }
+}
+
+.account-order-back-container {
+  display: flex !important;
+  width: 100%;
+  align-items: center;
+}
+
+.account-order-back-container a {
+  display: flex;
+  margin-right: 8px;
+}
+
+.account-order-total-container td {
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+.order-details-heading {
+  margin-bottom: 7px;
+  font-weight: 600;
+  font-family: $font-family-primary;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.order-details-content {
+  margin-right: 20px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.order-details-heading {
+  font-family: $font-family-primary;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.order-details-heading,
+.order-details-heading + p,
+.order-detail-cancellation-info,
+.order-addresses,
+.order-ship-pay-methods,
+.order-line-item-variant-details,
+.account-help-title {
+  line-height: 150%;
+  padding-inline-start: 0px;
+}
+
+.order-line-item-variant-details {
+
+  span {
+    font-family: $font-family-secondary;
+    font-weight: 400;
+  }
+}
+
+.order-details-heading + p {
+  font-family: $font-family-secondary;
+  font-weight: 400;
+}
+
+.order-details .detail p {
+  margin: 0;
+}
+
+.account-order-title-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  margin-bottom: 44px;
+
+  @include tablet-up {
+    width: 50%;
+  }
+
+  @include desktop-up {
+    width: 100%;
+  }
+  h1 {
+    font-weight: 700;
+    text-align: left !important;
+    font-size: 23px !important;
+    margin: 0 0 12px 0;
+    line-height: 28px !important;
+    font-family: $font-family-primary;
+    letter-spacing: 0.5px;
+  }
+  p {
+    font-family: $font-family-secondary;
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+  }
+}
+
+.order-total-details-main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include tablet-up {
+    max-width: 332px;
+  }
+}
+
+.order-total-detail-container,
+.order-total-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-total-detail-container p,
+.order-total-container p {
+  line-height: 20px;
+  margin: 0;
+
+  @include tablet-up {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.order-total-detail-heading,
+.order-total-main-heading {
+  line-height: 20px;
+  margin: 0;
+  font-weight: 900;
+  font-family: $font-family-primary;
+  font-style: italic;
+  text-transform: uppercase;
+
+
+  @include tablet-up {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.order-total-detail-container {
+  margin-bottom: 16px;
+}
+
+.order-total-container {
+  border-top: 1px solid #d8d8d8;
+  padding-top: 16px;
+}
+
+.logout-mobile {
+  font-size: rem($font-size-h7-mobile);
+  margin-top: rem($font-size-h3-mobile * 1.2 / 2);
+  font-family: $font-family-secondary;
+  font-weight: 600;
+}
+
+.template-addresses .panel {
+  margin: 20px 16px;
+
+  @include tablet-up {
+    margin: 0;
+  }
+}
+
+.account-nav-mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: $font-family-secondary;
+  font-weight: 600;
+
+  @include desktop-up {
+    display: none;
+  }
+
+  &__email {
+    margin-top: 5px;
+    font-family: $font-family-secondary;
+    font-weight: 600;
+  }
+}
+
+.address-card-menu ul {
+  text-align: right;
+}
+
+.customer-address-form .button-group {
+  width: 100% !important;
+  margin-top: 24px !important;
+}
+
+.address-make-default-label {
+  letter-spacing: normal;
+  font-size: 14px;
+  color: $color-black-900;
+  line-height: 22px;
+  font-weight: normal;
+}
+
+[data-address="root"] [data-aria-hidden="true"] {
+  display: none;
+}
+
+[data-address="root"] {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+[data-line-count="1"] {
+  flex-basis: 100%;
+}
+
+[data-line-count="2"] {
+  flex-basis: 100%;
+
+  @include tablet-up {
+    flex-basis: 49%;
+  }
+}
+
+[data-line-count="3"] {
+  flex-basis: 100%;
+
+  @include tablet-up {
+    flex-basis: 32%;
+  }
+}
+
+@include account;

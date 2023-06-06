@@ -1,0 +1,39 @@
+@include link;
+
+
+// ~
+// ~
+// PRIMARY
+// ~
+// ~
+@include link--primary;
+
+// ~
+// ~
+// SECONDARY
+// ~
+// ~
+@include link--secondary;
+
+// ~
+// ~
+// TERTIARY
+// ~
+// ~
+@include link--tertiary;
+
+
+
+// PLAIN
+@include link-text;
+@include link-text-primary-color;
+
+@if $auto-link-color-switch {
+  @each $class in $dark-color-classes {
+    .#{$class} {
+      @each $type in primary, secondary, tertiary  {
+        @include automatic-color-link-style($type);
+      }
+    }
+  }
+}

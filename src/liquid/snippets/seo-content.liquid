@@ -1,0 +1,12 @@
+{% capture schema %}
+  {
+    "settings": {
+      "title": {{ item.metafields.custom_fields.seo_block_title | json }},
+      "content": {{ item.metafields.custom_fields.seo_block_content | json }},
+      "marginTop": 0,
+      "marginBottom": 56
+    }
+  }
+{% endcapture %}
+
+<seo-collection-block :schema="{{ schema | escape | strip }}" />

@@ -1,0 +1,403 @@
+{% capture hero_schema %}
+  {
+    "topPadding": {{ section.settings.top_padding | json }},
+    "bottomPadding": {{ section.settings.bottom_padding | json }},
+    "layout": {{ section.settings.layout | json }},
+    "maxWidth": {{ section.settings.max_width | json }},
+    "layoutHorizontal": {{ section.settings.horizontal_layout | json }},
+    "layoutHorizontalTextBox": {{ section.settings.horizontal_layout_text_box | json }},
+    "layoutVertical": {{ section.settings.vertical_layout | json }},
+    "mobileLayout": {{ section.settings.mobile_layout | json }},
+    "mobileTextAlignment": {{ section.settings.mobile_text_alignment | json }},
+    "arrowColor": {{ section.settings.arrow_color | json }},
+    "enableTextBox": {{ section.settings.enable_text_box | json }},
+    "textBoxBgColor": {{ section.settings.text_box_bg_color | json }},
+    {%- if section.settings.text_box_bg_image -%}
+      "textBoxBgImage": {{ section.settings.text_box_bg_image | img_url: '760x' | json }}
+    {%- endif -%}
+  }
+{% endcapture %}
+
+{% capture hero_array %}
+  [
+    {% for block in section.blocks %}
+      {
+        "image": "{{ block.settings.background_image | img_url: '2000x' }}",
+        "imageMobile": "{{ block.settings.background_image_mobile  | img_url: '1000x' }}",
+        "imageMobileEnable": {{ block.settings.enable_mobile_image }},
+        "overlayEnable": {{ block.settings.enable_overlay }},
+        "overlayColor": {{ block.settings.overlay_color | json }},
+        "overlayBgColor": {{ block.settings.slide_text_box_bg_color | json }},
+        "overlayOpacity": {{ block.settings.overlay_opacity }},
+        "preHeading": {{ block.settings.pre_heading | json }},
+        "preHeadingColor": {{ block.settings.pre_heading_color | json }},
+        "heading": {{ block.settings.heading | json }},
+        "headingColor": {{ block.settings.heading_color | json }},
+        "subHeading": {{ block.settings.sub_heading | json }},
+        "subHeadingColor": {{ block.settings.sub_heading_color | json }},
+        "mobileBgColor": {{ block.settings.mobile_bg_color | json }},
+        "preHeadingColorMobile": {{ block.settings.pre_heading_color_mobile | json }},
+        "headingColorMobile": {{ block.settings.heading_color_mobile | json }},
+        "subHeadingColorMobile": {{ block.settings.sub_heading_color_mobile | json }},
+        "bodyCopyColorMobile": {{ block.settings.body_copy_color_mobile | json }},
+        "copy": {{ block.settings.body_copy | json }},
+        "copyColor": {{ block.settings.body_copy_color | json }},
+        "enableCta": {{ block.settings.enable_cta }},
+        "ctaLayout": {{ block.settings.cta_layout | json }},
+        "ctaText": {{ block.settings.cta_text | json }},
+        "ctaUrl": "{{ block.settings.cta_url }}",
+        "ctaBgColor": {{ block.settings.cta_bg_color | json }},
+        "ctaTextColor": {{ block.settings.cta_text_color | json }}
+      }
+      {%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+  ]
+{% endcapture %}
+
+<hero-banner-carousel :hero-schema="{{- hero_schema | escape | strip -}}" :hero-array="{{- hero_array | escape | strip -}}"/>
+
+{% schema %}
+  {
+    "name": "Carousel Banner",
+    "class": "hero-banner-carousel container",
+    "settings": [
+      {
+        "type":      "select",
+        "id":        "max_width",
+        "label":     "Section Max Width",
+        "options": [
+          {"value": "none", "label": "100%"},
+          {"value": "1440px", "label": "1440px"}
+        ],
+        "default":   "none"
+      },
+      {
+        "type": "header",
+        "content": "Section Padding",
+        "info": "Customize the padding/spacing on the top and bottom of this section."
+      },
+      {
+        "type": "range",
+        "id": "top_padding",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Top Padding",
+        "default": 64
+      },
+      {
+        "type": "range",
+        "id": "bottom_padding",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Bottom Padding",
+        "default": 64
+      },
+      {
+        "type": "header",
+        "content": "Hero Layout",
+        "info": "Choose both a horizontal and vertical layout for your hero and the background color of the content in mobile."
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "options": [
+          {
+            "label": "Short",
+            "value": "short"
+          },
+          {
+            "label": "Tall",
+            "value": "tall"
+          }
+        ],
+        "default": "short"
+      },
+      {
+        "type":      "select",
+        "id":        "horizontal_layout",
+        "label":     "Horizontal Layout",
+        "options": [
+          {"value": "left", "label": "Left"},
+          {"value": "center", "label": "Center"},
+          {"value": "right", "label": "Right"}
+        ],
+        "default":   "left"
+      },
+      {
+        "type":      "select",
+        "id":        "vertical_layout",
+        "label":     "Vertical Layout",
+        "options": [
+          {"value": "top", "label": "Top"},
+          {"value": "middle", "label": "Middle"},
+          {"value": "bottom", "label": "Bottom"}
+        ],
+        "default":   "top"
+      },
+      {
+        "type":      "select",
+        "id":        "mobile_layout",
+        "label":     "Mobile Layout",
+        "options": [
+          {"value": "overlay", "label": "Overlay Text"},
+          {"value": "below", "label": "Text Below Image"}
+        ],
+        "default":   "overlay"
+      },
+      {
+        "type":      "select",
+        "id":        "mobile_text_alignment",
+        "label":     "Mobile Text Alignment",
+        "options": [
+          {"value": "left", "label": "Left"},
+          {"value": "center", "label": "Center"}
+        ],
+        "default":   "center"
+      },
+      {
+        "type": "header",
+        "content": "Text Box"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_text_box",
+        "label": "Enable Text Box",
+        "info": "If checked, the hero text will be contained in a box with a background color or image"
+      },
+      {
+        "type":      "select",
+        "id":        "horizontal_layout_text_box",
+        "label":     "Text Box Horizontal Layout",
+        "options": [
+          {"value": "left", "label": "Left"},
+          {"value": "right", "label": "Right"}
+        ],
+        "default":   "left"
+      },
+      {
+        "type":      "select",
+        "id":        "text_box_bg_color",
+        "label":     "Text Box Background Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-brand-primary"
+      },
+      {
+        "type": "image_picker",
+        "id": "text_box_bg_image",
+        "label": "Text Box Background Image",
+        "info": "Recommended dimensions: 828x1792"
+      },
+      {
+        "type":      "select",
+        "id":        "arrow_color",
+        "label":     "Icon Color",
+        "options": <%- uikit.fillOptions -%>,
+        "default": "fill-black"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Hero Slides",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Hero Images",
+            "info": "Please upload images here. If you would like to use a separate image in mobile, please enable that option and add the mobile image as well. If mobile image is not used, leave unpopulated. If you wish to use an overlay, configure that here."
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image",
+            "info": "Recommended size: 2880x1100"
+          },
+          {
+            "type":      "checkbox",
+            "id":        "enable_mobile_image",
+            "label":     "Enable Mobile Image",
+            "default":   false
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image_mobile",
+            "label": "Mobile Background Image",
+            "info": "Recommended size: 1000x382"
+          },
+          {
+            "type":      "checkbox",
+            "id":        "enable_overlay",
+            "label":     "Enable Overlay",
+            "default":   false
+          },
+          {
+            "type":      "select",
+            "id":        "overlay_color",
+            "label":     "Overlay Color",
+            "options": <%- uikit.backgroundOptions -%>,
+            "default": "bg-brand-primary"
+          },
+          {
+            "type": "color",
+            "id": "slide_text_box_bg_color",
+            "label": "Text Background Color",
+            "default": "#ffffff"
+          },
+          {
+            "label": "Overlay Opacity",
+            "id": "overlay_opacity",
+            "type": "range",
+            "min":       0,
+            "max":       100,
+            "step":      1,
+            "unit":      "%",
+            "default":   50
+          },
+          {
+            "type": "header",
+            "content": "Hero Text",
+            "info": "Please populate text fields here. If you do not wish to use a particular field, simply leave it blank."
+          },
+          {
+            "type": "text",
+            "id": "pre_heading",
+            "label": "Pre Heading"
+          },
+          {
+            "type":      "select",
+            "id":        "pre_heading_color",
+            "label":     "Pre Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type":      "select",
+            "id":        "heading_color",
+            "label":     "Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type": "text",
+            "id": "sub_heading",
+            "label": "Sub Heading"
+          },
+          {
+            "type":      "select",
+            "id":        "sub_heading_color",
+            "label":     "Sub Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type": "textarea",
+            "id": "body_copy",
+            "label": "Body Copy"
+          },
+          {
+            "type":      "select",
+            "id":        "body_copy_color",
+            "label":     "Body Copy Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type": "header",
+            "content": "CTA",
+            "info": "CTA config"
+          },
+          {
+            "type":      "checkbox",
+            "id":        "enable_cta",
+            "label":     "Enable CTA",
+            "default":   false
+          },
+          {
+            "type":      "select",
+            "id":        "cta_layout",
+            "label":     "CTA Style",
+            "options": <%- uikit.buttonAndLinkOptions -%>,
+            "default":   "button button--primary"
+          },
+          {
+            "type": "color",
+            "id": "cta_bg_color",
+            "label": "CTA Background Color",
+            "default": "#231A22"
+          },
+          {
+            "type": "color",
+            "id": "cta_text_color",
+            "label": "CTA Color",
+            "default": "#ffffff"
+          },
+          {
+            "id": "cta_text",
+            "type": "text",
+            "label": "CTA Text"
+          },
+          {
+            "id": "cta_url",
+            "type": "url",
+            "label": "CTA Link"
+          },
+          {
+            "type": "header",
+            "content": "Mobile Colors",
+            "info": "This is only applicable if using the 'Text Below Image' mobile layout"
+          },
+          {
+            "type":      "select",
+            "id":        "mobile_bg_color",
+            "label":     "Mobile Background Color",
+            "options": <%- uikit.backgroundOptions -%>,
+            "default": "bg-brand-primary"
+          },
+          {
+            "type":      "select",
+            "id":        "pre_heading_color_mobile",
+            "label":     "Mobile Pre Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-brand-primary"
+          },
+          {
+            "type":      "select",
+            "id":        "heading_color_mobile",
+            "label":     "Mobile Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-brand-primary"
+          },
+          {
+            "type":      "select",
+            "id":        "sub_heading_color_mobile",
+            "label":     "Mobile Sub Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-brand-primary"
+          },
+          {
+            "type":      "select",
+            "id":        "body_copy_color_mobile",
+            "label":     "Mobile Body Copy Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-brand-primary"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Carousel Banner",
+        "category": "Hero Sections"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,17 @@
+<!-- The categories are populated by a navigation named "blog-categories" -->
+{% capture category_links %}
+  {
+    "currentBlog": {{ blog.title | json }},
+    "blogs": [
+    {% for link in linklists.blog-categories.links %}
+      {
+        "blogUrl": {{ link.url | json }},
+        "blogTitle": {{ link.title | json }}
+      }
+      {%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+    ]
+  }
+{% endcapture %}
+
+<blog-category-links :category-links="{{ category_links | escape | strip }}"></blog-category-links>

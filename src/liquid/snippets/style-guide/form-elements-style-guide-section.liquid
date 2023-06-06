@@ -1,0 +1,132 @@
+<p class="body-md" style="font-weight: 800;">Closed Field Forms</p>
+<p class="body-md" >Used for form field inputs within Accounts and Contact forms.</p>
+
+<div style="display: flex; flex-direction: row; margin-top: 48px; gap: 48px">
+  <div style="width: 280px;">
+    <p class="body-md" style="font-weight: 800; margin-bottom: 48px;">Fields</p>
+    <text-input
+      id="text-input-example"
+      name="text-input-example"
+      label="Default"
+      placeholder="Placeholder"
+    ></text-input>
+    <text-input
+      id="disabled-text-input-example"
+      name="disabled-text-input-example"
+      label="Disabled"
+      placeholder="Placeholder"
+      disabled
+      value="Placeholder"
+    ></text-input>
+  </div>
+  <div style="width: 280px;">
+    <p class="body-md" style="font-weight: 800; margin-bottom: 48px;">Text Area</p>
+    <text-area-input label="Text Area" placeholder="Placeholder"></text-area-input>
+  </div>
+  <div style="width: 314px;">
+    <p class="body-md" style="font-weight: 800; margin-bottom: 48px;">Select</p>
+    <p class="body-sm" style="font-size: 12px;">Select Input</p>
+    <select-input
+      name="select-example"
+      :options="[{value: 'List item 02', label: 'List item'}, {value: 'List item 02', label: 'List item', disabled: true }, {value: 'List item 03', label: 'List item'}]"
+      placeholder="Select an Option"
+    ></select-input>
+  </div>
+</div>
+
+<p class="body-md" style="font-weight: 800;">Closed Field Forms</p>
+<p class="body-md" >Used for form field inputs within Accounts and Contact forms.</p>
+
+<div style="display: flex; flex-direction: row; margin-top: 48px; gap: 48px">
+  <div style="width: 280px;">
+    <p class="body-md" style="font-weight: 800; margin-bottom: 48px;">Email Capture</p>
+
+    <div class="footer-email-collection__form">
+      <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="newsletter-form">
+        <input type="hidden" name="form_type" value="customer">
+        <input type="hidden" name="utf8" value="✓">
+        <div id="footerNewsletterSmallId" class="newsletter-form-inner-container ">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input aria-labelledby="footerNewsletterSmallId" type="email" name="contact[email]" placeholder="Your Email Address" autocorrect="off" autocapitalize="off" value="" class="  newsletter-input">
+          <button type="submit" name="commit" id="Subscribe" class=" newsletter-submit-container ">
+            <span class="newsletter-submit-text">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="9">
+                <g fill="none" fill-rule="evenodd">
+                  <path fill="none" d="M-9-16h40v40H-9z">
+                  </path>
+                  <path fill-rule="nonzero" d="M19.06.3l4.56 3.99-4.56 3.99-.66-.76 3.2-2.8H.27v-1h21.18L18.4 1.05l.66-.76z" class="newsletter-arrow-fill"></path>
+                </g>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<h2>Checkbox</h2>
+<div>
+  <input type="checkbox" class="input--checkbox" id="check1">
+  <label for="check1">Label</label>
+</div>
+<div>
+  <input type="checkbox"  class="input--checkbox" id="check2" checked>
+  <label for="check2">Selected</label>
+</div>
+<div>
+  <input type="checkbox" class="input--checkbox" id="check3" disabled="disabled">
+  <label for="check3">Disabled</label>
+</div>
+<div>
+  <input type="checkbox" class="input--checkbox" id="check4" disabled="disabled" checked>
+  <label for="check4">Disabled Selected</label>
+</div>
+
+</br>
+<h2>Toggle</h2>
+<div>
+  <input type="checkbox" class="input--toggle" id="toggle1">
+  <label for="toggle1">Toggle</label>
+</div>
+<div>
+  <input type="checkbox" class="input--toggle" id="toggle2" checked>
+  <label for="toggle2">Toggle Selected</label>
+</div>
+<div>
+  <input type="checkbox" class="input--toggle" id="toggle3" disabled="disabled">
+  <label for="toggle3">Toggle Disabled</label>
+</div>
+<div>
+  <input type="checkbox" class="input--toggle" id="toggle4" checked disabled="disabled">
+  <label for="toggle4">Toggle Disabled Selected</label>
+</div>
+
+</br>
+<h2>Radio</h2>
+<div>
+  <input type="radio" name="t" id="radio1">
+  <label for="radio1" >Default</label>
+</div>
+<div>
+  <input type="radio" name="t" id="radio2" checked>
+  <label for="radio2" >Selected</label>
+</div>
+<div>
+  <input type="radio" name="f" id="radio3" disabled>
+  <label for="radio3" >Disabled</label>
+</div>
+<div>
+  <input type="radio" name="f" id="radio4" disabled checked>
+  <label for="radio4" >Disabled Selected</label>
+</div>
+
+</br>
+<h2>Tooltips</h2>
+<br>
+<div style="max-width: 375px; margin: 0 auto;">
+<span v-tooltip.top="'Text is Centered'">Tooltip top</span>
+<br>
+<span v-tooltip.bottom="'Text is Centered'">Tooltip bottom</span>
+<br>
+</div>

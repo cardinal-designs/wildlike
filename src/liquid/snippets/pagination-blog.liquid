@@ -1,0 +1,53 @@
+
+<ul class="pagination u-list-inline">
+  <li class="pagination__item pagination__item--prev">
+    <a
+      href="{{ paginate.previous.url }}" 
+      label="Previous Page" 
+      {% unless paginate.previous %}:disabled="true" class="disabled"{% endunless %}>
+      {% unless paginate.previous %}
+        <icon class="icon--chevron-left-disable" name="chevron-left" size="12px"></icon>
+      {% else %}
+        <icon name="chevron-left" size="12px"></icon>
+      {% endunless %}
+    </a>
+  </li>
+
+  {%- for part in paginate.parts -%}
+
+    {% if part.title == paginate.current_page %}
+      <li class="pagination__item pagination__li-first">
+        {%- if part.is_link -%}
+          <a href="{{ part.url }}" class="pagination__link">
+            <span class="u-sr-only">page</span> <span class="pagination__link-text">Page</span> {{ part.title }}
+          </a>
+        {%- else -%}
+          <span class="pagination__link {% if part.title == paginate.current_page %}pagination__link--active{% endif %}">
+            <span class="u-sr-only">page</span> <span class="pagination__link-text">Page</span> {{ part.title }}
+          </span>
+        {%- endif -%}
+        </li>
+      {% elsif forloop.last %}
+        <li class="pagination__item pagination__li-last">
+          {%- if part.is_link -%}
+            <a href="{{ part.url }}" class="pagination__link">
+              <span class="u-sr-only">page</span> {{ part.title }}
+            </a>
+          {%- endif -%}
+        </li>
+    {%- endif -%}
+  {%- endfor -%}
+
+  <li class="pagination__item pagination__item--next">
+    <a
+      href="{{ paginate.next.url }}" 
+      label="Next Page" 
+      {% unless paginate.next %}:disabled="true" class="disabled"{% endunless %}>
+      {% unless paginate.next %}
+        <icon class="icon--chevron-disable" name="chevron-right" size="12px"></icon>
+      {% else %}
+        <icon name="chevron-right" size="12px"></icon>
+      {% endunless %}
+    </a>
+  </li>
+</ul>

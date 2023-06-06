@@ -1,0 +1,48 @@
+{% comment %}
+  is_wide: boolean to use wide format; if false will use small format,
+  placeholder_text: text to use for placeholder; defaults to "Email",
+  cta_text: text to use for cta; defaults to "Submit",
+  cta_success_text: text use for cta when successful; defaults to cta_text,
+  cta_class: clases to add to cta,
+  email_border_color: border color for email,
+  text_color: text color class to add to email collection,
+  placeholder_color: color of email placeholder
+{% endcomment %}
+
+{% unless placeholder_text %}
+  {% assign placeholder_text = 'Email' %}
+{% endunless %}
+
+{% unless cta_text %}
+  {% assign cta_text = 'Submit' %}
+{% endunless %}
+
+{% unless cta_success_text %}
+  {% assign cta_success_text = cta_text %}
+{% endunless %}
+
+{% unless cta_class %}
+  {% assign cta_class = '' %}
+{% endunless %}
+
+{% form 'customer', class: "newsletter-form" %}
+  <div class="newsletter-form-inner-container {{ email_border_color }}{% if form.posted_successfully? %} newsletter-form-inner-container--success{% endif %}{% if form.errors != blank %} newsletter-form-inner-container--error{% endif %}" id="{% if is_wide %}footerNewsletterWideId{% else %}footerNewsletterSmallId{% endif %}">
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <input aria-labelledby="{% if is_wide %}footerNewsletterWideId{% else %}footerNewsletterSmallId{% endif %}" type="email"
+      name="contact[email]"
+      placeholder="{{ placeholder_text }}"
+      autocorrect="off"
+      autocapitalize="off"
+      class="{{ text_color }} {{ placeholder_color }} {% if is_wide %}newsletter-wide-input{% else %}newsletter-input{% endif %}"
+      {% if form.posted_successfully? %}
+        value="{{ settings.confirmation_blurb }}"
+        readonly
+      {% else %}
+        value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
+      {% endif %}>
+    <button type="{% if form.posted_successfully? %}button{% else %}submit{% endif %}" name="commit" id="Subscribe" class="{{ text_color }} {% if is_wide %}newsletter__wide-submit-container{% else %}newsletter-submit-container{% endif %} {{ cta_class }}">
+      <span class="newsletter-submit-text">{% if form.posted_successfully? %}{{ cta_success_text }}{% else %}{{ cta_text }}{% endif %}</span>
+    </button>
+  </div>
+  {{ form.errors | default_errors }}
+{% endform %}

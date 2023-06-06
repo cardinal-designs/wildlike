@@ -1,0 +1,67 @@
+{% if section.blocks.size > 2 %}
+  {% capture schema %}
+    {
+      "settings": {
+        "backgroundColor": {{ section.settings.background_color | json }},
+      },
+      "blocks": [
+        {% for block in section.blocks %}
+          {
+            "id": {{ block.id | json }},
+            "type": {{ block.type | json }},
+            "settings": {{ block.settings | json }}
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+  {% endcapture %}
+  <footer-value-props
+    :schema="{{ schema | escape | strip }}"
+  ><footer-value-props>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Wildlike Values",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "header",
+        "content": "Value Propositions"
+      },
+      {
+        "type": "paragraph",
+        "content": "You must add at least 2 value props for the section to display. This is an optional section. Just leave the fields blank if you choose not to display the section"
+      },
+      {
+        "type": "header",
+        "content": "Background Color",
+        "info": "Pick a background color for the Value Propositions Section. The default value is #F7F6F2."
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#F7F6F2"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "value_prop",
+        "name": "Value Prop",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

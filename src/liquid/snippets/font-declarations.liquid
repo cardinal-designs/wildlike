@@ -1,0 +1,65 @@
+<style>
+{% comment %} Need .woff & .woff2 files for performance. {% endcomment %}
+  @font-face {
+    font-family: "Lunchbox";
+    font-weight: 400;
+    font-style: normal;
+    src: url("{{ 'LunchboxRegular.otf' | asset_url }}") format("opentype");
+  }
+  {% comment %} Need .woff & .woff2 files for performance. {% endcomment %}
+  @font-face {
+    font-family: "Lunchbox";
+    font-weight: 300;
+    font-style: normal;
+    src: url("{{ 'LunchboxRegularLight.otf' | asset_url }}") format("opentype");
+  }
+  {% comment %} Temporary. Will use typekit once client provides it. {% endcomment %}
+  @font-face {
+    font-family: "Brandon-Grotesque";
+    font-weight: 700;
+    font-style: normal;
+    src: url("{{ 'BrandonGrotesqueBold.ttf' | asset_url }}") format("truetype");
+  }
+  {% comment %} Temporary. Will use typekit once client provides it. {% endcomment %}
+  @font-face {
+    font-family: "Brandon-Grotesque";
+    font-weight: 500;
+    font-style: normal;
+    src: url("{{ 'BrandonGrotesqueMedium.ttf' | asset_url }}") format("truetype");
+  }
+  {% comment %} Temporary. Will use typekit once client provides it. {% endcomment %}
+  @font-face {
+    font-family: "Brandon-Grotesque";
+    font-weight: 400;
+    font-style: normal;
+    src: url("{{ 'BrandonGrotesqueRegular.ttf' | asset_url }}") format("truetype");
+  }
+  {% comment %} Need .woff & .woff2 files for performance. {% endcomment %}
+  @font-face {
+    font-family: "Marisa";
+    font-weight: 300;
+    font-style: normal;
+    src: url("{{ 'Marisa-Light.otf' | asset_url }}") format("opentype");
+  }
+  {% comment %} Need .woff & .woff2 files for performance. {% endcomment %}
+  @font-face {
+    font-family: "Marisa";
+    font-weight: 400;
+    font-style: normal;
+    src: url("{{ 'Marisa.otf' | asset_url }}") format("opentype");
+  }
+  {% comment %} Need .woff & .woff2 files for performance. {% endcomment %}
+  @font-face {
+    font-family: "Marisa";
+    font-weight: 500;
+    font-style: normal;
+    src: url("{{ 'Marisa-Medium.otf' | asset_url }}") format("opentype");
+  }
+  {% comment %} Need .woff & .woff2 files for performance. {% endcomment %}
+  @font-face {
+    font-family: "Marisa";
+    font-weight: 700;
+    font-style: normal;
+    src: url("{{ 'Marisa-Bold.otf' | asset_url }}") format("opentype");
+  }
+</style>

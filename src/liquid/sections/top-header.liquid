@@ -1,0 +1,70 @@
+{% capture promo_data %}
+  {
+    "color": {{ section.settings.promo_text_color | json }},
+    "background": {{ section.settings.promo_backgroind  | json }},
+    "arrows": {{ section.settings.slider_arrows | json }},
+    "speed": {{ section.settings.speed_autoplay | json }},
+    "slides": [
+      {% for promo in section.blocks %}
+        {
+          "promocontent": {{ promo.settings.promo_content | json }},
+          "promolink": {{ promo.settings.promo_content_link | json }}
+        }
+        {%- unless forloop.last -%},{%- endunless -%}
+      {% endfor %}
+    ]
+  }
+{% endcapture %}
+
+<promobar-carousel ref="promoCarousel" :promos="{{ promo_data  | escape | strip_newlines }}"></promobar-carousel>
+
+{% schema %}
+  {
+    "name": "Promo Bar",
+    "settings": [
+      {
+        "type": "color",
+        "label": "Promo Background",
+        "id": "promo_backgroind"
+      },
+      {
+        "type": "color",
+        "label": "Text Color",
+        "id": "promo_text_color"
+      },
+      {
+        "type": "range",
+        "label": "Autoplay Carousel Speed",
+        "max": 10,
+        "min": 3,
+        "step": 1,
+        "default": 5,
+        "id": "speed_autoplay"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Arrows",
+        "id": "slider_arrows",
+        "default": false
+      }
+    ],
+    "blocks": [
+      {
+        "type": "promo",
+        "name": "Promo Carousel",
+        "settings": [
+          {
+            "id": "promo_content",
+            "type": "text",
+            "label": "Promo Content"
+          },
+          {
+            "id": "promo_content_link",
+            "type": "url",
+            "label": "Promo Content Link"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

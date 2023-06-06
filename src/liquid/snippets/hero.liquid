@@ -1,0 +1,107 @@
+{% include 'hero-image-urls' with {
+  should_manually_build_urls: should_manually_build_urls,
+  desktop_image: desktop_image,
+  mobile_image: mobile_image
+} %}
+
+{% assign heroMobileClass = "" %}
+
+{% assign heroMobileClass = "hero--mobile-below" %}
+
+<!-- In the case there is a banner -->
+{% if desktop_image != blank %}
+  <div class="hero hero--{{ text_align | default: 'center' | downcase }} {{ heroMobileClass }}">
+    <picture class="hero__picture">
+      <source
+        srcset="{{ desktop_image_url_a_1x }} 1x,
+                {{ desktop_image_url_a_2x }} 2x"
+        media="(min-width: 2304px)"
+      >
+      <source
+        srcset="{{ desktop_image_url_b_1x }} 1x,
+                {{ desktop_image_url_b_2x }} 2x"
+        media="(min-width: 2160px)"
+      >
+      <source
+        srcset="{{ desktop_image_url_c_1x }} 1x,
+                {{ desktop_image_url_c_2x }} 2x"
+        media="(min-width: 1920px)"
+      >
+      <source
+        srcset="{{ desktop_image_url_d_1x }} 1x,
+                {{ desktop_image_url_d_2x }} 2x"
+        media="(min-width: 1440px)"
+      >
+      <source
+        srcset="{{ desktop_image_url_e_1x }} 1x,
+                {{ desktop_image_url_e_2x }} 2x"
+        media="(min-width: 1200px)"
+      >
+      <source
+        srcset="{{ desktop_image_url_f_1x }} 1x,
+                {{ desktop_image_url_f_2x }} 2x"
+        media="(min-width: 1024px)"
+      >
+      <source
+        srcset="{{ desktop_image_url_g_1x }} 1x,
+                {{ desktop_image_url_g_2x }} 2x"
+        media="(min-width: 768px)"
+      >
+      <source
+        srcset="{{ desktop_image_url_h_1x }} 1x,
+                {{ desktop_image_url_h_2x }} 2x"
+        media="(min-width: 480px)"
+      >
+      <source
+        srcset="{{ desktop_image_url_h_1x }} 1x,
+                {{ desktop_image_url_h_2x }} 2x"
+      >
+      <img
+        srcset="{{ desktop_image_url_a_1x }} 1x,
+                {{ desktop_image_url_a_2x }} 2x"
+        src="{{ desktop_image_url_a_1x }}"
+        class="hero__image"
+      />
+    </picture>
+    {%- liquid
+      if overlay_opacity != blank
+        assign overlay_size = overlay_opacity | strip | size
+        if overlay_size == 3
+          assign opacity = '1'
+        elsif overlay_size < 2
+          assign opacity = '0.0' | append: overlay_opacity
+        else
+          assign opacity = '0.' | append: overlay_opacity
+        endif
+      endif
+    -%}
+    
+    <div class="hero__opacity-overlay hero__opacity-overlay--dark"
+    style="opacity: 0.2"></div>
+
+    <div class="hero__copy-content-container">
+      <div class="hero__copy-content hero__copy-content--light-text">
+        {% unless header == blank %}
+          <h1 class="hero__header h1">{{ header }}</h2>
+        {% endunless %}
+        {% unless subheader == blank %}
+          <p class="hero__subheader subheader body-lg">{{ subheader }}</h5>
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+<!-- In the case there is NO banner -->
+{% else %}
+  <div class="hero hero-no-banner hero--{{ text_align | default: 'center' | downcase }} {{ heroMobileClass }}">
+    <div class="hero__copy-content-container">
+      <div class="hero__copy-content hero__copy-content--dark-text">
+        {% unless header == blank %}
+          <h1 class="hero__header h1">{{ header }}</h2>
+        {% endunless %}
+        {% unless subheader == blank %}
+          <p class="hero__subheader subheader body-lg">{{ subheader }}</h5>
+        {% endunless %}
+      </div>
+    </div>
+  </div>
+{% endif %}

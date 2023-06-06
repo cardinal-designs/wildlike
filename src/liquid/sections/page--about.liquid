@@ -1,0 +1,1064 @@
+{%- capture about_blocks -%}
+  [
+    {%- for block in section.blocks -%}
+      {
+        "type": "{{ block.type }}",
+
+        {%- case block.type -%}
+          {% when 'video' %}
+            "preheader": {{ block.settings.preheader | json }},
+            "header": {{ block.settings.header | json }},
+            "body_copy": {{ block.settings.body_copy | json }},
+            "video_id": {{ block.settings.video_id | json }},
+            "cta_title": {{ block.settings.cta_title | json }},
+            "cta_link": {{ block.settings.cta_link | json }},
+            "cta_layout": {{ block.settings.cta_layout | json }},
+            "section_bg_color": {{ block.settings.section_bg_color | json }},
+            "pre_heading_color": {{ block.settings.pre_heading_color | json }},
+            "heading_color": {{ block.settings.heading_color | json }},
+            "body_copy_color": {{ block.settings.body_copy_color | json }}
+          {% when 'image_banner' %}
+            "image": "{{ block.settings.background_image | img_url: '2000x' }}",
+            "imageMobile": "{{ block.settings.background_image_mobile  | img_url: '1000x' }}",
+            "imageMobileEnable": {{ block.settings.enable_mobile_image }},
+            "overlayEnable": {{ block.settings.enable_overlay }},
+            "overlayColor": {{ block.settings.overlay_color | json }},
+            "overlayOpacity": {{ block.settings.overlay_opacity }},
+            "heading": {{ block.settings.header | json }},
+            "headingColor": {{ block.settings.heading_color | json }},
+            "subHeading": {{ block.settings.subheader | json }},
+            "subHeadingColor": {{ block.settings.sub_heading_color | json }},
+            "copy": {{ block.settings.body_copy | json }},
+            "copyColor": {{ block.settings.body_copy_color | json }},
+            "layoutHorizontal": {{ block.settings.horizontal_layout | json }},
+            "layoutVertical": {{ block.settings.vertical_layout | json }},
+            "mobileBgColor": {{ block.settings.section_bg_color | json }},
+            "enableCta": {{ block.settings.enable_cta }},
+            "ctaLayout": {{ block.settings.cta_layout | json }},
+            "ctaColor": {{ block.settings.cta_color | json }},
+            "ctaText": {{ block.settings.cta_title | json }},
+            "ctaUrl": "{{ block.settings.cta_link }}"
+          {% when 'three_column' %}
+            "header": {{ block.settings.header | json }},
+            "subheader": {{ block.settings.subheader | json }},
+            "desktop_layout": {{ block.settings.desktop_layout | json }},
+            "layoutHorizontal": {{ block.settings.horizontal_layout | json }},
+            "section_bg_color": {{ block.settings.section_bg_color | json }},
+            "section_heading_color": {{ block.settings.section_heading_color | json }},
+            "section_sub_heading_color": {{ block.settings.section_sub_heading_color | json }},
+            "block_heading_color": {{ block.settings.block_heading_color | json }},
+            "block_text_color": {{ block.settings.block_text_color | json }},
+            "cta_layout": {{ block.settings.cta_layout | json }},
+            "block_image_1": {{ block.settings.block_image_1 | json }},
+            "block_text_1": {{ block.settings.block_text_1 | json }},
+            "block_body_copy_1": {{ block.settings.block_body_copy_1 | json }},
+            "block_cta_title_1": {{ block.settings.block_cta_title_1 | json }},
+            "block_cta_link_1": {{ block.settings.block_cta_link_1 | json }},
+            "block_image_2": {{ block.settings.block_image_2 | json }},
+            "block_text_2": {{ block.settings.block_text_2 | json }},
+            "block_body_copy_2": {{ block.settings.block_body_copy_2 | json }},
+            "block_cta_title_2": {{ block.settings.block_cta_title_2 | json }},
+            "block_cta_link_2": {{ block.settings.block_cta_link_2 | json }},
+            "block_image_3": {{ block.settings.block_image_3 | json }},
+            "block_text_3": {{ block.settings.block_text_3 | json }},
+            "block_body_copy_3": {{ block.settings.block_body_copy_3 | json }},
+            "block_cta_title_3": {{ block.settings.block_cta_title_3 | json }},
+            "block_cta_link_3": {{ block.settings.block_cta_link_3 | json }}
+          {% when 'text_only' %}
+            "layoutHorizontal": {{ block.settings.horizontal_layout | json }},
+            "layoutVertical": {{ block.settings.vertical_layout | json }},
+            "bgColor": {{ block.settings.bg_color | json }},
+            "image": "{%- if block.settings.background_image != null -%}{{ block.settings.background_image | img_url: '2000x' }}{%- endif -%}",
+            "imageMobile": "{{ block.settings.background_image_mobile  | img_url: '1000x' }}",
+            "imageMobileEnable": {{ block.settings.enable_mobile_image }},
+            "overlayEnable": {{ block.settings.enable_overlay }},
+            "overlayColor": {{ block.settings.overlay_color | json }},
+            "overlayOpacity": {{ block.settings.overlay_opacity }},
+            "preHeading": {{ block.settings.pre_heading | json }},
+            "preHeadingColor": {{ block.settings.pre_heading_color | json }},
+            "heading": {{ block.settings.heading | json }},
+            "headingColor": {{ block.settings.heading_color | json }},
+            "subHeading": {{ block.settings.sub_heading | json }},
+            "subHeadingColor": {{ block.settings.sub_heading_color | json }},
+            "copy": {{ block.settings.body_copy | json }},
+            "copyColor": {{ block.settings.body_copy_color | json }},
+            "enableCta": {{ block.settings.enable_cta }},
+            "ctaLayout": {{ block.settings.cta_layout | json }},
+            "ctaColor": {{ block.settings.cta_color | json }},
+            "ctaText": {{ block.settings.cta_text | json }},
+            "ctaUrl": "{{ block.settings.cta_url }}",
+            "textLayout": {{ block.settings.text_layout | json }}
+          {% when 'fifty_fifty' %}
+            "settings": {
+              "layout": {{ block.settings.ff_layout | json }},
+              "imageDesktop": {{ block.settings.ff_image_desktop | json }},
+              "imageMobile": {{ block.settings.ff_image_mobile | json }},
+              "imageWidth": {{ block.settings.ff_image_width | json }},
+              "preheader": {{ block.settings.ff_preheader | json }},
+              "header": {{ block.settings.ff_header | json }},
+              "subheader": {{ block.settings.ff_subheader | json }},
+              "body": {{ block.settings.ff_body | json }},
+              "textAlignment": {{ block.settings.ff_text_alignment | json }},
+              "backgroundColor": {{ block.settings.ff_background_color | json }},
+              "preheaderColor": {{ block.settings.ff_preheader_color | json }},
+              "headerColor": {{ block.settings.ff_header_color | json }},
+              "subheaderColor": {{ block.settings.ff_subheader_color | json }},
+              "bodyColor": {{ block.settings.ff_body_color | json }},
+              "ctaText": {{ block.settings.ff_cta_text | json }},
+              "ctaUrl": {{ block.settings.ff_cta_url | json }},
+              "ctaStyle": {{ block.settings.ff_cta_style | json }}
+            }
+          {% when 'press' %}
+            "settings": {
+              "sectionHeader": {{ block.settings.itp_section_header | json }},
+              "sectionHeaderColor": {{ block.settings.itp_header_color | json }},
+              "backgroundColor": {{ block.settings.itp_background_color | json }}
+            },
+            "blocks": [
+              {
+                "settings": {
+                  "itp_logo": {{ block.settings.itp_logo_1 | json }},
+                  "itp_url": {{ block.settings.itp_url_1 | json }},
+                  "itp_link_target": {{ block.settings.itp_url_target_1 | json }}
+                }
+              },
+              {
+                "settings": {
+                  "itp_logo": {{ block.settings.itp_logo_2 | json }},
+                  "itp_url": {{ block.settings.itp_url_2 | json }},
+                  "itp_link_target": {{ block.settings.itp_url_target_2 | json }}
+                }
+              },
+              {
+                "settings": {
+                  "itp_logo": {{ block.settings.itp_logo_3 | json }},
+                  "itp_url": {{ block.settings.itp_url_3 | json }},
+                  "itp_link_target": {{ block.settings.itp_url_target_3 | json }}
+                }
+              },
+              {
+                "settings": {
+                  "itp_logo": {{ block.settings.itp_logo_4 | json }},
+                  "itp_url": {{ block.settings.itp_url_4 | json }},
+                  "itp_link_target": {{ block.settings.itp_url_target_4 | json }}
+                }
+              }
+            ]
+          {% when 'scrolling_text' %}
+            "settings": {
+              "title": {{ block.settings.title | json }},
+              "content": {{ block.settings.content | json }},
+              "image": {{ block.settings.image | img_url: '735x' | strip | json }},
+              "imageMobile": {{ block.settings.image | img_url: '500x' | strip | json }},
+              "imageAlt": {{ block.settings.image.alt | strip | json }},
+              "group": {{ block.settings.text_group | handleize | strip | json }}
+            }
+          {%- endcase -%}
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+{%- endcapture -%}
+
+<about
+  :blocks="{{ about_blocks | escape }}"
+  >
+</about>
+
+{% schema %}
+  {
+    "name": "About Page",
+    "blocks": [
+      {
+      "type": "video",
+      "name": "Video Section",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Text Content",
+            "info": "All text fields are optional."
+          },
+          {
+              "type":"text",
+              "id":"preheader",
+              "label":"Preheader"
+          },
+          {
+              "type":"text",
+              "id":"header",
+              "label":"Header"
+          },
+          {
+              "type":"textarea",
+              "id":"body_copy",
+              "label":"Body Copy"
+          },
+          {
+            "type": "header",
+            "content": "Video",
+            "info": "Upload your video to Youtube. Paste the ID after 'embed/'"
+          },
+          {
+            "type":"text",
+            "id":"video_id",
+            "label":"Youtube Video",
+            "info": "Example: Wy9q22isx3U"
+          },
+          {
+            "type": "header",
+            "content": "CTA",
+            "info": "An optional CTA displays below the video."
+          },
+          {
+            "type":"text",
+            "id":"cta_title",
+            "label":"CTA Text"
+          },
+          {
+            "type":"url",
+            "id":"cta_link",
+            "label":"CTA URL"
+          },
+          {
+            "type":      "select",
+            "id":        "cta_layout",
+            "label":     "CTA Style",
+            "options": <%- uikit.buttonAndLinkOptions -%>,
+            "default":   "button button--primary"
+          },
+          {
+            "type": "header",
+            "content": "Colors"
+          },
+          {
+            "type":      "select",
+            "id":        "section_bg_color",
+            "label":     "Section Background Color",
+            "options": <%- uikit.backgroundOptions -%>,
+            "default": "bg-brand-primary"
+          },
+          {
+            "type":      "select",
+            "id":        "pre_heading_color",
+            "label":     "Preheader Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type":      "select",
+            "id":        "heading_color",
+            "label":     "Header Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type":      "select",
+            "id":        "body_copy_color",
+            "label":     "Body Copy Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          }
+        ]
+      },
+      {
+      "type": "image_banner",
+      "name": "Hero Banner",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Banner Image",
+            "info": "Please upload images here. If you would like to use a separate image in mobile, please enable that option and add the mobile image as well. If mobile image is not used, leave unpopulated. If you wish to use an overlay, configure that here."
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image",
+            "info": "Recommended size: 2880x896"
+          },
+          {
+            "type":      "checkbox",
+            "id":        "enable_mobile_image",
+            "label":     "Enable Mobile Image",
+            "default":   false
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image_mobile",
+            "label": "Mobile Background Image",
+            "info": "Recommended size: 1000x382"
+          },
+          {
+            "type": "header",
+            "content": "Banner Image Overlay"
+          },
+          {
+            "type":      "checkbox",
+            "id":        "enable_overlay",
+            "label":     "Enable Overlay",
+            "default":   false
+          },
+          {
+            "type":      "select",
+            "id":        "overlay_color",
+            "label":     "Overlay Color",
+            "options": <%- uikit.backgroundOptions -%>,
+            "default": "bg-brand-primary"
+          },
+          {
+            "label": "Overlay Opacity",
+            "id": "overlay_opacity",
+            "type": "range",
+            "min":       0,
+            "max":       100,
+            "step":      1,
+            "unit":      "%",
+            "default":   50
+          },
+          {
+            "type": "header",
+            "content": "Text"
+          },
+          {
+              "type":"text",
+              "id":"header",
+              "label":"Header"
+          },
+          {
+              "type":"text",
+              "id":"subheader",
+              "label":"Subheader"
+          },
+          {
+              "type":"textarea",
+              "id":"body_copy",
+              "label":"Body Copy"
+          },
+          {
+            "type": "header",
+            "content": "Text Alignment",
+            "info": "Choose both a horizontal and vertical layout for your hero."
+          },
+          {
+            "type":      "select",
+            "id":        "horizontal_layout",
+            "label":     "Horizontal Layout",
+            "options": [
+              {"value": "left", "label": "Left"},
+              {"value": "center", "label": "Center"},
+              {"value": "right", "label": "Right" }
+            ],
+            "default":   "left"
+          },
+          {
+            "type":      "select",
+            "id":        "vertical_layout",
+            "label":     "Vertical Layout",
+            "options": [
+              {"value": "top", "label": "Top"},
+              {"value": "middle", "label": "Middle"},
+              {"value": "bottom", "label": "Bottom" }
+            ],
+            "default":   "top"
+          },
+          {
+            "type": "header",
+            "content": "CTA"
+          },
+          {
+            "type":      "checkbox",
+            "id":        "enable_cta",
+            "label":     "Enable CTA",
+            "default":   false
+          },
+          {
+            "type":"text",
+            "id":"cta_title",
+            "label":"CTA Text"
+          },
+          {
+            "type":"url",
+            "id":"cta_link",
+            "label":"CTA URL"
+          },
+          {
+            "type":      "select",
+            "id":        "cta_layout",
+            "label":     "CTA Style",
+            "options": <%- uikit.buttonAndLinkOptions -%>,
+            "default":   "button button--primary"
+          },
+          {
+            "type": "header",
+            "content": "Colors"
+          },
+          {
+            "type":      "select",
+            "id":        "section_bg_color",
+            "label":     "Section Background Color",
+            "info":       "Displays on Mobile",
+            "options": <%- uikit.backgroundOptions -%>,
+            "default": "bg-brand-primary"
+          },
+          {
+            "type":      "select",
+            "id":        "mobile_text_color",
+            "label":     "Mobile Text Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type":      "select",
+            "id":        "heading_color",
+            "label":     "Header Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+                    {
+            "type":      "select",
+            "id":        "sub_heading_color",
+            "label":     "Subheader Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type":      "select",
+            "id":        "body_copy_color",
+            "label":     "Body Copy Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          }
+        ]
+      },
+      {
+      "type": "three_column",
+      "name": "3 Column Section",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Section Text"
+          },
+          {
+              "type":"text",
+              "id":"header",
+              "label":"Header"
+          },
+          {
+              "type":"text",
+              "id":"subheader",
+              "label":"Subheader"
+          },
+          {
+            "type": "header",
+            "content": "Desktop Layout",
+            "info": "Stacked means all parts of the blocks are stacked on top of eachother, Left Aligned means the image is on the left, with text on the right for each block."
+          },
+          {
+            "type":      "select",
+            "id":        "desktop_layout",
+            "label":     "Layout",
+            "options": [
+              {"label": "Stacked", "value": "stacked"},
+              {"label": "Left Aligned", "value": "left-aligned"}
+            ],
+            "default": "stacked"
+          },
+          {
+            "type": "header",
+            "content": "Block Text Alignment",
+            "info": "This only applies to the “Stacked” layout."
+          },
+          {
+            "type":      "select",
+            "id":        "horizontal_layout",
+            "label":     "Text Alignment",
+            "options": [
+              {"value": "left", "label": "Left"},
+              {"value": "center", "label": "Centered"}
+            ],
+            "default":   "left"
+          },
+          {
+            "type": "header",
+            "content": "Colors"
+          },
+          {
+            "type":      "select",
+            "id":        "section_bg_color",
+            "label":     "Section Background Color",
+            "options": <%- uikit.backgroundOptions -%>,
+            "default": "bg-brand-primary"
+          },
+          {
+            "type":      "select",
+            "id":        "section_heading_color",
+            "label":     "Section Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type":      "select",
+            "id":        "section_sub_heading_color",
+            "label":     "Section Subheading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type":      "select",
+            "id":        "block_heading_color",
+            "label":     "Block Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type":      "select",
+            "id":        "block_text_color",
+            "label":     "Block Text Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type":      "select",
+            "id":        "cta_layout",
+            "label":     "CTA Style",
+            "options": <%- uikit.buttonAndLinkOptions -%>,
+            "default":   "button button--primary"
+          },
+          {
+            "type": "header",
+            "content": "Block 1"
+          },
+          {
+            "type": "image_picker",
+            "id": "block_image_1",
+            "label": "Image",
+            "info": "Recommended size: 384x384"
+          },
+          {
+              "type":"text",
+              "id":"block_text_1",
+              "label":"Header"
+          },
+          {
+              "type":"textarea",
+              "id":"block_body_copy_1",
+              "label":"Body Copy"
+          },
+          {
+            "type":"text",
+            "id":"block_cta_title_1",
+            "label":"CTA Text"
+          },
+          {
+            "type":"url",
+            "id":"block_cta_link_1",
+            "label":"CTA URL"
+          },
+          {
+            "type": "header",
+            "content": "Block 2"
+          },
+          {
+            "type": "image_picker",
+            "id": "block_image_2",
+            "label": "Image",
+            "info": "Recommended size: 384x384"
+          },
+          {
+              "type":"text",
+              "id":"block_text_2",
+              "label":"Header"
+          },
+          {
+              "type":"textarea",
+              "id":"block_body_copy_2",
+              "label":"Body Copy"
+          },
+          {
+            "type":"text",
+            "id":"block_cta_title_2",
+            "label":"CTA Text"
+          },
+          {
+            "type":"url",
+            "id":"block_cta_link_2",
+            "label":"CTA URL"
+          },
+          {
+            "type": "header",
+            "content": "Block 3"
+          },
+          {
+            "type": "image_picker",
+            "id": "block_image_3",
+            "label": "Image",
+            "info": "Recommended size: 384x384"
+          },
+          {
+              "type":"text",
+              "id":"block_text_3",
+              "label":"Header"
+          },
+          {
+              "type":"textarea",
+              "id":"block_body_copy_3",
+              "label":"Body Copy"
+          },
+          {
+            "type":"text",
+            "id":"block_cta_title_3",
+            "label":"CTA Text"
+          },
+          {
+            "type":"url",
+            "id":"block_cta_link_3",
+            "label":"CTA URL"
+          }
+        ]
+      },
+      {
+      "type": "text_only",
+      "name": "Text Section",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Layout",
+            "info": "Choose both a horizontal and vertical layout for your text.  Also, choose a background color for the section. If you add a background image, this color will only display on mobile."
+          },
+          {
+            "type":      "select",
+            "id":        "horizontal_layout",
+            "label":     "Horizontal Layout",
+            "options": [
+              {"value": "left", "label": "Left"},
+              {"value": "center", "label": "Center"},
+              {"value": "right", "label": "Right"}
+            ],
+            "default":   "left"
+          },
+          {
+            "type":      "select",
+            "id":        "vertical_layout",
+            "label":     "Vertical Layout",
+            "options": [
+              {"value": "top", "label": "Top"},
+              {"value": "middle", "label": "Middle"},
+              {"value": "bottom", "label": "Bottom"}
+            ],
+            "default":   "top"
+          },
+          {
+            "type":      "select",
+            "id":        "text_layout",
+            "label":     "Text Layout",
+            "options": [
+              {"value": "one_column", "label": "One Column"},
+              {"value": "two_column", "label": "Two Column"}
+            ],
+            "default":   "one_column"
+          },
+          {
+            "type":      "select",
+            "id":        "bg_color",
+            "label":     "Background Color",
+            "options": <%- uikit.backgroundOptions -%>,
+            "default": "bg-brand-primary"
+          },
+          {
+            "type": "header",
+            "content": "Background Images (Optional)",
+            "info": "Optional images here. If you would like to use a separate image in mobile, please enable that option and add the mobile image as well. If mobile image is not used, leave unpopulated. If you wish to use an overlay, configure that here."
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image",
+            "info": "Recommended size: 2880x1100"
+          },
+          {
+            "type":      "checkbox",
+            "id":        "enable_mobile_image",
+            "label":     "Enable Mobile Image",
+            "default":   false
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image_mobile",
+            "label": "Mobile Background Image",
+            "info": "Recommended size: 1000x382"
+          },
+          {
+            "type":      "checkbox",
+            "id":        "enable_overlay",
+            "label":     "Enable Overlay",
+            "default":   false
+          },
+          {
+            "type":      "select",
+            "id":        "overlay_color",
+            "label":     "Overlay Color",
+            "options": <%- uikit.backgroundOptions -%>,
+            "default": "bg-brand-primary"
+          },
+          {
+            "label": "Overlay Opacity",
+            "id": "overlay_opacity",
+            "type": "range",
+            "min":       0,
+            "max":       100,
+            "step":      1,
+            "unit":      "%",
+            "default":   50
+          },
+          {
+            "type": "header",
+            "content": "Text",
+            "info": "Please populate text fields here. If you do not wish to use a particular field, simply leave it blank."
+          },
+          {
+            "type": "text",
+            "id": "pre_heading",
+            "label": "Pre Heading"
+          },
+          {
+            "type":      "select",
+            "id":        "pre_heading_color",
+            "label":     "Pre Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+          },
+          {
+            "type":      "select",
+            "id":        "heading_color",
+            "label":     "Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type": "text",
+            "id": "sub_heading",
+            "label": "Sub Heading"
+          },
+          {
+            "type":      "select",
+            "id":        "sub_heading_color",
+            "label":     "Sub Heading Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type": "richtext",
+            "id": "body_copy",
+            "label": "Body Copy"
+          },
+          {
+            "type":      "select",
+            "id":        "body_copy_color",
+            "label":     "Body Copy Color",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type": "header",
+            "content": "CTA",
+            "info": "CTA config"
+          },
+          {
+            "type":      "checkbox",
+            "id":        "enable_cta",
+            "label":     "Enable CTA",
+            "default":   false
+          },
+          {
+            "type":      "select",
+            "id":        "cta_layout",
+            "label":     "CTA Style",
+            "options": <%- uikit.buttonAndLinkOptions -%>,
+            "default":   "button button--primary"
+          },
+          {
+            "id": "cta_text",
+            "type": "text",
+            "label": "CTA Text"
+          },
+          {
+            "id": "cta_url",
+            "type": "url",
+            "label": "CTA Link"
+          }
+        ]
+      },
+      {
+      "type": "fifty_fifty",
+      "name": "FiftyFifty",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Layout"
+          },
+          {
+            "type":      "select",
+            "id":        "ff_layout",
+            "label":     "Layout",
+            "options": [
+              {"value": "", "label": "Image on Left"},
+              {"value": "sw--reverse", "label": "Image on Right"}
+            ],
+            "default":   ""
+          },
+          {
+            "type": "header",
+            "content": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "ff_image_desktop",
+            "label": "Desktop Image",
+            "info": "Minimum Dimensions: 1814x1538"
+          },
+          {
+            "type": "image_picker",
+            "id": "ff_image_mobile",
+            "label": "Mobile Image",
+            "info": "Same minumum dimensions as desktop. Image will be automatically resized."
+          },
+          {
+            "type": "select",
+            "id": "ff_image_width",
+            "label": "Image Column Width",
+            "options": [
+              {"label": "40%", "value": "sw--40"},
+              {"label": "50%", "value": "sw--50"},
+              {"label": "60%", "value": "sw--60"}
+            ],
+            "default": "sw--50"
+          },
+          {
+            "type": "header",
+            "content": "Text Content"
+          },
+          {
+            "type": "text",
+            "id": "ff_preheader",
+            "label": "Preheader"
+          },
+          {
+            "type": "text",
+            "id": "ff_header",
+            "label": "Header"
+          },
+          {
+            "type": "text",
+            "id": "ff_subheader",
+            "label": "Subheader"
+          },
+          {
+            "type": "richtext",
+            "id": "ff_body",
+            "label": "Body Copy"
+          },
+          {
+            "type": "select",
+            "id": "ff_text_alignment",
+            "label": "Text Alignment",
+            "options": [
+              {"label": "Left", "value": ""},
+              {"label": "Center", "value": "text-center"}
+            ],
+            "default": ""
+          },
+          {
+            "type": "header",
+            "content": "Colors"
+          },
+          { 
+            "label": "Background Color",
+            "id": "ff_background_color",
+            "type": "select",
+            "options": <%- uikit.backgroundOptions -%>,
+            "default": "bg-grey"
+          },
+          { 
+            "label": "Preheader Color",
+            "id": "ff_preheader_color",
+            "type": "select",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          { 
+            "label": "Header Color",
+            "id": "ff_header_color",
+            "type": "select",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          { 
+            "label": "Subheader Color",
+            "id": "ff_subheader_color",
+            "type": "select",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          { 
+            "label": "Body Copy Color",
+            "id": "ff_body_color",
+            "type": "select",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          {
+            "type": "header",
+            "content": "Link"
+          },
+          {
+            "type": "text",
+            "id": "ff_cta_text",
+            "label": "CTA Text",
+            "info": "Optional"
+          },
+          {
+            "type": "url",
+            "id": "ff_cta_url",
+            "label": "CTA Link",
+            "info": "Optional"
+          },
+          { 
+            "label": "CTA Style",
+            "id": "ff_cta_style",
+            "type": "select",
+            "options": <%- uikit.buttonAndLinkOptions -%>
+          }
+        ]
+      },
+      {
+      "type": "press",
+      "name": "In The Press",
+        "settings": [
+          { 
+            "label": "Section Header",
+            "id": "itp_section_header",
+            "type": "text",
+            "default": "Section Header"
+          },
+          { 
+            "label": "Section Header Color",
+            "id": "itp_header_color",
+            "type": "select",
+            "options": <%- uikit.colorOptions -%>,
+            "default": "color-black"
+          },
+          { 
+            "label": "Background Color",
+            "id": "itp_background_color",
+            "type": "select",
+            "options": <%- uikit.backgroundOptions -%>,
+            "default": "bg-white"
+          },
+          {
+            "type": "header",
+            "content": "Press Logos"
+          },
+          {
+            "label": "Logo 1",
+            "type": "image_picker",
+            "id": "itp_logo_1"
+          },
+          {
+            "label": "Link 1",
+            "type": "url",
+            "id": "itp_url_1"
+          },
+          {
+            "label": "Link Target",
+            "type": "select",
+            "id": "itp_url_target_1",
+            "default": "_self",
+            "options": <%- linkTargetOptions -%>
+          },
+          {
+            "label": "Logo 2",
+            "type": "image_picker",
+            "id": "itp_logo_2"
+          },
+          {
+            "label": "Link 2",
+            "type": "url",
+            "id": "itp_url_2"
+          },
+          {
+            "label": "Link Target",
+            "type": "select",
+            "id": "itp_url_target_2",
+            "default": "_self",
+            "options": <%- linkTargetOptions -%>
+          },
+          {
+            "label": "Logo 3",
+            "type": "image_picker",
+            "id": "itp_logo_3"
+          },
+          {
+            "label": "Link 3",
+            "type": "url",
+            "id": "itp_url_3"
+          },
+          {
+            "label": "Link Target",
+            "type": "select",
+            "id": "itp_url_target_3",
+            "default": "_self",
+            "options": <%- linkTargetOptions -%>
+          },
+          {
+            "label": "Logo 4",
+            "type": "image_picker",
+            "id": "itp_logo_4"
+          },
+          {
+            "label": "Link 4",
+            "type": "url",
+            "id": "itp_url_4"
+          },
+          {
+            "label": "Link Target",
+            "type": "select",
+            "id": "itp_url_target_4",
+            "default": "_self",
+            "options": <%- linkTargetOptions -%>
+          }
+        ]
+      },
+      {
+        "type": "scrolling_text",
+        "name": "Scrolling Text",
+        "settings": [
+          {
+            "id": "title",
+            "label": "Title",
+            "type": "text"
+          },
+          {
+            "id": "content",
+            "label": "Text",
+            "type": "richtext"
+          },
+          {
+            "id": "image",
+            "label": "Image",
+            "type": "image_picker"
+          },
+          {
+            "id": "text_group",
+            "label": "Scrolling Text Group",
+            "default": "1",
+            "info": "Scrolling Text blocks will be grouped by the value in this setting (i.e. all \"1\"s will show in the same scrolling section)",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

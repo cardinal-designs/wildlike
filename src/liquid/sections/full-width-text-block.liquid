@@ -1,0 +1,20 @@
+{% if section.settings.copy != blank %}
+  <div class="full-width-text-block">
+    <div class="full-width-text-block__copy">
+      <div class="body-md client-generated">{{ section.settings.copy }}</div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Full Width Text Block",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "copy",
+        "label": "Text to display"
+      }
+    ]
+  }
+{% endschema %}

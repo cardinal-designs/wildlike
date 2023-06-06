@@ -1,0 +1,11 @@
+<div class="value-prop__tile">
+  <div class="value-prop__image">
+    <img src="{{ image | img_url: 400x}}" alt="">
+  </div>
+  <div class="value-prop__content">
+    <p class="h4 value-prop__title">{{ title }}</p>
+    {% if copy != blank %}
+      <p class="value-prop__copy">{{ copy }}</p>
+    {% endif %}
+  </div>
+</div>

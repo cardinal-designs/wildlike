@@ -1,0 +1,237 @@
+{% capture hero_schema %}
+  {
+    "maxWidth": {{ section.settings.max_width | json }},
+    "layoutHorizontal": {{ section.settings.horizontal_layout | json }},
+    "layoutVertical": {{ section.settings.vertical_layout | json }},
+    "bgColor": {{ section.settings.bg_color | json }},
+    "image": "{%- if section.settings.background_image != null -%}{{ section.settings.background_image | img_url: '2000x' }}{%- endif -%}",
+    "imageMobile": "{{ section.settings.background_image_mobile  | img_url: '1000x' }}",
+    "imageMobileEnable": {{ section.settings.enable_mobile_image }},
+    "overlayEnable": {{ section.settings.enable_overlay }},
+    "overlayColor": {{ section.settings.overlay_color | json }},
+    "overlayOpacity": {{ section.settings.overlay_opacity }},
+    "preHeading": {{ section.settings.pre_heading | json }},
+    "preHeadingColor": {{ section.settings.pre_heading_color | json }},
+    "heading": {{ section.settings.heading | json }},
+    "headingColor": {{ section.settings.heading_color | json }},
+    "subHeading": {{ section.settings.sub_heading | json }},
+    "subHeadingColor": {{ section.settings.sub_heading_color | json }},
+    "copy": {{ section.settings.body_copy | json }},
+    "copyColor": {{ section.settings.body_copy_color | json }},
+    "enableCta": {{ section.settings.enable_cta }},
+    "ctaLayout": {{ section.settings.cta_layout | json }},
+    "ctaColor": {{ section.settings.cta_color | json }},
+    "ctaText": {{ section.settings.cta_text | json }},
+    "ctaUrl": "{{ section.settings.cta_url }}",
+    "textLayout": {{ section.settings.text_layout | json }},
+    "mobileLayout": {{ section.settings.mobile_layout | json }}
+  }
+{% endcapture %}
+
+<hero-banner-text :hero-schema="{{ hero_schema | escape | strip }}"/>
+
+{% schema %}
+  {
+    "name": "Text Only",
+    "class": "text-hero-banner container",
+    "settings": [
+      {
+        "type":      "select",
+        "id":        "max_width",
+        "label":     "Section Max Width",
+        "options": [
+          {"value": "none", "label": "100%"},
+          {"value": "1440px", "label": "1440px"}
+        ],
+        "default":   "none"
+      },
+      {
+        "type": "header",
+        "content": "Hero Layout",
+        "info": "Choose both a horizontal and vertical layout for the text content. If not using a background image, select a background color."
+      },
+      {
+        "type":      "select",
+        "id":        "horizontal_layout",
+        "label":     "Horizontal Layout",
+        "options": [
+          {"value": "left", "label": "Left"},
+          {"value": "center", "label": "Center"},
+          {"value": "right", "label": "Right"}
+        ],
+        "default":   "left"
+      },
+      {
+        "type":      "select",
+        "id":        "vertical_layout",
+        "label":     "Vertical Layout",
+        "options": [
+          {"value": "top", "label": "Top"},
+          {"value": "middle", "label": "Middle"},
+          {"value": "bottom", "label": "Bottom"}
+        ],
+        "default":   "top"
+      },
+      {
+        "type":      "select",
+        "id":        "text_layout",
+        "label":     "Text Layout",
+        "options": [
+          {"value": "one_column", "label": "One Column"},
+          {"value": "two_column", "label": "Two Column"}
+        ],
+        "default":   "one_column"
+      },
+      {
+        "type":      "select",
+        "id":        "mobile_layout",
+        "label":     "Mobile Layout",
+        "options": [
+          {"value": "overlay", "label": "Overlay Text"},
+          {"value": "below", "label": "Text Below Image"}
+        ],
+        "default":   "overlay"
+      },
+      {
+        "type":      "select",
+        "id":        "bg_color",
+        "label":     "Background Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-brand-primary"
+      },
+      {
+        "type": "header",
+        "content": "Hero Images",
+        "info": "Optional images here. If you would like to use a separate image in mobile, please enable that option and add the mobile image as well. If mobile image is not used, leave unpopulated. If you wish to use an overlay, configure that here."
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image",
+        "info": "Recommended size: 2880x1100"
+      },
+      {
+        "type":      "checkbox",
+        "id":        "enable_mobile_image",
+        "label":     "Enable Mobile Image",
+        "default":   false
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image_mobile",
+        "label": "Mobile Background Image",
+        "info": "Recommended size: 1000x382"
+      },
+      {
+        "type":      "checkbox",
+        "id":        "enable_overlay",
+        "label":     "Enable Overlay",
+        "default":   false
+      },
+      {
+        "type":      "select",
+        "id":        "overlay_color",
+        "label":     "Overlay Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-brand-primary"
+      },
+      {
+        "label": "Overlay Opacity",
+        "id": "overlay_opacity",
+        "type": "range",
+        "min":       0,
+        "max":       100,
+        "step":      1,
+        "unit":      "%",
+        "default":   50
+      },
+      {
+        "type": "header",
+        "content": "Hero Text",
+        "info": "Please populate text fields here. If you do not wish to use a particular field, simply leave it blank."
+      },
+      {
+        "type": "text",
+        "id": "pre_heading",
+        "label": "Pre Heading"
+      },
+      {
+        "type":      "select",
+        "id":        "pre_heading_color",
+        "label":     "Pre Heading Color",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type":      "select",
+        "id":        "heading_color",
+        "label":     "Heading Color",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub Heading"
+      },
+      {
+        "type":      "select",
+        "id":        "sub_heading_color",
+        "label":     "Sub Heading Color",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "type": "richtext",
+        "id": "body_copy",
+        "label": "Body Copy"
+      },
+      {
+        "type":      "select",
+        "id":        "body_copy_color",
+        "label":     "Body Copy Color",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "type": "header",
+        "content": "CTA",
+        "info": "CTA config"
+      },
+      {
+        "type":      "checkbox",
+        "id":        "enable_cta",
+        "label":     "Enable CTA",
+        "default":   false
+      },
+      {
+        "type":      "select",
+        "id":        "cta_layout",
+        "label":     "CTA Style",
+        "options": <%- uikit.buttonAndLinkOptions -%>,
+        "default":   "button button--primary"
+      },
+      {
+        "id": "cta_text",
+        "type": "text",
+        "label": "CTA Text"
+      },
+      {
+        "id": "cta_url",
+        "type": "url",
+        "label": "CTA Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text Only",
+        "category": "Content Blocks"
+      }
+    ]
+  }
+{% endschema %}

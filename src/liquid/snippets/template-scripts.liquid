@@ -1,0 +1,80 @@
+
+{{ 'vendors-main.js' | asset_url | script_tag }}
+{{ 'main.js' | asset_url | script_tag }}
+
+{%- if template.name == 'cart' -%}
+  {%- include 'subscription-cart-footer' -%}
+{%- endif -%}
+
+{%- include 'subscription-theme-footer' -%}
+
+{%- include 'bva-datalayer-body' -%}
+
+{% if settings.wishlist_enabled %}
+  {% include "swymSnippet" %}
+{% endif %}
+
+
+{% if settings.myregistry_enabled and settings.myregistry_script != blank %}
+  {{ settings.myregistry_script }}
+{% endif %}
+
+{% if settings.lucky_orange_id != blank %}
+<!-- Lucky Orange -->
+<script type='text/javascript'>
+  window.__lo_site_id = {{ settings.lucky_orange_id }};
+
+	(function() {
+		var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+		wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+  })();
+</script>
+<!-- End Lucky Orange -->
+{% endif %}
+
+<!-- Bronto -->
+{% render 'scripts--bronto' %}
+<!-- End Bronto -->
+
+{%- if template.name == 'product' %}
+  <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "Product",
+      "@id" : {{ shop.url | append: product.url | json }},
+      "url" : {{ shop.url | append: product.url | json }},
+      "name" : {{ product.title | json }},
+      "image" : {{ product.featured_image | json }},
+      "description" : {{ product.description | json }},
+      "sku" : {{ product.selected_or_first_available_variant.sku | json }},
+      "brand" : {
+        "@type": "Brand",
+        "name": {{ product.vendor | json }}
+      }
+      {%- if settings.review_source == 'shopify' and product.metafields.spr.reviews -%}
+        ,"aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": {{ product.metafields.spr.reviews | split: '"ratingValue": "' | last | split: '"' | first | plus: 0 }},
+        "ratingCount": {{ product.metafields.spr.reviews | split: '"reviewCount": "' | last | split: '"' | first | plus: 0 }}
+        }
+      {%- endif -%}
+    }
+  </script>
+{%- endif -%}
+
+{% if settings.enable_cj_cookie %}
+  {{ 'cj-event-storage2.js' | asset_url | script_tag }}
+{% endif %}
+
+<!-- Yotpo -->
+{% render 'scripts--yotpo' %}
+<!-- End Yotpo -->
+
+<!-- Immerss -->
+{% render 'scripts--immerss' %}
+<!-- End Immerss -->
+
+<!-- Affirm -->
+{% render 'scripts--affirm' %}
+<!-- End Affirm -->

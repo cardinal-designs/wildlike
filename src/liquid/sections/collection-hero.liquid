@@ -1,0 +1,11 @@
+{% capture default_settings %}
+  {
+    "title": {{ collection.title | json }},
+    "description": {{ collection.description | json | strip_html }},
+    "imageUrl": {% if collection.image %}{{ collection.image | img_url: '1670x' | json }}{% else %}""{% endif %}
+  }
+{% endcapture %}
+
+<collection-breadcrumbs collection-title="{{ collection.title }}" collection-handle="{{ collection.handle }}"></collection-breadcrumbs>
+
+<collection-hero :default-settings="{{ default_settings | escape | strip }}"></collection-hero>

@@ -1,0 +1,1050 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Wildlike",
+    "theme_version": "1.0.0",
+    "theme_author": "BVA Commerce",
+    "theme_documentation_url": "https://www.ylang23.com/",
+    "theme_support_url": "https://www.ylang23.com/"
+  },
+  {
+    "name": "Welcome Popup",
+    "settings":[
+      {
+        "type": "image_picker",
+        "id": "welcome_img",
+        "label": "Image for Popup"
+      },
+      {
+        "type": "text",
+        "id": "welcome_text",
+        "label": "Welcome Popup Text",
+        "default": "Welcome"
+      },
+      {
+        "type": "color",
+        "id": "welcome_bg",
+        "label": "Backgroud Color",
+        "default": "#FFFFFF"
+      },
+
+      {
+        "type": "color",
+        "id": "welcome_text_color",
+        "label": "Text Color",
+        "default": "#000000"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing image"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Image",
+        "info": "Shown when sharing a link on social media. [Learn more](https://help.shopify.com/manual/using-themes/troubleshooting/showing-social-media-thumbnail-images/) about image thumbnails."
+      },
+      {
+        "type": "header",
+        "content": "Social sharing options"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Enable sharing for blog articles",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Social Media Links"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest link"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "Snapchat link"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr link"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "Youtube link"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo link"
+      }
+    ]
+  },
+  {
+    "name": "Google Tag Manager",
+    "settings": [
+      {
+        "type": "text",
+        "id": "gtm_id",
+        "label": "GTM ID",
+        "info": "Paste Google Tag Manager container ID here. Appears after 'GTM-'"
+      }
+    ]
+  },
+  {
+    "name": "Lucky Orange",
+    "settings": [
+      {
+        "type": "text",
+        "id": "lucky_orange_id",
+        "label": "Lucky Orange Site ID",
+        "info": "Paste Lucky Orange Site ID here"
+      }
+    ]
+  },
+  {
+    "name": "Commission Junction",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_cj_cookie",
+        "label": "Enable CJ Cookie"
+      }
+    ]
+  },
+  {
+    "name": "Help and Account",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Help Link",
+        "info": "This only applies to the Design 1 header. Do not use these fields if you’re using the Design 2 header."
+      },
+      {
+        "type": "text",
+        "id": "first_helper_text",
+        "label": "Help Link Text"
+      },
+      {
+        "type": "url",
+        "id": "first_helper_url",
+        "label": "Help Link URL"
+      },
+      { "type": "header", "content": "Account Link" },
+      {
+        "type": "text",
+        "id": "second_helper_text",
+        "label": "Account Link Text"
+      },
+      {
+        "type": "url",
+        "id": "second_helper_url",
+        "label": "Account Link URL"
+      },
+      {
+        "type": "link_list",
+        "id": "second_helper_menu",
+        "label": "Account Dropdown Links"
+      },
+      {
+        "type": "image_picker",
+        "id": "desktop_second_helper_image",
+        "label": "Desktop Account Icon Image",
+        "info": "Recommended size: 60px x 60px"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_second_helper_image",
+        "label": "Mobile Account Icon Image",
+        "info": "Recommended size: 60px x 60px"
+      },
+      {
+        "type": "text",
+        "id": "desktop_second_helper_svg",
+        "label": "Desktop Account SVG URL (if not using above image)"
+      },
+      {
+        "type": "text",
+        "id": "mobile_second_helper_svg",
+        "label": "Mobile Account SVG URL (if not using above image)"
+      },
+      {
+        "type":      "select",
+        "id":        "help_account_color",
+        "label":     "Help and Account Main Link Color",
+        "options": [
+          {"label": "Light", "value": "helper-links__link--light"},
+          {"label": "Dark", "value": "helper-links__link--dark"}
+        ],
+        "default": "helper-links__link--light"
+      }
+    ]
+  },
+  {
+    "name": "Collections",
+    "settings": [
+      {
+        "type": "text",
+        "id": "collections_global_filters",
+        "label": "Global Filters",
+        "info": "Fill this out to provide a global default filters. Filters should be handelized and comma separated. No spaces. (this-filter,that-filter,another-filter). Limit 5 for Design 1, no limit for Design 2."
+      },
+      {
+        "type":      "select",
+        "id":        "collection_pagination_count",
+        "label":     "Collection Pagination Count",
+        "options": [
+          {"label": "12", "value": "12"},
+          {"label": "18", "value": "18"},
+          {"label": "24", "value": "24"},
+          {"label": "30", "value": "30"}
+        ],
+        "default": "24"
+      },
+      {
+        "type": "checkbox",
+        "id": "disable_collection_sidebar",
+        "label": "Disable Collection Sidebar",
+        "info": "This disables the sidebar navigation in collections and move sorting above the collection grid."
+      },
+      {
+        "type": "checkbox",
+        "id": "disable_collection_filters",
+        "label": "Disable Collection Filters",
+        "info": "This disables the filters in collections."
+      },
+      {
+        "type":      "link_list",
+        "id":        "collection_global_linklist",
+        "label":     "Global Collection Linklist",
+        "info":      "Select the menu you wish to display on all collection pages"
+      },
+      {
+        "type":      "link_list",
+        "id":        "collection_default_custom_linklist",
+        "label":     "Default Custom Collection Linklist",
+        "info":      "Select the secondary custom menu you wish to display on all collection pages"
+      },
+      {
+        "type":      "select",
+        "id":        "collection_hero_bg_color",
+        "label":     "Default Collection Hero Background Color",
+        "options": [
+          {"label": "Primary 1", "value": "bg-brand-primary"},
+          {"label": "Primary 2", "value": "bg-brand-secondary"},
+          {"label": "Light", "value": "bg-white"},
+          {"label": "Dark", "value": "bg-black"}
+        ],
+        "default": "bg-brand-primary"
+      },
+      {
+        "type":      "select",
+        "id":        "collection_hero_heading_color",
+        "label":     "Default Collection Hero Heading Color",
+        "options": [
+          {"label": "Light", "value": "color-white"},
+          {"label": "Dark", "value": "color-black"}
+        ],
+        "default": "color-black"
+      },
+      {
+        "type":      "select",
+        "id":        "collection_hero_copy_color",
+        "label":     "Default Collection Hero Copy Color",
+        "options": [
+          {"label": "White", "value": "color-white"},
+          {"label": "Black", "value": "color-black"}
+        ],
+        "default": "color-black"
+      }
+    ]
+  },
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Bronto"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_bronto",
+        "label": "Check to send newsletter information to Bronto"
+      },
+      {
+        "type": "text",
+        "id": "bronto_directadd_id",
+        "label": "DirectAdd ID"
+      },
+      {
+        "type": "text",
+        "id": "bronto_newsletter_id",
+        "label": "Newsletter List ID"
+      },
+      {
+        "type": "text",
+        "id": "bronto_master_id",
+        "label": "Master List ID"
+      },
+      {
+        "type": "text",
+        "id": "bronto_checkout_id",
+        "label": "Checkout List ID"
+      }
+    ]
+  },
+  {
+    "name": "Account Pages",
+    "settings": [
+      {
+        "type": "text",
+        "id": "login_heading",
+        "label": "Login Heading",
+        "default": "Login"
+      },
+      {
+        "type": "text",
+        "id": "register_heading",
+        "label": "Register Heading",
+        "default": "Create Account"
+      },
+      {
+        "type": "textarea",
+        "id": "login_blurb",
+        "label": "Login Blurb",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis mi felis. Vestibulum sagittis tellus vitae est."
+      },
+      {
+        "type": "text",
+        "id": "account_help_title",
+        "label": "Account Page Help Title",
+        "default": "Need Help?"
+      },
+      {
+        "type": "text",
+        "id": "account_help_email",
+        "label": "Account Page Help Email",
+        "default": "help@bvaccel.com"
+      },
+      {
+        "type": "text",
+        "id": "account_help_phone",
+        "label": "Account Page Help Phone",
+        "default": "123 456 7890"
+      },
+      {
+        "type": "image_picker",
+        "id": "account_image",
+        "label": "Login and Register Background Image",
+        "info": "Recommended Image Size: 1440px x 1660px"
+      },
+      {
+        "type": "url",
+        "id": "no_orders_link",
+        "label": "No Orders Link",
+        "info": "Continue Shopping Link for customers that have not placed an order yet."
+      },
+      {
+        "type": "header",
+        "content": "Extra Account Links"
+      },
+      {
+        "type": "text",
+        "id": "account_link_1_title",
+        "label": "Account Link #1 Title"
+      },
+      {
+        "type": "url",
+        "id": "account_link_1_link",
+        "label": "Account Link #1 Link"
+      },
+      {
+        "type": "text",
+        "id": "account_link_2_title",
+        "label": "Account Link #2 Title"
+      },
+      {
+        "type": "url",
+        "id": "account_link_2_link",
+        "label": "Account Link #2 Link"
+      },
+      {
+        "type": "header",
+        "content": "CCPA"
+      },
+      {
+        "type": "text",
+        "id": "account_ccpa_title",
+        "label": "CCPA Link Title"
+      },
+      {
+        "type": "url",
+        "id": "account_ccpa_link",
+        "label": "CCPA Link"
+      },
+      {
+        "type": "header",
+        "content": "Order History Value Prop (1 of 4)"
+      },
+      {
+        "type": "text",
+        "id": "account_value_prop_1_title",
+        "label": "Value Prop 1 Title"
+      },
+      {
+        "type": "text",
+        "id": "account_value_prop_1_copy",
+        "label": "Value Prop 1 Copy"
+      },
+      {
+        "type": "image_picker",
+        "id": "account_value_prop_1_image",
+        "label": "Value Prop 1 Image"
+      },
+      {
+        "type": "header",
+        "content": "Order History Value Prop (2 of 4)"
+      },
+      {
+        "type": "text",
+        "id": "account_value_prop_2_title",
+        "label": "Value Prop 2 Title"
+      },
+      {
+        "type": "text",
+        "id": "account_value_prop_2_copy",
+        "label": "Value Prop 2 Copy"
+      },
+      {
+        "type": "image_picker",
+        "id": "account_value_prop_2_image",
+        "label": "Value Prop 2 Image"
+      },
+      {
+        "type": "header",
+        "content": "Order History Value Prop (3 of 4)"
+      },
+      {
+        "type": "text",
+        "id": "account_value_prop_3_title",
+        "label": "Value Prop 3 Title"
+      },
+      {
+        "type": "text",
+        "id": "account_value_prop_3_copy",
+        "label": "Value Prop 3 Copy"
+      },
+      {
+        "type": "image_picker",
+        "id": "account_value_prop_3_image",
+        "label": "Value Prop 3 Image"
+      },
+      {
+        "type": "header",
+        "content": "Order History Value Prop (4 of 4)"
+      },
+      {
+        "type": "text",
+        "id": "account_value_prop_4_title",
+        "label": "Value Prop 4 Title"
+      },
+      {
+        "type": "text",
+        "id": "account_value_prop_4_copy",
+        "label": "Value Prop 4 Copy"
+      },
+      {
+        "type": "image_picker",
+        "id": "account_value_prop_4_image",
+        "label": "Value Prop 4 Image"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type":      "checkbox",
+        "id":        "cart_enable_modal",
+        "label":     "Enable Mini Cart Modal",
+        "default":   false
+      },
+      {
+        "type": "header",
+        "content": "Colors"
+      },
+      {
+        "type":      "select",
+        "id":        "cart_bubble",
+        "label":     "Cart Bubble Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-accent-1"
+      },
+      {
+        "type":      "select",
+        "id":        "cart_bubble_text",
+        "label":     "Cart Bubble Text Color",
+        "options": [
+          {"label": "White", "value": "color-white"},
+          {"label": "Black", "value": "color-black"}
+        ],
+        "default": "color-black"
+      },
+      {
+        "type": "header",
+        "content": "Shipping Promo Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_shipping_promo_enable",
+        "label": "Enable shipping promo",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cart_shipping_promo_total",
+        "label": "Shipping Promo Amount",
+        "default": "100",
+        "info": "Must be a number. Total amount of user cart before free shipping is applied."
+      },
+      {
+        "type": "textarea",
+        "id": "cart_shipping_promo_copy",
+        "label": "Shipping Promo Copy",
+        "default": "Congrats! You get free shipping",
+        "info": "The message you wish to display when a user has reached the qualifying total."
+      },
+      {
+        "type":      "select",
+        "id":        "cart_shipping_bg",
+        "label":     "Shipping Promo Background Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-brand-primary"
+      },
+      {
+        "type":      "select",
+        "id":        "cart_shipping_text",
+        "label":     "Shipping Promo Text Color",
+        "options": [
+          {"label": "White", "value": "color-white"},
+          {"label": "Black", "value": "color-black"}
+        ],
+        "default": "color-black"
+      },
+      {
+        "type":      "url",
+        "id":        "cart_continue_link",
+        "label":     "Continue Shopping Link"
+      },
+      {
+        "type":      "select",
+        "id":        "cart_shipping_progress",
+        "label":     "Shipping Promo Progress Bar Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-brand-primary"
+      },
+      {
+        "type": "header",
+        "content": "Promo Message"
+      },
+      {
+        "type": "textarea",
+        "id": "cart_promo_message",
+        "label": "Message",
+        "info": "Fill this out if you would like to display an additional promo message below the Checkout button."
+      },
+      {
+        "type": "header",
+        "content": "Wishlist CTA"
+      },
+      {
+        "type": "paragraph",
+        "content": "If the brand has the wishlist app, add a link to the wishlist page from the cart page."
+      },
+      {
+        "type": "text",
+        "id": "wish_cta_text",
+        "label": "CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "wish_cta_url",
+        "label": "Wishlist Page URL"
+      },
+      {
+        "type": "header",
+        "content": "Empty Cart"
+      },
+      {
+        "type": "text",
+        "id": "cart_empty_message",
+        "label": "Text",
+        "default": "Your cart is empty."
+      },
+      {
+        "type": "text",
+        "id": "cart_link_text_1",
+        "label": "Empty Cart Link Text 1"
+      },
+      {
+        "id": "cart_empty_url_1",
+        "type": "url",
+        "label": "Empty Cart Link 1"
+      },
+      {
+        "type": "text",
+        "id": "cart_link_text_2",
+        "label": "Empty Cart Link Text 2"
+      },
+      {
+        "id": "cart_empty_url_2",
+        "type": "url",
+        "label": "Empty Cart Link 2"
+      },
+      {
+        "type": "text",
+        "id": "cart_link_text_3",
+        "label": "Empty Cart Link Text 3"
+      },
+      {
+        "id": "cart_empty_url_3",
+        "type": "url",
+        "label": "Empty Cart Link 3"
+      },
+      {
+        "type": "text",
+        "id": "cart_link_text_4",
+        "label": "Empty Cart Link Text 4"
+      },
+      {
+        "id": "cart_empty_url_4",
+        "type": "url",
+        "label": "Empty Cart Link 4"
+      },
+      {
+        "type": "text",
+        "id": "cart_link_text_5",
+        "label": "Empty Cart Link Text 5"
+      },
+      {
+        "id": "cart_empty_url_5",
+        "type": "url",
+        "label": "Empty Cart Link 5"
+      }
+    ]
+  },
+  {
+    "name": "Custom HTML Block",
+    "settings": [
+      {
+        "type": "html",
+        "id": "html_block",
+        "label": "HTML Block",
+        "info": "Custom content before the </body> tag"
+      }
+    ]
+  },
+  {
+    "name": "Custom CSS Block",
+    "settings": [
+      {
+        "type": "html",
+        "id": "css_block",
+        "label": "CSS",
+        "info": "Custom CSS before the </body> tag"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  },
+  {
+    "name": "Product",
+    "settings": [
+      {
+        "type":      "select",
+        "id":        "product_tile_text_alignment",
+        "label":     "Simple/Widget Product Tile Text Alignment",
+        "info": "Applies only to simple/widget product tiles.",
+        "options": [
+          {"label": "Left", "value": "text-left"},
+          {"label": "Center", "value": "text-center"}
+        ],
+        "default": "text-left"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_simple_tile",
+        "label": "Enable Simple Tile",
+        "info": "Enable the simple tiles across the site on non-collection sections. This is automatically applied if you are using Collection Template B.",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_simple_tile_cta",
+        "label": "Enable Simple Tile CTA",
+        "info": "Enable the product CTA for simple tiles across the site.",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "product_tile_subtitle_pretext",
+        "label": "Subtitle Pre-text",
+        "info": "This text appears before the product's SKU number."
+      },
+      {
+        "type": "checkbox",
+        "id": "display_sku_pdp",
+        "label": "Display SKU on PDP",
+        "info": "If checked, each product's SKU number will display on the product page in place of the \"Extra Info\" metafield"
+      },
+      {
+        "type": "checkbox",
+        "id": "display_vendor_pdp",
+        "label": "Display Vendor on PDP",
+        "info": "If checked, each product's vendor name will display on the product page above the title. (PDP Design 2 only)"
+      },
+      {
+        "type": "header",
+        "content": "Sale Colors"
+      },
+      {
+        "type":      "select",
+        "id":        "compare_price_color",
+        "label":     "Sale Price Color",
+        "info": "When a product is on sale, the product price will be displayed as this color.",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-accent-5"
+      },
+      {
+        "type": "header",
+        "content": "Badge Colors"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_sale_copy_color",
+        "label":     "Sale Copy Color",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-accent-5"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_sale_bg_color",
+        "label":     "Sale Background Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-accent-1"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_new_copy_color",
+        "label":     "New Copy Color",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_new_bg_color",
+        "label":     "New Background Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-brand-primary"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_limited_copy_color",
+        "label":     "Limited Copy Color",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_limited_bg_color",
+        "label":     "Limited Background Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-brand-primary"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_best_seller_copy_color",
+        "label":     "Best Seller Copy Color",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_best_seller_bg_color",
+        "label":     "Best Seller Background Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-accent-1"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_clearance_copy_color",
+        "label":     "Clearance Copy Color",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_clearance_bg_color",
+        "label":     "Clearance Background Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-accent-1"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_dotw_copy_color",
+        "label":     "\"Deal of the Week\" Copy Color",
+        "options": <%- uikit.colorOptions -%>,
+        "default": "color-black"
+      },
+      {
+        "type":      "select",
+        "id":        "badge_dotw_bg_color",
+        "label":     "\"Deal of the Week\" Background Color",
+        "options": <%- uikit.backgroundOptions -%>,
+        "default": "bg-accent-1"
+      }
+    ]
+  },
+  {
+    "name": "Reviews",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "disable_reviews",
+        "label": "Disable Reviews",
+        "info": "Disables review stars in areas where they would normally show.",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "review_source",
+        "label": "Reviews Source",
+        "options": [
+          { "label": "Shopify", "value": "shopify" },
+          { "label": "BazaarVoice", "value": "bazaarvoice" }
+        ],
+        "default": "shopify"
+      },
+      {
+        "type": "image_picker",
+        "id": "reviews_star_whole",
+        "label": "Reviews Whole Star",
+        "info": "Placeholder size"
+      },
+      {
+        "type": "image_picker",
+        "id": "reviews_star_half",
+        "label": "Reviews Half Star",
+        "info": "Placeholder size"
+      },
+      {
+        "type": "image_picker",
+        "id": "reviews_star_empty",
+        "label": "Reviews Empty Star",
+        "info": "Placeholder size"
+      }
+    ]
+  },
+  {
+    "name": "Call For Price",
+    "settings": [
+      {
+        "type": "text",
+        "id": "call_for_price_number",
+        "label": "Phone number to display for 'Call For Price' products.",
+        "info": "format: (800) 800-8000"
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "  If a customer searches for a term that doesn’t bring up any results, this CTA will appear below the “No Results for xxx” text. The CTA should direct the customer to collection to continue shopping."
+      },
+      {
+        "type": "text",
+        "id": "search_shop_cta_text",
+        "label": "Shop CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "search_shop_cta_url",
+        "label": "Shop CTA URL"
+      },
+      {
+        "id": "enable_predictive_search",
+        "type": "checkbox",
+        "label": "Enable Predictive Search"
+      }
+    ]
+  },
+  {
+    "name": "Templates",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Choose the core templates this storefront will use globally. Generally, the Design 1 templates were built to be use on storefronts with smaller product catalogs, whereas the Design 2 templates were built for storefronts with larger catalogs. It is recommended that you do not change these settings after the storefront has launched."
+      },
+      {
+        "id": "header_variation",
+        "type": "select",
+        "label": "Header and Navigation",
+        "options": [
+          {
+            "value": "design_1",
+            "label": "Design 1"
+          },
+          {
+            "value": "design_2",
+            "label": "Design 2"
+          }
+        ],
+        "default": "design_1"
+      },
+      {
+        "type": "select",
+        "id": "footer_design",
+        "label": "Footer",
+        "options": [
+          {
+            "value": "ramsay",
+            "label": "Design 1"
+          },
+          {
+            "value": "bourdain",
+            "label": "Design 2"
+          }
+        ],
+        "default": "ramsay"
+      },
+      {
+        "type": "select",
+        "id": "pdp_design",
+        "label": "Product Pages",
+        "options": [
+          {
+            "value": "RamsayProductDisplay",
+            "label": "Design 1"
+          },
+          {
+            "value": "BourdainProductDisplay",
+            "label": "Design 2"
+          }
+        ],
+        "default": "BourdainProductDisplay"
+      },
+      {
+        "type": "select",
+        "id": "collection_template",
+        "label": "Collection",
+        "options": [
+          {
+            "value": "b",
+            "label": "Design 2"
+          }
+        ],
+        "default": "b"
+      }
+    ]
+  },
+  {
+    "name": "Wishlist",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "wishlist_enabled",
+        "label": "Enable Wishlist",
+        "info": "Requires \"Wishlist Plus\" app to be installed.",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Registry",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "myregistry_enabled",
+        "label": "Enable Registry",
+        "info": "Controls visability of the \"Add to Registry\" button on the product page.",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "myregistry_script",
+        "label": "MyRegistry Script",
+        "info": "The script provided by \"MyRegistry\" > \"Registry Setup\" > \"2. Install\" > \"Step 6\""
+      }
+    ]
+  },
+  {
+    "name": "Checkout - PO Box",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "pobox_disabled",
+        "label": "Disable PO Boxes as Checkout Shipping Addresses",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "pobox_error_message",
+        "label": "Error message to display when PO Box is entered. If left blank will default to 'Invalid Address - No PO Boxes allowed'"
+      }
+    ]
+  }
+]

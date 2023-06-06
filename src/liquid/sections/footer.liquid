@@ -1,0 +1,296 @@
+{% capture schema_email_collection %}
+  {
+    "settings": {
+      "title": {{ section.settings.email_title | json }},
+      "body": {{ section.settings.email_body | json }},
+      "backgroundColor": {{ section.settings.email_background_color | json }},
+      "backgroundImage": {% if section.settings.email_background_image != blank %}{{ section.settings.email_background_image | img_url: '200x' | json }}{% else %}""{% endif %},
+      "backgroundImageAlt": {% if section.settings.email_background_image != blank %}{{ section.settings.email_background_image.alt | json }}{% else %}""{% endif %},
+      "textColor": {{ section.settings.email_text_color | json }},
+      "headerColor": {{ section.settings.email_heading_color | json }},
+      "borderColor": {{ section.settings.email_border_color | json }},
+      "hideEmail": {% if request.path != '/challenge' %}{{ section.settings.hide_email_capture | json }}{% else %}true{% endif %},
+    }
+  }
+{% endcapture %}
+
+{% assign fill_color = section.settings.email_input_color | replace: 'color', 'fill' %}
+
+{% capture email_cta_text %}
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="9">
+    <g fill="none" fill-rule="evenodd">
+      <path fill="none" d="M-9-16h40v40H-9z"/>
+      <path class="newsletter-arrow-fill" fill-rule="nonzero" d="M19.06.3l4.56 3.99-4.56 3.99-.66-.76 3.2-2.8H.27v-1h21.18L18.4 1.05l.66-.76z"/>
+    </g>
+  </svg>
+{% endcapture %}
+
+{% capture email_cta_success_text %}
+  <svg class="icon newsletter-check" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#check"></use></svg>
+{% endcapture %}
+
+{% capture schema_main %}
+  {
+    "blocks": [
+      {% for block in section.blocks %}
+        {
+          "id": {{ block.id | json }},
+          "type": {{ block.type | json }},
+          {% if block.type == 'logo_block' %}
+            "settings": {
+              "logo_png": {% if block.settings.logo_png != blank %}{{ block.settings.logo_png | img_url: '170x85' | json }}{% else %}null{% endif %},
+              "logo_png_alt": {{ block.settings.logo_png.alt | json }},
+              "logo_svg": {{ block.settings.logo_svg | json }},
+              "title": {{ block.settings.title | json }},
+              "body": {{ block.settings.body | json }}
+            }
+          {% elsif block.type == 'link_list_block' %}
+            {%- assign menu = linklists[block.settings.menu] -%}
+            "settings": {
+              "menu": {
+                "title": {{ menu.title | json }},
+                "links": [
+                  {% for link in menu.links %}
+                    {
+                      "title": {{ link.title | json }},
+                      "url": {{ link.url | json }}
+                    }{% unless forloop.last %},{% endunless %}
+                  {% endfor %}
+                ]
+              }
+            }
+          {% endif %}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+{% endcapture %}
+
+{% capture schema_contact %}
+  {
+    "settings": {
+      "socialLinks": [
+        {% for socialIdx in (1..5) %}
+          {% assign socialLinkHandle = 'social_icon_' | append: socialIdx %}
+          {% assign socialLink = section.settings[socialLinkHandle] %}
+          {% assign socialLinkId = 'social_' | append: socialLink | append: '_link' %}
+          {% if settings[socialLinkId] != blank %}
+            {
+              "id": {{ socialLink | json }},
+              "url": {{ settings[socialLinkId] | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {% endif %}
+        {% endfor %}
+      ],
+    }
+  }
+{% endcapture %}
+
+{% capture schema_subfooter %}
+  {
+    "settings": {
+      "copyrightText": "Copyright © {{ 'now' | date: "%Y" }} {% if section.settings.copyright_text != blank %}{{ section.settings.copyright_text }}{% else %}{{ shop.name }}{% endif %}",
+      "subfooterMenu": {
+        {%- assign menu = linklists[section.settings.menu] -%}
+        "title": {{ menu.title | json }},
+        "links": [
+          {% for link in menu.links %}
+            {
+              "title": {{ link.title | json }},
+              "url": {{ link.url | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      }
+    }
+  }
+{% endcapture %}
+
+<footer-bourdain :footer-align="{{ section.settings.footer_align | json | escape | strip }}" :schema-email="{{ schema_email_collection | escape | strip }}" :schema-main="{{ schema_main | escape | strip }}" :schema-contact="{{ schema_contact | escape | strip }}" :schema-subfooter="{{ schema_subfooter | escape | strip }}">
+  {% assign placeholder_color = section.settings.email_placeholder_color | replace: 'color', 'placeholder' %}
+  {% assign border_color = section.settings.email_input_border_color %}
+  {% render 'newsletter-signup' with {
+    is_wide: false,
+    use_vue: true,
+    cta_text: email_cta_text,
+    cta_success_text: email_cta_success_text,
+    placeholder_text: 'Your Email Address',
+    text_color: section.settings.email_input_color,
+    placeholder_color: placeholder_color,
+    email_border_color: border_color
+  }%}
+</footer-bourdain>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Prefooter Newsletter Section"
+      },
+      {
+        "type": "checkbox",
+        "id": "hide_email_capture",
+        "label": "Hide Email Capture"
+      },
+      {
+        "type": "text",
+        "id": "email_title",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "email_body",
+        "label": "Body Copy"
+      },
+      {
+        "type": "header",
+        "content": "Social Media Icons"
+      },
+      {
+        "type": "select",
+        "id": "social_icon_1",
+        "label": "Icon 1",
+        "options": [
+          {"label": "None", "value": "none"},
+          {"label": "Twitter", "value": "twitter"},
+          {"label": "Facebook", "value": "facebook"},
+          {"label": "Pinterest", "value": "pinterest"},
+          {"label": "Instagram", "value": "instagram"},
+          {"label": "Snapchat", "value": "snapchat"},
+          {"label": "Tumblr", "value": "tumblr"},
+          {"label": "Youtube", "value": "youtube"},
+          {"label": "Vimeo", "value": "vimeo"}
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "social_icon_2",
+        "label": "Icon 2",
+        "options": [
+          {"label": "None", "value": "none"},
+          {"label": "Twitter", "value": "twitter"},
+          {"label": "Facebook", "value": "facebook"},
+          {"label": "Pinterest", "value": "pinterest"},
+          {"label": "Instagram", "value": "instagram"},
+          {"label": "Snapchat", "value": "snapchat"},
+          {"label": "Tumblr", "value": "tumblr"},
+          {"label": "Youtube", "value": "youtube"},
+          {"label": "Vimeo", "value": "vimeo"}
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "social_icon_3",
+        "label": "Icon 3",
+        "options": [
+          {"label": "None", "value": "none"},
+          {"label": "Twitter", "value": "twitter"},
+          {"label": "Facebook", "value": "facebook"},
+          {"label": "Pinterest", "value": "pinterest"},
+          {"label": "Instagram", "value": "instagram"},
+          {"label": "Snapchat", "value": "snapchat"},
+          {"label": "Tumblr", "value": "tumblr"},
+          {"label": "Youtube", "value": "youtube"},
+          {"label": "Vimeo", "value": "vimeo"}
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "social_icon_4",
+        "label": "Icon 4",
+        "options": [
+          {"label": "None", "value": "none"},
+          {"label": "Twitter", "value": "twitter"},
+          {"label": "Facebook", "value": "facebook"},
+          {"label": "Pinterest", "value": "pinterest"},
+          {"label": "Instagram", "value": "instagram"},
+          {"label": "Snapchat", "value": "snapchat"},
+          {"label": "Tumblr", "value": "tumblr"},
+          {"label": "Youtube", "value": "youtube"},
+          {"label": "Vimeo", "value": "vimeo"}
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "social_icon_5",
+        "label": "Icon 5",
+        "options": [
+          {"label": "None", "value": "none"},
+          {"label": "Twitter", "value": "twitter"},
+          {"label": "Facebook", "value": "facebook"},
+          {"label": "Pinterest", "value": "pinterest"},
+          {"label": "Instagram", "value": "instagram"},
+          {"label": "Snapchat", "value": "snapchat"},
+          {"label": "Tumblr", "value": "tumblr"},
+          {"label": "Youtube", "value": "youtube"},
+          {"label": "Vimeo", "value": "vimeo"}
+        ],
+        "default": "none"
+      },
+      {
+        "type": "header",
+        "content": "Subfooter"
+      },
+      {
+        "type": "text",
+        "id": "copyright_text",
+        "label": "Copyright Override",
+        "info": "Optionally override the storefront name with other text"
+      },
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Subfooter Links"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "link_list_block",
+        "name": "Link List",
+        "limit": 6,
+        "settings": [
+          {
+            "type": "link_list",
+            "id": "menu",
+            "label": "Select a Link List"
+          }
+        ]
+      },
+      {
+        "type": "logo_block",
+        "name": "Logo",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo_png",
+            "label": "Image",
+            "info": "If the logo is a png, upload it here."
+          },
+          {
+            "type": "text",
+            "id": "logo_svg",
+            "label": "SVG URL",
+            "info": "Paste a URL for a SVG instead of uploading an image logo"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body Copy"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

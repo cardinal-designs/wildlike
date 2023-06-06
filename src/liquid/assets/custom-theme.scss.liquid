@@ -1,0 +1,27 @@
+{% assign star_empty = 'star_empty.png' | asset_img_url: '50x50', crop: 'center' %}
+{% assign star_whole = 'star_whole.png' | asset_img_url: '50x50', crop: 'center' %}
+{% assign star_half = 'star_half.png' | asset_img_url: '50x50', crop: 'center' %}
+
+{% if settings.reviews_star_empty != blank %}
+  {% assign star_empty = settings.reviews_star_empty | img_url: '50x50', crop: 'center' %}
+{% endif %}
+{% if settings.reviews_star_whole != blank %}
+  {% assign star_whole = settings.reviews_star_whole | img_url: '50x50', crop: 'center' %}
+{% endif %}
+{% if settings.reviews_star_half != blank %}
+  {% assign star_half = settings.reviews_star_half | img_url: '50x50', crop: 'center' %}
+{% endif %}
+
+
+.spr-icon.spr-icon-star-empty,
+.spr-icon.spr-icon.spr-icon-star-empty,
+.spr-icon.spr-icon-star-empty.spr-icon-star-hover {
+    background-image: url("{{ star_empty }}");
+}
+.spr-icon.spr-icon-star {
+    background-image: url("{{ star_whole }}");
+}
+.spr-icon.spr-icon-star-half,
+.spr-icon.spr-icon-star-half-alt {
+    background-image: url("{{ star_half }}");
+}

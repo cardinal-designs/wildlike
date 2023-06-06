@@ -1,0 +1,27 @@
+.bubble-hover {
+  position: relative;
+  z-index: 1;
+  line-height: 0;
+}
+
+.bubble-hover:after,
+.bubble-hover:after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: $color-black-900;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  opacity: 0;
+  clip-path: circle(0);
+  transition: clip-path .2s ease, opacity 50ms ease;
+}
+
+.bubble-hover:hover:after,
+.bubble-hover:focus:after {
+  clip-path: circle(45%);
+  opacity: .15;
+}

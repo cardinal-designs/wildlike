@@ -1,0 +1,97 @@
+input:not(:disabled) + label {
+  cursor: pointer;
+  user-select: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  outline-color: transparent !important;
+}
+
+@include input;
+@include input--text;
+@include input--select;
+@include input--select--secondary;
+@include input--radio;
+@include input--checkbox;
+@include input--toggle;
+@include input--secondary;
+
+
+
+
+/*
+
+
+  GENERAL
+
+
+*/
+.form-success,
+div.errors {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
+  padding: 12px 18px;
+}
+
+.form-success {
+  background-color: $color-util-success;
+  border-color: $color-util-success;
+  color: $color-black-900;
+}
+
+div.errors {
+  background-color: $color-util-error;
+  border-color: $color-util-error;
+  color: $color-util-error;
+  margin-bottom: $content-gutter;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 0;
+
+      &:not(:last-child) {
+        margin-bottom: $content-gutter;
+      }
+    }
+  }
+}
+
+.label-select-container {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.label-select-container select,
+.label-select-container input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  border-radius: 0 !important;
+  width: 100%;
+  z-index: 1;
+  background-color: $color-white;
+  border: 1px solid $form-color-grey;
+  height: 44px;
+  margin-top: 8px;
+  font-size: 14px;
+  padding-left: 12px;
+}
+
+.label-select-container select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-image: url('../assets/chevron_down.svg');
+  background-position: 95% center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+  outline: none;
+}

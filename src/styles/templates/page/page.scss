@@ -1,0 +1,201 @@
+.page-container {
+  @include desktop-up {
+    display: flex;
+    min-width: 0;
+    justify-content: center;
+  }
+}
+
+.page-template {
+  width: 100%;
+  max-width: 968px;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin: 0 auto 48px;
+
+  @include desktop-up {
+    padding-top: 48px;
+    margin-bottom: 80px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font-family-primary;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    font-style: italic;
+
+    @include mobile-only {
+      margin-bottom: 16px;
+    }
+  }
+
+  h1 {
+    font-size: rem(48);
+    @include mobile-only {
+      font-size: rem(36);
+    }
+  }
+
+  h2 {
+    font-size: rem(36);
+    @include mobile-only {
+      font-size: rem(28);
+    }
+  }
+
+  h3 {
+    font-size: rem(28);
+    @include mobile-only {
+      font-size: rem(26);
+    }
+  }
+  h4 {
+    font-size: rem(24);
+    @include mobile-only {
+      font-size: rem(22);
+    }
+  }
+
+  h5 {
+    font-size: rem(20);
+    @include mobile-only {
+      font-size: rem(18);
+    }
+  }
+
+  h6 {
+    font-size: rem(16);
+    @include mobile-only {
+      font-size: rem(14);
+    }
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ul, ol {
+    margin-top: 32px;
+    margin-left: 16px;
+    li {
+      padding-left: 8px;
+      margin-bottom: 16px;
+    }
+  }
+
+  ol {
+    margin-left: 17px;
+  }
+
+  p {
+    color: $color-black-900;
+    font-family: $font-family-secondary;
+    font-size: rem(16);
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-bottom: 24px;
+    font-weight: 600;
+
+    @include mobile-only {
+      margin-bottom: 24px;
+    }
+  }
+
+  a {
+    color: $color-brand-primary;
+    font-family: $font-family-secondary;
+    background-color: none;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  a:hover {
+    color: $color-brand-secondary;
+    background-color: none;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &__title {
+    text-align: center;
+
+    .page-template--with-sidebar & {
+      text-align: left;
+    }
+  }
+
+  .rte {
+    @include desktop-up {
+      padding-top: 30px;
+    }
+  }
+
+  hr {
+    margin: 64px 0 64px;
+    border-top: 1px solid $color-black-300;
+  }
+
+  button {
+    font-size: rem(20);
+    padding: 10px 49px 14px;
+    background-color: $color-brand-secondary;
+    color: $color-white;
+    font-family: $font-family-primary;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 1px solid black;
+    &:hover {
+      background-color: white;
+      color: $color-black-900;
+    }
+  }
+}
+
+.page-template--with-sidebar {
+  max-width: 980px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.page-template--super-collection {
+  padding-top: 0;
+}
+
+.page-template.faq {
+  & > h1:first-child {
+    margin-top: 32px;
+    padding: 0 16px;
+  }
+}
+
+.klaviyo-form {
+  [data-testid="form-component"] {
+    button.needsclick {
+      height: auto !important;
+      background: transparent;
+      border: none;
+    }
+
+    [data-testid="phoneNumberInput"] {
+      margin-left: 5px;
+    }
+
+    button.go2329515657 {
+      height: 55px !important;
+    }
+  }
+  .ql-editor em {
+    font-size: 10px;
+  }
+}

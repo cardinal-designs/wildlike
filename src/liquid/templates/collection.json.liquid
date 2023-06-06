@@ -1,0 +1,23 @@
+
+{%- layout none -%}
+{% if collection.metafields.custom_fields["enable_promo_tile"] == 1 %}
+  {% assign pagination_count = settings.collection_pagination_count | minus: 1 %}
+{% else %}
+  {% assign pagination_count = settings.collection_pagination_count | plus: 0 %}
+{% endif %}
+
+{%- paginate collection.products by pagination_count -%}
+  {
+    "productCount": {{ collection.products_count | json }},
+    "products": [
+      {%- for product in collection.products -%}
+        {%- include 'json--product', product: product, order: forloop.index -%}{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ],
+    "tags": [
+      {%- for tag in collection.tags -%}
+        {{- tag | json -}}{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+{%- endpaginate -%}

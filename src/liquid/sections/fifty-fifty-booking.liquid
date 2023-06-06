@@ -1,0 +1,221 @@
+{% assign booking_product = all_products[section.settings.service] %}
+
+{% capture schema %}
+  {
+    "settings": {
+    },
+    "blocks": [
+      {% for block in section.blocks %}
+
+      {% assign block_service = all_products[block.settings.service_product] %}
+        {
+          "id": {{ block.id | json }},
+          "serviceProductHandle": {{ block_service.handle | json }},
+          "serviceProductID": {{ block_service.id | json }},
+          "serviceProductVariantID": {{ block_service.selected_or_first_available_variant.id | json }},
+          "serviceProductAllVariantIDs": {{ block_service.variants | json }},
+          "layout": {{ block.settings.ff_layout | json }},
+          "imageDesktop": {{ block.settings.ff_image_desktop | json }},
+          "imageMobile": {{ block.settings.ff_image_mobile | json }},
+          "imageWidth": {{ block.settings.ff_image_width | json }},
+          "preheader": {{ block.settings.ff_preheader | json }},
+          "header": {{ block.settings.ff_header | json }},
+          "subheader": {{ block.settings.ff_subheader | json }},
+          "body": {{ block.settings.ff_body | json }},
+          "textAlignment": {{ block.settings.ff_text_alignment | json }},
+          "backgroundColor": {{ block.settings.ff_background_color | json }},
+          "preheaderColor": {{ block.settings.ff_preheader_color | json }},
+          "headerColor": {{ block.settings.ff_header_color | json }},
+          "subheaderColor": {{ block.settings.ff_subheader_color | json }},
+          "bodyColor": {{ block.settings.ff_body_color | json }},
+          "ctaText": {{ block.settings.ff_cta_text | json }},
+          "ctaUrl": {{ block.settings.ff_cta_url | json }},
+          "ctaStyle": {{ block.settings.ff_cta_style | json }},
+          "marginTop": {{ block.settings.margin_top | json }},
+          "marginBottom": {{ block.settings.margin_bottom | json }},
+          "maxWidth": {{ block.settings.max_width | json }},
+        }
+        {% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+{% endcapture %}
+
+<fifty-fifty-booking-container :schema="{{ schema | escape | strip }}" />
+
+{% schema %}
+  {
+    "name": "FiftyFiftyBooking",
+    "class": "fifty-fifty container",
+    "settings": [
+    ],
+    "blocks": [
+      {
+        "name": "Service",
+        "type": "service_block",
+        "settings": [
+        {
+          "type": "product",
+          "id": "service_product",
+          "label": "Choose a Service to book for this section"
+        },
+        {
+          "type":      "select",
+          "id":        "max_width",
+          "label":     "Section Max Width",
+          "options": [
+            {"value": "none", "label": "100%"},
+            {"value": "1440px", "label": "1440px"}
+          ],
+          "default":   "none"
+       },
+       {
+         "type": "header",
+         "content": "Section Margins",
+         "info": "Customize the margin spacing on the top and bottom of this section."
+       },
+       {
+         "label": "Top Padding",
+         "id": "margin_top",
+         "type": "range",
+         "min": 0,
+         "max": 100,
+         "step": 4,
+         "unit": "px",
+         "default": 56
+       },
+       {
+         "label": "Bottom Padding",
+         "id": "margin_bottom",
+         "type": "range",
+         "min": 0,
+         "max": 100,
+         "step": 4,
+         "unit": "px",
+         "default": 56
+       },
+       {
+         "type": "header",
+         "content": "Layout"
+       },
+       {
+         "type":      "select",
+         "id":        "ff_layout",
+         "label":     "Layout",
+         "options": [
+           {"value": "", "label": "Image on Left"},
+           {"value": "sw--reverse", "label": "Image on Right"}
+         ],
+           "default":   ""
+         },
+         {
+           "type": "header",
+           "content": "Image"
+         },
+         {
+           "type": "image_picker",
+           "id": "ff_image_desktop",
+           "label": "Desktop Image",
+           "info": "Minimum Dimensions: 1814x1538"
+         },
+         {
+           "type": "image_picker",
+           "id": "ff_image_mobile",
+           "label": "Mobile Image",
+           "info": "Same minumum dimensions as desktop. Image will be automatically resized."
+         },
+         {
+           "type": "select",
+           "id": "ff_image_width",
+           "label": "Image Column Width",
+           "options": [
+             {"label": "40%", "value": "sw--40"},
+             {"label": "50%", "value": "sw--50"},
+             {"label": "60%", "value": "sw--60"}
+           ],
+           "default": "sw--50"
+         },
+         {
+           "type": "header",
+           "content": "Text Content"
+         },
+         {
+           "type": "text",
+           "id": "ff_preheader",
+           "label": "Preheader"
+         },
+         {
+           "type": "text",
+           "id": "ff_header",
+           "label": "Header"
+         },
+         {
+           "type": "text",
+           "id": "ff_subheader",
+           "label": "Subheader"
+         },
+         {
+           "type": "richtext",
+           "id": "ff_body",
+           "label": "Body Copy"
+         },
+         {
+           "type": "select",
+           "id": "ff_text_alignment",
+           "label": "Text Alignment",
+           "options": [
+             {"label": "Left", "value": ""},
+             {"label": "Center", "value": "text-center"}
+           ],
+           "default": ""
+         },
+         {
+           "type": "header",
+           "content": "Colors"
+         },
+         {
+           "label": "Background Color",
+           "id": "ff_background_color",
+           "type": "select",
+           "options": <%- uikit.backgroundOptions -%>,
+           "default": "bg-grey"
+         },
+         {
+           "label": "Preheader Color",
+           "id": "ff_preheader_color",
+           "type": "select",
+           "options": <%- uikit.colorOptions -%>,
+           "default": "color-black"
+         },
+         {
+           "label": "Header Color",
+           "id": "ff_header_color",
+           "type": "select",
+           "options": <%- uikit.colorOptions -%>,
+           "default": "color-black"
+         },
+         {
+           "label": "Subheader Color",
+           "id": "ff_subheader_color",
+           "type": "select",
+           "options": <%- uikit.colorOptions -%>,
+           "default": "color-black"
+         },
+         {
+           "label": "Body Copy Color",
+           "id": "ff_body_color",
+           "type": "select",
+           "options": <%- uikit.colorOptions -%>,
+           "default": "color-black"
+         }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "FiftyFiftyBooking",
+        "category": "Content Blocks"
+      }
+    ]
+  }
+{% endschema %}

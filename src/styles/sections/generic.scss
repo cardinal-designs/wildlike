@@ -1,0 +1,28 @@
+.section-padded {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+@include tablet-up {
+  .section-padded {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}
+
+.section-margined {
+  padding-top: 48px;
+  margin-bottom: 48px;
+}
+
+@include tablet-up {
+  .section-margined {
+    padding-top: 56px;
+    margin-bottom: 56px;
+    width: 100%;
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}

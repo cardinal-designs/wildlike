@@ -1,0 +1,217 @@
+<div class="page-layout__section">
+  <div class="container">
+    <h2 class="heading heading--divider">Buttons</h2>
+    <h3 class="heading heading--divider">Primary</h3>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <button-component class="button--primary">Button Element</button-component>
+        <button-component disabled class="button--primary">Disabled Button Element</button-component>
+
+        <button-component class="button--primary button--full-width">Full Width Button Element</button-component>
+        <button-component disabled class="button--primary button--full-width">Disabled Full Width Button Element</button-component>
+      </div>
+      <div class="column small-12 medium-6">
+        <button-component href="#" class="button--primary">Link Element</button-component>
+        <button-component href="#" disabled class="button--primary">Disabled Link Element</button-component>
+
+        <button-component href="#" class="button--primary button--full-width">Full Width Link Element</button-component>
+        <button-component href="#" disabled class="button--primary button--full-width">Disabled Full Width Link Element</button-component>
+      </div>
+    </div>
+    <h4 class="heading heading--divider">With Blue Modifier</h4>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <button-component class="button--blue">Button Element</button-component>
+        <button-component disabled class="button--blue">Disabled Button Element</button-component>
+      </div>
+      <div class="column small-12 medium-6">
+        <button-component href="#" class="button--nlue">Link Element</button-component>
+        <button-component href="#" disabled class="button--nlue">Disabled Link Element</button-component>
+      </div>
+    </div>
+    <h4 class="heading heading--divider">With Green Modifier</h4>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <button-component class="button--green">Button Element</button-component>
+        <button-component disabled class="button--green">Disabled Button Element</button-component>
+      </div>
+      <div class="column small-12 medium-6">
+        <button-component href="#" class="button--green">Link Element</button-component>
+        <button-component href="#" disabled class="button--green">Disabled Link Element</button-component>
+      </div>
+    </div>
+
+    <h3 class="heading heading--divider">Secondary</h3>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <button-component class="button--secondary">Button Element</button-component>
+        <button-component disabled class="button--secondary">Disabled Button Element</button-component>
+
+        <button-component class="button--secondary button--full-width">Full Width Button Element</button-component>
+        <button-component disabled class="button--secondary button--full-width">Disabled Full Width Button Element</button-component>
+      </div>
+      <div class="column small-12 medium-6">
+        <button-component href="#" class="button--secondary">Link Element</button-component>
+        <button-component href="#" disabled class="button--secondary">Disabled Link Element</button-component>
+
+        <button-component href="#" class="button--secondary button--full-width">Full Width Link Element</button-component>
+        <button-component href="#" disabled class="button--secondary button--full-width">Disabled Full Width Link Element</button-component>
+      </div>
+    </div>
+
+    <h3 class="heading heading--divider">Tertiary</h3>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <button-component class="button--tertiary">Button Element</button-component>
+        <button-component disabled class="button--tertiary">Disabled Button Element</button-component>
+
+        <button-component class="button--tertiary button--full-width">Full Width Button Element</button-component>
+        <button-component disabled class="button--tertiary button--full-width">Disabled Full Width Button Element</button-component>
+      </div>
+      <div class="column small-12 medium-6">
+        <button-component href="#" class="button--tertiary">Link Element</button-component>
+        <button-component href="#" disabled class="button--tertiary">Disabled Link Element</button-component>
+
+        <button-component href="#" class="button--tertiary button--full-width">Full Width Link Element</button-component>
+        <button-component href="#" disabled class="button--tertiary button--full-width">Disabled Full Width Link Element</button-component>
+      </div>
+    </div>
+    <h4 class="heading heading--divider">With Blue Modifier</h4>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <button-component class="button--tertiary button--blue">Button Element</button-component>
+        <button-component disabled class="button--tertiary button--blue">Disabled Button Element</button-component>
+      </div>
+      <div class="column small-12 medium-6">
+        <button-component href="#" class="button--tertiary button--blue">Link Element</button-component>
+        <button-component href="#" disabled class="button--tertiary button--blue">Disabled Link Element</button-component>
+      </div>
+    </div>
+    <h4 class="heading heading--divider">With Green Modifier</h4>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <button-component class="button--tertiary button--green">Button Element</button-component>
+        <button-component disabled class="button--tertiary button--green">Disabled Button Element</button-component>
+      </div>
+      <div class="column small-12 medium-6">
+        <button-component href="#" class="button--tertiary button--green">Link Element</button-component>
+        <button-component href="#" disabled class="button--tertiary button--green">Disabled Link Element</button-component>
+      </div>
+    </div>
+
+    <h3 class="heading heading--divider">Icon Buttons</h3>
+    <h4 class="heading heading--divider">Icon only with the .button--icon class</h4>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <button-component class="button--icon">
+          <icon name="close"></icon>
+          <span class="u-sr-only">Close</span>
+        </button-component>
+        <button-component class="button--icon">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          <span class="u-sr-only">Play</span>
+        </button-component>
+        <button-component href="#" class="button--icon">
+          <icon name="cart"></icon>
+          <span class="u-sr-only">Cart</span>
+        </button-component>
+      </div>
+      <div class="column small-12 medium-6">
+        <button-component disabled class="button--icon">
+          <icon name="close"></icon>
+          <span class="u-sr-only">Close</span>
+        </button-component>
+        <button-component disabled class="button--icon">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          <span class="u-sr-only">Play</span>
+        </button-component>
+        <button-component disabled href="#" class="button--icon">
+          <icon name="cart"></icon>
+          <span class="u-sr-only">Cart</span>
+        </button-component>
+      </div>
+    </div>
+
+    <h4 class="heading heading--divider">Buttons with icons included</h4>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <button-component class="button--primary">
+          <icon name="chevron-left" size="14px" class="button__icon"></icon>
+          Button Element
+        </button-component>
+
+        <button-component class="button--primary">
+          Button Element
+          <icon name="chevron-right" size="14px" class="button__icon"></icon>
+        </button-component>
+
+         <button-component disabled class="button--primary">
+          <icon name="chevron-left" size="14px" class="button__icon"></icon>
+          Disabled Button Element
+        </button-component>
+
+        <button-component class="button--primary button--full-width">
+          Full Width Button Element
+          <icon name="chevron-right" size="14px" class="button__icon"></icon>
+        </button-component>
+      </div>
+    </div>
+
+    <h4 class="heading heading--divider">.button--icon-left and .button--icon-right</h4>
+    <div class="row">
+      <div class="column small-12 medium-6">
+        <button-component class="button--tertiary button--green button--icon-left">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          Button Element
+        </button-component>
+
+        <button-component disabled class="button--tertiary button--green button--icon-left">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          Disabled Button Element
+        </button-component>
+
+        <button-component class="button--tertiary button--green button--icon-right">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          Button Element
+        </button-component>
+
+        <button-component disabled class="button--tertiary button--green button--icon-right">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          Disabled Button Element
+        </button-component>
+
+        <button-component class="button--tertiary button--green button--icon-right button--full-width">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          Full Width Button Element
+        </button-component>
+      </div>
+
+      <div class="column small-12 medium-6">
+        <button-component href="#" class="button--tertiary button--green button--icon-left">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          Link Element
+        </button-component>
+
+        <button-component href="#" disabled class="button--tertiary button--green button--icon-left">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          Disabled Link Element
+        </button-component>
+
+        <button-component href="#" class="button--tertiary button--green button--icon-right">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          Link Element
+        </button-component>
+
+        <button-component href="#" disabled class="button--tertiary button--green button--icon-right">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          Disabled Link Element
+        </button-component>
+
+        <button-component href="#" class="button--tertiary button--green button--icon-right button--full-width">
+          <img class="button__icon" src="{{ 'video-icon.png' | asset_url }}" alt="Play">
+          Full Width Link Element
+        </button-component>
+      </div>
+    </div>
+  </div>
+</div>

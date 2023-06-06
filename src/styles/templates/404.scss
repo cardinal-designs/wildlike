@@ -1,0 +1,30 @@
+
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  &--wrapper {
+    height: 100%;
+  }
+
+  &__container {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__image,
+  &__description {
+    margin: 0 0 $grid-gutter;
+  }
+
+  &__title {
+    margin: 0 0 $content-gutter / 2;
+  }
+}

@@ -1,0 +1,144 @@
+// MODIFIED SIMPLE GRID - SASS/SCSS https://simplegrid.io/
+
+// grid
+
+$width: 100%;
+$gutter: 0;
+
+.container {
+  max-width: ($container-max-width + ($grid-gutter-sm * 2));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $grid-gutter-sm;
+  padding-right: $grid-gutter-sm;
+  &--tiny {
+    max-width: (780px + ($grid-gutter-sm * 2));
+  }
+  &--wide {
+    max-width: (1400px + ($grid-gutter-sm * 2));
+  }
+
+  @include tablet-up {
+    padding-left: $grid-gutter;
+    padding-right: $grid-gutter;
+    &--tiny {
+      max-width: (780px + ($grid-gutter * 2));
+    }
+    &--wide {
+      max-width: (1400px + ($grid-gutter * 2));
+    }
+  }
+}
+
+.hidden-sm {
+  display: none;
+}
+
+.hidden-lg {
+  display: inherit;
+}
+
+.hidden-tablet {
+  display: none;
+}
+
+.row {
+  position: relative;
+  width: 100%;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row [class*="col-"] {
+  float: left;
+  margin: 0 0 16px;
+  min-height: 0.125rem;
+}
+
+.row :not([class*="col-12"])[class*="col-"] {
+  padding: 0 8px;
+}
+
+.row [class*="col"]:first-child {
+  padding-left: 0; 
+} 
+
+.row [class*="col"]:last-child {
+  padding-right: 0; 
+} 
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+  width: $width;
+}
+
+.col-1-sm { width:($width / 12) - ($gutter * 11 / 12); }
+.col-2-sm { width: ($width / 6) - ($gutter * 10 / 12); }
+.col-3-sm { width: ($width / 4) - ($gutter * 9 / 12); }
+.col-4-sm { width: ($width / 3) - ($gutter * 8 / 12); }
+.col-5-sm { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+.col-6-sm { width: ($width / 2) - ($gutter * 6 / 12); }
+.col-7-sm { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+.col-8-sm { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+.col-9-sm { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+.col-10-sm { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+.col-11-sm { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+.col-12-sm { width: $width; }
+
+@media only screen and (min-width: $breakpoint-tablet) {
+  .col-1 { width:($width / 12) - ($gutter * 11 / 12); }
+  .col-2 { width: ($width / 6) - ($gutter * 10 / 12); }
+  .col-3 { width: ($width / 4) - ($gutter * 9 / 12); }
+  .col-4 { width: ($width / 3) - ($gutter * 8 / 12); }
+  .col-5 { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+  .col-6 { width: ($width / 2) - ($gutter * 6 / 12); }
+  .col-7 { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+  .col-8 { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+  .col-9 { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+  .col-10 { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+  .col-11 { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+  .col-12 { width: $width; }
+
+  .hidden-sm {
+    display: block;
+  }
+
+  .hidden-lg {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-desktop) {
+  .col-1-lg { width:($width / 12) - ($gutter * 11 / 12); }
+  .col-2-lg { width: ($width / 6) - ($gutter * 10 / 12); }
+  .col-3-lg { width: ($width / 4) - ($gutter * 9 / 12); }
+  .col-4-lg { width: ($width / 3) - ($gutter * 8 / 12); }
+  .col-5-lg { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+  .col-6-lg { width: ($width / 2) - ($gutter * 6 / 12); }
+  .col-7-lg { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+  .col-8-lg { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+  .col-9-lg { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+  .col-10-lg { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+  .col-11-lg { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+  .col-12-lg { width: $width; }
+}
+
+@media only screen and (min-width: $breakpoint-desktop) {
+  .hidden-tablet {
+    display: block;
+  }
+}

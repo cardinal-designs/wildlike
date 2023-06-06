@@ -1,0 +1,179 @@
+<!-- Breadcrumbs -->
+<div class="article__top-line bg-light-grey">
+  <div  class="article__blog-url">
+    <a class="article__breadcrumb" href="{{ blog.url }}">Return to Blog</a>
+  </div>
+  <div class="article__date link body-sm" text="{{ article.published_at | date: '%b %e' }}">{{ article.published_at | date: "%B %d, %Y" }}</div>
+</div>
+<!-- Article -->
+<article role="article" class="u-bg-main article__container ">
+  <!-- Article Header -->
+  <div class='article__header-section-container'>
+    {%- if article.image -%}
+      <div class="article__hero">
+        <img class="article__image"
+          src="{{ article.image | img_url: '1400x' }}"
+          srcset="{{ article.image | img_url: '768x' }} 768w,
+                  {{ article.image | img_url: '1024x' }} 1024w,
+                  {{ article.image | img_url: '1400x' }} 1400w"
+          alt="{{ article.image.alt }}" />
+      </div>
+    {%- endif -%}
+    <div class='article__header-section'>
+      <div class='article__hero-text'>
+        {% if article.metafields.custom_fields["article_subtitle"] != blank %}
+          <h5 class="article__subtitle">
+            {{ article.metafields.custom_fields["article_subtitle"] }}
+          </h5>
+        {% endif %}
+        <h1 class="article__title u-text-center">{{ article.title }}</h3>
+        {% if article.excerpt.size > 0 %}
+          <div class="article__excerpt">{{ article.excerpt | truncate: 250 }}</div>
+        {% endif %}
+        <p class="article__author"><span class="article__by">by {{ article.author }}</span> <span class="article__author-mobile"><span class="article__date" text="{{ article.published_at | date: '%b %e' }}">{{ article.published_at | date: "%B %d, %Y" }}</span></span></p>
+      </div>
+    </div>
+  </div>
+  <!-- Article Main -->
+  <div class="article__main-content">
+    <!-- Social Left Column -->
+    <div class="article__main-content-left">
+      {%- if settings.social_sharing_blog -%}
+      <div class='article__share-container'>
+        <p class='article__share-text h7 strong-medium'>Share</p>
+        {%- include 'social-sharing', scope: "article", share_title: article.title, share_permalink: article.url, share_image: article.image -%}
+      </div>
+      {%- endif -%}
+    </div>
+    <!-- Main content Center Column -->
+    <div class="article__main-content-center">
+      <div class="client-generated client-generated--article article__content">{{ article.content }}</div>
+    </div>
+    <!-- Empty Right Column -->
+    <div class="article__main-content-right">
+    </div>
+  </div>
+
+  <!-- Article Footer Tags -->
+  <div class='article__tags-container'>
+    {%- if article.tags.size > 0 -%}
+      <div class="article__tags-left">
+        <p class='article__tags-text h6'>Tags</p>
+          <ul class="article__tags u-list-inline">
+            {%- for tag in article.tags -%}
+              <li class=" {{ section.settings.tag-link-background-color }}">
+                <a class="body-md-sm {{ section.settings.tag-link-text-color }}" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}{% unless forloop.last %} &nbsp;{% endunless %}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+      </div>
+    {%- endif -%}
+    {%- if settings.social_sharing_blog -%}
+      <div class='article__share-container-mobile'>
+        <p class='article__share-text h6'>Share</p>
+        {%- include 'social-sharing', scope: "article", share_title: article.title, share_permalink: article.url, share_image: article.image -%}
+      </div>
+    {%- endif -%}
+  </div>
+</article>
+
+<!-- More Article -->
+<section class='article__more-articles background-color-primary-200'>
+  <h2 class='article__more-articles-headline {{ section.settings.more-articles-headline-color }}'>{{ section.settings.more-articles-headline }}</h3>
+  <carousel class="article__more-articles-carousel" ref="moreArticlesCarousel"
+  :infinite="($mq === 'mobile') ? true : false"
+  :slides-to-show="($mq === 'mobile') ? 1 : ($mq === 'tablet') ? 2 : 3"
+  :center-mode="($mq === 'mobile')"
+  :dots="true">
+    {% assign blogArticle = article.id %}
+    {% assign articleCounter = 0 %}
+    {% for article in blog.articles limit: 3 %}
+      {% if article.id != blogArticle  and articleCounter < 3 %}
+        <slide>
+          <div class='article__more-all article__more-{{ forloop.index }} clip-transition'>
+            <a href="{{ article.url }}" label="Read More">
+              {%- if article.image -%}
+                <img class="article__image"
+                  src="{{ article.image | img_url: '1400x' }}"
+                  srcset="{{ article.image | img_url: '768x' }} 768w,
+                          {{ article.image | img_url: '1024x' }} 1024w,
+                          {{ article.image | img_url: '1400x' }} 1400w"
+                  alt="{{ article.image.alt }}" />
+              {%- endif -%}
+              <h6 class="article__more-all-title {{ section.settings.more-articles-title-color }}">{{ article.title }}</h6>
+              {%- if article.excerpt.size > 0 -%}
+                <p class="article__more-all-excerpt">{{ article.excerpt | truncate: 100 }}</p>
+              {%- endif -%}
+              <v-link primary class="more-article-read-more" >Read More</v-link>
+            </a>
+          </div>
+        </slide>
+        {% assign articleCounter = articleCounter | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  </carousel>
+</section>
+
+{% schema %}
+  {
+    "name": "Blog Article",
+    "class": "blog-article-template",
+    "settings": [
+    {
+      "type": "header",
+      "content": "Description",
+      "info":  "The fields listed here affect all blog articles globally."
+    },
+    {
+      "type": "header",
+      "content": "Tags"
+    },
+    {
+      "type": "select",
+      "id": "tag-link-background-color",
+      "label": "Tag Link Background Color",
+      "options": <%- uikit.backgroundOptions -%>,
+      "default": "bg-brand-primary"
+    },
+    {
+      "type": "select",
+      "id": "tag-link-text-color",
+      "label": "Tag Link Text Color",
+      "options": <%- uikit.colorOptions -%>,
+      "default": "color-black"
+    },
+    {
+      "type": "header",
+      "content": "Other Blog Posts Section",
+      "info":  "This section displays the 3 most recent blog posts and appears on every blog article page."
+    },
+    {
+      "type": "text",
+      "id": "more-articles-headline",
+      "label": "Section Heading",
+      "default": "More Articles"
+    },
+    {
+      "type": "select",
+      "id": "more-articles-headline-color",
+      "label": "Section Heading Color",
+      "options": <%- uikit.colorOptions -%>,
+      "default": "color-black"
+    },
+    {
+      "type": "select",
+      "id": "more-articles-background-color",
+      "label": "Section Background Color",
+      "options": <%- uikit.backgroundOptions -%>,
+      "default": "bg-brand-primary"
+    },
+    {
+      "type": "select",
+      "id": "more-articles-title-color",
+      "label": "Article Title Color",
+      "options": <%- uikit.colorOptions -%>,
+      "default": "color-black"
+    }
+    ]
+  }
+{% endschema %}

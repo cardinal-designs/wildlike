@@ -1,0 +1,27 @@
+
+{% if template contains 'blog' %}
+  {% assign ajaxUrl = shop.url | append: '/blogs/press' %}
+  {% capture schema %}
+    {
+      "settings": {
+        total: {{ blog.articles.size | json }},
+        ajax_url: {{ ajaxUrl | json }}
+      }
+    }
+  {% endcapture %}
+
+  <press
+    :schema="{{ schema | escape | strip }}"
+  />
+{% endif %}
+
+{% schema %}
+{
+  "name": "Press Blocks",
+  "presets": [
+    {
+      "name": "Press Blocks"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,585 @@
+
+// ---------------------------------
+//   Base
+// ---------------------------------
+
+html, body {
+  font-family: $font-family-global;
+  font-size: #{$font-size-base}px;
+}
+
+// ---------------------------------
+//   Headers
+// ---------------------------------
+
+* {
+  font-family: $font-family-global;
+  font-size: rem($font-size-base);
+  text-decoration: none;
+  font-weight: $font-weight-global;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+.h7 {
+  @include all-h-tags;
+}
+
+// ---------------------------------
+//   Specialized
+// ---------------------------------
+
+.button-text {
+  @include button-text;
+}
+
+button, .button {
+  @include button;
+}
+
+.plain-link {
+ @include plain-link;
+}
+
+label, .label {
+  @include label;
+}
+
+
+
+
+// ---------------------------------
+//   Misc
+// ---------------------------------
+
+body,
+input,
+textarea,
+button,
+select {
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.pdp-in-stock-flag {
+  @include pdp-in-stock-flag;
+}
+
+.pdp-out-of-stock-flag {
+  @include pdp-out-of-stock-flag;
+}
+
+
+h1, .h1 {
+  @include h1;
+
+  @include tablet-up {
+    @include h1-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include h1-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include h1-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include h1-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include h1-desktop-up; }
+  }
+}
+
+h2, .h2 {
+  @include h2;
+
+  @include tablet-up {
+    @include h2-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include h2-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include h2-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include h2-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include h2-desktop-up; }
+  }
+}
+
+h3, .h3 {
+  @include h3;
+
+  @include tablet-up {
+    @include h3-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include h3-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include h3-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include h3-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include h3-desktop-up; }
+  }
+}
+
+h4, .h4 {
+  @include h4;
+
+  @include tablet-up {
+    @include h4-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include h4-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include h4-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include h4-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include h4-desktop-up; }
+  }
+}
+
+h5, .h5 {
+  @include h5;
+
+  @include tablet-up {
+    @include h5-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include h5-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include h5-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include h5-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include h5-desktop-up; }
+  }
+}
+
+h6, .h6 {
+  @include h6;
+
+  @include tablet-up {
+    @include h6-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include h6-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include h6-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include h6-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include h6-desktop-up; }
+  }
+}
+
+.h7 {
+  @include h6;
+
+  @include tablet-up {
+    @include h7-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include h7-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include h7-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include h7-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include h7-desktop-up; }
+  }
+}
+
+.body-sm, .body-sm p {
+  @include body-sm;
+
+  @include tablet-up {
+    @include body-sm-tablet-up;
+  }
+
+  &-mobile,
+  &-mobile p {
+    @include mobile-only   { @include body-sm-mobile; }
+  }
+
+  &-tablet,
+  &-tablet p {
+    @include tablet-only   { @include body-sm-tablet; }
+  }
+
+  &-tablet-up,
+  &-tablet-up p {
+    @include tablet-up  { @include body-sm-tablet-up; }
+  }
+
+  &-desktop-up,
+  &-desktop-up p {
+    @include desktop-up   { @include body-sm-desktop-up; }
+  }
+}
+
+.body-md-sm, .body-md-sm p {
+  @include body-md-sm;
+
+  @include tablet-up {
+    @include body-md-sm-tablet-up;
+  }
+
+  &-mobile,
+  &-mobile p {
+    @include mobile-only   { @include body-md-sm-mobile; }
+  }
+
+  &-tablet,
+  &-tablet p {
+    @include tablet-only   { @include body-md-sm-tablet; }
+  }
+
+  &-tablet-up,
+  &-tablet-up p {
+    @include tablet-up  { @include body-md-sm-tablet-up; }
+  }
+
+  &-desktop-up,
+  &-desktop-up p {
+    @include desktop-up   { @include body-md-sm-desktop-up; }
+  }
+}
+
+.body-md, .body-md p {
+  @include body-md;
+
+  @include tablet-up {
+    @include body-md-tablet-up;
+  }
+
+  &-mobile,
+  &-mobile p {
+    @include mobile-only   { @include body-md-mobile; }
+  }
+
+  &-tablet,
+  &-tablet p {
+    @include tablet-only   { @include body-md-tablet; }
+  }
+
+  &-tablet-up,
+  &-tablet-up p {
+    @include tablet-up  { @include body-md-tablet-up; }
+  }
+
+  &-desktop-up,
+  &-desktop-up p {
+    @include desktop-up   { @include body-md-desktop-up; }
+  }
+}
+
+.body-lg, .body-lg p {
+  @include body-lg;
+
+  @include tablet-up {
+    @include body-lg-tablet-up;
+  }
+
+  &-mobile,
+  &-mobile p {
+    @include mobile-only   { @include body-lg-mobile; }
+  }
+
+  &-tablet,
+  &-tablet p {
+    @include tablet-only   { @include body-lg-tablet; }
+  }
+
+  &-tablet-up,
+  &-tablet-up p {
+    @include tablet-up  { @include body-lg-tablet-up; }
+  }
+
+  &-desktop-up,
+  &-desktop-up p {
+    @include desktop-up   { @include body-lg-desktop-up; }
+  }
+}
+
+.strong-medium {
+  @include strong-medium;
+
+  @include tablet-up {
+    @include strong-medium-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include strong-medium-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include strong-medium-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include strong-medium-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include strong-medium-desktop-up; }
+  }
+}
+
+.strong-bold {
+  @include strong-bold;
+
+  @include tablet-up {
+    @include strong-bold-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include strong-bold-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include strong-bold-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include strong-bold-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include strong-bold-desktop-up; }
+  }
+}
+
+.preheader-sm {
+  @include preheader-sm;
+
+  @include tablet-up {
+    @include preheader-sm-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include preheader-sm-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include preheader-sm-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include preheader-sm-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include preheader-sm-desktop-up; }
+  }
+}
+
+.preheader {
+  @include preheader;
+
+  @include tablet-up {
+    @include preheader-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include preheader-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include preheader-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include preheader-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include preheader-desktop-up; }
+  }
+}
+
+.subheader {
+  @include subheader;
+
+  @include tablet-up {
+    @include subheader-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include subheader-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include subheader-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include subheader-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include subheader-desktop-up; }
+  }
+}
+
+.product-tile-title {
+  @include product-tile-title;
+
+  @include desktop-up {
+    @include product-tile-title-desktop-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include product-tile-title-mobile; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include product-tile-title-desktop-up; }
+  }
+}
+
+.pdp-product-title {
+  @include pdp-product-title;
+
+  @include tablet-up {
+    @include pdp-product-title-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include pdp-product-title-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include pdp-product-title-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include pdp-product-title-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include pdp-product-title-desktop-up; }
+  }
+}
+
+.pdp-price {
+  @include pdp-price;
+
+  @include tablet-up {
+    @include pdp-price-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include pdp-price-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include pdp-price-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include pdp-price-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include pdp-price-desktop-up; }
+  }
+}
+
+.pdp-price-compare {
+  @include pdp-price-compare;
+
+  @include tablet-up {
+    @include pdp-price-compare-tablet-up;
+  }
+
+  &-mobile {
+    @include mobile-only   { @include pdp-price-compare-mobile; }
+  }
+
+  &-tablet {
+    @include tablet-only   { @include pdp-price-compare-tablet; }
+  }
+
+  &-tablet-up {
+    @include tablet-up  { @include pdp-price-compare-tablet-up; }
+  }
+
+  &-desktop-up {
+    @include desktop-up   { @include pdp-price-compare-desktop-up; }
+  }
+}
+
+.italicize {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.underline {
+  text-decoration: underline;
+}

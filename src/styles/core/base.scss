@@ -1,0 +1,22 @@
+hr {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+p, blockquote {
+  margin: 0;
+}
+
+s, del {
+  text-decoration: line-through;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: $color-white;
+}

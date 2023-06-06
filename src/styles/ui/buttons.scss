@@ -1,0 +1,81 @@
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  * {
+    vertical-align: middle;
+  }
+}
+
+@include button;
+
+@include button--primary;
+@include button--secondary;
+@include button--primary;
+@include button--arrow-primary;
+@include button--arrow-secondary;
+
+// ~
+// ~
+// SMALL
+// ~
+// ~
+@include button--small;
+
+// ~
+// ~
+// LARGE
+// ~
+// ~
+@include button--large;
+
+// ~
+// ~
+// FULL
+// ~
+// ~
+.button--full {
+  width: 100%;
+  position: relative;
+}
+
+// ~
+// ~
+// ICON
+// ~
+// ~
+.button--icon {
+  padding: 0;
+  line-height: 0;
+
+  .icon {
+    fill: $color-black-900;
+  }
+
+  &.u-icon-primary .icon {
+    fill: $color-brand-primary;
+  }
+
+  &, &:not(:disabled):hover {
+    background-color: transparent;
+  }
+
+  &:not(:disabled):hover {
+    .icon {
+      fill: $color-brand-primary;
+    }
+  }
+}
+
+@if $auto-button-color-switch {
+  @each $class in $dark-color-classes {
+    .#{$class} {
+      @each $type in primary, secondary, dark, light  {
+        @include automatic-color-button-style($type);
+      }
+    }
+  }
+}

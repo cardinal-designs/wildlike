@@ -1,0 +1,22 @@
+{% layout none %}
+{% paginate blog.articles by 4 %}
+  {% for article in blog.articles %}
+    {% assign isFeatured = article.metafields.article.is_featured %}
+
+    <a href="{{ article.url }}" class="press__item left">
+      <div class="press__item-image__wrapper {% if isFeatured %} press__item-image__wrapper--featured {% endif %}">
+      {% if article.image %}
+        <img
+          class="press__item-image"
+          src="{{ article.image | img_url: '700x' }}"
+          alt="{{ article.title }}"
+          loading="lazy"
+        >
+      {% endif %}
+      </div>
+      <h2>{{ article.title }}</h2>
+      <p class="press__item-date">{{ article.published_at | date: "%B %Y" }}</p>
+    </a>
+
+  {% endfor %}
+{% endpaginate %}

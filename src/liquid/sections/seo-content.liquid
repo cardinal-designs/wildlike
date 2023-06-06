@@ -1,0 +1,57 @@
+{% capture schema %}
+  {
+    "settings": {
+      "title": {{ section.settings.scb_title | json }},
+      "content": {{ section.settings.scb_content | json }},
+      "marginTop": {{ section.settings.margin_top | json }},
+      "marginBottom": {{ section.settings.margin_bottom | json }}
+    }
+  }
+{% endcapture %}
+
+<seo-content-block :schema="{{ schema | escape | strip }}" />
+
+{% schema %}
+  {
+    "name": "SeoContentBlock",
+    "settings": [
+      {
+        "type": "range",
+        "id": "margin_top",
+        "label": "Top Padding",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 56
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "label": "Bottom Padding",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 56
+      },
+      {
+        "type": "text",
+        "id": "scb_title",
+        "label": "SEO Title"
+      },
+      {
+        "type": "textarea",
+        "id": "scb_content",
+        "label": "SEO Content",
+        "default": "<p></p>"
+      }
+    ],
+    "presets": [
+      {
+        "name": "SEO Content Block",
+        "category": "Content Blocks"
+      }
+    ]
+  }
+{% endschema %}

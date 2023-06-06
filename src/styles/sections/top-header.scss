@@ -1,0 +1,258 @@
+.main-navigation-container {
+  width: 100%;
+  position: relative;
+
+  @include desktop-up {
+    position: relative;
+  }
+}
+
+.top-header__inner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+
+  @include desktop-up {
+    height: 100%;
+    position: relative;
+  }
+  &--design-2 {
+    max-width: ($container-max-width + ($grid-gutter * 2));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $grid-gutter;
+    padding-right: $grid-gutter;
+    @include desktop-up {
+      max-width: ($container-max-width + ($grid-gutter * 2));
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: $grid-gutter;
+      padding-right: $grid-gutter;
+    }
+    .carousel__nav__next,
+    .carousel__nav__prev {
+      display: flex !important;
+      top: 50% !important;
+      transform: translateY(-50%);
+
+      @include desktop-up {
+        svg.icon {
+          width: 12px !important;
+          height: 12px !important;
+        }
+      }
+    }
+    .promobar-block-content {
+      p {
+        display: block;
+      }
+      a {
+        display: inline;
+        text-decoration: underline;
+        background-color: transparent;
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.top-header__container {
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: $color-primary-700;
+  width: 100%;
+  height: 40px;
+  @include desktop-up {
+    height: 48px;
+  }
+}
+
+.top-bar__promobar-carousel {
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+
+  @include desktop-up {
+    max-width: 500px;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.top-bar__helper--first-links-container {
+  &:before {
+    left: 30px;
+  }
+}
+
+.top-bar__helper--second-links-container {
+  &:before {
+    left: 60%;
+  }
+}
+
+.top-bar__helper-link {
+  display: inline-block;
+  color: $color-black-900 !important;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: $font-family-primary;
+
+  &:hover {
+    &::before {
+      background-color: $color-black-900 !important;
+    }
+  }
+
+  &::before {
+    background-color: $color-black-900 !important;
+  }
+}
+
+.top-bar__account-helper-link {
+  display: flex;
+  color: $color-black-900 !important;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 16px;
+  font-family: $font-family-primary;
+
+  &:hover {
+    &::before {
+      background-color: $color-black-900 !important;
+    }
+  }
+
+  &::before {
+    background-color: $color-black-900 !important;
+  }
+}
+
+.top-bar__promobar-carousel p {
+  margin: 0;
+  font-size: 12px;
+
+  @include desktop-up {
+    font-size: 14px;
+  }
+}
+
+.top-bar__promobar-carousel .button__content {
+  vertical-align: middle;
+}
+
+.top-bar__helper-main-link {
+  display: flex;
+  align-items: center;
+  font-family: $font-family-primary;
+}
+
+.desktop-help-icon-container {
+  display: flex;
+  margin-left: 5px;
+}
+
+.top-bar__helper-main-link-title {
+  margin: 0;
+  font-size: 14px;
+  font-family: $font-family-primary;
+}
+
+.top-bar__helper-main-link-title-container {
+  display: flex;
+}
+
+.desktop-helper-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.promobar-block-content,
+.promobar-block-content p,
+.promobar-block-content a,
+.promobar-block-content em,
+.promobar-block-content strong {
+  font-size: 12px;
+  font-family: $font-family-secondary;
+  line-height: 1rem;
+  margin: 0 4px;
+  font-weight: 600;
+
+  @include desktop-up {
+    font-size: 16px;
+  }
+}
+
+.promobar-block-content {
+  line-height: rem(20);
+}
+
+.promobar-block-content p {
+  display: flex;
+  align-items: center;
+  color: $color-white;
+}
+
+.promobar-block-content a {
+  font-family: $font-family-secondary;
+  color: $color-white;
+  display: inline-block;
+  transition: all 0.15s ease;
+  border: none;
+  text-decoration: underline;
+  position: relative;
+  outline: transparent;
+  background: none;
+  overflow: hidden;
+  margin-right: 5px;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: inherit;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    opacity: 0.2;
+    background: $color-brand-primary;
+    transition: height 0.15s;
+  }
+
+  &:hover::before,
+  &:focus::before,
+  &:active::before,
+  &:visited::before {
+    height: 85%;
+  }
+
+  &:visited::before {
+    height: 85%;
+  }
+}
+
+.promo-color-light .promobar-block-content a,
+.promo-color-light .promobar-block-content p {
+  color: $color-white;
+}
+
+.promo-color-dark .promobar-block-content a,
+.promo-color-dark .promobar-block-content p {
+  color: $color-black-900;
+}

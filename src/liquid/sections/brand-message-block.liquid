@@ -1,0 +1,51 @@
+{% capture schema %}
+  {
+    "settings": {
+      "brandMessage": {{ section.settings.brand_message | json}},
+      "brandImage": {{ section.settings.brand_image | image_url: "24x" | json }},
+      "brandImageAlt": {{section.settings.brand_image.alt | json}},
+      "ctaURL": {{section.settings.call_to_action_url | json }},
+      "ctaText": {{section.settings.call_to_action_text | json }}
+    }
+  }
+{% endcapture %}
+
+<brand-message :schema="{{ schema | escape | strip }}" />
+
+{% schema %}
+  {
+    "name": "Brand Message Block",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brand Message Block"
+      },
+      {
+        "type": "text",
+        "id": "brand_message",
+        "label": "Brand Message"
+      },
+      {
+        "type": "image_picker",
+        "id": "brand_image",
+        "label": "Brand Image"
+      },
+      {
+        "id": "call_to_action_url",
+        "type": "url",
+        "label": "Call to Action URL"
+      },
+      {
+        "id": "call_to_action_text",
+        "type": "text",
+        "label": "Call to Action Text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "BrandMessageBlock",
+        "category": "Content Blocks"
+      }
+    ]
+  }
+{% endschema %}

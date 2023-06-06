@@ -1,0 +1,50 @@
+.giftcard {
+  &__qr-code img {
+    margin: 0 auto;
+  }
+
+  &__wrap > * + .margin-top-sm {
+    margin-top: 8px;
+  }
+
+  &__wrap > * + .margin-top-md {
+    margin-top: 16px;
+  }
+
+  &__wrap > * + .margin-top-lg {
+    margin-top: 24px;
+  }
+
+  .input.input--secondary &__code__text {
+    margin: 0;
+  }
+
+  .sw__main {
+    background: $color-white;
+  }
+
+  .sw__main-wrap {
+    width: 100%;
+  }
+}
+
+.site-header {
+  padding: 44px 16px 0 16px;
+  &__logo {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+.giftcard-action-list {
+  padding: 0;  
+}
+
+.print-link {
+  margin-top: 8px;
+
+  @media print {
+    display: none;
+  }
+}

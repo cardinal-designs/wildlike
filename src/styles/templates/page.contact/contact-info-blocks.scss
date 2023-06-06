@@ -1,0 +1,35 @@
+.contact-us__info-blocks {
+  width: 100%;
+  padding: 24px 0;
+  margin-top: 48px;
+  @include mobile-only {
+    padding: 24px 45px;
+  }
+  @include tablet-up {
+    margin: 0;
+    padding: 24px;
+    width: 333px;
+  }
+
+  &--block {
+    padding: 32px;
+    @include mobile-only {
+      padding: 32px 45px;
+    }
+    border-bottom: 1px solid $color-grey;
+    text-align: center;
+    &:last-child {
+      border-bottom: none;
+    }
+    h6 {
+      margin: 12px 0 8px;
+    }
+    &.follow-us svg {
+      margin: 24px 8px 0;
+    }
+  }
+}
+
+.three-column-content-blocks-container .link--primary .icon {
+  display: none !important;
+}

@@ -1,0 +1,12 @@
+.zoom-transition {
+  overflow: hidden;
+    img {
+      transition: transform .2s ease-in;
+    }
+
+    &:hover img,
+    &:focus img {
+      transform: scale(1.1);
+      transform-origin: 50% 50%;
+    }
+  }

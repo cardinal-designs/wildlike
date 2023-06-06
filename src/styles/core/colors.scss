@@ -1,0 +1,419 @@
+// color
+.color-brand-primary {
+  color: $color-brand-primary;
+
+  &.link {
+    &::before {
+      background: $color-brand-primary !important;
+    }
+
+    .link__content {
+      color: $color-brand-primary;
+
+      &::before {
+        background: $color-brand-primary !important;
+      }
+    }
+
+    .icon {
+      fill: $color-brand-primary !important;
+    }
+  }
+}
+
+.color-brand-secondary {
+  color: $color-brand-secondary;
+
+  &.link {
+    &::before {
+      background: $color-brand-secondary !important;
+    }
+
+    .link__content {
+      color: $color-brand-secondary;
+
+      &::before {
+        background: $color-brand-secondary !important;
+      }
+    }
+
+    .icon {
+      fill: $color-brand-secondary !important;
+    }
+  }
+}
+
+.color-brand-primary {
+  color: $color-brand-primary;
+
+  &.link {
+    &::before {
+      background: $color-brand-primary !important;
+    }
+
+    .link__content {
+      color: $color-brand-primary;
+
+      &::before {
+        background: $color-brand-primary !important;
+      }
+    }
+
+    .icon {
+      fill: $color-brand-primary !important;
+    }
+  }
+}
+
+.color-accent-1 {
+  color: $color-accent-1;
+
+  &.link {
+    &::before {
+      background: $color-accent-1 !important;
+    }
+
+    .link__content {
+      color: $color-accent-1;
+
+      &::before {
+        background: $color-accent-1 !important;
+      }
+    }
+
+    .icon {
+      fill: $color-accent-1 !important;
+    }
+  }
+}
+
+.color-accent-2 {
+  color: $color-accent-2;
+
+  &.link {
+    &::before {
+      background: $color-accent-2;
+    }
+
+    .link__content {
+      color: $color-accent-2;
+
+      &::before {
+        background: $color-accent-2;
+      }
+    }
+
+    .icon {
+      fill: $color-accent-2 !important;
+    }
+  }
+}
+
+.color-accent-3 {
+  color: $color-accent-3;
+
+  &.link {
+    &::before {
+      background: $color-accent-3 !important;
+    }
+
+    .link__content {
+      color: $color-accent-3;
+
+      &::before {
+        background: $color-accent-3 !important;
+      }
+    }
+
+    .icon {
+      fill: $color-accent-3 !important;
+    }
+  }
+}
+
+.color-accent-4 {
+  color: $color-accent-4;
+
+  &.link {
+    &::before {
+      background: $color-accent-4 !important;
+    }
+
+    .link__content {
+      color: $color-accent-4;
+
+      &::before {
+        background: $color-accent-4 !important;
+      }
+    }
+
+    .icon {
+      fill: $color-accent-4 !important;
+    }
+  }
+}
+
+.color-accent-5 {
+  color: $color-accent-5;
+
+  &.link {
+    &::before {
+      background: $color-accent-5 !important;
+    }
+
+    .link__content {
+      color: $color-accent-5;
+
+      &::before {
+        background: $color-accent-5 !important;
+      }
+    }
+
+    .icon {
+      fill: $color-accent-5 !important;
+    }
+  }
+}
+
+.color-white {
+  color: $color-white;
+
+  &.link {
+    &::before {
+      background: $color-white !important;
+    }
+
+    .link__content {
+      color: $color-white;
+
+      &::before {
+        background: $color-white !important;
+      }
+    }
+
+    .icon {
+      fill: $color-white !important;
+    }
+  }
+}
+
+.color-light-grey {
+  color: $color-black-100;
+
+  &.link {
+    &::before {
+      background: $color-black-100 !important;
+    }
+
+    .link__content {
+      color: $color-black-100;
+
+      &::before {
+        background: $color-black-100 !important;
+      }
+    }
+
+    .icon {
+      fill: $color-black-100 !important;
+    }
+  }
+}
+
+.color-grey {
+  color: $color-grey;
+
+  &.link {
+    &::before {
+      background: $color-grey;
+    }
+
+    .link__content {
+      color: $color-grey;
+
+      &::before {
+        background: $color-grey;
+      }
+    }
+
+    .icon {
+      fill: $color-grey !important;
+    }
+  }
+}
+
+.color-off-black {
+  color: $color-black-900;
+
+  &.link {
+    &::before {
+      background: $color-black-900 !important;
+    }
+
+    .link__content {
+      color: $color-black-900;
+
+      &::before {
+        background: $color-black-900 !important;
+      }
+    }
+
+    .icon {
+      fill: $color-black-900 !important;
+    }
+  }
+}
+
+.color-black {
+  color: $color-black-900;
+
+  &.link {
+    &::before {
+      background: $color-black-900 !important;
+    }
+
+    .link__content {
+      color: $color-black-900;
+
+      &::before {
+        background: $color-black-900 !important;
+      }
+    }
+
+    .icon {
+      fill: $color-black-900 !important;
+    }
+  }
+}
+
+// background
+.bg-brand-primary { background-color: $color-brand-primary }
+.bg-brand-secondary { background-color: $color-brand-secondary }
+.bg-accent-1 { background-color: $color-accent-1 }
+.bg-accent-2 { background-color: $color-accent-2 }
+.bg-accent-3 { background-color: $color-accent-3 }
+.bg-accent-4 { background-color: $color-accent-4 }
+.bg-accent-5 { background-color: $color-accent-5 }
+.bg-white { background-color: $color-white }
+.bg-white { background-color: $color-white }
+.bg-light-grey { background-color: $color-black-100 }
+.bg-grey { background-color: $color-grey }
+.bg-off-black { background-color: $color-black-900 }
+.bg-black { background-color: $color-black-900 }
+
+// fill
+// these must be important to override default fill values sometimes found in icons
+.fill-brand-primary { fill: $color-brand-primary !important}
+.fill-brand-secondary { fill: $color-brand-secondary !important}
+.fill-brand-primary { fill: $color-brand-primary !important}
+.fill-accent-1 { fill: $color-accent-1 !important}
+.fill-accent-2 { fill: $color-accent-2 !important}
+.fill-accent-3 { fill: $color-accent-3 !important}
+.fill-accent-4 { fill: $color-accent-4 !important}
+.fill-accent-5 { fill: $color-accent-5 !important}
+.fill-accent-1 { fill: $color-accent-1 !important}
+.fill-accent-2 { fill: $color-accent-2 !important}
+.fill-accent-3 { fill: $color-accent-3 !important}
+.fill-accent-4 { fill: $color-accent-4 !important}
+.fill-accent-5 { fill: $color-accent-5 !important}
+.fill-white { fill: $color-white !important}
+.fill-light-grey { fill: $color-black-100 !important}
+.fill-grey { fill: $color-black-300 !important}
+.fill-off-black { fill: $color-black-900 !important}
+.fill-black { fill: $color-black-900 !important}
+
+// border
+// these must be important to override default border colors
+.border-brand-primary { border-color: $color-brand-primary !important}
+.border-brand-secondary { border-color: $color-brand-secondary !important}
+.border-brand-primary { border-color: $color-brand-primary !important}
+.border-accent-1 { border-color: $color-accent-1 !important}
+.border-accent-2 { border-color: $color-accent-2 !important}
+.border-accent-3 { border-color: $color-accent-3 !important}
+.border-accent-4 { border-color: $color-accent-4 !important}
+.border-accent-5 { border-color: $color-accent-5 !important}
+.border-white { border-color: $color-white !important}
+.border-white { border-color: $color-white !important}
+.border-light-grey { border-color: $color-black-100 !important}
+.border-grey { border-color: $color-grey !important}
+.border-off-black { border-color: $color-black-900 !important}
+.border-black { border-color: $color-black-900 !important}
+
+//placeholder
+.placeholder-brand-primary {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-brand-primary;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-brand-secondary {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-brand-secondary;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-brand-primary {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-brand-primary;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-accent-1 {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-accent-1;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-accent-2 {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-accent-2;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-accent-3 {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-accent-3;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-accent-4 {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-accent-4;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-accent-5 {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-accent-5;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-white {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-white;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-white {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-white;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-grey {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-grey;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-off-black {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-black-900;
+    opacity: 1; /* Firefox */
+  }
+}
+.placeholder-black {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-black-900;
+    opacity: 1; /* Firefox */
+  }
+}

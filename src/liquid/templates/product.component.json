@@ -48,13 +48,13 @@
         "cl_background_color": "bg-white"
       }
     },
-    "8f9b35b0-7993-4b06-92b5-b328515a880e": {
-      "type": "yotpo-reviews",
+    "b132511f-abd0-45be-b9f8-9661fe32dc8a": {
+      "type": "nosto-element",
       "settings": {
       }
     },
-    "3726d536-0b81-4321-965f-8fca24429b41": {
-      "type": "nosto-element",
+    "d5124dc7-545f-4a3e-ba00-8fda3242823e": {
+      "type": "yotpo-reviews",
       "settings": {
       }
     }
@@ -62,7 +62,7 @@
   "order": [
     "product-display-gift-card",
     "product-display-bourdain",
-    "8f9b35b0-7993-4b06-92b5-b328515a880e",
-    "3726d536-0b81-4321-965f-8fca24429b41"
+    "b132511f-abd0-45be-b9f8-9661fe32dc8a",
+    "d5124dc7-545f-4a3e-ba00-8fda3242823e"
   ]
 }

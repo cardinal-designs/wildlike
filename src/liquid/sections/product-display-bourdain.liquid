@@ -1,3 +1,5 @@
+{% unless product.type == 'Gift Card' %}
+
 {% capture json_product %}{% render 'json--product' %}{% endcapture %}
 {% if product.metafields.custom_fields.magnet_product != blank
   and product.metafields.custom_fields.magnet_product != ''
@@ -118,6 +120,8 @@
   }
 {% endcapture %}
 
+{% endunless %}
+
 {% capture featured_collections %}
 {
   "heading": {{ section.settings.cl_heading | json }},
@@ -175,7 +179,7 @@
 {% capture _swym %}
   {
     "settings": {{ shop.metafields.swym | json }},
-    shop: {{ shop | json }}
+    "shop": {{ shop | json }}
   }
 {% endcapture %}
 
@@ -190,12 +194,12 @@
   {% if magnet_product %}
     :magnet-product="{{ json_magnet_product | escape | strip }}"
   {% endif %}
-  product-tile-text-alignment="{{ settings.product_tile_text_alignment | json }}"
+  product-tile-text-alignment="{{ settings.product_tile_text_alignment }}"
   {% if json_designer_collection %}
     :json-designer-collection="{{ json_designer_collection | escape | strip }}"
   {% endif %}
-  :swym="{{ _swym | escape | strip }}"
-/>
+  :swym='{{ _swym | escape | strip }}'
+></product-display>
 
 {% schema %}
 {

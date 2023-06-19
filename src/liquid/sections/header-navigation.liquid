@@ -23,7 +23,7 @@
                     "image": "{{ featured_image_title | last }}"
                     {%- if child_list != blank -%}
                       ,
-                      "children": {%- include 'json--linklist', linklist: child_list.links -%}
+                      "children": {%- render 'json--linklist', linklist: child_list.links -%}
                     {%- endif -%}
                   }{%- unless forloop.last -%},{%- endunless -%}
                 {% else %}
@@ -31,7 +31,7 @@
                   "title": "{{ link.title }}", "url": "{{ link.url }}", "handle": "{{ list_handle }}"
                   {%- if child_list != blank -%}
                     ,
-                    "children": {%- include 'json--linklist', linklist: child_list.links -%}
+                    "children": {%- render 'json--linklist', linklist: child_list.links -%}
                   {%- endif -%}
                 }{%- unless forloop.last -%},{%- endunless -%}
                 {% endif %}
@@ -66,7 +66,7 @@
                       "image": "{{ featured_image_title | last }}"
                       {%- if child_list != blank -%}
                         ,
-                        "children": {%- include 'json--linklist', linklist: child_list.links -%}
+                        "children": {%- render 'json--linklist', linklist: child_list.links -%}
                       {%- endif -%}
                     }{%- unless forloop.last -%},{%- endunless -%}
                   {% else %}
@@ -74,7 +74,7 @@
                     "title": "{{ link.title | remove:'::Featured' }}", "url": "{{ link.url }}", "handle": "{{ list_handle }}"
                     {%- if child_list != blank -%}
                       ,
-                      "children": {%- include 'json--linklist', linklist: child_list.links -%}
+                      "children": {%- render 'json--linklist', linklist: child_list.links -%}
                     {%- endif -%}
                   }{%- unless forloop.last -%},{%- endunless -%}
                   {% endif %}
@@ -93,7 +93,7 @@
 {%- endcapture -%}
 
 {%- capture helper_data -%}
-  {%- include 'json--helper-links' -%}
+  {%- render 'json--helper-links' -%}
 {%- endcapture -%}
 
 {% capture cart_bubble_colors %}

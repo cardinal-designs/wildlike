@@ -3,15 +3,15 @@
 {{ 'main.js' | asset_url | script_tag }}
 
 {%- if template.name == 'cart' -%}
-  {%- include 'subscription-cart-footer' -%}
+  {%- render 'subscription-cart-footer' -%}
 {%- endif -%}
 
-{%- include 'subscription-theme-footer' -%}
+{%- render 'subscription-theme-footer' -%}
 
-{%- include 'bva-datalayer-body' -%}
+{%- render 'bva-datalayer-body' -%}
 
 {% if settings.wishlist_enabled %}
-  {% include "swymSnippet" %}
+  {% render "swymSnippet" %}
 {% endif %}
 
 

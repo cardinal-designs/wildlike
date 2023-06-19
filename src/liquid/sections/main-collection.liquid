@@ -1,0 +1,16 @@
+{% if collection.metafields.custom_fields.seo_block_title and collection.metafields.custom_fields.seo_block_content %}
+  {% render 'seo-content' with item: collection %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Main Collection",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

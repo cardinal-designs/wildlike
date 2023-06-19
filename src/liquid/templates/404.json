@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "page_404": {
+      "type": "page--404",
+      "settings": {
+        "ff_layout": "sw--reverse",
+        "ff_image_desktop": "shopify:\/\/shop_images\/404-new.jpg",
+        "ff_image_width": "sw--60",
+        "ff_preheader": "",
+        "ff_header": "",
+        "ff_subheader": "",
+        "ff_body": "<p>Sorry. We can't find what you're looking for! <\/p>",
+        "ff_text_alignment": "",
+        "ff_background_color": "",
+        "ff_preheader_color": "color-black",
+        "ff_header_color": "color-black",
+        "ff_subheader_color": "color-black",
+        "ff_body_color": "color-black",
+        "ff_cta_text": "Get back to shopping",
+        "ff_cta_url": "shopify:\/\/collections",
+        "ff_cta_style": "button button--primary"
+      }
+    }
+  },
+  "order": [
+    "page_404"
+  ]
+}

@@ -5,7 +5,12 @@
   <div class="site-header__logo h1 text-center">
     <a href="{{ shop.url }}" class="site-header__link site-header__logo-link">
       {% if section.settings.store_logo_image %}
-        <img src="{{ section.settings.store_logo_image | img_url: '400x' }}" alt="">
+        <img
+          src="{{ section.settings.store_logo_image | img_url: '400x' }}"
+          alt="{{ section.settings.store_logo_image.alt | default:'Image' }}"
+          width="{{ section.settings.store_logo_image.width }}"
+          height="{{ section.settings.store_logo_image.height }}"
+        >
       {% else %}
         {{ shop.name }}
       {% endif %}
@@ -16,19 +21,21 @@
   {% unless gift_card.enabled %}
     <p class="giftcard__tag">{{ 'gift_cards.issued.disabled' | t }}</p>
   {% endunless %}
-  {% assign gift_card_expiry_date = gift_card.expires_on | date: format: "basic" %}
+  {% assign gift_card_expiry_date = gift_card.expires_on | date: format: 'basic' %}
   {% if gift_card.expired and gift_card.enabled %}
     <p class="giftcard__tag">{{ 'gift_cards.issued.expired' | t: expiry: gift_card_expiry_date }}</p>
   {% endif %}
   {% if gift_card.expired != true and gift_card.expires_on and gift_card.enabled %}
-    <p class="giftcard__tag giftcard__tag--active">{{ 'gift_cards.issued.active' | t: expiry: gift_card_expiry_date }}</p>
+    <p class="giftcard__tag giftcard__tag--active">
+      {{ 'gift_cards.issued.active' | t: expiry: gift_card_expiry_date }}
+    </p>
   {% endif %}
 </header>
 
 <split-wrapper class="giftcard">
   {% if section.settings.giftcard_image %}
     <div slot="image" style="background-image: url({{ section.settings.giftcard_image | img_url: 'master' }})"></div>
-  {% else %}    
+  {% else %}
     <div slot="image" style="background-image: url({{ 'gift-card/card.jpg' | shopify_asset_url }})"></div>
   {% endif %}
   <div class="giftcard__wrap" slot="content">
@@ -36,74 +43,84 @@
     {% if gift_card.balance != gift_card.initial_value %}
       <p class="preheader">Starting Balance: {{ gift_card.initial_value | money }}</p>
     {% endif %}
-      <h2 class="h2 margin-top-sm text-center">{{ formatted_initial_value }}{% if gift_card.balance != gift_card.initial_value %} Remaining{% endif %}</h2>
+    <h2 class="h2 margin-top-sm text-center">
+      {{ formatted_initial_value -}}
+      {%- if gift_card.balance != gift_card.initial_value %} Remaining{% endif %}
+    </h2>
 
     {%- assign code_size = gift_card.code | format_code | size -%}
-  <p class="h6 margin-top-sm text-center">
-    {{ 'gift_cards.issued.redeem_html' | t: value: formatted_initial_value_stripped }}
-  </p>
+    <p class="h6 margin-top-sm text-center">
+      {{ 'gift_cards.issued.redeem_html' | t: value: formatted_initial_value_stripped }}
+    </p>
 
-  <div class="input input--secondary margin-top-md">
-    <input type="text"
-      class="giftcard__code__text{% if gift_card.expired or gift_card.enabled != true %} disabled{% endif %} text-center"
-      id="GiftCardDigits"
-      value="{{ gift_card.code | format_code }}"
-      aria-label="{{ 'gift_cards.issued.gift_card_code' | t }}"
-      readonly />
+    <div class="input input--secondary margin-top-md">
+      <input
+        type="text"
+        class="giftcard__code__text{% if gift_card.expired or gift_card.enabled != true %} disabled{% endif %} text-center"
+        id="GiftCardDigits"
+        value="{{ gift_card.code | format_code }}"
+        aria-label="{{ 'gift_cards.issued.gift_card_code' | t }}"
+        readonly
+      >
     </div>
-  <div id="QrCode" class="giftcard__qr-code margin-top-sm" data-identifier="{{ gift_card.qr_identifier }}"></div>
+    <div id="QrCode" class="giftcard__qr-code margin-top-sm" data-identifier="{{ gift_card.qr_identifier }}"></div>
 
-  <ul class="giftcard-action-list text-center margin-top-lg">
-    <li class="giftcard-action-list__item">
-      <v-button 
-        tag="a"
-        primary
-        href="{{ shop.url }}"
-        class="btn"
-        target="_blank"
-        rel="noopener"
-        aria-describedby="a11y-new-window-message">
+    <ul class="giftcard-action-list text-center margin-top-lg">
+      <li class="giftcard-action-list__item">
+        <v-button
+          tag="a"
+          primary
+          href="{{ shop.url }}"
+          class="btn"
+          target="_blank"
+          rel="noopener"
+          aria-describedby="a11y-new-window-message"
+        >
           {{ 'gift_cards.issued.shop_link' | t }}
-      </v-button>
-    </li>
-    <li>
-      <v-link secondary role="button" class="print-link" onclick="window.print();">
-        {{ 'gift_cards.issued.print' | t }}
-      </v-link>
-    </li>
-    {% if gift_card.pass_url %}
-      <li>
-        <a class="giftcard__apple-wallet" href="{{ gift_card.pass_url }}">
-          <img class="giftcard__apple-wallet-image" src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}" width="120" height="40" alt="{{ 'gift_cards.issued.add_to_apple_wallet' | t }}">
-        </a>
+        </v-button>
       </li>
-    {% endif %}
-  </ul>
-</div>
-
+      <li>
+        <v-link secondary role="button" class="print-link" onclick="window.print();">
+          {{ 'gift_cards.issued.print' | t }}
+        </v-link>
+      </li>
+      {% if gift_card.pass_url %}
+        <li>
+          <a class="giftcard__apple-wallet" href="{{ gift_card.pass_url }}">
+            <img
+              class="giftcard__apple-wallet-image"
+              src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}"
+              width="120"
+              height="40"
+              alt="{{ 'gift_cards.issued.add_to_apple_wallet' | t }}"
+            >
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
 </split-wrapper>
 
-
 {% schema %}
-  {
-    "name": "Gift Card",
-    "settings": [
-      {
-        "label": "Store Logo",
-        "id": "store_logo_image",
-        "type": "image_picker"
-      },
-      {
-        "label": "Store Logo",
-        "id": "heading_text",
-        "type": "text",
-        "default": "Your gift card"
-      },
-      {
-        "label": "Giftcard Image",
-        "id": "giftcard_image",
-        "type": "image_picker"
-      }
-    ]
-  }
+{
+  "name": "Gift Card",
+  "settings": [
+    {
+      "label": "Store Logo",
+      "id": "store_logo_image",
+      "type": "image_picker"
+    },
+    {
+      "label": "Store Logo",
+      "id": "heading_text",
+      "type": "text",
+      "default": "Your gift card"
+    },
+    {
+      "label": "Giftcard Image",
+      "id": "giftcard_image",
+      "type": "image_picker"
+    }
+  ]
+}
 {% endschema %}

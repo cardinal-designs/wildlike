@@ -161,904 +161,1313 @@
 
 <about
   :blocks="{{ about_blocks | escape }}"
-  >
+>
 </about>
 
 {% schema %}
-  {
-    "name": "About Page",
-    "blocks": [
-      {
+{
+  "name": "About Page",
+  "blocks": [
+    {
       "type": "video",
       "name": "Video Section",
-        "settings": [
-          {
-            "type": "header",
-            "content": "Text Content",
-            "info": "All text fields are optional."
-          },
-          {
-              "type":"text",
-              "id":"preheader",
-              "label":"Preheader"
-          },
-          {
-              "type":"text",
-              "id":"header",
-              "label":"Header"
-          },
-          {
-              "type":"textarea",
-              "id":"body_copy",
-              "label":"Body Copy"
-          },
-          {
-            "type": "header",
-            "content": "Video",
-            "info": "Upload your video to Youtube. Paste the ID after 'embed/'"
-          },
-          {
-            "type":"text",
-            "id":"video_id",
-            "label":"Youtube Video",
-            "info": "Example: Wy9q22isx3U"
-          },
-          {
-            "type": "header",
-            "content": "CTA",
-            "info": "An optional CTA displays below the video."
-          },
-          {
-            "type":"text",
-            "id":"cta_title",
-            "label":"CTA Text"
-          },
-          {
-            "type":"url",
-            "id":"cta_link",
-            "label":"CTA URL"
-          },
-          {
-            "type":      "select",
-            "id":        "cta_layout",
-            "label":     "CTA Style",
-            "options": <%- uikit.buttonAndLinkOptions -%>,
-            "default":   "button button--primary"
-          },
-          {
-            "type": "header",
-            "content": "Colors"
-          },
-          {
-            "type":      "select",
-            "id":        "section_bg_color",
-            "label":     "Section Background Color",
-            "options": <%- uikit.backgroundOptions -%>,
-            "default": "bg-brand-primary"
-          },
-          {
-            "type":      "select",
-            "id":        "pre_heading_color",
-            "label":     "Preheader Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type":      "select",
-            "id":        "heading_color",
-            "label":     "Header Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type":      "select",
-            "id":        "body_copy_color",
-            "label":     "Body Copy Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          }
-        ]
-      },
-      {
+      "settings": [
+        {
+          "type": "header",
+          "content": "Text Content",
+          "info": "All text fields are optional."
+        },
+        {
+          "type": "text",
+          "id": "preheader",
+          "label": "Preheader"
+        },
+        {
+          "type": "text",
+          "id": "header",
+          "label": "Header"
+        },
+        {
+          "type": "textarea",
+          "id": "body_copy",
+          "label": "Body Copy"
+        },
+        {
+          "type": "header",
+          "content": "Video",
+          "info": "Upload your video to Youtube. Paste the ID after 'embed/'"
+        },
+        {
+          "type": "text",
+          "id": "video_id",
+          "label": "Youtube Video",
+          "info": "Example: Wy9q22isx3U"
+        },
+        {
+          "type": "header",
+          "content": "CTA",
+          "info": "An optional CTA displays below the video."
+        },
+        {
+          "type": "text",
+          "id": "cta_title",
+          "label": "CTA Text"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "CTA URL"
+        },
+        {
+          "type": "select",
+          "id": "cta_layout",
+          "label": "CTA Style",
+          "options": [
+            { "label": "Primary Button", "value": "button button--primary" },
+            { "label": "Default Button", "value": "button button--secondary" },
+            { "label": "Primary Text Link", "value": "link link--primary" },
+            { "label": "Secondary Text Link", "value": "link link--secondary" }
+          ],
+          "default": "button button--primary"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "select",
+          "id": "section_bg_color",
+          "label": "Section Background Color",
+          "options": [
+            { "label": "None", "value": "" },
+            { "label": "Primary", "value": "bg-brand-primary" },
+            { "label": "Secondary", "value": "bg-brand-secondary" },
+            { "label": "Accent 1", "value": "bg-accent-1" },
+            { "label": "Accent 2", "value": "bg-accent-2" },
+            { "label": "Accent 3", "value": "bg-accent-3" },
+            { "label": "Accent 4", "value": "bg-accent-4" },
+            { "label": "Accent 5", "value": "bg-accent-5" },
+            { "label": "White", "value": "bg-white" },
+            { "label": "Light Grey", "value": "bg-light-grey" },
+            { "label": "Grey", "value": "bg-grey" },
+            { "label": "Off Black", "value": "bg-off-black" },
+            { "label": "Black", "value": "bg-black" }
+          ],
+          "default": "bg-brand-primary"
+        },
+        {
+          "type": "select",
+          "id": "pre_heading_color",
+          "label": "Preheader Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "select",
+          "id": "heading_color",
+          "label": "Header Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "select",
+          "id": "body_copy_color",
+          "label": "Body Copy Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        }
+      ]
+    },
+    {
       "type": "image_banner",
       "name": "Hero Banner",
-        "settings": [
-          {
-            "type": "header",
-            "content": "Banner Image",
-            "info": "Please upload images here. If you would like to use a separate image in mobile, please enable that option and add the mobile image as well. If mobile image is not used, leave unpopulated. If you wish to use an overlay, configure that here."
-          },
-          {
-            "type": "image_picker",
-            "id": "background_image",
-            "label": "Background Image",
-            "info": "Recommended size: 2880x896"
-          },
-          {
-            "type":      "checkbox",
-            "id":        "enable_mobile_image",
-            "label":     "Enable Mobile Image",
-            "default":   false
-          },
-          {
-            "type": "image_picker",
-            "id": "background_image_mobile",
-            "label": "Mobile Background Image",
-            "info": "Recommended size: 1000x382"
-          },
-          {
-            "type": "header",
-            "content": "Banner Image Overlay"
-          },
-          {
-            "type":      "checkbox",
-            "id":        "enable_overlay",
-            "label":     "Enable Overlay",
-            "default":   false
-          },
-          {
-            "type":      "select",
-            "id":        "overlay_color",
-            "label":     "Overlay Color",
-            "options": <%- uikit.backgroundOptions -%>,
-            "default": "bg-brand-primary"
-          },
-          {
-            "label": "Overlay Opacity",
-            "id": "overlay_opacity",
-            "type": "range",
-            "min":       0,
-            "max":       100,
-            "step":      1,
-            "unit":      "%",
-            "default":   50
-          },
-          {
-            "type": "header",
-            "content": "Text"
-          },
-          {
-              "type":"text",
-              "id":"header",
-              "label":"Header"
-          },
-          {
-              "type":"text",
-              "id":"subheader",
-              "label":"Subheader"
-          },
-          {
-              "type":"textarea",
-              "id":"body_copy",
-              "label":"Body Copy"
-          },
-          {
-            "type": "header",
-            "content": "Text Alignment",
-            "info": "Choose both a horizontal and vertical layout for your hero."
-          },
-          {
-            "type":      "select",
-            "id":        "horizontal_layout",
-            "label":     "Horizontal Layout",
-            "options": [
-              {"value": "left", "label": "Left"},
-              {"value": "center", "label": "Center"},
-              {"value": "right", "label": "Right" }
-            ],
-            "default":   "left"
-          },
-          {
-            "type":      "select",
-            "id":        "vertical_layout",
-            "label":     "Vertical Layout",
-            "options": [
-              {"value": "top", "label": "Top"},
-              {"value": "middle", "label": "Middle"},
-              {"value": "bottom", "label": "Bottom" }
-            ],
-            "default":   "top"
-          },
-          {
-            "type": "header",
-            "content": "CTA"
-          },
-          {
-            "type":      "checkbox",
-            "id":        "enable_cta",
-            "label":     "Enable CTA",
-            "default":   false
-          },
-          {
-            "type":"text",
-            "id":"cta_title",
-            "label":"CTA Text"
-          },
-          {
-            "type":"url",
-            "id":"cta_link",
-            "label":"CTA URL"
-          },
-          {
-            "type":      "select",
-            "id":        "cta_layout",
-            "label":     "CTA Style",
-            "options": <%- uikit.buttonAndLinkOptions -%>,
-            "default":   "button button--primary"
-          },
-          {
-            "type": "header",
-            "content": "Colors"
-          },
-          {
-            "type":      "select",
-            "id":        "section_bg_color",
-            "label":     "Section Background Color",
-            "info":       "Displays on Mobile",
-            "options": <%- uikit.backgroundOptions -%>,
-            "default": "bg-brand-primary"
-          },
-          {
-            "type":      "select",
-            "id":        "mobile_text_color",
-            "label":     "Mobile Text Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type":      "select",
-            "id":        "heading_color",
-            "label":     "Header Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-                    {
-            "type":      "select",
-            "id":        "sub_heading_color",
-            "label":     "Subheader Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type":      "select",
-            "id":        "body_copy_color",
-            "label":     "Body Copy Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          }
-        ]
-      },
-      {
+      "settings": [
+        {
+          "type": "header",
+          "content": "Banner Image",
+          "info": "Please upload images here. If you would like to use a separate image in mobile, please enable that option and add the mobile image as well. If mobile image is not used, leave unpopulated. If you wish to use an overlay, configure that here."
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image",
+          "info": "Recommended size: 2880x896"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_mobile_image",
+          "label": "Enable Mobile Image",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image_mobile",
+          "label": "Mobile Background Image",
+          "info": "Recommended size: 1000x382"
+        },
+        {
+          "type": "header",
+          "content": "Banner Image Overlay"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_overlay",
+          "label": "Enable Overlay",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "options": [
+            { "label": "None", "value": "" },
+            { "label": "Primary", "value": "bg-brand-primary" },
+            { "label": "Secondary", "value": "bg-brand-secondary" },
+            { "label": "Accent 1", "value": "bg-accent-1" },
+            { "label": "Accent 2", "value": "bg-accent-2" },
+            { "label": "Accent 3", "value": "bg-accent-3" },
+            { "label": "Accent 4", "value": "bg-accent-4" },
+            { "label": "Accent 5", "value": "bg-accent-5" },
+            { "label": "White", "value": "bg-white" },
+            { "label": "Light Grey", "value": "bg-light-grey" },
+            { "label": "Grey", "value": "bg-grey" },
+            { "label": "Off Black", "value": "bg-off-black" },
+            { "label": "Black", "value": "bg-black" }
+          ],
+          "default": "bg-brand-primary"
+        },
+        {
+          "label": "Overlay Opacity",
+          "id": "overlay_opacity",
+          "type": "range",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "type": "text",
+          "id": "header",
+          "label": "Header"
+        },
+        {
+          "type": "text",
+          "id": "subheader",
+          "label": "Subheader"
+        },
+        {
+          "type": "textarea",
+          "id": "body_copy",
+          "label": "Body Copy"
+        },
+        {
+          "type": "header",
+          "content": "Text Alignment",
+          "info": "Choose both a horizontal and vertical layout for your hero."
+        },
+        {
+          "type": "select",
+          "id": "horizontal_layout",
+          "label": "Horizontal Layout",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "vertical_layout",
+          "label": "Vertical Layout",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "middle", "label": "Middle" },
+            { "value": "bottom", "label": "Bottom" }
+          ],
+          "default": "top"
+        },
+        {
+          "type": "header",
+          "content": "CTA"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_cta",
+          "label": "Enable CTA",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "cta_title",
+          "label": "CTA Text"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "CTA URL"
+        },
+        {
+          "type": "select",
+          "id": "cta_layout",
+          "label": "CTA Style",
+          "options": [
+            { "label": "Primary Button", "value": "button button--primary" },
+            { "label": "Default Button", "value": "button button--secondary" },
+            { "label": "Primary Text Link", "value": "link link--primary" },
+            { "label": "Secondary Text Link", "value": "link link--secondary" }
+          ],
+          "default": "button button--primary"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "select",
+          "id": "section_bg_color",
+          "label": "Section Background Color",
+          "info": "Displays on Mobile",
+          "options": [
+            { "label": "None", "value": "" },
+            { "label": "Primary", "value": "bg-brand-primary" },
+            { "label": "Secondary", "value": "bg-brand-secondary" },
+            { "label": "Accent 1", "value": "bg-accent-1" },
+            { "label": "Accent 2", "value": "bg-accent-2" },
+            { "label": "Accent 3", "value": "bg-accent-3" },
+            { "label": "Accent 4", "value": "bg-accent-4" },
+            { "label": "Accent 5", "value": "bg-accent-5" },
+            { "label": "White", "value": "bg-white" },
+            { "label": "Light Grey", "value": "bg-light-grey" },
+            { "label": "Grey", "value": "bg-grey" },
+            { "label": "Off Black", "value": "bg-off-black" },
+            { "label": "Black", "value": "bg-black" }
+          ],
+          "default": "bg-brand-primary"
+        },
+        {
+          "type": "select",
+          "id": "mobile_text_color",
+          "label": "Mobile Text Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "select",
+          "id": "heading_color",
+          "label": "Header Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "select",
+          "id": "sub_heading_color",
+          "label": "Subheader Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "select",
+          "id": "body_copy_color",
+          "label": "Body Copy Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        }
+      ]
+    },
+    {
       "type": "three_column",
       "name": "3 Column Section",
-        "settings": [
-          {
-            "type": "header",
-            "content": "Section Text"
-          },
-          {
-              "type":"text",
-              "id":"header",
-              "label":"Header"
-          },
-          {
-              "type":"text",
-              "id":"subheader",
-              "label":"Subheader"
-          },
-          {
-            "type": "header",
-            "content": "Desktop Layout",
-            "info": "Stacked means all parts of the blocks are stacked on top of eachother, Left Aligned means the image is on the left, with text on the right for each block."
-          },
-          {
-            "type":      "select",
-            "id":        "desktop_layout",
-            "label":     "Layout",
-            "options": [
-              {"label": "Stacked", "value": "stacked"},
-              {"label": "Left Aligned", "value": "left-aligned"}
-            ],
-            "default": "stacked"
-          },
-          {
-            "type": "header",
-            "content": "Block Text Alignment",
-            "info": "This only applies to the “Stacked” layout."
-          },
-          {
-            "type":      "select",
-            "id":        "horizontal_layout",
-            "label":     "Text Alignment",
-            "options": [
-              {"value": "left", "label": "Left"},
-              {"value": "center", "label": "Centered"}
-            ],
-            "default":   "left"
-          },
-          {
-            "type": "header",
-            "content": "Colors"
-          },
-          {
-            "type":      "select",
-            "id":        "section_bg_color",
-            "label":     "Section Background Color",
-            "options": <%- uikit.backgroundOptions -%>,
-            "default": "bg-brand-primary"
-          },
-          {
-            "type":      "select",
-            "id":        "section_heading_color",
-            "label":     "Section Heading Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type":      "select",
-            "id":        "section_sub_heading_color",
-            "label":     "Section Subheading Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type":      "select",
-            "id":        "block_heading_color",
-            "label":     "Block Heading Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type":      "select",
-            "id":        "block_text_color",
-            "label":     "Block Text Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type":      "select",
-            "id":        "cta_layout",
-            "label":     "CTA Style",
-            "options": <%- uikit.buttonAndLinkOptions -%>,
-            "default":   "button button--primary"
-          },
-          {
-            "type": "header",
-            "content": "Block 1"
-          },
-          {
-            "type": "image_picker",
-            "id": "block_image_1",
-            "label": "Image",
-            "info": "Recommended size: 384x384"
-          },
-          {
-              "type":"text",
-              "id":"block_text_1",
-              "label":"Header"
-          },
-          {
-              "type":"textarea",
-              "id":"block_body_copy_1",
-              "label":"Body Copy"
-          },
-          {
-            "type":"text",
-            "id":"block_cta_title_1",
-            "label":"CTA Text"
-          },
-          {
-            "type":"url",
-            "id":"block_cta_link_1",
-            "label":"CTA URL"
-          },
-          {
-            "type": "header",
-            "content": "Block 2"
-          },
-          {
-            "type": "image_picker",
-            "id": "block_image_2",
-            "label": "Image",
-            "info": "Recommended size: 384x384"
-          },
-          {
-              "type":"text",
-              "id":"block_text_2",
-              "label":"Header"
-          },
-          {
-              "type":"textarea",
-              "id":"block_body_copy_2",
-              "label":"Body Copy"
-          },
-          {
-            "type":"text",
-            "id":"block_cta_title_2",
-            "label":"CTA Text"
-          },
-          {
-            "type":"url",
-            "id":"block_cta_link_2",
-            "label":"CTA URL"
-          },
-          {
-            "type": "header",
-            "content": "Block 3"
-          },
-          {
-            "type": "image_picker",
-            "id": "block_image_3",
-            "label": "Image",
-            "info": "Recommended size: 384x384"
-          },
-          {
-              "type":"text",
-              "id":"block_text_3",
-              "label":"Header"
-          },
-          {
-              "type":"textarea",
-              "id":"block_body_copy_3",
-              "label":"Body Copy"
-          },
-          {
-            "type":"text",
-            "id":"block_cta_title_3",
-            "label":"CTA Text"
-          },
-          {
-            "type":"url",
-            "id":"block_cta_link_3",
-            "label":"CTA URL"
-          }
-        ]
-      },
-      {
+      "settings": [
+        {
+          "type": "header",
+          "content": "Section Text"
+        },
+        {
+          "type": "text",
+          "id": "header",
+          "label": "Header"
+        },
+        {
+          "type": "text",
+          "id": "subheader",
+          "label": "Subheader"
+        },
+        {
+          "type": "header",
+          "content": "Desktop Layout",
+          "info": "Stacked means all parts of the blocks are stacked on top of eachother, Left Aligned means the image is on the left, with text on the right for each block."
+        },
+        {
+          "type": "select",
+          "id": "desktop_layout",
+          "label": "Layout",
+          "options": [
+            { "label": "Stacked", "value": "stacked" },
+            { "label": "Left Aligned", "value": "left-aligned" }
+          ],
+          "default": "stacked"
+        },
+        {
+          "type": "header",
+          "content": "Block Text Alignment",
+          "info": "This only applies to the “Stacked” layout."
+        },
+        {
+          "type": "select",
+          "id": "horizontal_layout",
+          "label": "Text Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Centered" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "select",
+          "id": "section_bg_color",
+          "label": "Section Background Color",
+          "options": [
+            { "label": "None", "value": "" },
+            { "label": "Primary", "value": "bg-brand-primary" },
+            { "label": "Secondary", "value": "bg-brand-secondary" },
+            { "label": "Accent 1", "value": "bg-accent-1" },
+            { "label": "Accent 2", "value": "bg-accent-2" },
+            { "label": "Accent 3", "value": "bg-accent-3" },
+            { "label": "Accent 4", "value": "bg-accent-4" },
+            { "label": "Accent 5", "value": "bg-accent-5" },
+            { "label": "White", "value": "bg-white" },
+            { "label": "Light Grey", "value": "bg-light-grey" },
+            { "label": "Grey", "value": "bg-grey" },
+            { "label": "Off Black", "value": "bg-off-black" },
+            { "label": "Black", "value": "bg-black" }
+          ],
+          "default": "bg-brand-primary"
+        },
+        {
+          "type": "select",
+          "id": "section_heading_color",
+          "label": "Section Heading Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "select",
+          "id": "section_sub_heading_color",
+          "label": "Section Subheading Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "select",
+          "id": "block_heading_color",
+          "label": "Block Heading Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "select",
+          "id": "block_text_color",
+          "label": "Block Text Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "select",
+          "id": "cta_layout",
+          "label": "CTA Style",
+          "options": [
+            { "label": "Primary Button", "value": "button button--primary" },
+            { "label": "Default Button", "value": "button button--secondary" },
+            { "label": "Primary Text Link", "value": "link link--primary" },
+            { "label": "Secondary Text Link", "value": "link link--secondary" }
+          ],
+          "default": "button button--primary"
+        },
+        {
+          "type": "header",
+          "content": "Block 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image_1",
+          "label": "Image",
+          "info": "Recommended size: 384x384"
+        },
+        {
+          "type": "text",
+          "id": "block_text_1",
+          "label": "Header"
+        },
+        {
+          "type": "textarea",
+          "id": "block_body_copy_1",
+          "label": "Body Copy"
+        },
+        {
+          "type": "text",
+          "id": "block_cta_title_1",
+          "label": "CTA Text"
+        },
+        {
+          "type": "url",
+          "id": "block_cta_link_1",
+          "label": "CTA URL"
+        },
+        {
+          "type": "header",
+          "content": "Block 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image_2",
+          "label": "Image",
+          "info": "Recommended size: 384x384"
+        },
+        {
+          "type": "text",
+          "id": "block_text_2",
+          "label": "Header"
+        },
+        {
+          "type": "textarea",
+          "id": "block_body_copy_2",
+          "label": "Body Copy"
+        },
+        {
+          "type": "text",
+          "id": "block_cta_title_2",
+          "label": "CTA Text"
+        },
+        {
+          "type": "url",
+          "id": "block_cta_link_2",
+          "label": "CTA URL"
+        },
+        {
+          "type": "header",
+          "content": "Block 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image_3",
+          "label": "Image",
+          "info": "Recommended size: 384x384"
+        },
+        {
+          "type": "text",
+          "id": "block_text_3",
+          "label": "Header"
+        },
+        {
+          "type": "textarea",
+          "id": "block_body_copy_3",
+          "label": "Body Copy"
+        },
+        {
+          "type": "text",
+          "id": "block_cta_title_3",
+          "label": "CTA Text"
+        },
+        {
+          "type": "url",
+          "id": "block_cta_link_3",
+          "label": "CTA URL"
+        }
+      ]
+    },
+    {
       "type": "text_only",
       "name": "Text Section",
-        "settings": [
-          {
-            "type": "header",
-            "content": "Layout",
-            "info": "Choose both a horizontal and vertical layout for your text.  Also, choose a background color for the section. If you add a background image, this color will only display on mobile."
-          },
-          {
-            "type":      "select",
-            "id":        "horizontal_layout",
-            "label":     "Horizontal Layout",
-            "options": [
-              {"value": "left", "label": "Left"},
-              {"value": "center", "label": "Center"},
-              {"value": "right", "label": "Right"}
-            ],
-            "default":   "left"
-          },
-          {
-            "type":      "select",
-            "id":        "vertical_layout",
-            "label":     "Vertical Layout",
-            "options": [
-              {"value": "top", "label": "Top"},
-              {"value": "middle", "label": "Middle"},
-              {"value": "bottom", "label": "Bottom"}
-            ],
-            "default":   "top"
-          },
-          {
-            "type":      "select",
-            "id":        "text_layout",
-            "label":     "Text Layout",
-            "options": [
-              {"value": "one_column", "label": "One Column"},
-              {"value": "two_column", "label": "Two Column"}
-            ],
-            "default":   "one_column"
-          },
-          {
-            "type":      "select",
-            "id":        "bg_color",
-            "label":     "Background Color",
-            "options": <%- uikit.backgroundOptions -%>,
-            "default": "bg-brand-primary"
-          },
-          {
-            "type": "header",
-            "content": "Background Images (Optional)",
-            "info": "Optional images here. If you would like to use a separate image in mobile, please enable that option and add the mobile image as well. If mobile image is not used, leave unpopulated. If you wish to use an overlay, configure that here."
-          },
-          {
-            "type": "image_picker",
-            "id": "background_image",
-            "label": "Background Image",
-            "info": "Recommended size: 2880x1100"
-          },
-          {
-            "type":      "checkbox",
-            "id":        "enable_mobile_image",
-            "label":     "Enable Mobile Image",
-            "default":   false
-          },
-          {
-            "type": "image_picker",
-            "id": "background_image_mobile",
-            "label": "Mobile Background Image",
-            "info": "Recommended size: 1000x382"
-          },
-          {
-            "type":      "checkbox",
-            "id":        "enable_overlay",
-            "label":     "Enable Overlay",
-            "default":   false
-          },
-          {
-            "type":      "select",
-            "id":        "overlay_color",
-            "label":     "Overlay Color",
-            "options": <%- uikit.backgroundOptions -%>,
-            "default": "bg-brand-primary"
-          },
-          {
-            "label": "Overlay Opacity",
-            "id": "overlay_opacity",
-            "type": "range",
-            "min":       0,
-            "max":       100,
-            "step":      1,
-            "unit":      "%",
-            "default":   50
-          },
-          {
-            "type": "header",
-            "content": "Text",
-            "info": "Please populate text fields here. If you do not wish to use a particular field, simply leave it blank."
-          },
-          {
-            "type": "text",
-            "id": "pre_heading",
-            "label": "Pre Heading"
-          },
-          {
-            "type":      "select",
-            "id":        "pre_heading_color",
-            "label":     "Pre Heading Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type": "text",
-            "id": "heading",
-            "label": "Heading"
-          },
-          {
-            "type":      "select",
-            "id":        "heading_color",
-            "label":     "Heading Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type": "text",
-            "id": "sub_heading",
-            "label": "Sub Heading"
-          },
-          {
-            "type":      "select",
-            "id":        "sub_heading_color",
-            "label":     "Sub Heading Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type": "richtext",
-            "id": "body_copy",
-            "label": "Body Copy"
-          },
-          {
-            "type":      "select",
-            "id":        "body_copy_color",
-            "label":     "Body Copy Color",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type": "header",
-            "content": "CTA",
-            "info": "CTA config"
-          },
-          {
-            "type":      "checkbox",
-            "id":        "enable_cta",
-            "label":     "Enable CTA",
-            "default":   false
-          },
-          {
-            "type":      "select",
-            "id":        "cta_layout",
-            "label":     "CTA Style",
-            "options": <%- uikit.buttonAndLinkOptions -%>,
-            "default":   "button button--primary"
-          },
-          {
-            "id": "cta_text",
-            "type": "text",
-            "label": "CTA Text"
-          },
-          {
-            "id": "cta_url",
-            "type": "url",
-            "label": "CTA Link"
-          }
-        ]
-      },
-      {
+      "settings": [
+        {
+          "type": "header",
+          "content": "Layout",
+          "info": "Choose both a horizontal and vertical layout for your text.  Also, choose a background color for the section. If you add a background image, this color will only display on mobile."
+        },
+        {
+          "type": "select",
+          "id": "horizontal_layout",
+          "label": "Horizontal Layout",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "select",
+          "id": "vertical_layout",
+          "label": "Vertical Layout",
+          "options": [
+            { "value": "top", "label": "Top" },
+            { "value": "middle", "label": "Middle" },
+            { "value": "bottom", "label": "Bottom" }
+          ],
+          "default": "top"
+        },
+        {
+          "type": "select",
+          "id": "text_layout",
+          "label": "Text Layout",
+          "options": [
+            { "value": "one_column", "label": "One Column" },
+            { "value": "two_column", "label": "Two Column" }
+          ],
+          "default": "one_column"
+        },
+        {
+          "type": "select",
+          "id": "bg_color",
+          "label": "Background Color",
+          "options": [
+            { "label": "None", "value": "" },
+            { "label": "Primary", "value": "bg-brand-primary" },
+            { "label": "Secondary", "value": "bg-brand-secondary" },
+            { "label": "Accent 1", "value": "bg-accent-1" },
+            { "label": "Accent 2", "value": "bg-accent-2" },
+            { "label": "Accent 3", "value": "bg-accent-3" },
+            { "label": "Accent 4", "value": "bg-accent-4" },
+            { "label": "Accent 5", "value": "bg-accent-5" },
+            { "label": "White", "value": "bg-white" },
+            { "label": "Light Grey", "value": "bg-light-grey" },
+            { "label": "Grey", "value": "bg-grey" },
+            { "label": "Off Black", "value": "bg-off-black" },
+            { "label": "Black", "value": "bg-black" }
+          ],
+          "default": "bg-brand-primary"
+        },
+        {
+          "type": "header",
+          "content": "Background Images (Optional)",
+          "info": "Optional images here. If you would like to use a separate image in mobile, please enable that option and add the mobile image as well. If mobile image is not used, leave unpopulated. If you wish to use an overlay, configure that here."
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image",
+          "info": "Recommended size: 2880x1100"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_mobile_image",
+          "label": "Enable Mobile Image",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image_mobile",
+          "label": "Mobile Background Image",
+          "info": "Recommended size: 1000x382"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_overlay",
+          "label": "Enable Overlay",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "overlay_color",
+          "label": "Overlay Color",
+          "options": [
+            { "label": "None", "value": "" },
+            { "label": "Primary", "value": "bg-brand-primary" },
+            { "label": "Secondary", "value": "bg-brand-secondary" },
+            { "label": "Accent 1", "value": "bg-accent-1" },
+            { "label": "Accent 2", "value": "bg-accent-2" },
+            { "label": "Accent 3", "value": "bg-accent-3" },
+            { "label": "Accent 4", "value": "bg-accent-4" },
+            { "label": "Accent 5", "value": "bg-accent-5" },
+            { "label": "White", "value": "bg-white" },
+            { "label": "Light Grey", "value": "bg-light-grey" },
+            { "label": "Grey", "value": "bg-grey" },
+            { "label": "Off Black", "value": "bg-off-black" },
+            { "label": "Black", "value": "bg-black" }
+          ],
+          "default": "bg-brand-primary"
+        },
+        {
+          "label": "Overlay Opacity",
+          "id": "overlay_opacity",
+          "type": "range",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "header",
+          "content": "Text",
+          "info": "Please populate text fields here. If you do not wish to use a particular field, simply leave it blank."
+        },
+        {
+          "type": "text",
+          "id": "pre_heading",
+          "label": "Pre Heading"
+        },
+        {
+          "type": "select",
+          "id": "pre_heading_color",
+          "label": "Pre Heading Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_color",
+          "label": "Heading Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "text",
+          "id": "sub_heading",
+          "label": "Sub Heading"
+        },
+        {
+          "type": "select",
+          "id": "sub_heading_color",
+          "label": "Sub Heading Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "richtext",
+          "id": "body_copy",
+          "label": "Body Copy"
+        },
+        {
+          "type": "select",
+          "id": "body_copy_color",
+          "label": "Body Copy Color",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "header",
+          "content": "CTA",
+          "info": "CTA config"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_cta",
+          "label": "Enable CTA",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "cta_layout",
+          "label": "CTA Style",
+          "options": [
+            { "label": "Primary Button", "value": "button button--primary" },
+            { "label": "Default Button", "value": "button button--secondary" },
+            { "label": "Primary Text Link", "value": "link link--primary" },
+            { "label": "Secondary Text Link", "value": "link link--secondary" }
+          ],
+          "default": "button button--primary"
+        },
+        {
+          "id": "cta_text",
+          "type": "text",
+          "label": "CTA Text"
+        },
+        {
+          "id": "cta_url",
+          "type": "url",
+          "label": "CTA Link"
+        }
+      ]
+    },
+    {
       "type": "fifty_fifty",
       "name": "FiftyFifty",
-        "settings": [
-          {
-            "type": "header",
-            "content": "Layout"
-          },
-          {
-            "type":      "select",
-            "id":        "ff_layout",
-            "label":     "Layout",
-            "options": [
-              {"value": "", "label": "Image on Left"},
-              {"value": "sw--reverse", "label": "Image on Right"}
-            ],
-            "default":   ""
-          },
-          {
-            "type": "header",
-            "content": "Image"
-          },
-          {
-            "type": "image_picker",
-            "id": "ff_image_desktop",
-            "label": "Desktop Image",
-            "info": "Minimum Dimensions: 1814x1538"
-          },
-          {
-            "type": "image_picker",
-            "id": "ff_image_mobile",
-            "label": "Mobile Image",
-            "info": "Same minumum dimensions as desktop. Image will be automatically resized."
-          },
-          {
-            "type": "select",
-            "id": "ff_image_width",
-            "label": "Image Column Width",
-            "options": [
-              {"label": "40%", "value": "sw--40"},
-              {"label": "50%", "value": "sw--50"},
-              {"label": "60%", "value": "sw--60"}
-            ],
-            "default": "sw--50"
-          },
-          {
-            "type": "header",
-            "content": "Text Content"
-          },
-          {
-            "type": "text",
-            "id": "ff_preheader",
-            "label": "Preheader"
-          },
-          {
-            "type": "text",
-            "id": "ff_header",
-            "label": "Header"
-          },
-          {
-            "type": "text",
-            "id": "ff_subheader",
-            "label": "Subheader"
-          },
-          {
-            "type": "richtext",
-            "id": "ff_body",
-            "label": "Body Copy"
-          },
-          {
-            "type": "select",
-            "id": "ff_text_alignment",
-            "label": "Text Alignment",
-            "options": [
-              {"label": "Left", "value": ""},
-              {"label": "Center", "value": "text-center"}
-            ],
-            "default": ""
-          },
-          {
-            "type": "header",
-            "content": "Colors"
-          },
-          { 
-            "label": "Background Color",
-            "id": "ff_background_color",
-            "type": "select",
-            "options": <%- uikit.backgroundOptions -%>,
-            "default": "bg-grey"
-          },
-          { 
-            "label": "Preheader Color",
-            "id": "ff_preheader_color",
-            "type": "select",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          { 
-            "label": "Header Color",
-            "id": "ff_header_color",
-            "type": "select",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          { 
-            "label": "Subheader Color",
-            "id": "ff_subheader_color",
-            "type": "select",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          { 
-            "label": "Body Copy Color",
-            "id": "ff_body_color",
-            "type": "select",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          {
-            "type": "header",
-            "content": "Link"
-          },
-          {
-            "type": "text",
-            "id": "ff_cta_text",
-            "label": "CTA Text",
-            "info": "Optional"
-          },
-          {
-            "type": "url",
-            "id": "ff_cta_url",
-            "label": "CTA Link",
-            "info": "Optional"
-          },
-          { 
-            "label": "CTA Style",
-            "id": "ff_cta_style",
-            "type": "select",
-            "options": <%- uikit.buttonAndLinkOptions -%>
-          }
-        ]
-      },
-      {
+      "settings": [
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "select",
+          "id": "ff_layout",
+          "label": "Layout",
+          "options": [
+            { "value": "", "label": "Image on Left" },
+            { "value": "sw--reverse", "label": "Image on Right" }
+          ],
+          "default": ""
+        },
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "ff_image_desktop",
+          "label": "Desktop Image",
+          "info": "Minimum Dimensions: 1814x1538"
+        },
+        {
+          "type": "image_picker",
+          "id": "ff_image_mobile",
+          "label": "Mobile Image",
+          "info": "Same minumum dimensions as desktop. Image will be automatically resized."
+        },
+        {
+          "type": "select",
+          "id": "ff_image_width",
+          "label": "Image Column Width",
+          "options": [
+            { "label": "40%", "value": "sw--40" },
+            { "label": "50%", "value": "sw--50" },
+            { "label": "60%", "value": "sw--60" }
+          ],
+          "default": "sw--50"
+        },
+        {
+          "type": "header",
+          "content": "Text Content"
+        },
+        {
+          "type": "text",
+          "id": "ff_preheader",
+          "label": "Preheader"
+        },
+        {
+          "type": "text",
+          "id": "ff_header",
+          "label": "Header"
+        },
+        {
+          "type": "text",
+          "id": "ff_subheader",
+          "label": "Subheader"
+        },
+        {
+          "type": "richtext",
+          "id": "ff_body",
+          "label": "Body Copy"
+        },
+        {
+          "type": "select",
+          "id": "ff_text_alignment",
+          "label": "Text Alignment",
+          "options": [
+            { "label": "Left", "value": "" },
+            { "label": "Center", "value": "text-center" }
+          ],
+          "default": ""
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "label": "Background Color",
+          "id": "ff_background_color",
+          "type": "select",
+          "options": [
+            { "label": "None", "value": "" },
+            { "label": "Primary", "value": "bg-brand-primary" },
+            { "label": "Secondary", "value": "bg-brand-secondary" },
+            { "label": "Accent 1", "value": "bg-accent-1" },
+            { "label": "Accent 2", "value": "bg-accent-2" },
+            { "label": "Accent 3", "value": "bg-accent-3" },
+            { "label": "Accent 4", "value": "bg-accent-4" },
+            { "label": "Accent 5", "value": "bg-accent-5" },
+            { "label": "White", "value": "bg-white" },
+            { "label": "Light Grey", "value": "bg-light-grey" },
+            { "label": "Grey", "value": "bg-grey" },
+            { "label": "Off Black", "value": "bg-off-black" },
+            { "label": "Black", "value": "bg-black" }
+          ],
+          "default": "bg-grey"
+        },
+        {
+          "label": "Preheader Color",
+          "id": "ff_preheader_color",
+          "type": "select",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "label": "Header Color",
+          "id": "ff_header_color",
+          "type": "select",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "label": "Subheader Color",
+          "id": "ff_subheader_color",
+          "type": "select",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "label": "Body Copy Color",
+          "id": "ff_body_color",
+          "type": "select",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "type": "header",
+          "content": "Link"
+        },
+        {
+          "type": "text",
+          "id": "ff_cta_text",
+          "label": "CTA Text",
+          "info": "Optional"
+        },
+        {
+          "type": "url",
+          "id": "ff_cta_url",
+          "label": "CTA Link",
+          "info": "Optional"
+        },
+        {
+          "label": "CTA Style",
+          "id": "ff_cta_style",
+          "type": "select",
+          "options": [
+            { "label": "Primary Button", "value": "button button--primary" },
+            { "label": "Default Button", "value": "button button--secondary" },
+            { "label": "Primary Text Link", "value": "link link--primary" },
+            { "label": "Secondary Text Link", "value": "link link--secondary" }
+          ]
+        }
+      ]
+    },
+    {
       "type": "press",
       "name": "In The Press",
-        "settings": [
-          { 
-            "label": "Section Header",
-            "id": "itp_section_header",
-            "type": "text",
-            "default": "Section Header"
-          },
-          { 
-            "label": "Section Header Color",
-            "id": "itp_header_color",
-            "type": "select",
-            "options": <%- uikit.colorOptions -%>,
-            "default": "color-black"
-          },
-          { 
-            "label": "Background Color",
-            "id": "itp_background_color",
-            "type": "select",
-            "options": <%- uikit.backgroundOptions -%>,
-            "default": "bg-white"
-          },
-          {
-            "type": "header",
-            "content": "Press Logos"
-          },
-          {
-            "label": "Logo 1",
-            "type": "image_picker",
-            "id": "itp_logo_1"
-          },
-          {
-            "label": "Link 1",
-            "type": "url",
-            "id": "itp_url_1"
-          },
-          {
-            "label": "Link Target",
-            "type": "select",
-            "id": "itp_url_target_1",
-            "default": "_self",
-            "options": <%- linkTargetOptions -%>
-          },
-          {
-            "label": "Logo 2",
-            "type": "image_picker",
-            "id": "itp_logo_2"
-          },
-          {
-            "label": "Link 2",
-            "type": "url",
-            "id": "itp_url_2"
-          },
-          {
-            "label": "Link Target",
-            "type": "select",
-            "id": "itp_url_target_2",
-            "default": "_self",
-            "options": <%- linkTargetOptions -%>
-          },
-          {
-            "label": "Logo 3",
-            "type": "image_picker",
-            "id": "itp_logo_3"
-          },
-          {
-            "label": "Link 3",
-            "type": "url",
-            "id": "itp_url_3"
-          },
-          {
-            "label": "Link Target",
-            "type": "select",
-            "id": "itp_url_target_3",
-            "default": "_self",
-            "options": <%- linkTargetOptions -%>
-          },
-          {
-            "label": "Logo 4",
-            "type": "image_picker",
-            "id": "itp_logo_4"
-          },
-          {
-            "label": "Link 4",
-            "type": "url",
-            "id": "itp_url_4"
-          },
-          {
-            "label": "Link Target",
-            "type": "select",
-            "id": "itp_url_target_4",
-            "default": "_self",
-            "options": <%- linkTargetOptions -%>
-          }
-        ]
-      },
-      {
-        "type": "scrolling_text",
-        "name": "Scrolling Text",
-        "settings": [
-          {
-            "id": "title",
-            "label": "Title",
-            "type": "text"
-          },
-          {
-            "id": "content",
-            "label": "Text",
-            "type": "richtext"
-          },
-          {
-            "id": "image",
-            "label": "Image",
-            "type": "image_picker"
-          },
-          {
-            "id": "text_group",
-            "label": "Scrolling Text Group",
-            "default": "1",
-            "info": "Scrolling Text blocks will be grouped by the value in this setting (i.e. all \"1\"s will show in the same scrolling section)",
-            "type": "text"
-          }
-        ]
-      }
-    ]
-  }
+      "settings": [
+        {
+          "label": "Section Header",
+          "id": "itp_section_header",
+          "type": "text",
+          "default": "Section Header"
+        },
+        {
+          "label": "Section Header Color",
+          "id": "itp_header_color",
+          "type": "select",
+          "options": [
+            { "label": "Primary", "value": "color-brand-primary" },
+            { "label": "Secondary", "value": "color-brand-secondary" },
+            { "label": "Accent 1", "value": "color-accent-1" },
+            { "label": "Accent 2", "value": "color-accent-2" },
+            { "label": "Accent 3", "value": "color-accent-3" },
+            { "label": "Accent 4", "value": "color-accent-4" },
+            { "label": "Accent 5", "value": "color-accent-5" },
+            { "label": "White", "value": "color-white" },
+            { "label": "Light Grey", "value": "color-light-grey" },
+            { "label": "Grey", "value": "color-grey" },
+            { "label": "Off Black", "value": "color-off-black" },
+            { "label": "Black", "value": "color-black" }
+          ],
+          "default": "color-black"
+        },
+        {
+          "label": "Background Color",
+          "id": "itp_background_color",
+          "type": "select",
+          "options": [
+            { "label": "None", "value": "" },
+            { "label": "Primary", "value": "bg-brand-primary" },
+            { "label": "Secondary", "value": "bg-brand-secondary" },
+            { "label": "Accent 1", "value": "bg-accent-1" },
+            { "label": "Accent 2", "value": "bg-accent-2" },
+            { "label": "Accent 3", "value": "bg-accent-3" },
+            { "label": "Accent 4", "value": "bg-accent-4" },
+            { "label": "Accent 5", "value": "bg-accent-5" },
+            { "label": "White", "value": "bg-white" },
+            { "label": "Light Grey", "value": "bg-light-grey" },
+            { "label": "Grey", "value": "bg-grey" },
+            { "label": "Off Black", "value": "bg-off-black" },
+            { "label": "Black", "value": "bg-black" }
+          ],
+          "default": "bg-white"
+        },
+        {
+          "type": "header",
+          "content": "Press Logos"
+        },
+        {
+          "label": "Logo 1",
+          "type": "image_picker",
+          "id": "itp_logo_1"
+        },
+        {
+          "label": "Link 1",
+          "type": "url",
+          "id": "itp_url_1"
+        },
+        {
+          "label": "Link Target",
+          "type": "select",
+          "id": "itp_url_target_1",
+          "default": "_self",
+          "options": [
+            { "label": "Current Tab", "value": "_self" },
+            { "label": "New Tab", "value": "_blank" }
+          ]
+        },
+        {
+          "label": "Logo 2",
+          "type": "image_picker",
+          "id": "itp_logo_2"
+        },
+        {
+          "label": "Link 2",
+          "type": "url",
+          "id": "itp_url_2"
+        },
+        {
+          "label": "Link Target",
+          "type": "select",
+          "id": "itp_url_target_2",
+          "default": "_self",
+          "options": [
+            { "label": "Current Tab", "value": "_self" },
+            { "label": "New Tab", "value": "_blank" }
+          ]
+        },
+        {
+          "label": "Logo 3",
+          "type": "image_picker",
+          "id": "itp_logo_3"
+        },
+        {
+          "label": "Link 3",
+          "type": "url",
+          "id": "itp_url_3"
+        },
+        {
+          "label": "Link Target",
+          "type": "select",
+          "id": "itp_url_target_3",
+          "default": "_self",
+          "options": [
+            { "label": "Current Tab", "value": "_self" },
+            { "label": "New Tab", "value": "_blank" }
+          ]
+        },
+        {
+          "label": "Logo 4",
+          "type": "image_picker",
+          "id": "itp_logo_4"
+        },
+        {
+          "label": "Link 4",
+          "type": "url",
+          "id": "itp_url_4"
+        },
+        {
+          "label": "Link Target",
+          "type": "select",
+          "id": "itp_url_target_4",
+          "default": "_self",
+          "options": [
+            { "label": "Current Tab", "value": "_self" },
+            { "label": "New Tab", "value": "_blank" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "scrolling_text",
+      "name": "Scrolling Text",
+      "settings": [
+        {
+          "id": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "id": "content",
+          "label": "Text",
+          "type": "richtext"
+        },
+        {
+          "id": "image",
+          "label": "Image",
+          "type": "image_picker"
+        },
+        {
+          "id": "text_group",
+          "label": "Scrolling Text Group",
+          "default": "1",
+          "info": "Scrolling Text blocks will be grouped by the value in this setting (i.e. all \"1\"s will show in the same scrolling section)",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

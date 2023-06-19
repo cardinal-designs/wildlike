@@ -25,145 +25,216 @@
 <page-404 :schema="{{ schema | escape | strip }}" />
 
 {% schema %}
-  {
-    "name": "404 Page",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Layout"
-      },
-      {
-        "type":      "select",
-        "id":        "ff_layout",
-        "label":     "Layout",
-        "options": [
-          {"value": "", "label": "Image on Left"},
-          {"value": "sw--reverse", "label": "Image on Right"}
-        ],
-        "default":   ""
-      },
-      {
-        "type": "header",
-        "content": "Image"
-      },
-      {
-        "type": "image_picker",
-        "id": "ff_image_desktop",
-        "label": "Desktop Image",
-        "info": "Minimum Dimensions: 1814x1538"
-      },
-      {
-        "type": "image_picker",
-        "id": "ff_image_mobile",
-        "label": "Mobile Image",
-        "info": "Same minumum dimensions as desktop. Image will be automatically resized."
-      },
-      {
-        "type": "select",
-        "id": "ff_image_width",
-        "label": "Image Column Width",
-        "options": [
-          {"label": "40%", "value": "sw--40"},
-          {"label": "50%", "value": "sw--50"},
-          {"label": "60%", "value": "sw--60"}
-        ],
-        "default": "sw--50"
-      },
-      {
-        "type": "header",
-        "content": "Text Content"
-      },
-      {
-        "type": "text",
-        "id": "ff_preheader",
-        "label": "Preheader"
-      },
-      {
-        "type": "text",
-        "id": "ff_header",
-        "label": "Header"
-      },
-      {
-        "type": "text",
-        "id": "ff_subheader",
-        "label": "Subheader"
-      },
-      {
-        "type": "richtext",
-        "id": "ff_body",
-        "label": "Body Copy"
-      },
-      {
-        "type": "select",
-        "id": "ff_text_alignment",
-        "label": "Text Alignment",
-        "options": [
-          {"label": "Left", "value": ""},
-          {"label": "Center", "value": "text-center"}
-        ],
-        "default": ""
-      },
-      {
-        "type": "header",
-        "content": "Colors"
-      },
-      {
-        "label": "Background Color",
-        "id": "ff_background_color",
-        "type": "select",
-        "options": <%- uikit.backgroundOptions -%>,
-        "default": "bg-grey"
-      },
-      {
-        "label": "Preheader Color",
-        "id": "ff_preheader_color",
-        "type": "select",
-        "options": <%- uikit.colorOptions -%>,
-        "default": "color-black"
-      },
-      {
-        "label": "Header Color",
-        "id": "ff_header_color",
-        "type": "select",
-        "options": <%- uikit.colorOptions -%>,
-        "default": "color-black"
-      },
-      {
-        "label": "Subheader Color",
-        "id": "ff_subheader_color",
-        "type": "select",
-        "options": <%- uikit.colorOptions -%>,
-        "default": "color-black"
-      },
-      {
-        "label": "Body Copy Color",
-        "id": "ff_body_color",
-        "type": "select",
-        "options": <%- uikit.colorOptions -%>,
-        "default": "color-black"
-      },
-      {
-        "type": "header",
-        "content": "Link"
-      },
-      {
-        "type": "text",
-        "id": "ff_cta_text",
-        "label": "CTA Text",
-        "info": "Optional"
-      },
-      {
-        "type": "url",
-        "id": "ff_cta_url",
-        "label": "CTA Link",
-        "info": "Optional"
-      },
-      {
-        "label": "CTA Layout",
-        "id": "ff_cta_style",
-        "type": "select",
-        "options": <%- uikit.buttonAndLinkOptions -%>
-      }
-    ]
-  }
+{
+  "name": "404 Page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "ff_layout",
+      "label": "Layout",
+      "options": [
+        { "value": "", "label": "Image on Left" },
+        { "value": "sw--reverse", "label": "Image on Right" }
+      ],
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "ff_image_desktop",
+      "label": "Desktop Image",
+      "info": "Minimum Dimensions: 1814x1538"
+    },
+    {
+      "type": "image_picker",
+      "id": "ff_image_mobile",
+      "label": "Mobile Image",
+      "info": "Same minumum dimensions as desktop. Image will be automatically resized."
+    },
+    {
+      "type": "select",
+      "id": "ff_image_width",
+      "label": "Image Column Width",
+      "options": [
+        { "label": "40%", "value": "sw--40" },
+        { "label": "50%", "value": "sw--50" },
+        { "label": "60%", "value": "sw--60" }
+      ],
+      "default": "sw--50"
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "ff_preheader",
+      "label": "Preheader"
+    },
+    {
+      "type": "text",
+      "id": "ff_header",
+      "label": "Header"
+    },
+    {
+      "type": "text",
+      "id": "ff_subheader",
+      "label": "Subheader"
+    },
+    {
+      "type": "richtext",
+      "id": "ff_body",
+      "label": "Body Copy"
+    },
+    {
+      "type": "select",
+      "id": "ff_text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "label": "Left", "value": "" },
+        { "label": "Center", "value": "text-center" }
+      ],
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "label": "Background Color",
+      "id": "ff_background_color",
+      "type": "select",
+      "options": [
+        { "label": "None", "value": "" },
+        { "label": "Primary", "value": "bg-brand-primary" },
+        { "label": "Secondary", "value": "bg-brand-secondary" },
+        { "label": "Accent 1", "value": "bg-accent-1" },
+        { "label": "Accent 2", "value": "bg-accent-2" },
+        { "label": "Accent 3", "value": "bg-accent-3" },
+        { "label": "Accent 4", "value": "bg-accent-4" },
+        { "label": "Accent 5", "value": "bg-accent-5" },
+        { "label": "White", "value": "bg-white" },
+        { "label": "Light Grey", "value": "bg-light-grey" },
+        { "label": "Grey", "value": "bg-grey" },
+        { "label": "Off Black", "value": "bg-off-black" },
+        { "label": "Black", "value": "bg-black" }
+      ],
+      "default": "bg-grey"
+    },
+    {
+      "label": "Preheader Color",
+      "id": "ff_preheader_color",
+      "type": "select",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
+      "default": "color-black"
+    },
+    {
+      "label": "Header Color",
+      "id": "ff_header_color",
+      "type": "select",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
+      "default": "color-black"
+    },
+    {
+      "label": "Subheader Color",
+      "id": "ff_subheader_color",
+      "type": "select",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
+      "default": "color-black"
+    },
+    {
+      "label": "Body Copy Color",
+      "id": "ff_body_color",
+      "type": "select",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
+      "default": "color-black"
+    },
+    {
+      "type": "header",
+      "content": "Link"
+    },
+    {
+      "type": "text",
+      "id": "ff_cta_text",
+      "label": "CTA Text",
+      "info": "Optional"
+    },
+    {
+      "type": "url",
+      "id": "ff_cta_url",
+      "label": "CTA Link",
+      "info": "Optional"
+    },
+    {
+      "label": "CTA Layout",
+      "id": "ff_cta_style",
+      "type": "select",
+      "options": [
+        { "label": "Primary Button", "value": "button button--primary" },
+        { "label": "Default Button", "value": "button button--secondary" },
+        { "label": "Primary Text Link", "value": "link link--primary" },
+        { "label": "Secondary Text Link", "value": "link link--secondary" }
+      ]
+    }
+  ]
+}
 {% endschema %}

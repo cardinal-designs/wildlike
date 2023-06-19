@@ -1,4 +1,3 @@
-
 <product-display product-handle="{{ product.handle }}">
   <template slot="content">
     <h1 class="product-info__title">{{ product.title }}</h1>
@@ -15,7 +14,12 @@
           {%- if product.tags contains tag_id -%}
             <div class="column">
               <div class="product-icon">
-                <img src="{{ block.settings.icon | img_url: '100x100' }}" alt="{{ block.settings.icon_alt }}" />
+                <img
+                  src="{{ block.settings.icon | img_url: '100x100' }}"
+                  alt="{{ block.settings.icon_alt }}"
+                  height="{{ block.settings.icon.height }}"
+                  width="{{ block.settings.icon.width }}"
+                >
                 <p class="product-icon__title">{{ block.settings.title }}</p>
               </div>
             </div>
@@ -27,33 +31,33 @@
 </product-display>
 
 {% schema %}
-  {
-    "name": "Product Header",
-    "settings": [],
-    "blocks": [
-      {
-        "type": "icon",
-        "name": "Icon",
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": "Title",
-            "info": "Tag a product with __icon:<this-title> to add to a product"
-          },
-          {
-            "type": "image_picker",
-            "id": "icon",
-            "label": "Icon",
-            "info": "100x100"
-          },
-          {
-            "type": "text",
-            "id": "icon_alt",
-            "label": "Icon alt text"
-          }
-        ]
-      }
-    ]
-  }
+{
+  "name": "Product Header",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Tag a product with __icon:<this-title> to add to a product"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon",
+          "info": "100x100"
+        },
+        {
+          "type": "text",
+          "id": "icon_alt",
+          "label": "Icon alt text"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

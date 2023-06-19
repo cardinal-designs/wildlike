@@ -413,7 +413,7 @@
       },
       {
         "type": "header",
-        "content": "CCPA"
+        "content": "CCPA" 
       },
       {
         "type": "text",
@@ -520,7 +520,60 @@
         "type":      "select",
         "id":        "cart_bubble",
         "label":     "Cart Bubble Color",
-        "options": <%- uikit.backgroundOptions -%>,
+        "options": [
+          {
+            "label": "None",
+            "value": ""
+          },
+          {
+            "label": "Primary",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "bg-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "bg-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "bg-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "bg-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "bg-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "bg-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "bg-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "bg-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "bg-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "bg-black"
+          }
+        ],
         "default": "bg-accent-1"
       },
       {
@@ -561,7 +614,60 @@
         "type":      "select",
         "id":        "cart_shipping_bg",
         "label":     "Shipping Promo Background Color",
-        "options": <%- uikit.backgroundOptions -%>,
+        "options": [
+          {
+            "label": "None",
+            "value": ""
+          },
+          {
+            "label": "Primary",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "bg-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "bg-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "bg-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "bg-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "bg-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "bg-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "bg-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "bg-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "bg-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "bg-black"
+          }
+        ],
         "default": "bg-brand-primary"
       },
       {
@@ -583,7 +689,60 @@
         "type":      "select",
         "id":        "cart_shipping_progress",
         "label":     "Shipping Promo Progress Bar Color",
-        "options": <%- uikit.backgroundOptions -%>,
+        "options": [
+          {
+            "label": "None",
+            "value": ""
+          },
+          {
+            "label": "Primary",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "bg-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "bg-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "bg-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "bg-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "bg-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "bg-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "bg-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "bg-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "bg-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "bg-black"
+          }
+        ],
         "default": "bg-brand-primary"
       },
       {
@@ -764,7 +923,56 @@
         "id":        "compare_price_color",
         "label":     "Sale Price Color",
         "info": "When a product is on sale, the product price will be displayed as this color.",
-        "options": <%- uikit.colorOptions -%>,
+        "options": [
+          {
+            "label": "Primary",
+            "value": "color-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "color-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "color-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "color-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "color-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "color-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "color-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "color-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "color-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "color-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "color-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "color-black"
+          }
+        ],
         "default": "color-accent-5"
       },
       {
@@ -775,84 +983,696 @@
         "type":      "select",
         "id":        "badge_sale_copy_color",
         "label":     "Sale Copy Color",
-        "options": <%- uikit.colorOptions -%>,
+        "options": [
+          {
+            "label": "Primary",
+            "value": "color-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "color-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "color-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "color-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "color-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "color-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "color-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "color-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "color-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "color-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "color-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "color-black"
+          }
+        ],
         "default": "color-accent-5"
       },
       {
         "type":      "select",
         "id":        "badge_sale_bg_color",
         "label":     "Sale Background Color",
-        "options": <%- uikit.backgroundOptions -%>,
+        "options": [
+          {
+            "label": "None",
+            "value": ""
+          },
+          {
+            "label": "Primary",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "bg-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "bg-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "bg-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "bg-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "bg-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "bg-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "bg-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "bg-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "bg-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "bg-black"
+          }
+        ],
         "default": "bg-accent-1"
       },
       {
         "type":      "select",
         "id":        "badge_new_copy_color",
         "label":     "New Copy Color",
-        "options": <%- uikit.colorOptions -%>,
+        "options": [
+          {
+            "label": "Primary",
+            "value": "color-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "color-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "color-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "color-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "color-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "color-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "color-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "color-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "color-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "color-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "color-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "color-black"
+          }
+        ],
         "default": "color-black"
       },
       {
         "type":      "select",
         "id":        "badge_new_bg_color",
         "label":     "New Background Color",
-        "options": <%- uikit.backgroundOptions -%>,
+        "options": [
+          {
+            "label": "None",
+            "value": ""
+          },
+          {
+            "label": "Primary",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "bg-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "bg-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "bg-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "bg-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "bg-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "bg-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "bg-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "bg-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "bg-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "bg-black"
+          }
+        ],
         "default": "bg-brand-primary"
       },
       {
         "type":      "select",
         "id":        "badge_limited_copy_color",
         "label":     "Limited Copy Color",
-        "options": <%- uikit.colorOptions -%>,
+        "options": [
+          {
+            "label": "Primary",
+            "value": "color-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "color-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "color-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "color-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "color-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "color-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "color-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "color-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "color-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "color-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "color-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "color-black"
+          }
+        ],
         "default": "color-black"
       },
       {
         "type":      "select",
         "id":        "badge_limited_bg_color",
         "label":     "Limited Background Color",
-        "options": <%- uikit.backgroundOptions -%>,
+        "options": [
+          {
+            "label": "None",
+            "value": ""
+          },
+          {
+            "label": "Primary",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "bg-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "bg-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "bg-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "bg-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "bg-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "bg-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "bg-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "bg-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "bg-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "bg-black"
+          }
+        ],
         "default": "bg-brand-primary"
       },
       {
         "type":      "select",
         "id":        "badge_best_seller_copy_color",
         "label":     "Best Seller Copy Color",
-        "options": <%- uikit.colorOptions -%>,
+        "options": [
+          {
+            "label": "Primary",
+            "value": "color-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "color-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "color-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "color-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "color-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "color-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "color-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "color-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "color-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "color-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "color-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "color-black"
+          }
+        ],
         "default": "color-black"
       },
       {
         "type":      "select",
         "id":        "badge_best_seller_bg_color",
         "label":     "Best Seller Background Color",
-        "options": <%- uikit.backgroundOptions -%>,
+        "options": [
+          {
+            "label": "None",
+            "value": ""
+          },
+          {
+            "label": "Primary",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "bg-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "bg-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "bg-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "bg-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "bg-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "bg-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "bg-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "bg-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "bg-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "bg-black"
+          }
+        ],
         "default": "bg-accent-1"
       },
       {
         "type":      "select",
         "id":        "badge_clearance_copy_color",
         "label":     "Clearance Copy Color",
-        "options": <%- uikit.colorOptions -%>,
+        "options": [
+          {
+            "label": "Primary",
+            "value": "color-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "color-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "color-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "color-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "color-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "color-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "color-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "color-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "color-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "color-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "color-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "color-black"
+          }
+        ],
         "default": "color-black"
       },
       {
         "type":      "select",
         "id":        "badge_clearance_bg_color",
         "label":     "Clearance Background Color",
-        "options": <%- uikit.backgroundOptions -%>,
+        "options": [
+          {
+            "label": "None",
+            "value": ""
+          },
+          {
+            "label": "Primary",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "bg-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "bg-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "bg-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "bg-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "bg-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "bg-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "bg-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "bg-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "bg-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "bg-black"
+          }
+        ],
         "default": "bg-accent-1"
       },
       {
         "type":      "select",
         "id":        "badge_dotw_copy_color",
         "label":     "\"Deal of the Week\" Copy Color",
-        "options": <%- uikit.colorOptions -%>,
+        "options": [
+          {
+            "label": "Primary",
+            "value": "color-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "color-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "color-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "color-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "color-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "color-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "color-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "color-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "color-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "color-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "color-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "color-black"
+          }
+        ],
         "default": "color-black"
       },
       {
         "type":      "select",
         "id":        "badge_dotw_bg_color",
         "label":     "\"Deal of the Week\" Background Color",
-        "options": <%- uikit.backgroundOptions -%>,
+        "options": [
+          {
+            "label": "None",
+            "value": ""
+          },
+          {
+            "label": "Primary",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "bg-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "bg-accent-2"
+          },
+          {
+            "label": "Accent 3",
+            "value": "bg-accent-3"
+          },
+          {
+            "label": "Accent 4",
+            "value": "bg-accent-4"
+          },
+          {
+            "label": "Accent 5",
+            "value": "bg-accent-5"
+          },
+          {
+            "label": "White",
+            "value": "bg-white"
+          },
+          {
+            "label": "Light Grey",
+            "value": "bg-light-grey"
+          },
+          {
+            "label": "Grey",
+            "value": "bg-grey"
+          },
+          {
+            "label": "Off Black",
+            "value": "bg-off-black"
+          },
+          {
+            "label": "Black",
+            "value": "bg-black"
+          }
+        ],
         "default": "bg-accent-1"
       }
     ]

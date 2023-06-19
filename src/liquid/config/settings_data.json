@@ -1,0 +1,1163 @@
+{
+  "current": {
+    "social_twitter_link": "",
+    "social_facebook_link": "https:\/\/www.facebook.com\/wildlikepiercing",
+    "social_pinterest_link": "",
+    "social_instagram_link": "https:\/\/www.instagram.com\/thewildlike\/",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "gtm_id": "PHR792J",
+    "second_helper_text": "My Account",
+    "second_helper_url": "https:\/\/www.wildlike.com\/account",
+    "collections_global_filters": "Designer,Product Type,Piercing,Piercing Eligible,Gemstone, Material",
+    "disable_collection_sidebar": false,
+    "disable_collection_filters": false,
+    "collection_global_linklist": "",
+    "collection_default_custom_linklist": "",
+    "login_heading": "Welcome!",
+    "login_blurb": "Set up an Wildlike account and enjoy a faster and more personalized experience. \n\nFor returning customers, to reactivate your account on our new website, click \"Create Account\" and follow the instructions using the same email address as your prior account. This will securely transfer all your account information and applicable reward points. We hope you enjoy our new website!",
+    "account_help_email": "getpierced@wildlike.com",
+    "account_help_phone": "214-612-7690",
+    "account_link_1_title": "",
+    "account_link_1_link": "",
+    "account_ccpa_title": "Privacy Policy",
+    "account_ccpa_link": "shopify:\/\/policies\/privacy-policy",
+    "account_value_prop_1_title": "",
+    "account_value_prop_1_copy": "",
+    "account_value_prop_2_title": "",
+    "account_value_prop_2_copy": "",
+    "account_value_prop_3_title": "",
+    "account_value_prop_3_copy": "",
+    "account_value_prop_4_title": "",
+    "account_value_prop_4_copy": "",
+    "cart_bubble": "bg-black",
+    "cart_shipping_promo_total": "0",
+    "cart_shipping_bg": "bg-accent-2",
+    "cart_shipping_text": "color-white",
+    "cart_continue_link": "shopify:\/\/collections",
+    "cart_promo_message": "Free Shipping on All U.S. Orders",
+    "cart_link_text_1": "Shop Piercing Studs",
+    "cart_empty_url_1": "shopify:\/\/collections\/piercing-studs",
+    "cart_link_text_2": "Shop Piercing Hoops",
+    "cart_empty_url_2": "shopify:\/\/collections\/piercing-hoops",
+    "cart_link_text_3": "Shop Other Jewelry",
+    "cart_empty_url_3": "shopify:\/\/collections\/other-jewelry",
+    "cart_link_text_4": "Shop Wildlike",
+    "cart_empty_url_4": "shopify:\/\/collections\/wildlike",
+    "cart_link_text_5": "Book an Appointment",
+    "cart_empty_url_5": "shopify:\/\/pages\/booking",
+    "favicon": "shopify:\/\/shop_images\/Wildlike-Instagram-Profile-Image-340x340_57fe04ec-d183-46a1-811f-f758a6abc747.png",
+    "product_tile_subtitle_pretext": "test",
+    "badge_sale_copy_color": "color-brand-primary",
+    "badge_sale_bg_color": "bg-brand-secondary",
+    "badge_new_copy_color": "color-brand-primary",
+    "badge_new_bg_color": "bg-brand-secondary",
+    "badge_limited_copy_color": "color-brand-primary",
+    "badge_limited_bg_color": "bg-brand-secondary",
+    "badge_best_seller_copy_color": "color-brand-primary",
+    "badge_best_seller_bg_color": "bg-brand-secondary",
+    "disable_reviews": true,
+    "review_source": "shopify",
+    "call_for_price_number": "(214) 612-7690",
+    "search_shop_cta_text": "Book an Appointment",
+    "search_shop_cta_url": "shopify:\/\/pages\/booking",
+    "enable_predictive_search": true,
+    "pdp_design": "RamsayProductDisplay",
+    "pobox_error_message": "Sorry, we ship all orders via FEDEX and cannot ship to PO boxes!",
+    "checkout_logo_image": "shopify:\/\/shop_images\/Logo-2.png",
+    "checkout_logo_size": "medium",
+    "checkout_sidebar_background_color": "#ffffff",
+    "checkout_accent_color": "#231a22",
+    "checkout_button_color": "#ff309a",
+    "checkout_error_color": "#d71f28",
+    "sections": {
+      "top-header": {
+        "type": "top-header",
+        "blocks": {
+          "633573d2-edd4-4935-b0a2-166f347e2596": {
+            "type": "promo",
+            "disabled": true,
+            "settings": {
+              "promo_content": "30% OFF SALE IS HAPPENING NOW",
+              "promo_content_link": "shopify:\/\/collections\/wildlikesale"
+            }
+          },
+          "1adc979e-45fd-4dc4-928d-3219d0a6fcac": {
+            "type": "promo",
+            "settings": {
+              "promo_content": "FREE STANDARD SHIPPING ON ALL ORDERS",
+              "promo_content_link": "shopify:\/\/pages\/shipping-info"
+            }
+          },
+          "d6383e4e-f639-4921-a049-188566655414": {
+            "type": "promo",
+            "disabled": true,
+            "settings": {
+              "promo_content": "30% OFF SALE",
+              "promo_content_link": "https:\/\/wildlike.com\/collections\/30-off-sale\/?page=1&sort_by=manual"
+            }
+          }
+        },
+        "block_order": [
+          "633573d2-edd4-4935-b0a2-166f347e2596",
+          "1adc979e-45fd-4dc4-928d-3219d0a6fcac",
+          "d6383e4e-f639-4921-a049-188566655414"
+        ],
+        "settings": {
+          "promo_backgroind": "#c30078",
+          "promo_text_color": "#ffffff",
+          "speed_autoplay": 5,
+          "slider_arrows": false
+        }
+      },
+      "header-navigation": {
+        "type": "header-navigation",
+        "blocks": {
+          "556ab2e5-df18-4544-879d-7c02384151d2": {
+            "type": "text_large_image",
+            "settings": {
+              "title": "Shop",
+              "menu_item_url": "shopify:\/\/collections\/all",
+              "menu_link_list": "designers",
+              "disable_mega_menu": true,
+              "expand_mobile": false,
+              "large_image": "shopify:\/\/shop_images\/Wildlike_10_18_220415_new.jpg",
+              "large_image_link": "shopify:\/\/collections\/wildlike",
+              "large_image_link_text": "Shop the Wildlike Collection"
+            }
+          },
+          "9b8a0e2f-fd7a-4340-b1da-0ca44ab5d251": {
+            "type": "text_small_image_blocks",
+            "settings": {
+              "title": "Get Pierced",
+              "menu_item_url": "#book-now",
+              "menu_link_list": "get-pierced",
+              "disable_mega_menu": true,
+              "expand_mobile": true,
+              "menu_image_1": "shopify:\/\/shop_images\/BookNow_522x392_June2022.jpg",
+              "menu_image_1_url": "#book-now",
+              "menu_image_1_text": "Book a Piercing",
+              "menu_image_2": "shopify:\/\/shop_images\/Preshop_522x392-June2022.jpg",
+              "menu_image_2_url": "shopify:\/\/collections\/all-piercing-jewelry",
+              "menu_image_2_text": "Pre-Shop For Your Piercing",
+              "menu_image_3_url": "",
+              "menu_image_3_text": ""
+            }
+          },
+          "9e07fdac-dc0e-41cc-885f-195f14c141ff": {
+            "type": "text_large_image",
+            "settings": {
+              "title": "SALE",
+              "menu_item_url": "shopify:\/\/collections\/sale-1",
+              "menu_link_list": "sale",
+              "disable_mega_menu": false,
+              "expand_mobile": false,
+              "large_image": "shopify:\/\/shop_images\/Wildlike-Position-01A-686x460x2_9883a7cb-7f6a-4f7a-9a6b-d2552214bc71.jpg",
+              "large_image_link": "",
+              "large_image_link_text": ""
+            }
+          },
+          "320ad8e0-4662-4282-8573-598cd462e27f": {
+            "type": "text_small_image_blocks",
+            "settings": {
+              "title": "FAQ",
+              "menu_item_url": "shopify:\/\/pages\/piercing-faq",
+              "menu_link_list": "",
+              "disable_mega_menu": false,
+              "expand_mobile": false,
+              "menu_image_1": "shopify:\/\/shop_images\/Wildlike-2022-06-16-Position-05-Mobile-778x662x2.jpg",
+              "menu_image_1_url": "",
+              "menu_image_1_text": "",
+              "menu_image_2": "shopify:\/\/shop_images\/Wildlike-2022-06-16-Position-01A-686x460x2.jpg",
+              "menu_image_2_url": "",
+              "menu_image_2_text": "",
+              "menu_image_3": "shopify:\/\/shop_images\/Wildlike-2022-06-07-Position-03-680x680.jpg",
+              "menu_image_3_url": "",
+              "menu_image_3_text": ""
+            }
+          }
+        },
+        "block_order": [
+          "556ab2e5-df18-4544-879d-7c02384151d2",
+          "9b8a0e2f-fd7a-4340-b1da-0ca44ab5d251",
+          "9e07fdac-dc0e-41cc-885f-195f14c141ff",
+          "320ad8e0-4662-4282-8573-598cd462e27f"
+        ],
+        "settings": {
+          "logo_svg": "https:\/\/cdn.shopify.com\/s\/files\/1\/0559\/6456\/5658\/files\/Logo-2.svg?v=1619814928",
+          "search_bar_placeholder": "Search Wildlike"
+        }
+      },
+      "footer-value-props": {
+        "type": "footer-value-props",
+        "blocks": {
+          "fdf23de3-2bef-483e-98c7-0048c1514a39": {
+            "type": "value_prop",
+            "settings": {
+              "title": "self expression",
+              "body": "<p>We're here to give people a way to express themselves to feel whole, beautiful, and accepted.<\/p><p><br\/><br\/><\/p>"
+            }
+          },
+          "a2ff9639-f4ef-42c7-a01d-8b4368232d12": {
+            "type": "value_prop",
+            "settings": {
+              "title": "piercing reimagined",
+              "body": "<p><\/p><p>We've designed an original, safe experience with best in class luxury jewelry that's made for piercing.<\/p><p><br\/><br\/><\/p>"
+            }
+          },
+          "74917dd3-8e07-45f4-aea7-d8700641a845": {
+            "type": "value_prop",
+            "settings": {
+              "title": "extensive experience",
+              "body": "<p>Wildlike leverages 35+ years of expertise in jewelry and customer service via its sister company Ylang 23.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "fdf23de3-2bef-483e-98c7-0048c1514a39",
+          "a2ff9639-f4ef-42c7-a01d-8b4368232d12",
+          "74917dd3-8e07-45f4-aea7-d8700641a845"
+        ],
+        "settings": {
+          "background_color": "#f7f6f2"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "3905cd07-ad56-41b0-919b-746783e5d5d3": {
+            "type": "logo_block",
+            "settings": {
+              "logo_svg": "https:\/\/cdn.shopify.com\/s\/files\/1\/0559\/6456\/5658\/files\/Wildlike-Avatar-Carnation.svg?v=1625611690",
+              "title": "WE HOPE TO SEE YOU",
+              "body": "<p>4218 OAK LAWN AVENUE<\/p><p>DALLAS, TEXAS 75219<\/p><p>214.612.7690<\/p><p><\/p><p><strong>Store Hours: <\/strong><\/p><p>Mon - Fri: 10am -7pm <\/p><p>Sat: 10am - 6pm <\/p><p>Sun: 12pm - 5pm <\/p>"
+            }
+          },
+          "7fb612e9-5dd4-4e75-9f52-4a8365c1a7a4": {
+            "type": "link_list_block",
+            "settings": {
+              "menu": "shop-footer"
+            }
+          },
+          "b97f22c9-ea82-42ef-87ec-4fa93b9abd3a": {
+            "type": "link_list_block",
+            "settings": {
+              "menu": "featured-designers"
+            }
+          },
+          "aa9cc47f-0079-437f-84dd-7c8acfeabe1c": {
+            "type": "link_list_block",
+            "settings": {
+              "menu": "customer-care"
+            }
+          },
+          "b707f127-607b-471a-b421-6c870699b95b": {
+            "type": "link_list_block",
+            "settings": {
+              "menu": "our-company"
+            }
+          }
+        },
+        "block_order": [
+          "3905cd07-ad56-41b0-919b-746783e5d5d3",
+          "7fb612e9-5dd4-4e75-9f52-4a8365c1a7a4",
+          "b97f22c9-ea82-42ef-87ec-4fa93b9abd3a",
+          "aa9cc47f-0079-437f-84dd-7c8acfeabe1c",
+          "b707f127-607b-471a-b421-6c870699b95b"
+        ],
+        "settings": {
+          "hide_email_capture": false,
+          "email_title": "get wild with us",
+          "email_body": "<p>Enter your email address for updates on everything Wildlike!<\/p>",
+          "social_icon_1": "facebook",
+          "social_icon_2": "instagram",
+          "social_icon_3": "twitter",
+          "social_icon_4": "pinterest",
+          "social_icon_5": "none",
+          "copyright_text": "",
+          "menu": "legal-links"
+        }
+      },
+      "product-display-bourdain": {
+        "type": "product-display-bourdain",
+        "settings": {
+          "pdp_accordion_name": "Shipping",
+          "pdp_accordion_content": "",
+          "pdp_recommendations_heading": "You May Also Like",
+          "pdp_hide_reviews": false,
+          "pdp_global_info_section_heading": "",
+          "pdp_global_info_section_heading_color": "#ffffff",
+          "pdp_product_rec_sidebar_heading": "",
+          "pdp_value_props_background_color": "#f7f6f5",
+          "pdp_vp_title_0": "",
+          "pdp_vp_body_0": "",
+          "pdp_vp_title_1": "",
+          "pdp_vp_body_1": "",
+          "pdp_vp_title_2": "",
+          "pdp_vp_body_2": "",
+          "pdp_vp_title_3": "",
+          "pdp_vp_body_3": "",
+          "cl_heading": "",
+          "cl_heading_color": "color-black",
+          "cl_background_color": "bg-white"
+        }
+      },
+      "collection-hero": {
+        "type": "collection-hero",
+        "settings": {
+        }
+      },
+      "collection-grid": {
+        "type": "collection-grid",
+        "settings": {
+        }
+      },
+      "1620323707b30ce32c": {
+        "type": "image-strip",
+        "blocks": {
+          "d3937ccc-90cd-479a-bdbd-d7a30b9e6b1c": {
+            "type": "testimonial_block",
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-1A-686x460x2_bd490a36-6121-4edc-8c1d-5ae423b35ac8.jpg",
+              "itp_url": "shopify:\/\/collections\/birthstone",
+              "itp_link_target": "_self",
+              "link_aria_label": "Link to Birthstone earrings"
+            }
+          },
+          "bc5f7eb3-7fc9-49e1-8d72-d98b2e9e8a77": {
+            "type": "testimonial_block",
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-1B-686x460x2_6f45c7eb-a68f-4dd6-9724-d983b63883a2.jpg",
+              "itp_url": "https:\/\/wildlike.com\/pages\/booking",
+              "itp_link_target": "_self",
+              "link_aria_label": "Link to book an appointment."
+            }
+          },
+          "f3473203-4d42-4bc0-876f-983d30c4ae46": {
+            "type": "testimonial_block",
+            "disabled": true,
+            "settings": {
+              "itp_url": "",
+              "itp_link_target": "_self",
+              "link_aria_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "d3937ccc-90cd-479a-bdbd-d7a30b9e6b1c",
+          "bc5f7eb3-7fc9-49e1-8d72-d98b2e9e8a77",
+          "f3473203-4d42-4bc0-876f-983d30c4ae46"
+        ],
+        "settings": {
+          "margin_top": 36,
+          "margin_bottom": 16
+        }
+      },
+      "1620323841d0a03e27": {
+        "type": "brand-message-block",
+        "disabled": true,
+        "settings": {
+          "brand_message": "piercing reimagined",
+          "brand_image": "shopify:\/\/shop_images\/Vector_1.png",
+          "call_to_action_url": "",
+          "call_to_action_text": ""
+        }
+      },
+      "16203239092c717241": {
+        "type": "image-strip",
+        "blocks": {
+          "0ff0a048-c363-43df-aab6-191ba5061939": {
+            "type": "testimonial_block",
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-2-680x680_c0372a1a-b854-4453-8f01-eb9b35492065.jpg",
+              "itp_url": "shopify:\/\/collections\/diamond",
+              "itp_link_target": "_self",
+              "link_aria_label": "Link to diamonds"
+            }
+          },
+          "4df4612d-f42a-48fa-8490-96ee3267a97d": {
+            "type": "testimonial_block",
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-3-680x680_359fc277-3764-42ff-8971-c6bae64450e7.jpg",
+              "itp_url": "shopify:\/\/collections\/maria-tash",
+              "itp_link_target": "_self",
+              "link_aria_label": "Link to maria tash"
+            }
+          },
+          "d5200704-f271-4111-9491-ca9ae8868ebf": {
+            "type": "testimonial_block",
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-4-680x680_c749268f-b70a-42f6-803c-5107aa0972ef.jpg",
+              "itp_url": "shopify:\/\/collections\/tawapa",
+              "itp_link_target": "_self",
+              "link_aria_label": "Link to Tawapa"
+            }
+          },
+          "0753f8c5-371c-41f2-9d2a-4a850ffbe370": {
+            "type": "testimonial_block",
+            "disabled": true,
+            "settings": {
+              "itp_url": "",
+              "itp_link_target": "_self",
+              "link_aria_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "0ff0a048-c363-43df-aab6-191ba5061939",
+          "4df4612d-f42a-48fa-8490-96ee3267a97d",
+          "d5200704-f271-4111-9491-ca9ae8868ebf",
+          "0753f8c5-371c-41f2-9d2a-4a850ffbe370"
+        ],
+        "settings": {
+          "margin_top": 0,
+          "margin_bottom": 16
+        }
+      },
+      "1620323993ee214c52": {
+        "type": "featured-designers",
+        "settings": {
+          "margin_top": 4,
+          "margin_bottom": 8,
+          "featured_designer_name": "",
+          "nameColor": "color-accent-1",
+          "featured_designer_excerpt": "",
+          "excerptColor": "color-black",
+          "featured_designer_image": "shopify:\/\/shop_images\/Wildlike-Position-5-Desktop-750x480x2_a5f63508-cab6-4ebe-8057-3668300847e6.jpg",
+          "featured_designer_image_mb": "shopify:\/\/shop_images\/Wildlike-Position-5-Mobile-778x662x2_ac3fb23b-3b14-4009-b6ef-d3cef36b592e.jpg",
+          "enable_cta": false,
+          "cta_text": "Shop All",
+          "cta_color": "#ffffff",
+          "cta_layout": "button button--primary",
+          "cta_icon_color": "fill-white",
+          "arrow_color": "fill-black",
+          "featured_collection": "new-arrivals",
+          "heading": "Spotlight on New Arrivals",
+          "amount": 18,
+          "bg_color": "bg-white",
+          "heading_color": "color-black"
+        }
+      },
+      "1620684162b2e2993b": {
+        "type": "in-the-press",
+        "disabled": true,
+        "blocks": {
+          "060b254a-7c76-44f9-b50e-87567fecddd4": {
+            "type": "testimonial_block",
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/3_109f5df2-7768-4b66-993c-5af1fc09f7bc.png",
+              "itp_url": "https:\/\/wwd.com\/accessories-news\/jewelry\/piercing-retail-concept-wildlike-dallas-1234826468\/",
+              "itp_link_target": "_self"
+            }
+          },
+          "e1858884-bcf1-4ea6-aa35-0fe2e5953585": {
+            "type": "testimonial_block",
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/5_849bf09f-0d5f-4c5e-b4bc-b2e2d5b5e25e.jpg",
+              "itp_url": "https:\/\/dallas.culturemap.com\/news\/fashion\/07-12-21-where-to-shop-july-lele-sadoughi-diesel-mosaic-makers-wildlike-nordstrom\/#slide=0",
+              "itp_link_target": "_self"
+            }
+          },
+          "f23224db-7b63-4084-9351-9e83eda9d900": {
+            "type": "testimonial_block",
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/4.jpg",
+              "itp_url": "https:\/\/www.papercitymag.com\/fashion\/style-news\/wildlike-piercing-salon-shops-at-highland-park\/#350147",
+              "itp_link_target": "_self"
+            }
+          },
+          "1cdf24db-2785-4766-a3f0-e5dc807505b4": {
+            "type": "testimonial_block",
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/1.png",
+              "itp_url": "https:\/\/www.jckonline.com\/editorial-article\/ylang-23-piercing-boutique\/",
+              "itp_link_target": "_self"
+            }
+          },
+          "11894cd9-aaa4-465f-8396-98ce332b6638": {
+            "type": "testimonial_block",
+            "disabled": true,
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/2.jpg",
+              "itp_url": "",
+              "itp_link_target": "_self"
+            }
+          },
+          "1954c4cf-6fc0-4c77-aa5f-63905eef3f85": {
+            "type": "testimonial_block",
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/WSJ-Logo_7.jpg",
+              "itp_url": "https:\/\/www.wsj.com\/articles\/do-multiple-ear-piercings-spell-mid-life-crisis-11628798485",
+              "itp_link_target": "_self"
+            }
+          }
+        },
+        "block_order": [
+          "060b254a-7c76-44f9-b50e-87567fecddd4",
+          "e1858884-bcf1-4ea6-aa35-0fe2e5953585",
+          "f23224db-7b63-4084-9351-9e83eda9d900",
+          "1cdf24db-2785-4766-a3f0-e5dc807505b4",
+          "11894cd9-aaa4-465f-8396-98ce332b6638",
+          "1954c4cf-6fc0-4c77-aa5f-63905eef3f85"
+        ],
+        "settings": {
+          "margin_top": 56,
+          "margin_bottom": 56,
+          "itp_section_header": "Our Ears Are Burning…",
+          "itp_header_color": "color-black",
+          "itp_background_color": "bg-white"
+        }
+      },
+      "162068428674651f3a": {
+        "type": "shoppable-instagram",
+        "settings": {
+          "title": "SHOP THE 'GRAM"
+        }
+      },
+      "password": {
+        "type": "password",
+        "settings": {
+          "logo_img": "shopify:\/\/shop_images\/Logo-2.png",
+          "logo_text": "Wildlike",
+          "enable_login": true,
+          "enable_social_icons": true
+        }
+      },
+      "contact-form": {
+        "type": "contact-form",
+        "settings": {
+          "form_enabled": true,
+          "title_text_color": "color-brand-secondary",
+          "success_message": "YOUR FORM HAS BEEN SUBMITTED SUCCESSFULLY",
+          "success_btn": "Continue Shopping",
+          "success_link": "shopify:\/\/collections\/all-piercing-jewelry"
+        }
+      },
+      "contact-info-blocks": {
+        "type": "contact-info-blocks",
+        "settings": {
+          "text_color": "color-black",
+          "bg_color": "",
+          "icon_color": "fill-black",
+          "phone": "1 (855) 758-4710",
+          "enable_address": true,
+          "street": "4218 Oak Lawn Ave",
+          "city": "Dallas, TX 75219",
+          "country": "214.612.7690",
+          "enable_social": true,
+          "enable_twitter": true,
+          "twitter_icon_color": "fill-brand-secondary",
+          "enable_instagram": true,
+          "instagram_icon_color": "fill-brand-secondary",
+          "enable_facebook": true,
+          "facebook_icon_color": "fill-brand-secondary",
+          "enable_pinterest": true,
+          "pinterest_icon_color": "fill-brand-secondary",
+          "enable_snapchat": false,
+          "snapchat_icon_color": "fill-brand-primary",
+          "enable_tumblr": false,
+          "tumblr_icon_color": "fill-brand-primary",
+          "enable_youtube": false,
+          "youtube_icon_color": "fill-brand-primary",
+          "enable_vimeo": false,
+          "vimeo_icon_color": "fill-brand-primary"
+        }
+      },
+      "full-width-text-block": {
+        "type": "full-width-text-block",
+        "settings": {
+          "copy": ""
+        }
+      },
+      "three-column-content-blocks-simple": {
+        "type": "three-column-content-blocks-simple",
+        "settings": {
+        }
+      },
+      "three-column-content-blocks": {
+        "type": "three-column-content-blocks",
+        "settings": {
+          "heading": "",
+          "subheading": ""
+        }
+      },
+      "page--404": {
+        "type": "page--404",
+        "settings": {
+          "ff_layout": "sw--reverse",
+          "ff_image_desktop": "shopify:\/\/shop_images\/404-new.jpg",
+          "ff_image_width": "sw--60",
+          "ff_preheader": "",
+          "ff_header": "",
+          "ff_subheader": "",
+          "ff_body": "<p>Sorry. We can't find what you're looking for! <\/p>",
+          "ff_text_alignment": "",
+          "ff_background_color": "",
+          "ff_preheader_color": "color-black",
+          "ff_header_color": "color-black",
+          "ff_subheader_color": "color-black",
+          "ff_body_color": "color-black",
+          "ff_cta_text": "Get back to shopping",
+          "ff_cta_url": "shopify:\/\/collections",
+          "ff_cta_style": "button button--primary"
+        }
+      },
+      "article": {
+        "type": "article",
+        "settings": {
+          "tag-link-background-color": "bg-brand-secondary",
+          "tag-link-text-color": "color-black",
+          "more-articles-headline": "More Articles ( text )",
+          "more-articles-headline-color": "color-black",
+          "more-articles-background-color": "bg-light-grey",
+          "more-articles-title-color": "color-black"
+        }
+      },
+      "hero-banner": {
+        "type": "hero-banner",
+        "settings": {
+          "max_width": "1440px",
+          "top_margin": 8,
+          "bottom_margin": 0,
+          "layout": "short",
+          "enable_text_box": false,
+          "text_box_bg_color": "bg-black",
+          "mobile_layout": "below",
+          "mobile_text_alignment": "center",
+          "horizontal_layout": "left",
+          "vertical_layout": "middle",
+          "background_image": "shopify:\/\/shop_images\/kimia-zarifi-AVJ321HJFl4-unsplash.jpg",
+          "enable_mobile_image": true,
+          "background_image_mobile": "shopify:\/\/shop_images\/kimia-zarifi-AVJ321HJFl4-unsplash.jpg",
+          "video_url": "",
+          "enable_overlay": true,
+          "overlay_color": "bg-white",
+          "content_background_color": "#ffffff",
+          "overlay_opacity": 80,
+          "pre_heading": "WILDLIKE BOOKING",
+          "heading": "BOOK AN APPOINTMENT",
+          "sub_heading": "",
+          "body_copy": "We are now offering full services including piercing, installs, styling consultations, repairs and retail sales.",
+          "pre_heading_color": "color-white",
+          "heading_color": "color-white",
+          "sub_heading_color": "color-white",
+          "body_copy_color": "color-white",
+          "mobile_bg_color": "bg-brand-primary",
+          "pre_heading_color_mobile": "color-black",
+          "heading_color_mobile": "color-black",
+          "sub_heading_color_mobile": "color-black",
+          "body_copy_color_mobile": "color-black",
+          "enable_cta": false,
+          "cta_color": "#231a22",
+          "cta_bordercolor": "#231a22",
+          "cta_textcolor": "#ffffff",
+          "cta_text": ""
+        }
+      },
+      "featured-collection": {
+        "type": "featured-collection",
+        "settings": {
+          "margin_top": 64,
+          "margin_bottom": 64,
+          "featured_collection": "services",
+          "heading": "OUR SERVICES",
+          "amount": 20,
+          "bg_color": "bg-light-grey",
+          "heading_color": "color-brand-primary",
+          "enable_cta": false,
+          "cta_layout": "button button--primary",
+          "arrow_color": "fill-black"
+        }
+      },
+      "fifty-fifty-booking": {
+        "type": "fifty-fifty-booking",
+        "settings": {
+        }
+      },
+      "fifty-fifty-booking-static": {
+        "type": "fifty-fifty-booking-static",
+        "blocks": {
+          "a5fe501d-4910-41c7-beb6-82b60f200518": {
+            "type": "service_block",
+            "settings": {
+              "max_width": "none",
+              "margin_top": 40,
+              "margin_bottom": 24,
+              "ff_layout": "",
+              "ff_image_desktop": "shopify:\/\/shop_images\/helix_piercing.jpg",
+              "ff_image_mobile": "shopify:\/\/shop_images\/Rectangle_22.jpg",
+              "ff_image_width": "sw--60",
+              "ff_preheader": "",
+              "ff_header": "Helix Piercing",
+              "ff_subheader": "",
+              "ff_body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus, ipsum sit amet sollicitudin sodales, ante lorem mollis mi, id rhoncus nunc arcu ut odio.<\/p>",
+              "ff_text_alignment": "",
+              "ff_background_color": "bg-light-grey",
+              "ff_preheader_color": "color-black",
+              "ff_header_color": "color-black",
+              "ff_subheader_color": "color-accent-3",
+              "ff_body_color": "color-off-black",
+              "ff_cta_text": "",
+              "ff_cta_style": "button button--primary"
+            }
+          },
+          "d7566c14-a38a-4d60-8ada-b35e76dd9f30": {
+            "type": "service_block",
+            "settings": {
+              "max_width": "none",
+              "margin_top": 56,
+              "margin_bottom": 56,
+              "ff_layout": "sw--reverse",
+              "ff_image_desktop": "shopify:\/\/shop_images\/lobe_piercing_4e6454a3-71e1-49b0-8476-b2ac26037905.jpg",
+              "ff_image_mobile": "shopify:\/\/shop_images\/lobe_piercing_4e6454a3-71e1-49b0-8476-b2ac26037905.jpg",
+              "ff_image_width": "sw--60",
+              "ff_preheader": "",
+              "ff_header": "Lobe Piercing",
+              "ff_subheader": "",
+              "ff_body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus, ipsum sit amet sollicitudin sodales, ante lorem mollis mi, id rhoncus nunc arcu ut odio.<\/p>",
+              "ff_text_alignment": "",
+              "ff_background_color": "bg-light-grey",
+              "ff_preheader_color": "color-black",
+              "ff_header_color": "color-black",
+              "ff_subheader_color": "color-black",
+              "ff_body_color": "color-black",
+              "ff_cta_text": "",
+              "ff_cta_style": "button button--primary"
+            }
+          },
+          "28536e2b-db97-4624-9300-61a8878dfcb7": {
+            "type": "service_block",
+            "settings": {
+              "max_width": "none",
+              "margin_top": 56,
+              "margin_bottom": 56,
+              "ff_layout": "",
+              "ff_image_desktop": "shopify:\/\/shop_images\/lobe_piercing_4e6454a3-71e1-49b0-8476-b2ac26037905.jpg",
+              "ff_image_mobile": "shopify:\/\/shop_images\/lobe_piercing_4e6454a3-71e1-49b0-8476-b2ac26037905.jpg",
+              "ff_image_width": "sw--60",
+              "ff_preheader": "",
+              "ff_header": "Tragus Piercing",
+              "ff_subheader": "",
+              "ff_body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus, ipsum sit amet sollicitudin sodales, ante lorem mollis mi, id rhoncus nunc arcu ut odio.<\/p>",
+              "ff_text_alignment": "",
+              "ff_background_color": "bg-light-grey",
+              "ff_preheader_color": "color-black",
+              "ff_header_color": "color-black",
+              "ff_subheader_color": "color-black",
+              "ff_body_color": "color-black",
+              "ff_cta_text": "",
+              "ff_cta_style": "button button--primary"
+            }
+          },
+          "446f81d0-27b2-4901-82d5-a262f4276b0f": {
+            "type": "service_block",
+            "settings": {
+              "max_width": "none",
+              "margin_top": 56,
+              "margin_bottom": 56,
+              "ff_layout": "sw--reverse",
+              "ff_image_desktop": "shopify:\/\/shop_images\/tragus_piercing.jpg",
+              "ff_image_mobile": "shopify:\/\/shop_images\/tragus_piercing.jpg",
+              "ff_image_width": "sw--60",
+              "ff_preheader": "",
+              "ff_header": "Daith Piercing",
+              "ff_subheader": "",
+              "ff_body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus, ipsum sit amet sollicitudin sodales, ante lorem mollis mi, id rhoncus nunc arcu ut odio.<\/p>",
+              "ff_text_alignment": "",
+              "ff_background_color": "bg-light-grey",
+              "ff_preheader_color": "color-black",
+              "ff_header_color": "color-black",
+              "ff_subheader_color": "color-black",
+              "ff_body_color": "color-black",
+              "ff_cta_text": "",
+              "ff_cta_style": "button button--primary"
+            }
+          },
+          "0932bd4d-1ef6-435d-a29c-4b3c915e14c0": {
+            "type": "service_block",
+            "settings": {
+              "max_width": "none",
+              "margin_top": 56,
+              "margin_bottom": 56,
+              "ff_layout": "",
+              "ff_image_desktop": "shopify:\/\/shop_images\/daith_piercing.jpg",
+              "ff_image_mobile": "shopify:\/\/shop_images\/daith_piercing.jpg",
+              "ff_image_width": "sw--60",
+              "ff_preheader": "",
+              "ff_header": "Conch Piercing",
+              "ff_subheader": "",
+              "ff_body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus, ipsum sit amet sollicitudin sodales, ante lorem mollis mi, id rhoncus nunc arcu ut odio.<\/p>",
+              "ff_text_alignment": "",
+              "ff_background_color": "bg-light-grey",
+              "ff_preheader_color": "color-black",
+              "ff_header_color": "color-black",
+              "ff_subheader_color": "color-black",
+              "ff_body_color": "color-black",
+              "ff_cta_text": "",
+              "ff_cta_style": "button button--primary"
+            }
+          },
+          "c73288e2-264b-4b9e-9cd4-7d862218fe49": {
+            "type": "service_block",
+            "settings": {
+              "max_width": "none",
+              "margin_top": 56,
+              "margin_bottom": 56,
+              "ff_layout": "sw--reverse",
+              "ff_image_desktop": "shopify:\/\/shop_images\/conch_piercing_1577142e-c7ee-4cd6-bf1b-b0366017c914.jpg",
+              "ff_image_mobile": "shopify:\/\/shop_images\/conch_piercing_1577142e-c7ee-4cd6-bf1b-b0366017c914.jpg",
+              "ff_image_width": "sw--60",
+              "ff_preheader": "",
+              "ff_header": "Septum Piercing",
+              "ff_subheader": "",
+              "ff_body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus, ipsum sit amet sollicitudin sodales, ante lorem mollis mi, id rhoncus nunc arcu ut odio.<\/p>",
+              "ff_text_alignment": "",
+              "ff_background_color": "bg-light-grey",
+              "ff_preheader_color": "color-black",
+              "ff_header_color": "color-black",
+              "ff_subheader_color": "color-black",
+              "ff_body_color": "color-black",
+              "ff_cta_text": "",
+              "ff_cta_style": "button button--primary"
+            }
+          },
+          "b4cb3ecf-09de-4e0b-8216-1dfb23c11a98": {
+            "type": "service_block",
+            "settings": {
+              "max_width": "none",
+              "margin_top": 56,
+              "margin_bottom": 56,
+              "ff_layout": "",
+              "ff_image_desktop": "shopify:\/\/shop_images\/septum_piercing.jpg",
+              "ff_image_mobile": "shopify:\/\/shop_images\/septum_piercing.jpg",
+              "ff_image_width": "sw--60",
+              "ff_preheader": "",
+              "ff_header": "Septum Piercing",
+              "ff_subheader": "",
+              "ff_body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus, ipsum sit amet sollicitudin sodales, ante lorem mollis mi, id rhoncus nunc arcu ut odio.<\/p>",
+              "ff_text_alignment": "",
+              "ff_background_color": "bg-light-grey",
+              "ff_preheader_color": "color-black",
+              "ff_header_color": "color-black",
+              "ff_subheader_color": "color-black",
+              "ff_body_color": "color-black",
+              "ff_cta_text": "",
+              "ff_cta_style": "button button--primary"
+            }
+          },
+          "6bbc86f0-6500-4004-8965-7ac24e9d927a": {
+            "type": "service_block",
+            "settings": {
+              "max_width": "none",
+              "margin_top": 56,
+              "margin_bottom": 56,
+              "ff_layout": "sw--reverse",
+              "ff_image_desktop": "shopify:\/\/shop_images\/rook_piercing.jpg",
+              "ff_image_mobile": "shopify:\/\/shop_images\/rook_piercing.jpg",
+              "ff_image_width": "sw--60",
+              "ff_preheader": "",
+              "ff_header": "Rook Piercing",
+              "ff_subheader": "",
+              "ff_body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus, ipsum sit amet sollicitudin sodales, ante lorem mollis mi, id rhoncus nunc arcu ut odio.<\/p>",
+              "ff_text_alignment": "",
+              "ff_background_color": "bg-light-grey",
+              "ff_preheader_color": "color-black",
+              "ff_header_color": "color-black",
+              "ff_subheader_color": "color-black",
+              "ff_body_color": "color-black",
+              "ff_cta_text": "",
+              "ff_cta_style": "button button--primary"
+            }
+          }
+        },
+        "block_order": [
+          "a5fe501d-4910-41c7-beb6-82b60f200518",
+          "d7566c14-a38a-4d60-8ada-b35e76dd9f30",
+          "28536e2b-db97-4624-9300-61a8878dfcb7",
+          "446f81d0-27b2-4901-82d5-a262f4276b0f",
+          "0932bd4d-1ef6-435d-a29c-4b3c915e14c0",
+          "c73288e2-264b-4b9e-9cd4-7d862218fe49",
+          "b4cb3ecf-09de-4e0b-8216-1dfb23c11a98",
+          "6bbc86f0-6500-4004-8965-7ac24e9d927a"
+        ],
+        "settings": {
+        }
+      },
+      "hero-banner-booking": {
+        "type": "hero-banner-booking",
+        "settings": {
+          "service_product": "aaa-piercing-general",
+          "max_width": "1440px",
+          "top_margin": 0,
+          "bottom_margin": 0,
+          "layout": "short",
+          "enable_text_box": false,
+          "text_box_bg_color": "",
+          "mobile_layout": "below",
+          "mobile_text_alignment": "center",
+          "horizontal_layout": "left",
+          "vertical_layout": "middle",
+          "background_image": "shopify:\/\/shop_images\/WLBookingPage_6.1_V2.jpg",
+          "enable_mobile_image": true,
+          "background_image_mobile": "shopify:\/\/shop_images\/Wildlike-2022-05-27-Booking-Page-Mobile-750x480.jpg",
+          "video_url": "",
+          "enable_overlay": true,
+          "overlay_color": "bg-brand-primary",
+          "content_background_color": "#ffffff",
+          "overlay_opacity": 43,
+          "pre_heading": "Get Pierced",
+          "heading": "Book an Appointment",
+          "sub_heading": "",
+          "body_copy": "Choose a service, time and checkout to confirm the appointment. \n\nOne appointment is for one person to get pierced.  \n\nIf more than one person is getting pierced, please book consecutive appointments.\n\nIf you no show or cancel within 24 hours of your appointment, we will charge you in full.",
+          "pre_heading_color": "color-black",
+          "heading_color": "color-black",
+          "sub_heading_color": "color-black",
+          "body_copy_color": "color-black",
+          "mobile_bg_color": "",
+          "pre_heading_color_mobile": "color-black",
+          "heading_color_mobile": "color-black",
+          "sub_heading_color_mobile": "color-black",
+          "body_copy_color_mobile": "color-black",
+          "enable_cta": true,
+          "cta_color": "#231a22",
+          "cta_bordercolor": "#231a22",
+          "cta_textcolor": "#ffffff",
+          "cta_text": "",
+          "cta_url": ""
+        }
+      },
+      "title-booking": {
+        "type": "title-booking",
+        "settings": {
+          "title_copy": "Types of piercings"
+        }
+      },
+      "page--about1": {
+        "type": "page--about1",
+        "blocks": {
+          "258d4256-d921-4715-bc5e-3b6714f4a94d": {
+            "type": "scrolling_text",
+            "settings": {
+              "title": "Amelia",
+              "content": "<p>My name is Amelia and I’ve been piercing for over four years! I have lived all over the country, but most recently moved from Colorado. I love Dallas but I miss skiing in Colorado!<br\/><br\/>My favorite piece from the Wildlike Collection is the single diamond baguette stud. The baguette is so sleek and petite that it would sit wonderfully in almost every part of the ear. Classic and feminine!<\/p>",
+              "image": "shopify:\/\/shop_images\/amelia-28_9c75e1fd-b5a2-4c73-a483-f7bda52e6290.jpg",
+              "text_group": "1"
+            }
+          },
+          "b7eb4200-fc86-42f7-ae74-bdd73d8aa28d": {
+            "type": "scrolling_text",
+            "settings": {
+              "title": "Heather",
+              "content": "<p>Hi, I’m Heather! I’ve been in the piercing industry since 2017 and I love every second of it! I’m originally from Washington D.C. but have been in Dallas for about 15 years now!<\/p><p>I have always had a passion for jewelry ever since I was little, I wanted to accessorize with everything I could and I loved organizing all of my jewelry.<\/p><p>My favorite piece from the Wildlike collection has to be the Pearl stud from our birthstone line! Pearls are my favorite, and this one is so dainty it could be put virtually anywhere.<\/p>",
+              "image": "shopify:\/\/shop_images\/IMG_1247.jpg",
+              "text_group": "1"
+            }
+          },
+          "8b84e438-446c-431b-8307-d837faf6163f": {
+            "type": "scrolling_text",
+            "settings": {
+              "title": "Drea",
+              "content": "<p>My name is Drea. I'm a mom to a very sweet little boy and we have a cat, snake and dog. I've been in the piercing industry for over 16 years!<\/p><p>I'm originally from Wisconsin but have lived and worked all over the country. I've been back in the Dallas area for the last 5 years helping people make their piercing goals come to life using some amazing pieces from a variety of jewelry brands. Creating fun looks with jewelry and placement to fit someone's unique anatomy is one of my favorite parts of being a piercer. <\/p><p>The diamond marquise is my favorite piece from the Wildlike collection. It's a classic shape that looks beautiful alone or paired with other styles.<\/p>",
+              "image": "shopify:\/\/shop_images\/wildlike_piercers_drea-5.jpg",
+              "text_group": "1"
+            }
+          },
+          "2c8681a0-b730-4536-89ce-6dde023add9e": {
+            "type": "scrolling_text",
+            "settings": {
+              "title": "Della",
+              "content": "<p>Hi! I'm Della! I've been piercing for over 6 years now. I've spent most of my life in DFW aside from the past few years working in California. I am highly passionate about bringing my clients the highest quality body jewelry available and have spent these last few years learning how to craft it and plan to continue that journey here at home. <\/p><p>I have a pug\/boston terrier mix, Fehu, who is my entire soul and I enjoy tending to my many plants.<\/p><p>My favorite Wildlike piece is the Three Diamond Baguette Earring.<\/p>",
+              "image": "shopify:\/\/shop_images\/wildlike_piercers_della-1-2.jpg",
+              "text_group": "1"
+            }
+          }
+        },
+        "block_order": [
+          "258d4256-d921-4715-bc5e-3b6714f4a94d",
+          "b7eb4200-fc86-42f7-ae74-bdd73d8aa28d",
+          "8b84e438-446c-431b-8307-d837faf6163f",
+          "2c8681a0-b730-4536-89ce-6dde023add9e"
+        ],
+        "settings": {
+        }
+      },
+      "booking-value-props": {
+        "type": "booking-value-props",
+        "blocks": {
+          "e959f197-f72e-4ee1-8a4f-4a697efce262": {
+            "type": "value_prop",
+            "settings": {
+              "title": "Test Here",
+              "body": "<p>This is the text to add description<\/p>"
+            }
+          },
+          "092db444-c108-4679-940f-6ab877e6acb9": {
+            "type": "value_prop",
+            "settings": {
+              "title": "This the second heading",
+              "body": "<p>This is another text here for me to enter <\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "e959f197-f72e-4ee1-8a4f-4a697efce262",
+          "092db444-c108-4679-940f-6ab877e6acb9"
+        ],
+        "settings": {
+          "background_color": "#f7f6f2"
+        }
+      },
+      "booking-image-heading": {
+        "type": "booking-image-heading",
+        "blocks": {
+          "c20dab18-8192-43cd-9c96-aea452844e59": {
+            "type": "testimonial_block",
+            "disabled": true,
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/maria_tash_booking_page.jpg",
+              "itp_url": "shopify:\/\/collections\/maria-tash",
+              "itp_link_target": "_self"
+            }
+          },
+          "49bb3ded-65f4-4e68-b7d0-7bc528f725e9": {
+            "type": "testimonial_block",
+            "disabled": true,
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/pamela_love_booking_page.jpg",
+              "itp_url": "shopify:\/\/collections\/pamela-love",
+              "itp_link_target": "_self"
+            }
+          },
+          "22b7f5a1-06bb-4618-a916-80e261361e4f": {
+            "type": "testimonial_block",
+            "disabled": true,
+            "settings": {
+              "itp_logo": "shopify:\/\/shop_images\/bvla_booking_page.jpg",
+              "itp_url": "shopify:\/\/collections\/bvla",
+              "itp_link_target": "_self"
+            }
+          }
+        },
+        "block_order": [
+          "c20dab18-8192-43cd-9c96-aea452844e59",
+          "49bb3ded-65f4-4e68-b7d0-7bc528f725e9",
+          "22b7f5a1-06bb-4618-a916-80e261361e4f"
+        ],
+        "settings": {
+          "section_header": "",
+          "margin_top": 56,
+          "margin_bottom": 40
+        }
+      },
+      "booking-collection-grid": {
+        "type": "booking-collection-grid",
+        "blocks": {
+          "e9497398-8a70-4f78-9129-869447de064b": {
+            "type": "collection_section",
+            "disabled": true,
+            "settings": {
+              "tile_image": "shopify:\/\/shop_images\/Wildlike.jpg",
+              "tile_cta_link": "shopify:\/\/collections\/wildlike",
+              "tile_cta_text": "CTA Text",
+              "tile_preheader": "",
+              "tile_header": "Shop Wildlike",
+              "tile_description": ""
+            }
+          },
+          "3b46c39f-049c-4754-9784-419cb1994ad6": {
+            "type": "collection_section",
+            "disabled": true,
+            "settings": {
+              "tile_image": "shopify:\/\/shop_images\/Diamonds_1654x574_1670x_98fb6689-5d46-4ab3-8c6a-dfa5db178df9.jpg",
+              "tile_cta_link": "shopify:\/\/collections\/piercing-studs",
+              "tile_cta_text": "",
+              "tile_preheader": "",
+              "tile_header": "Shop Piercing Studs",
+              "tile_description": ""
+            }
+          },
+          "c7e00190-5b58-49c7-b5b3-3258ab27083e": {
+            "type": "collection_section",
+            "disabled": true,
+            "settings": {
+              "tile_image": "shopify:\/\/shop_images\/Hoops_with_Charms_1654x574_1670x_0bcf07d7-86c4-43b8-86c9-98722d81285f.jpg",
+              "tile_cta_link": "shopify:\/\/collections\/hoops",
+              "tile_cta_text": "",
+              "tile_preheader": "",
+              "tile_header": "Shop Piercing Hoops",
+              "tile_description": ""
+            }
+          }
+        },
+        "block_order": [
+          "e9497398-8a70-4f78-9129-869447de064b",
+          "3b46c39f-049c-4754-9784-419cb1994ad6",
+          "c7e00190-5b58-49c7-b5b3-3258ab27083e"
+        ],
+        "settings": {
+          "margin_top": 16,
+          "margin_bottom": 56,
+          "collection_tiles_number_of_tiles": "3",
+          "collection_tiles_show_text_on_hover": false,
+          "collection_tiles_background_color": "#ffffff",
+          "collection_tiles_header_color": "#231a22"
+        }
+      },
+      "shoppable-instagram": {
+        "type": "shoppable-instagram",
+        "settings": {
+          "title": "get shoppy with us"
+        }
+      },
+      "featured-designers": {
+        "type": "featured-designers",
+        "settings": {
+          "margin_top": 16,
+          "margin_bottom": 48,
+          "featured_designer_name": "",
+          "nameColor": "color-brand-primary",
+          "featured_designer_excerpt": "",
+          "excerptColor": "color-brand-primary",
+          "featured_designer_image": "shopify:\/\/shop_images\/IMG_2210_1.jpg",
+          "featured_designer_image_mb": "shopify:\/\/shop_images\/IMG_2210_1.jpg",
+          "enable_cta": false,
+          "cta_text": "Shop All",
+          "cta_color": "#ffffff",
+          "cta_layout": "button button--primary",
+          "cta_icon_color": "fill-black",
+          "arrow_color": "fill-black",
+          "featured_collection": "new-arrivals",
+          "heading": "Shop New Arrivals",
+          "amount": 18,
+          "bg_color": "bg-brand-primary",
+          "heading_color": "color-black"
+        }
+      },
+      "blog-category-hero": {
+        "type": "blog-category-hero",
+        "settings": {
+        }
+      },
+      "blog-category-links": {
+        "type": "blog-category-links",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+      "1620323707b30ce32c",
+      "1620323841d0a03e27",
+      "16203239092c717241",
+      "1620323993ee214c52",
+      "1620684162b2e2993b",
+      "162068428674651f3a"
+    ]
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "@media screen and (min-width: 992px) {body.template-blog .article__container {flex-direction: row; }}"
+    ]
+  }
+}

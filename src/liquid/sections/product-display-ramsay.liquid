@@ -1,7 +1,9 @@
 {% capture json_product %}{% render 'json--product' %}{% endcapture %}
-{% if product.metafields.custom_fields.magnet_product != blank and product.metafields.custom_fields.magnet_product != '' %}
+{% if product.metafields.custom_fields.magnet_product != blank
+  and product.metafields.custom_fields.magnet_product != ''
+%}
   {% assign magnet_product = all_products[product.metafields.custom_fields.magnet_product] %}
-{% capture json_magnet_product %}{% render 'json--product', product: magnet_product %}{% endcapture %}
+  {% capture json_magnet_product %}{% render 'json--product', product: magnet_product %}{% endcapture %}
 {% endif %}
 
 {% if product.metafields.custom_fields.d2_override_related_products != blank %}
@@ -55,112 +57,115 @@
 {% endcapture %}
 
 <product-display
-  collection-template={{ settings.collection_template | json }}
+  collection-template="{{ settings.collection_template | json }}"
   :settings="{{ product_settings | escape | strip }}"
   :collection="{{ collection | json | escape | strip  }}"
   :product="{{ json_product | escape | strip }}"
   :custom-fields="{{ product.metafields.custom_fields | json | escape | strip  }}"
   {% if magnet_product %}
-  :magnet-product="{{ json_magnet_product | escape | strip }}"
+    :magnet-product="{{ json_magnet_product | escape | strip }}"
   {% endif %}
-  />
+/>
 
 {% schema %}
-  {
-    "name": "Product Page",
-    "settings": [
-      {
-        "type": "paragraph",
-        "content": "The following content is global and will appear on all product pages across the site."
-      },
-      {
-        "type": "checkbox",
-        "label": "Show Product Type",
-        "id": "pdp_show_product_type"
-      },
-      {
-        "type":      "select",
-        "id":        "atc_cta_class",
-        "label":     "Add To Cart CTA Style",
-        "options": <%- uikit.buttonOptions -%>,
-        "default":   "button button--secondary"
-      },
-      {
-        "type": "header",
-        "content": "Shipping Details"
-      },
-      {
-        "type": "text",
-        "label": "Section Name",
-        "id": "pdp_accordion_name",
-        "default": "Shipping",
-        "info": "Defaults to \"Shipping\""
-      },
-      {
-        "type": "richtext",
-        "label": "Section Content",
-        "id": "pdp_accordion_content",
-        "info": "If left blank, this accordion will not appear on the PDP."
-      },
-      {
-        "type": "header",
-        "content": "Product Recommendations"
-      },
-      {
-        "type": "text",
-        "label": "Heading",
-        "id": "pdp_recommendations_heading",
-        "default": "You May Also Like",
-        "info": "Defaults to \"You May Also Like\""
-      },
-      {
-        "type": "header",
-        "content": "Reviews"
-      },
-      {
-        "type": "checkbox",
-        "label": "Hide Reviews",
-        "id": "pdp_hide_reviews",
-        "info": "Check the box if you don’t want reviews to display on the product pages."
-      },
-      {
-        "type": "header",
-        "content": "Colors"
-      },
-      {
-        "type": "header",
-        "content": "Upsell Section"
-      },
-      {
-        "type": "paragraph",
-        "content": "These are the global upsell settings. See product metafields to override these for individual products."
-      },
-      {
-        "label": "Upsell Image",
-        "type": "image_picker",
-        "id": "pdp_upsell_img",
-        "info": "Minimum Dimensions 224x224px"
-      },
-      {
-        "label": "Upsell Heading",
-        "type": "text",
-        "id": "pdp_upsell_heading"
-      },
-      {
-        "label": "Upsell Copy",
-        "type": "text",
-        "id": "pdp_upsell_copy"
-      },
-      {
-        "label": "Upsell CTA Text",
-        "type": "text",
-        "id": "pdp_upsell_cta_copy"
-      },
-      {
-        "label": "Upsell CTA URL",
-        "type": "url",
-        "id": "pdp_upsell_cta_url"
-      }
-    ]
-  }
+{
+  "name": "Product Page",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "The following content is global and will appear on all product pages across the site."
+    },
+    {
+      "type": "checkbox",
+      "label": "Show Product Type",
+      "id": "pdp_show_product_type"
+    },
+    {
+      "type": "select",
+      "id": "atc_cta_class",
+      "label": "Add To Cart CTA Style",
+      "options": [
+        { "label": "Primary Button", "value": "button button--primary" },
+        { "label": "Default Button", "value": "button button--secondary" }
+      ],
+      "default": "button button--secondary"
+    },
+    {
+      "type": "header",
+      "content": "Shipping Details"
+    },
+    {
+      "type": "text",
+      "label": "Section Name",
+      "id": "pdp_accordion_name",
+      "default": "Shipping",
+      "info": "Defaults to \"Shipping\""
+    },
+    {
+      "type": "richtext",
+      "label": "Section Content",
+      "id": "pdp_accordion_content",
+      "info": "If left blank, this accordion will not appear on the PDP."
+    },
+    {
+      "type": "header",
+      "content": "Product Recommendations"
+    },
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "pdp_recommendations_heading",
+      "default": "You May Also Like",
+      "info": "Defaults to \"You May Also Like\""
+    },
+    {
+      "type": "header",
+      "content": "Reviews"
+    },
+    {
+      "type": "checkbox",
+      "label": "Hide Reviews",
+      "id": "pdp_hide_reviews",
+      "info": "Check the box if you don’t want reviews to display on the product pages."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "header",
+      "content": "Upsell Section"
+    },
+    {
+      "type": "paragraph",
+      "content": "These are the global upsell settings. See product metafields to override these for individual products."
+    },
+    {
+      "label": "Upsell Image",
+      "type": "image_picker",
+      "id": "pdp_upsell_img",
+      "info": "Minimum Dimensions 224x224px"
+    },
+    {
+      "label": "Upsell Heading",
+      "type": "text",
+      "id": "pdp_upsell_heading"
+    },
+    {
+      "label": "Upsell Copy",
+      "type": "text",
+      "id": "pdp_upsell_copy"
+    },
+    {
+      "label": "Upsell CTA Text",
+      "type": "text",
+      "id": "pdp_upsell_cta_copy"
+    },
+    {
+      "label": "Upsell CTA URL",
+      "type": "url",
+      "id": "pdp_upsell_cta_url"
+    }
+  ]
+}
 {% endschema %}

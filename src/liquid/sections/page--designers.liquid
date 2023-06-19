@@ -66,7 +66,7 @@
 {% endcapture %}
 
 <hero-banner :hero-schema="{{ hero_schema | escape | strip }}"></hero-banner>
-<link-directory :schema="{{ link_directory_schema | escape | strip }}"></link-drectory>
+<link-directory :schema="{{ link_directory_schema | escape | strip }}"></link-directory>
 
 {% schema %}
 {
@@ -78,14 +78,14 @@
       "label": "Designers Menu"
     },
     {
-      "type":      "select",
-      "id":        "max_width",
-      "label":     "Section Max Width",
+      "type": "select",
+      "id": "max_width",
+      "label": "Section Max Width",
       "options": [
-        {"value": "none", "label": "100%"},
-        {"value": "1440px", "label": "1440px"}
+        { "value": "none", "label": "100%" },
+        { "value": "1440px", "label": "1440px" }
       ],
-      "default":   "none"
+      "default": "none"
     },
     {
       "type": "header",
@@ -96,21 +96,21 @@
       "label": "Top Margin",
       "id": "top_margin",
       "type": "range",
-      "min":       0,
-      "max":       80,
-      "step":      8,
-      "unit":      "px",
-      "default":   56
+      "min": 0,
+      "max": 80,
+      "step": 8,
+      "unit": "px",
+      "default": 56
     },
     {
       "label": "Bottom Margin",
       "id": "bottom_margin",
       "type": "range",
-      "min":       0,
-      "max":       80,
-      "step":      8,
-      "unit":      "px",
-      "default":   56
+      "min": 0,
+      "max": 80,
+      "step": 8,
+      "unit": "px",
+      "default": 56
     },
     {
       "type": "header",
@@ -143,7 +143,21 @@
       "type": "select",
       "id": "text_box_bg_color",
       "label": "Text Box Background Color",
-      "options": <%- uikit.backgroundOptions -%>,
+      "options": [
+        { "label": "None", "value": "" },
+        { "label": "Primary", "value": "bg-brand-primary" },
+        { "label": "Secondary", "value": "bg-brand-secondary" },
+        { "label": "Accent 1", "value": "bg-accent-1" },
+        { "label": "Accent 2", "value": "bg-accent-2" },
+        { "label": "Accent 3", "value": "bg-accent-3" },
+        { "label": "Accent 4", "value": "bg-accent-4" },
+        { "label": "Accent 5", "value": "bg-accent-5" },
+        { "label": "White", "value": "bg-white" },
+        { "label": "Light Grey", "value": "bg-light-grey" },
+        { "label": "Grey", "value": "bg-grey" },
+        { "label": "Off Black", "value": "bg-off-black" },
+        { "label": "Black", "value": "bg-black" }
+      ],
       "info": "Either select a color below or upload a background image."
     },
     {
@@ -186,40 +200,53 @@
       "default": "left"
     },
     {
-      "type":      "select",
-      "id":        "horizontal_layout",
-      "label":     "Horizontal Layout",
+      "type": "select",
+      "id": "horizontal_layout",
+      "label": "Horizontal Layout",
       "options": [
-        {"value": "left", "label": "Left"},
-        {"value": "center", "label": "Center"},
-        {"value": "right", "label": "Right" }
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
       ],
-      "default":   "left",
+      "default": "left",
       "info": "Desktop only."
     },
     {
-      "type":      "select",
-      "id":        "vertical_layout",
-      "label":     "Vertical Layout",
+      "type": "select",
+      "id": "vertical_layout",
+      "label": "Vertical Layout",
       "options": [
-        {"value": "top", "label": "Top"},
-        {"value": "middle", "label": "Middle"},
-        {"value": "bottom", "label": "Bottom" }
+        { "value": "top", "label": "Top" },
+        { "value": "middle", "label": "Middle" },
+        { "value": "bottom", "label": "Bottom" }
       ],
-      "default":   "top",
+      "default": "top",
       "info": "If 'Enable Text Box' is checked, this field will be ignored and content will be vertically centered."
     },
     {
-      "type":      "checkbox",
-      "id":        "enable_scroll_trigger",
-      "label":     "Enable Scroll Arrow",
-      "default":   false
+      "type": "checkbox",
+      "id": "enable_scroll_trigger",
+      "label": "Enable Scroll Arrow",
+      "default": false
     },
     {
-      "type":      "select",
-      "id":        "arrow_color",
-      "label":     "Arrow Color",
-      "options": <%- uikit.fillOptions -%>,
+      "type": "select",
+      "id": "arrow_color",
+      "label": "Arrow Color",
+      "options": [
+        { "label": "Primary", "value": "fill-brand-primary" },
+        { "label": "Secondary", "value": "fill-brand-secondary" },
+        { "label": "Accent 1", "value": "fill-accent-1" },
+        { "label": "Accent 2", "value": "fill-accent-2" },
+        { "label": "Accent 3", "value": "fill-accent-3" },
+        { "label": "Accent 4", "value": "fill-accent-4" },
+        { "label": "Accent 5", "value": "fill-accent-5" },
+        { "label": "White", "value": "fill-white" },
+        { "label": "Light Grey", "value": "fill-light-grey" },
+        { "label": "Grey", "value": "fill-grey" },
+        { "label": "Off Black", "value": "fill-off-black" },
+        { "label": "Black", "value": "fill-black" }
+      ],
       "default": "fill-black"
     },
     {
@@ -234,10 +261,10 @@
       "info": "Recommended size: 2880x1440 for Hero Tall and 2880x1080 for Hero Short"
     },
     {
-      "type":      "checkbox",
-      "id":        "enable_mobile_image",
-      "label":     "Enable Mobile Image",
-      "default":   false
+      "type": "checkbox",
+      "id": "enable_mobile_image",
+      "label": "Enable Mobile Image",
+      "default": false
     },
     {
       "type": "image_picker",
@@ -256,16 +283,30 @@
       "info": "Accepts an .mp4 file that has been uploaded here: Settings → Files and then copying the uploaded file name"
     },
     {
-      "type":      "checkbox",
-      "id":        "enable_overlay",
-      "label":     "Enable Overlay",
-      "default":   false
+      "type": "checkbox",
+      "id": "enable_overlay",
+      "label": "Enable Overlay",
+      "default": false
     },
     {
-      "type":      "select",
-      "id":        "overlay_color",
-      "label":     "Overlay Color",
-      "options": <%- uikit.backgroundOptions -%>,
+      "type": "select",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "options": [
+        { "label": "None", "value": "" },
+        { "label": "Primary", "value": "bg-brand-primary" },
+        { "label": "Secondary", "value": "bg-brand-secondary" },
+        { "label": "Accent 1", "value": "bg-accent-1" },
+        { "label": "Accent 2", "value": "bg-accent-2" },
+        { "label": "Accent 3", "value": "bg-accent-3" },
+        { "label": "Accent 4", "value": "bg-accent-4" },
+        { "label": "Accent 5", "value": "bg-accent-5" },
+        { "label": "White", "value": "bg-white" },
+        { "label": "Light Grey", "value": "bg-light-grey" },
+        { "label": "Grey", "value": "bg-grey" },
+        { "label": "Off Black", "value": "bg-off-black" },
+        { "label": "Black", "value": "bg-black" }
+      ],
       "default": "bg-brand-primary"
     },
     {
@@ -278,11 +319,11 @@
       "label": "Overlay Opacity",
       "id": "overlay_opacity",
       "type": "range",
-      "min":       0,
-      "max":       100,
-      "step":      1,
-      "unit":      "%",
-      "default":   50
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 50
     },
     {
       "type": "header",
@@ -294,7 +335,7 @@
       "id": "pre_heading",
       "label": "Pre Heading"
     },
-    
+
     {
       "type": "text",
       "id": "heading",
@@ -315,31 +356,83 @@
       "content": "Desktop Colors"
     },
     {
-      "type":      "select",
-      "id":        "pre_heading_color",
-      "label":     "Pre Heading Color",
-      "options": <%- uikit.colorOptions -%>,
+      "type": "select",
+      "id": "pre_heading_color",
+      "label": "Pre Heading Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
       "default": "color-black"
     },
     {
-      "type":      "select",
-      "id":        "heading_color",
-      "label":     "Heading Color",
-      "options": <%- uikit.colorOptions -%>,
+      "type": "select",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
       "default": "color-black"
     },
     {
-      "type":      "select",
-      "id":        "sub_heading_color",
-      "label":     "Sub Heading Color",
-      "options": <%- uikit.colorOptions -%>,
+      "type": "select",
+      "id": "sub_heading_color",
+      "label": "Sub Heading Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
       "default": "color-black"
     },
     {
-      "type":      "select",
-      "id":        "body_copy_color",
-      "label":     "Body Copy Color",
-      "options": <%- uikit.colorOptions -%>,
+      "type": "select",
+      "id": "body_copy_color",
+      "label": "Body Copy Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
       "default": "color-black"
     },
     {
@@ -347,39 +440,105 @@
       "content": "Mobile Colors"
     },
     {
-      "type":      "select",
-      "id":        "mobile_bg_color",
-      "label":     "Mobile Background Color",
-      "options": <%- uikit.backgroundOptions -%>,
+      "type": "select",
+      "id": "mobile_bg_color",
+      "label": "Mobile Background Color",
+      "options": [
+        { "label": "None", "value": "" },
+        { "label": "Primary", "value": "bg-brand-primary" },
+        { "label": "Secondary", "value": "bg-brand-secondary" },
+        { "label": "Accent 1", "value": "bg-accent-1" },
+        { "label": "Accent 2", "value": "bg-accent-2" },
+        { "label": "Accent 3", "value": "bg-accent-3" },
+        { "label": "Accent 4", "value": "bg-accent-4" },
+        { "label": "Accent 5", "value": "bg-accent-5" },
+        { "label": "White", "value": "bg-white" },
+        { "label": "Light Grey", "value": "bg-light-grey" },
+        { "label": "Grey", "value": "bg-grey" },
+        { "label": "Off Black", "value": "bg-off-black" },
+        { "label": "Black", "value": "bg-black" }
+      ],
       "default": "bg-brand-primary",
       "info": "This is only applicable if using the 'Text Below Image' mobile layout."
     },
     {
-      "type":      "select",
-      "id":        "pre_heading_color_mobile",
-      "label":     "Pre Heading Color",
-      "options": <%- uikit.colorOptions -%>,
+      "type": "select",
+      "id": "pre_heading_color_mobile",
+      "label": "Pre Heading Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
       "default": "color-black"
     },
     {
-      "type":      "select",
-      "id":        "heading_color_mobile",
-      "label":     "Heading Color",
-      "options": <%- uikit.colorOptions -%>,
+      "type": "select",
+      "id": "heading_color_mobile",
+      "label": "Heading Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
       "default": "color-black"
     },
     {
-      "type":      "select",
-      "id":        "sub_heading_color_mobile",
-      "label":     "Sub Heading Color",
-      "options": <%- uikit.colorOptions -%>,
+      "type": "select",
+      "id": "sub_heading_color_mobile",
+      "label": "Sub Heading Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
       "default": "color-black"
     },
     {
-      "type":      "select",
-      "id":        "body_copy_color_mobile",
-      "label":     "Body Copy Color",
-      "options": <%- uikit.colorOptions -%>,
+      "type": "select",
+      "id": "body_copy_color_mobile",
+      "label": "Body Copy Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
       "default": "color-black"
     },
     {
@@ -388,17 +547,22 @@
       "info": "CTA config"
     },
     {
-      "type":      "checkbox",
-      "id":        "enable_cta",
-      "label":     "Enable CTA",
-      "default":   false
+      "type": "checkbox",
+      "id": "enable_cta",
+      "label": "Enable CTA",
+      "default": false
     },
     {
-      "type":      "select",
-      "id":        "cta_layout",
-      "label":     "CTA Style",
-      "options": <%- uikit.buttonAndLinkOptions -%>,
-      "default":   "button button--primary"
+      "type": "select",
+      "id": "cta_layout",
+      "label": "CTA Style",
+      "options": [
+        { "label": "Primary Button", "value": "button button--primary" },
+        { "label": "Default Button", "value": "button button--secondary" },
+        { "label": "Primary Text Link", "value": "link link--primary" },
+        { "label": "Secondary Text Link", "value": "link link--secondary" }
+      ],
+      "default": "button button--primary"
     },
     {
       "id": "cta_text",

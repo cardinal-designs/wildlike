@@ -15,19 +15,24 @@
     <!-- Article Header -->
     <div class="article__header">
       <h1 class="h2 article__main-title">{{ article.title }}</h1>
-      <div class="article__date">{{ article.published_at | date: "%B %Y" }}</div>
+      <div class="article__date">{{ article.published_at | date: '%B %Y' }}</div>
     </div>
 
-  <!-- Article Main -->
+    <!-- Article Main -->
     <div class="article__content">
       {%- if video_link == blank and article.image -%}
-        <img class="article__image"
+        <img
+          class="article__image"
           src="{{ article.image | img_url: '1400x' }}"
-          srcset="{{ article.image | img_url: '768x' }} 768w,
-                  {{ article.image | img_url: '1024x' }} 1024w,
-                  {{ article.image | img_url: '1400x' }} 1400w"
+          srcset="
+            {{ article.image | img_url: '768x' }} 768w,
+            {{ article.image | img_url: '1024x' }} 1024w,
+            {{ article.image | img_url: '1400x' }} 1400w
+          "
           alt="{{ article.image.alt }}"
-        />
+          height="{{ article.image.height }}"
+          width="{{ article.image.width }}"
+        >
       {%- endif -%}
 
       {% if video_link != blank %}
@@ -45,7 +50,6 @@
       {% endif %}
     </div>
   </article>
-
 
   {% if article.metafields.custom_fields.featured_products %}
     {% assign featured_products = article.metafields.custom_fields.featured_products | split: '|' %}

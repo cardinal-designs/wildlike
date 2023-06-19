@@ -4,39 +4,44 @@
 {% if section.settings.form_enabled %}
   {%- form 'contact', id: 'contact-us__form', class: 'contact-us__form' -%}
     {%- if form.posted_successfully? -%}
-    <div class="contact-us__success">
-      <p class="contact-us__success-message h7">
-        {% if section.settings.success_message != blank %}
-          {{ section.settings.success_message }}
-        {% else %}
-          {{ 'contact.form.post_success' | t }}
-        {% endif %}
-      </p>
-      <a class="button button--primary button--medium"
-        href="{% if section.settings.success_link != blank %}{{ section.settings.success_link }}{% else %}/{% endif %}">
+      <div class="contact-us__success">
+        <p class="contact-us__success-message h7">
+          {% if section.settings.success_message != blank %}
+            {{ section.settings.success_message }}
+          {% else %}
+            {{ 'contact.form.post_success' | t }}
+          {% endif %}
+        </p>
+        <a
+          class="button button--primary button--medium"
+          href="{% if section.settings.success_link != blank %}{{ section.settings.success_link }}{% else %}/{% endif %}"
+        >
           <span class="button__content">{{ section.settings.success_btn }}</span>
-      </a>
-    </div>
+        </a>
+      </div>
     {%- else -%}
-    <div class="contact-us__success">
-      <p class="contact-us__success-message h7">
-        {{ form.errors | default_errors }}
-      </p>
-    </div>
+      <div class="contact-us__success">
+        <p class="contact-us__success-message h7">
+          {{ form.errors | default_errors }}
+        </p>
+      </div>
     {%- endif -%}
     <div class="form-container {% if form.posted_successfully? %} u-hidden {% endif %}">
       <div class="input">
         <label class="label" for="ContactFormName">{{ 'contact.form.name' | t }}</label>
-        <input type="text"
+        <input
+          type="text"
           name="contact[name]"
           id="ContactFormName"
           placeholder="{{ 'contact.placeholders.name' | t }}"
           required
-          value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+          value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+        >
       </div>
       <div class="input">
         <label class="label" for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
-        <input type="email"
+        <input
+          type="email"
           name="contact[email]"
           required
           class="{% if form.errors contains 'email' %}input-error{% endif %}"
@@ -45,19 +50,20 @@
           value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
           spellcheck="false"
           autocomplete="off"
-          autocapitalize="off">
+          autocapitalize="off"
+        >
       </div>
       {% comment %}
-      <div class="input">
-        <label class="label" for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
-        <input type="tel"
-          name="contact[phone]"
-          id="ContactFormPhone"
-          placeholder="{{ 'contact.placeholders.phone' | t }}"
-          required
-          value="{% if form[phone] %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          pattern="[0-9\-]*" />
-      </div>
+        <div class="input">
+          <label class="label" for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
+          <input type="tel"
+            name="contact[phone]"
+            id="ContactFormPhone"
+            placeholder="{{ 'contact.placeholders.phone' | t }}"
+            required
+            value="{% if form[phone] %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            pattern="[0-9\-]*" />
+        </div>
       {% endcomment %}
       <div class="input">
         <label class="label" for="ContactFormMessage">{{ 'contact.form.message' | t }}</label>
@@ -65,57 +71,73 @@
           name="contact[body]"
           rows="4"
           id="ContactFormMessage"
-          placeholder="{{ 'contact.placeholders.message' | t }}">
+          placeholder="{{ 'contact.placeholders.message' | t }}"
+        >
           {%- if form.body -%}
             {{- form.body -}}
           {%- endif -%}
         </textarea>
       </div>
 
-      <v-button primary type="submit" class="button" id="form_submit" value="{{ 'contact.form.send' | t }}">{{ 'contact.form.send' | t }}</v-button>
+      <v-button primary type="submit" class="button" id="form_submit" value="{{ 'contact.form.send' | t }}">
+        {{- 'contact.form.send' | t -}}
+      </v-button>
     </div>
   {%- endform -%}
 {% endif %}
 
 {% schema %}
-  {
-    "name": "Contact Form",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "form_enabled",
-        "label": "Enable Contact Form",
-        "default": true
-      },
-      { "type": "header", "content": "Title Text Color" },
-      {
-        "type": "select",
-        "id": "title_text_color",
-        "label": "Color",
-        "options": <%- uikit.colorOptions -%>,
-        "default": "color-black"
-      },
-      { "type": "header", "content": "Success Message" },
-      {
-        "type": "textarea",
-        "id": "success_message",
-        "label": "Message shown after form submitted",
-        "info": "Default: THANK YOU! YOUR FORM HAS BEEN SUBMITTED SUCCESSFULLY"
-      },
-      {
-        "type": "text",
-        "id": "success_btn",
-        "label": "What will the Continue Shopping button say?",
-        "default": "Continue Shopping",
-        "info": "Default: Continue Shopping"
-      },
-      {
-        "type": "url",
-        "id": "success_link",
-        "label": "What page will the Continue Shopping button go to?",
-        "default": "/",
-        "info": "Default: Home page"
-      }
-    ]
-  }
+{
+  "name": "Contact Form",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "form_enabled",
+      "label": "Enable Contact Form",
+      "default": true
+    },
+    { "type": "header", "content": "Title Text Color" },
+    {
+      "type": "select",
+      "id": "title_text_color",
+      "label": "Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
+      "default": "color-black"
+    },
+    { "type": "header", "content": "Success Message" },
+    {
+      "type": "textarea",
+      "id": "success_message",
+      "label": "Message shown after form submitted",
+      "info": "Default: THANK YOU! YOUR FORM HAS BEEN SUBMITTED SUCCESSFULLY"
+    },
+    {
+      "type": "text",
+      "id": "success_btn",
+      "label": "What will the Continue Shopping button say?",
+      "default": "Continue Shopping",
+      "info": "Default: Continue Shopping"
+    },
+    {
+      "type": "url",
+      "id": "success_link",
+      "label": "What page will the Continue Shopping button go to?",
+      "default": "/",
+      "info": "Default: Home page"
+    }
+  ]
+}
 {% endschema %}

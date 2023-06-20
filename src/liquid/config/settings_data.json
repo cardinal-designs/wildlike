@@ -934,55 +934,6 @@
           "title_copy": "Types of piercings"
         }
       },
-      "page--about1": {
-        "type": "page--about1",
-        "blocks": {
-          "258d4256-d921-4715-bc5e-3b6714f4a94d": {
-            "type": "scrolling_text",
-            "settings": {
-              "title": "Amelia",
-              "content": "<p>My name is Amelia and I’ve been piercing for over four years! I have lived all over the country, but most recently moved from Colorado. I love Dallas but I miss skiing in Colorado!<br\/><br\/>My favorite piece from the Wildlike Collection is the single diamond baguette stud. The baguette is so sleek and petite that it would sit wonderfully in almost every part of the ear. Classic and feminine!<\/p>",
-              "image": "shopify:\/\/shop_images\/amelia-28_9c75e1fd-b5a2-4c73-a483-f7bda52e6290.jpg",
-              "text_group": "1"
-            }
-          },
-          "b7eb4200-fc86-42f7-ae74-bdd73d8aa28d": {
-            "type": "scrolling_text",
-            "settings": {
-              "title": "Heather",
-              "content": "<p>Hi, I’m Heather! I’ve been in the piercing industry since 2017 and I love every second of it! I’m originally from Washington D.C. but have been in Dallas for about 15 years now!<\/p><p>I have always had a passion for jewelry ever since I was little, I wanted to accessorize with everything I could and I loved organizing all of my jewelry.<\/p><p>My favorite piece from the Wildlike collection has to be the Pearl stud from our birthstone line! Pearls are my favorite, and this one is so dainty it could be put virtually anywhere.<\/p>",
-              "image": "shopify:\/\/shop_images\/IMG_1247.jpg",
-              "text_group": "1"
-            }
-          },
-          "8b84e438-446c-431b-8307-d837faf6163f": {
-            "type": "scrolling_text",
-            "settings": {
-              "title": "Drea",
-              "content": "<p>My name is Drea. I'm a mom to a very sweet little boy and we have a cat, snake and dog. I've been in the piercing industry for over 16 years!<\/p><p>I'm originally from Wisconsin but have lived and worked all over the country. I've been back in the Dallas area for the last 5 years helping people make their piercing goals come to life using some amazing pieces from a variety of jewelry brands. Creating fun looks with jewelry and placement to fit someone's unique anatomy is one of my favorite parts of being a piercer. <\/p><p>The diamond marquise is my favorite piece from the Wildlike collection. It's a classic shape that looks beautiful alone or paired with other styles.<\/p>",
-              "image": "shopify:\/\/shop_images\/wildlike_piercers_drea-5.jpg",
-              "text_group": "1"
-            }
-          },
-          "2c8681a0-b730-4536-89ce-6dde023add9e": {
-            "type": "scrolling_text",
-            "settings": {
-              "title": "Della",
-              "content": "<p>Hi! I'm Della! I've been piercing for over 6 years now. I've spent most of my life in DFW aside from the past few years working in California. I am highly passionate about bringing my clients the highest quality body jewelry available and have spent these last few years learning how to craft it and plan to continue that journey here at home. <\/p><p>I have a pug\/boston terrier mix, Fehu, who is my entire soul and I enjoy tending to my many plants.<\/p><p>My favorite Wildlike piece is the Three Diamond Baguette Earring.<\/p>",
-              "image": "shopify:\/\/shop_images\/wildlike_piercers_della-1-2.jpg",
-              "text_group": "1"
-            }
-          }
-        },
-        "block_order": [
-          "258d4256-d921-4715-bc5e-3b6714f4a94d",
-          "b7eb4200-fc86-42f7-ae74-bdd73d8aa28d",
-          "8b84e438-446c-431b-8307-d837faf6163f",
-          "2c8681a0-b730-4536-89ce-6dde023add9e"
-        ],
-        "settings": {
-        }
-      },
       "booking-value-props": {
         "type": "booking-value-props",
         "blocks": {

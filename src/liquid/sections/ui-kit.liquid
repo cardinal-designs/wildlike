@@ -1,6 +1,6 @@
 {% layout 'ui-kit' %}
 
-{% include 'icon-store' %}
+{% render 'icon-store' %}
 
 <style>
   .button--state-success .button__content::before {
@@ -83,3 +83,14 @@
     });
   }
 </script>
+
+{% schema %}
+{
+  "name": "UI Kit",
+  "presets": [
+    {
+      "name": "UI Kit"
+    }
+  ]
+}
+{% endschema %}

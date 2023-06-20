@@ -1,0 +1,12 @@
+{
+    "sections": {
+      "page-designers": {
+        "type": "page--designers",
+        "settings": {
+        }
+      }
+   },
+   "order":[
+        "page-designers"
+    ]    
+}

@@ -1,0 +1,61 @@
+{
+  "wrapper": "div.contact-us",
+  "sections": {
+    "main-contact": {
+      "type": "main-contact",
+      "settings": {
+        "form_enabled": true,
+        "title_text_color": "color-brand-secondary",
+        "success_message": "YOUR FORM HAS BEEN SUBMITTED SUCCESSFULLY",
+        "success_btn": "Continue Shopping",
+        "success_link": "shopify:\/\/collections\/all-piercing-jewelry",
+        "text_color": "color-black",
+        "bg_color": "",
+        "icon_color": "fill-black",
+        "phone": "1 (855) 758-4710",
+        "enable_address": true,
+        "street": "4218 Oak Lawn Ave",
+        "city": "Dallas, TX 75219",
+        "country": "214.612.7690",
+        "enable_social": true,
+        "enable_twitter": true,
+        "twitter_icon_color": "fill-brand-secondary",
+        "enable_instagram": true,
+        "instagram_icon_color": "fill-brand-secondary",
+        "enable_facebook": true,
+        "facebook_icon_color": "fill-brand-secondary",
+        "enable_pinterest": true,
+        "pinterest_icon_color": "fill-brand-secondary",
+        "enable_snapchat": false,
+        "snapchat_icon_color": "fill-brand-primary",
+        "enable_tumblr": false,
+        "tumblr_icon_color": "fill-brand-primary",
+        "enable_youtube": false,
+        "youtube_icon_color": "fill-brand-primary",
+        "enable_vimeo": false,
+        "vimeo_icon_color": "fill-brand-primary"
+      }
+    },
+    "full-width-text-block": {
+      "type": "full-width-text-block",
+      "settings": {
+      }
+    },
+    "three-column-content-blocks-simple": {
+      "type": "three-column-content-blocks-simple",
+      "settings": {
+      }
+    },
+    "three-column-content-blocks": {
+      "type": "three-column-content-blocks",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main-contact",
+    "full-width-text-block",
+    "three-column-content-blocks-simple",
+    "three-column-content-blocks"
+  ]
+}

@@ -175,3 +175,15 @@
 <div class="bg-white">
   <super-collection :linear-settings-array="{{ linear_settings | escape | strip }}" :collection-settings="{{ collection_settings | escape | strip }}" :grid1-settings="{{ grid1_settings | escape | strip }}"  :grid2-settings="{{ grid2_settings | escape | strip }}" />
 </div>
+
+
+{% schema %}
+{
+  "name": "Super Collection",
+  "presets": [
+    {
+      "name": "Super Collection"
+    }
+  ]
+}
+{% endschema %}

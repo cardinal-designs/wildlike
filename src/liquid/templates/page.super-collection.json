@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "super-collection": {
+      "type": "super-collection",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "super-collection"
+  ]
+}

@@ -1,0 +1,20 @@
+<div>
+  {{ section.settings.yotpo_code }}
+</div>
+{% schema %}
+{
+  "name": "Yotpo Custom",
+  "settings": [
+     {
+      "type": "textarea",
+      "id": "yotpo_code",
+      "label": "Yotpo Code"
+    }   
+  ],
+  "presets": [
+    {
+      "name": "Yotpo Custom"
+    }
+  ]
+}
+{% endschema %}

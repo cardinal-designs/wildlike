@@ -1,35 +1,12 @@
-<div class="page-template__hero">
-  {% if page.metafields.custom_fields.hero_image_desktop != blank %}
-    {%
-      render 'hero' with {
-      should_manually_build_urls: true,
-      desktop_image: page.metafields.custom_fields["hero_image_desktop"],
-      mobile_image: page.metafields.custom_fields["hero_image_mobile"],
-      header: page.metafields.custom_fields["hero_header"],
-      subheader: page.metafields.custom_fields["hero_subheader"]
-      }
-    %}
-  {% elsif page.metafields.custom_fields.hero_image_desktop == blank %}
-    {%
-      render 'hero' with {
-      should_manually_build_urls: true,
-      desktop_image: page.metafields.custom_fields["hero_image_desktop"],
-      mobile_image: page.metafields.custom_fields["hero_image_mobile"],
-      header: page.metafields.custom_fields["hero_header"],
-      subheader: page.metafields.custom_fields["hero_subheader"]
-      }
-    %}
-  {% endif %}
-</div>
-
-<div class="page-container">
-  <div class="container page-template{% if page.metafields.custom_fields.subnav_handle	!= blank %} page-template--with-sidebar{% endif %}">
+<div class="page-template faq">
+  <h1 class="text-center">{{ page.title }}</h1>
+  <div class="page-container">
     {% if page.metafields.custom_fields.faqs != blank %}
-      {% assign separator = '|###|' %}
+      {% assign separator = "|###|" %}
       {% assign faq_categories = page.metafields.custom_fields.category_group | split: separator %}
       {% assign faq_questions = page.metafields.custom_fields.question | split: separator %}
       {% assign faq_answers = page.metafields.custom_fields.answer | split: separator %}
-      {% assign fc_keys = page.metafields.custom_fields.faqs | split: ',' %}
+      {% assign fc_keys = page.metafields.custom_fields.faqs | split: "," %}
       {% capture faq_array %}
         [
           {% for i in fc_keys %}
@@ -66,3 +43,14 @@
     </div>
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "Faq",
+  "presets": [
+    {
+      "name": "Faq"
+    }
+  ]
+}
+{% endschema %}

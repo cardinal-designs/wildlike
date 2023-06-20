@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "ui-kit-ramsey": {
+      "type": "ui-kit-ramsey",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "ui-kit-ramsey"
+  ]
+}

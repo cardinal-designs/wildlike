@@ -74,3 +74,16 @@
   :term="{{ search.terms | json | escape }}"
   :search-performed="{{ search.performed | json }}"
   :search-cta-settings="{{ search_cta_settings | escape | strip }}"></search-results>
+
+{% schema %}
+  {
+    "name": "Search",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

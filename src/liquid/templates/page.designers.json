@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "page-designers": {
+      "type": "page--designers",
+      "settings": {
+        "designers_list": "",
+        "max_width": "none",
+        "top_margin": 56,
+        "bottom_margin": 56,
+        "layout": "short",
+        "enable_text_box": false,
+        "text_box_bg_color": "",
+        "mobile_layout": "overlay",
+        "mobile_text_alignment": "left",
+        "horizontal_layout": "left",
+        "vertical_layout": "top",
+        "enable_scroll_trigger": false,
+        "arrow_color": "fill-black",
+        "enable_mobile_image": false,
+        "video_url": "",
+        "enable_overlay": false,
+        "overlay_color": "bg-brand-primary",
+        "content_background_color": "#ffffff",
+        "overlay_opacity": 50,
+        "pre_heading": "",
+        "heading": "",
+        "sub_heading": "",
+        "body_copy": "",
+        "pre_heading_color": "color-black",
+        "heading_color": "color-black",
+        "sub_heading_color": "color-black",
+        "body_copy_color": "color-black",
+        "mobile_bg_color": "bg-brand-primary",
+        "pre_heading_color_mobile": "color-black",
+        "heading_color_mobile": "color-black",
+        "sub_heading_color_mobile": "color-black",
+        "body_copy_color_mobile": "color-black",
+        "enable_cta": false,
+        "cta_layout": "button button--primary",
+        "cta_text": "",
+        "cta_url": ""
+      }
+    }
+  },
+  "order": [
+    "page-designers"
+  ]
+}

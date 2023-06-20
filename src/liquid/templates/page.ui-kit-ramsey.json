@@ -1,4 +1,5 @@
 {
+  "layout": "ui-kit",
   "sections": {
     "ui-kit-ramsey": {
       "type": "ui-kit-ramsey",

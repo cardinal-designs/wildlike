@@ -1,7 +1,7 @@
 <div class="page-template__hero">
   {% if page.metafields.custom_fields.hero_image_desktop != blank %}
     {%
-      render 'hero' with {
+      include 'hero' with {
       should_manually_build_urls: true,
       desktop_image: page.metafields.custom_fields["hero_image_desktop"],
       mobile_image: page.metafields.custom_fields["hero_image_mobile"],
@@ -11,7 +11,7 @@
     %}
   {% elsif page.metafields.custom_fields.hero_image_desktop == blank %}
     {%
-      render 'hero' with {
+      include 'hero' with {
       should_manually_build_urls: true,
       desktop_image: page.metafields.custom_fields["hero_image_desktop"],
       mobile_image: page.metafields.custom_fields["hero_image_mobile"],

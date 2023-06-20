@@ -1,10 +1,114 @@
 {
   "sections": {
+    "hero-banner-booking": {
+      "type": "hero-banner-booking",
+      "disabled": true,
+      "settings": {
+        "service_product": "",
+        "max_width": "none",
+        "top_margin": 56,
+        "bottom_margin": 56,
+        "layout": "short",
+        "enable_text_box": false,
+        "text_box_bg_color": "",
+        "text_box_bg_image": "shopify:\/\/shop_images\/Wildlike-Position-1A-686x460x2_a35d016b-fd43-4088-8a64-14035e1f8d38.jpg",
+        "mobile_layout": "overlay",
+        "mobile_text_alignment": "left",
+        "horizontal_layout": "left",
+        "vertical_layout": "top",
+        "background_image": "shopify:\/\/shop_images\/Wildlike-Position-1A-686x460x2_a35d016b-fd43-4088-8a64-14035e1f8d38.jpg",
+        "enable_mobile_image": false,
+        "video_url": "",
+        "enable_overlay": true,
+        "overlay_color": "bg-brand-primary",
+        "content_background_color": "#ffffff",
+        "overlay_opacity": 50,
+        "pre_heading": "",
+        "heading": "",
+        "sub_heading": "",
+        "body_copy": "",
+        "pre_heading_color": "color-black",
+        "heading_color": "color-black",
+        "sub_heading_color": "color-black",
+        "body_copy_color": "color-black",
+        "mobile_bg_color": "bg-brand-primary",
+        "pre_heading_color_mobile": "color-black",
+        "heading_color_mobile": "color-black",
+        "sub_heading_color_mobile": "color-black",
+        "body_copy_color_mobile": "color-black",
+        "enable_cta": false,
+        "cta_color": "#231a22",
+        "cta_bordercolor": "#231a22",
+        "cta_textcolor": "#ffffff",
+        "cta_text": "",
+        "cta_url": ""
+      }
+    },
+    "hero-banner": {
+      "type": "hero-banner",
+      "settings": {
+        "max_width": "none",
+        "top_margin": 56,
+        "bottom_margin": 56,
+        "layout": "short",
+        "enable_text_box": false,
+        "text_box_bg_color": "",
+        "mobile_layout": "overlay",
+        "mobile_text_alignment": "left",
+        "horizontal_layout": "left",
+        "vertical_layout": "top",
+        "background_image": "shopify:\/\/shop_images\/Wildlike-Website-Press-Page-Image-1654x574_428b7ba6-af63-4687-b687-5ad345a49880.jpg",
+        "enable_mobile_image": false,
+        "background_image_mobile": "shopify:\/\/shop_images\/Wildlike-Website-Press-Page-Image-1654x574_7f396e96-b5b7-495d-a987-2f8b44c9a1d7.jpg",
+        "hero_url": "",
+        "url_aria_label": "",
+        "video_url": "",
+        "enable_overlay": false,
+        "overlay_color": "bg-brand-primary",
+        "content_background_color": "#ffffff",
+        "overlay_opacity": 50,
+        "pre_heading": "",
+        "heading": "",
+        "sub_heading": "",
+        "body_copy": "",
+        "pre_heading_color": "color-black",
+        "heading_color": "color-black",
+        "sub_heading_color": "color-black",
+        "body_copy_color": "color-black",
+        "mobile_bg_color": "bg-brand-primary",
+        "pre_heading_color_mobile": "color-black",
+        "heading_color_mobile": "color-black",
+        "sub_heading_color_mobile": "color-black",
+        "body_copy_color_mobile": "color-black",
+        "enable_cta": false,
+        "cta_color": "#231A22",
+        "cta_bordercolor": "#231A22",
+        "cta_textcolor": "#ffffff",
+        "cta_text": "",
+        "cta_url": ""
+      }
+    },
     "hero": {
-      "type": "press-hero"
+      "type": "press-hero",
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Shot14_Rings_SP21_159-JPEG-FINAL_CROP.jpg",
+        "text_color": "color-white",
+        "heading": "tbd",
+        "subheading": "",
+        "copy": ""
+      }
+    },
+    "press-blocks": {
+      "type": "press-blocks",
+      "settings": {
+      }
     }
   },
   "order": [
-    "hero"
+    "hero-banner-booking",
+    "hero-banner",
+    "hero",
+    "press-blocks"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "sections": {
-    "product-display-gift-card": {
-      "type": "product-display-gift-card",
+    "main-product": {
+      "type": "main-product",
       "settings": {
         "pdp_accordion_name": "Shipping",
         "pdp_accordion_content": "",
@@ -24,45 +24,20 @@
         "cl_background_color": "bg-white"
       }
     },
-    "product-display-bourdain": {
-      "type": "product-display-bourdain",
-      "settings": {
-        "pdp_accordion_name": "Shipping",
-        "pdp_accordion_content": "",
-        "pdp_recommendations_heading": "You May Also Like",
-        "pdp_hide_reviews": false,
-        "pdp_global_info_section_heading": "",
-        "pdp_global_info_section_heading_color": "#ffffff",
-        "pdp_product_rec_sidebar_heading": "",
-        "pdp_value_props_background_color": "#f7f6f2",
-        "pdp_vp_title_0": "",
-        "pdp_vp_body_0": "",
-        "pdp_vp_title_1": "",
-        "pdp_vp_body_1": "",
-        "pdp_vp_title_2": "",
-        "pdp_vp_body_2": "",
-        "pdp_vp_title_3": "",
-        "pdp_vp_body_3": "",
-        "cl_heading": "",
-        "cl_heading_color": "color-black",
-        "cl_background_color": "bg-white"
-      }
-    },
-    "9a97c678-a5b5-4f56-b2b6-698110c4e19f": {
+    "nosto-element": {
       "type": "nosto-element",
       "settings": {
       }
     },
-    "f1b81aac-8c8d-478a-8cc3-d33f63d4a28b": {
+    "yotpo-reviews": {
       "type": "yotpo-reviews",
       "settings": {
       }
     }
   },
   "order": [
-    "product-display-gift-card",
-    "product-display-bourdain",
-    "9a97c678-a5b5-4f56-b2b6-698110c4e19f",
-    "f1b81aac-8c8d-478a-8cc3-d33f63d4a28b"
+    "main-product",
+    "nosto-element",
+    "yotpo-reviews"
   ]
 }

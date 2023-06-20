@@ -105,7 +105,7 @@
 
 {% assign greet = settings.welcome_text | json %}
 {% assign background = settings.welcome_bg | json %}
-<!-- {% assign greet_img = settings.welcome_img | img_url: 'master', crop: 'center'| json %} -->
+{% # assign greet_img = settings.welcome_img | img_url: 'master', crop: 'center'| json %}
 {% assign greet_img_alt = settings.welcome_img.alt | json %}
 {% assign text_color = settings.welcome_text_color | json %}
 

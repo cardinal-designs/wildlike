@@ -44,6 +44,10 @@ export default {
   .media,
   .media video {
     max-width: 100%;
+
+    @media screen and (max-width: 500px) {
+      min-height: 500px;
+    }
   }
 
   .media svg {

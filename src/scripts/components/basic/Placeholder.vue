@@ -2,7 +2,7 @@
   div
     transition(:name="this.transitionName")
       div(v-show="!state")
-        slot(name="placeholder")
+        slot(name="main")
     transition(:name="this.transitionName")
       div(v-show="state === 'loaded'")
         slot(name="main")

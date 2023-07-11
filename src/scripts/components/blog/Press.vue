@@ -15,6 +15,17 @@
     mounted () {
       this.getTotalPage();
       this.renderHtml();
+      this.pageLoading = false;
+    window.onscroll = () => {
+      let ele = document.querySelector('.js-press');
+      let boundingClient = ele.getBoundingClientRect();
+      let LoadMoreBtn = ele.nextElementSibling;
+      if(window.scrollY >= boundingClient.height && this.pageLoading == false && this.page_num <= this.total_page && LoadMoreBtn ){
+        this.pageLoading = true;
+        LoadMoreBtn.querySelector('.button--primary').dispatchEvent(new Event('click'));
+        // this.loadMore();
+      }
+    }
     },
     data () {
       return {
@@ -31,14 +42,17 @@
           this.total_page = Math.ceil(total / 4);
         }
       },
-      renderHtml () {
-        fetch(`${this.schema.settings.ajax_url}?view=ajax&page=${this.page_num}`).then(res => res.text()).then(data => {
-          let element = document.querySelector('.js-press');
-          if (element != null) {
-            element.innerHTML = element.innerHTML + data;
-          }
-        })
-      },
+      renderHtml: function renderHtml() {
+      fetch(this.schema.settings.ajax_url + '?view=ajax&page=' + this.page_num).then((res) => {
+        return res.text();
+      }).then((data) => {
+        var element = document.querySelector('.js-press');
+        if (element != null) {
+          element.innerHTML = element.innerHTML + data;
+          this.pageLoading = false;
+        }
+      });
+    },
       loadMore () {
         this.page_num += 1;
         this.renderHtml();

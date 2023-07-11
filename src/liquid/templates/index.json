@@ -6,16 +6,16 @@
         "d3937ccc-90cd-479a-bdbd-d7a30b9e6b1c": {
           "type": "testimonial_block",
           "settings": {
-            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-1A-686x460x2_bd490a36-6121-4edc-8c1d-5ae423b35ac8.jpg",
-            "itp_url": "shopify:\/\/collections\/birthstone",
+            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-1A-686x460x2_61893249-056c-452f-be39-1b4a822163b7.jpg",
+            "itp_url": "shopify:\/\/collections\/diamond",
             "itp_link_target": "_self",
-            "link_aria_label": "Link to Birthstone earrings"
+            "link_aria_label": "Link to Diamond earrings"
           }
         },
         "bc5f7eb3-7fc9-49e1-8d72-d98b2e9e8a77": {
           "type": "testimonial_block",
           "settings": {
-            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-1B-686x460x2_6f45c7eb-a68f-4dd6-9724-d983b63883a2.jpg",
+            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-1B-686x460x2_96432272-f9ea-46c5-9c75-6c8515817b54.jpg",
             "itp_url": "https:\/\/wildlike.com\/pages\/booking",
             "itp_link_target": "_self",
             "link_aria_label": "Link to book an appointment."
@@ -57,28 +57,28 @@
         "0ff0a048-c363-43df-aab6-191ba5061939": {
           "type": "testimonial_block",
           "settings": {
-            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-2-680x680_c0372a1a-b854-4453-8f01-eb9b35492065.jpg",
-            "itp_url": "shopify:\/\/collections\/diamond",
+            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-2-680x680_a890f2ad-6137-4e5b-964d-62034935c381.jpg",
+            "itp_url": "shopify:\/\/collections\/wildlike",
             "itp_link_target": "_self",
-            "link_aria_label": "Link to diamonds"
+            "link_aria_label": "Link to Wildlike"
           }
         },
         "4df4612d-f42a-48fa-8490-96ee3267a97d": {
           "type": "testimonial_block",
           "settings": {
-            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-3-680x680_359fc277-3764-42ff-8971-c6bae64450e7.jpg",
-            "itp_url": "shopify:\/\/collections\/maria-tash",
+            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-3-680x680_c2a1adaf-6bcd-4778-845c-d48f22275299.jpg",
+            "itp_url": "shopify:\/\/collections\/white-gold",
             "itp_link_target": "_self",
-            "link_aria_label": "Link to maria tash"
+            "link_aria_label": "Link to white gold"
           }
         },
         "d5200704-f271-4111-9491-ca9ae8868ebf": {
           "type": "testimonial_block",
           "settings": {
-            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-4-680x680_c749268f-b70a-42f6-803c-5107aa0972ef.jpg",
-            "itp_url": "shopify:\/\/collections\/tawapa",
+            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-4-680x680_b4facb61-83b5-4527-a576-7fd9616cb56b.jpg",
+            "itp_url": "shopify:\/\/collections\/turquoise-earrings",
             "itp_link_target": "_self",
-            "link_aria_label": "Link to Tawapa"
+            "link_aria_label": "Link to Turquoise"
           }
         },
         "0753f8c5-371c-41f2-9d2a-4a850ffbe370": {
@@ -111,8 +111,8 @@
         "nameColor": "color-accent-1",
         "featured_designer_excerpt": "",
         "excerptColor": "color-black",
-        "featured_designer_image": "shopify:\/\/shop_images\/Wildlike-Position-5-Desktop-750x480x2_a5f63508-cab6-4ebe-8057-3668300847e6.jpg",
-        "featured_designer_image_mb": "shopify:\/\/shop_images\/Wildlike-Position-5-Mobile-778x662x2_ac3fb23b-3b14-4009-b6ef-d3cef36b592e.jpg",
+        "featured_designer_image": "shopify:\/\/shop_images\/Wildlike-Position-5-Desktop-750x480x2_d573750e-fda9-4513-80c2-e533e6239715.jpg",
+        "featured_designer_image_mb": "shopify:\/\/shop_images\/Wildlike-Position-5-Mobile-778x662x2_5c31a94f-f63d-41bb-8d4f-0f065c8f493e.jpg",
         "enable_cta": false,
         "cta_text": "Shop All",
         "cta_color": "#ffffff",

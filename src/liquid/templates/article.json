@@ -2,7 +2,8 @@
   "sections": {
     "main-article": {
       "type": "article",
-      "settings": {}
+      "settings": {
+      }
     }
   },
   "order": [

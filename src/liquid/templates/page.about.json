@@ -1,12 +1,12 @@
 {
-    "sections": {
-      "page-about": {
-        "type": "page--about",
-        "settings": {
-        }
+  "sections": {
+    "page-about": {
+      "type": "page--about",
+      "settings": {
       }
-   },
-   "order":[
-        "page-about"
-    ]    
+    }
+  },
+  "order": [
+    "page-about"
+  ]
 }

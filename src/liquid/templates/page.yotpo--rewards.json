@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "yotpo-custom": {
+      "type": "yotpo-custom",
+      "settings": {
+        "yotpo_code": "<div class=\"yotpo-widget-instance\" data-yotpo-instance-id=\"12897\"><\/div>"
+      }
+    }
+  },
+  "order": [
+    "yotpo-custom"
+  ]
+}

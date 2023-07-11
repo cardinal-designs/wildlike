@@ -6,7 +6,7 @@
 -->
 {% comment %}
 	to install, insert:
-	{% include 'subscription-cart-footer' %}
+	{% render 'subscription-cart-footer' %}
 	at the top of cart.liquid page
 	for best results, add this in the checkout button/input on templates/cart.liquid:
 	{% if cart_has_subscription_item == 'true' %}
@@ -48,7 +48,7 @@
 	<script>
 		// Subscriptions Powered by ReCharge Payments: JavaScript
 		(function() {
-			// Basic function to load script files, will be used to include jQuery
+			// Basic function to load script files, will be used to render jQuery
 			var loadScript = function(url, callback) {
 				var script = document.createElement("script");
 				script.type = "text/javascript";

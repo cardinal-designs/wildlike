@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "page-about": {
+      "type": "page--about",
+      "blocks": {
+        "b7eb4200-fc86-42f7-ae74-bdd73d8aa28d": {
+          "type": "scrolling_text",
+          "settings": {
+            "title": "Heather",
+            "content": "<p>Hi, I’m Heather! I’ve been in the piercing industry since 2017 and I love every second of it! I’m originally from Washington D.C. but have been in Dallas for about 15 years now!<\/p><p>I have always had a passion for jewelry ever since I was little, I wanted to accessorize with everything I could and I loved organizing all of my jewelry.<\/p><p>My favorite piece from the Wildlike collection has to be the Pearl stud from our birthstone line! Pearls are my favorite, and this one is so dainty it could be put virtually anywhere.<\/p>",
+            "image": "shopify:\/\/shop_images\/IMG_1247.jpg",
+            "text_group": "1"
+          }
+        },
+        "8b84e438-446c-431b-8307-d837faf6163f": {
+          "type": "scrolling_text",
+          "settings": {
+            "title": "Drea",
+            "content": "<p>My name is Drea. I'm a mom to a very sweet little boy and have been in the piercing industry for over 20 years! We have a cat (Mr. Whiskers), a chihuahua (Nikki), and a python (Barron). <\/p><p>I'm originally from Wisconsin but have lived and worked all over the country. After returning to the Dallas area in 2017, I’ve enjoyed helping people make their piercing goals come to life using a variety of jewelry brands. Creating fun looks to fit someone's unique anatomy is one of my favorite parts of being a piercer. <\/p><p>The diamond marquise is my favorite piece from the Wildlike collection. It's a classic shape that looks beautiful alone or paired with other styles.<\/p>",
+            "image": "shopify:\/\/shop_images\/wildlike_DREA-4.jpg",
+            "text_group": "1"
+          }
+        },
+        "2c8681a0-b730-4536-89ce-6dde023add9e": {
+          "type": "scrolling_text",
+          "settings": {
+            "title": "Peyton",
+            "content": "<p>Hi, I'm Peyton! I'm originally from DFW but got my start piercing in Tulsa. After four years away from Dallas, I'm so glad to be back and get the opportunity to pierce at Wildlike :)<\/p><p>When I'm not hanging out with my three cats I'm usually singing, crocheting, or getting sunburned at the pool!<\/p><p>My favorite Wildlike piece is the pave lightning bolt motif earring! It was the first one I got pierced with, its so versatile, and it looks good on everyone!<\/p>",
+            "image": "shopify:\/\/shop_images\/wildlike_peyton_piercer-11_1.jpg",
+            "text_group": "1"
+          }
+        }
+      },
+      "block_order": [
+        "b7eb4200-fc86-42f7-ae74-bdd73d8aa28d",
+        "8b84e438-446c-431b-8307-d837faf6163f",
+        "2c8681a0-b730-4536-89ce-6dde023add9e"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "page-about"
+  ]
+}

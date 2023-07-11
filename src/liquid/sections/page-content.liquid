@@ -1,0 +1,55 @@
+<div class="page-container">
+  <div class="container page-template{% if page.metafields.custom_fields.subnav_handle	!= blank %} page-template--with-sidebar{% endif %}">
+    {% if page.metafields.custom_fields.faqs != blank %}
+      {% assign separator = '|###|' %}
+      {% assign faq_categories = page.metafields.custom_fields.category_group | split: separator %}
+      {% assign faq_questions = page.metafields.custom_fields.question | split: separator %}
+      {% assign faq_answers = page.metafields.custom_fields.answer | split: separator %}
+      {% assign fc_keys = page.metafields.custom_fields.faqs | split: ',' %}
+      {% capture faq_array %}
+        [
+          {% for i in fc_keys %}
+            {% assign index = i | plus: 0 %}
+            {% assign category = faq_categories[index] %}
+            {% if category.size > 0 and category %}
+              {% if forloop.index > 1 %}
+                  ]
+                },
+              {% endif %}
+              {
+                "category": {{ category | json }},
+                "values": [
+            {% else %}
+                  {
+                    "question": {{ faq_questions[index] | json }},
+                    "answer": {{ faq_answers[index] | json }}
+                  }
+              {% if forloop.last %}
+                ]
+              }
+              {% else %}
+                ,
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        ]
+      {% endcapture %}
+      <faqs :faqs-list="{{ faq_array | escape | strip }}"></faqs>
+    {% endif %}
+
+    <div class="rte client-generated">
+      {{ page.content }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page Content",
+  "presets": [
+    {
+      "name": "Page Content"
+    }
+  ]
+}
+{% endschema %}

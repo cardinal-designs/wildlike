@@ -1,5 +1,0 @@
-{%- section 'collection-hero' -%}
-{%- section 'collection-grid' -%}
-{% if collection.metafields.custom_fields.seo_block_title and collection.metafields.custom_fields.seo_block_content %}
-  {% render 'seo-content' with item: collection %}
-{% endif %}

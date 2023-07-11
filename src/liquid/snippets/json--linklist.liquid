@@ -8,7 +8,7 @@
       "handle": "{{ list_handle }}"
       {%- if child_list != blank -%}
         ,
-        "children": {%- include 'json--linklist', linklist: child_list.links -%}
+        "children": {%- render 'json--linklist', linklist: child_list.links -%}
       {%- endif -%}
     }{%- unless forloop.last -%},{%- endunless -%}
   {%- endfor -%}

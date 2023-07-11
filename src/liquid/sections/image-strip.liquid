@@ -18,81 +18,84 @@
 {% endcapture %}
 
 <image-strip :schema="{{ schema | escape | strip }}" />
-
+  
 {% schema %}
-  {
-    "name": "Image Strip",
-    "max_blocks": 5,
-    
-    "settings": [
-      {
-        "type": "header",
-        "content": "Section Margins",
-        "info": "Customize the margin spacing on the top and bottom of this section."
-      },
-      { 
-        "label": "Top Padding",
-        "id": "margin_top",
-        "type": "range",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "default": 56
-      },
-      { 
-        "label": "Bottom Padding",
-        "id": "margin_bottom",
-        "type": "range",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "default": 56
-      }
-    ],
-    "blocks": [
-      {
-        "name": "Image",
-        "type": "testimonial_block",
-        "settings": [
-          {
-            "type": "header",
-            "content": "Images",
-            "info": "Add a minimum of 2 images"
-          },
-          {
-            "label": "Logo Image",
-            "type": "image_picker",
-            "id": "itp_logo",
-            "info": "Recommended size: 640px x 640px"
-          },
-          {
-            "label": "Link",
-            "type": "url",
-            "id": "itp_url"
-          },
-          {
-            "label": "Link Target",
-            "type": "select",
-            "id": "itp_link_target",
-            "default": "_self",
-            "options": [{"label":"Current Tab","value":"_self"},{"label":"New Tab","value":"_blank"}]
-          },
-          {
-            "type": "text",
-            "id": "link_aria_label",
-            "label": "Aria Label Description",
-            "info": "Input a description for screen readers, explaining where the image block links to if the text box isn't enabled. For example, 'Link to Cathy Waterman collection'"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Image Strip",
-        "category": "Content Blocks"
-      }
-    ]
-  }
+{
+  "name": "Image Strip",
+  "max_blocks": 5,
+
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Margins",
+      "info": "Customize the margin spacing on the top and bottom of this section."
+    },
+    {
+      "label": "Top Padding",
+      "id": "margin_top",
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "label": "Bottom Padding",
+      "id": "margin_bottom",
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Image",
+      "type": "testimonial_block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Images",
+          "info": "Add a minimum of 2 images"
+        },
+        {
+          "label": "Logo Image",
+          "type": "image_picker",
+          "id": "itp_logo",
+          "info": "Recommended size: 640px x 640px"
+        },
+        {
+          "label": "Link",
+          "type": "url",
+          "id": "itp_url"
+        },
+        {
+          "label": "Link Target",
+          "type": "select",
+          "id": "itp_link_target",
+          "default": "_self",
+          "options": [
+            { "label": "Current Tab", "value": "_self" },
+            { "label": "New Tab", "value": "_blank" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "link_aria_label",
+          "label": "Aria Label Description",
+          "info": "Input a description for screen readers, explaining where the image block links to if the text box isn't enabled. For example, 'Link to Cathy Waterman collection'"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Strip",
+      "category": "Content Blocks"
+    }
+  ]
+}
 {% endschema %}

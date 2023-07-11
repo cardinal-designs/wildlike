@@ -1,9 +1,18 @@
-{% if section.settings.phone != blank or section.settings.enable_address or section.settings.enable_social or section.blocks.size > 0 %}
+{% if section.settings.phone != blank
+  or section.settings.enable_address
+  or section.settings.enable_social
+  or section.blocks.size > 0
+%}
   <div class="contact-us__info-blocks {{ section.settings.bg_color }}">
     {% for block in section.blocks %}
       <div class="contact-us__info-blocks--block">
         {% if block.settings.info_img != blank %}
-          <img src="{{ block.settings.info_img | img_url: '100x' }}" alt="{{ block.settings.info_header | capitalize }}">
+          <img
+            src="{{ block.settings.info_img | img_url: '100x' }}"
+            alt="{{ block.settings.info_header | capitalize }}"
+            height="{{ block.settings.info_img.height }}"
+            width="{{ block.settings.info_img.width }}"
+          >
         {% else %}
           <icon name="{{ block.settings.info_icon }}" size="24px" class="{{ section.settings.icon_color }}"></icon>
         {% endif %}
@@ -36,22 +45,38 @@
           </a>
         {% endif %}
         {% if settings.social_instagram_link != blank and section.settings.enable_instagram %}
-          <a href="{{ settings.social_instagram_link }}" target="_blank" aria-label="Link to Wildlike's Instagram Account">
+          <a
+            href="{{ settings.social_instagram_link }}"
+            target="_blank"
+            aria-label="Link to Wildlike's Instagram Account"
+          >
             <icon name="instagram" size="24px" class="{{ section.settings.instagram_icon_color }}"></icon>
           </a>
         {% endif %}
         {% if settings.social_facebook_link != blank and section.settings.enable_facebook %}
-          <a href="{{ settings.social_facebook_link }}" target="_blank" aria-label="Link to Wildlike's Facebook Account">
+          <a
+            href="{{ settings.social_facebook_link }}"
+            target="_blank"
+            aria-label="Link to Wildlike's Facebook Account"
+          >
             <icon name="facebook" size="24px" class="{{ section.settings.facebook_icon_color }}"></icon>
           </a>
         {% endif %}
         {% if settings.social_pinterest_link != blank and section.settings.enable_pinterest %}
-          <a href="{{ settings.social_pinterest_link }}" target="_blank" aria-label="Link to Wildlike's Pinterest Account">
+          <a
+            href="{{ settings.social_pinterest_link }}"
+            target="_blank"
+            aria-label="Link to Wildlike's Pinterest Account"
+          >
             <icon name="pinterest" size="24px" class="{{ section.settings.pinterest_icon_color }}"></icon>
           </a>
         {% endif %}
         {% if settings.social_snapchat_link != blank and section.settings.enable_snapchat %}
-          <a href="{{ settings.social_snapchat_link }}" target="_blank" aria-label="Link to Wildlike's Snapchat Account">
+          <a
+            href="{{ settings.social_snapchat_link }}"
+            target="_blank"
+            aria-label="Link to Wildlike's Snapchat Account"
+          >
             <icon name="snapchat" size="24px" class="{{ section.settings.snapchat_icon_color }}"></icon>
           </a>
         {% endif %}
@@ -76,549 +101,580 @@
 {% endif %}
 
 {% schema %}
-  {
-    "name": "Information Sidebar",
-    "max_blocks": 3,
-    "blocks": [
-      {
-        "type": "contact_info_block",
-        "name": "Contact Info Block",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "info_img",
-            "label": "Icon Image",
-            "info": "If no image is uploaded, the icon selected below will be used instead."
-          },
-          {
-            "type": "select",
-            "id": "info_icon",
-            "label": "Icon",
-            "options": [
-              {"label": "Info", "value": "info"},
-              {"label": "Customer Service", "value": "person"},
-              {"label": "Hours of Operation", "value": "clock"},
-              {"label": "Phone Number", "value": "phone"},
-              {"label": "Address", "value": "location"}
-            ],
-            "default": "info",
-            "info": "Selected icon will only be used if no image is uploaded above."
-          },
-          {
-            "type": "text",
-            "id": "info_header",
-            "label": "Heading"
-          },
-          {
-            "type": "textarea",
-            "id": "info_copy",
-            "label": "Information / Copy"
-          }
-        ]
-      }
-    ],
-    "settings": [
-      { "type": "header", "content": "Text Color" },
-      {
-        "type": "select",
-        "id": "text_color",
-        "label": "Color",
-        "options": <%- uikit.colorOptions -%>,
-        "default": "color-black"
-      },
-      { "type": "header", "content": "Background Color" },
-      {
-        "type": "select",
-        "id": "bg_color",
-        "label": "Color",
-        "options": <%- uikit.backgroundOptions -%>,
-        "default": "bg-grey"
-      },
-      {
-        "type": "select",
-        "id": "icon_color",
-        "label": "Icon color",
-        "options": [
-          {
-            "value": "fill-brand-primary",
-            "label": "Primary"
-          },
-          {
-            "value": "fill-brand-secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "fill-accent-1",
-            "label": "Accent 1"
-          },
-          {
-            "value": "fill-accent-2",
-            "label": "Accent 2"
-          },
-          {
-            "value": "fill-accent-3",
-            "label": "Accent 3"
-          },
-          {
-            "value": "fill-white",
-            "label": "White"
-          },
-          {
-            "value": "fill-grey",
-            "label": "Grey"
-          },
-          {
-            "value": "fill-off-black",
-            "label": "Off-Black"
-          },
-          {
-            "value": "fill-black",
-            "label": "Black"
-          }
-        ],
-        "default": "fill-brand-primary"
-      },
-      { "type": "header", "content": "Phone" },
-      {
-        "type": "text",
-        "id": "phone",
-        "label": "Phone Number",
-        "info": "Leave blank to omit"
-      },
-      { "type": "header", "content": "Address" },
-      {
-        "type": "checkbox",
-        "id": "enable_address",
-        "label": "Enable Address"
-      },
-      {
-        "type": "text",
-        "id": "street",
-        "label": "Line 1 (Street)"
-      },
-      {
-        "type": "text",
-        "id": "city",
-        "label": "Line 2 (City, State, Zip)"
-      },
-      {
-        "type": "text",
-        "id": "country",
-        "label": "Line 3 (Country)",
-        "default": "USA"
-      },
-      {
-        "type": "header",
-        "content": "Social Media",
-        "info": "To configure the social links, click the back arrow above and use the 'Social Media' section under the 'Theme Settings' tab."
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_social",
-        "label": "Enable/Disable All Social Media Links",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_twitter",
-        "label": "Enable Twitter Link",
-        "default": true
-      },
-      {
-        "type": "select",
-        "id": "twitter_icon_color",
-        "label": "Twitter Icon color",
-        "options": [
-          {
-            "value": "fill-brand-primary",
-            "label": "Primary"
-          },
-          {
-            "value": "fill-brand-secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "fill-accent-1",
-            "label": "Accent 1"
-          },
-          {
-            "value": "fill-accent-2",
-            "label": "Accent 2"
-          },
-          {
-            "value": "fill-accent-3",
-            "label": "Accent 3"
-          },
-          {
-            "value": "fill-white",
-            "label": "White"
-          },
-          {
-            "value": "fill-grey",
-            "label": "Grey"
-          },
-          {
-            "value": "fill-off-black",
-            "label": "Off-Black"
-          },
-          {
-            "value": "fill-black",
-            "label": "Black"
-          }
-        ],
-        "default": "fill-brand-primary"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_instagram",
-        "label": "Enable Instagram Link",
-        "default": true
-      },
-      {
-        "type": "select",
-        "id": "instagram_icon_color",
-        "label": "Instagram Icon color",
-        "options": [
-          {
-            "value": "fill-brand-primary",
-            "label": "Primary"
-          },
-          {
-            "value": "fill-brand-secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "fill-accent-1",
-            "label": "Accent 1"
-          },
-          {
-            "value": "fill-accent-2",
-            "label": "Accent 2"
-          },
-          {
-            "value": "fill-accent-3",
-            "label": "Accent 3"
-          },
-          {
-            "value": "fill-white",
-            "label": "White"
-          },
-          {
-            "value": "fill-grey",
-            "label": "Grey"
-          },
-          {
-            "value": "fill-off-black",
-            "label": "Off-Black"
-          },
-          {
-            "value": "fill-black",
-            "label": "Black"
-          }
-        ],
-        "default": "fill-brand-primary"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_facebook",
-        "label": "Enable Facebook Link",
-        "default": true
-      },
-      {
-        "type": "select",
-        "id": "facebook_icon_color",
-        "label": "Facebook Icon color",
-        "options": [
-          {
-            "value": "fill-brand-primary",
-            "label": "Primary"
-          },
-          {
-            "value": "fill-brand-secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "fill-accent-1",
-            "label": "Accent 1"
-          },
-          {
-            "value": "fill-accent-2",
-            "label": "Accent 2"
-          },
-          {
-            "value": "fill-accent-3",
-            "label": "Accent 3"
-          },
-          {
-            "value": "fill-white",
-            "label": "White"
-          },
-          {
-            "value": "fill-grey",
-            "label": "Grey"
-          },
-          {
-            "value": "fill-off-black",
-            "label": "Off-Black"
-          },
-          {
-            "value": "fill-black",
-            "label": "Black"
-          }
-        ],
-        "default": "fill-brand-primary"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_pinterest",
-        "label": "Enable Pinterest Link",
-        "default": true
-      },
-      {
-        "type": "select",
-        "id": "pinterest_icon_color",
-        "label": "Pinterest Icon color",
-        "options": [
-          {
-            "value": "fill-brand-primary",
-            "label": "Primary"
-          },
-          {
-            "value": "fill-brand-secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "fill-accent-1",
-            "label": "Accent 1"
-          },
-          {
-            "value": "fill-accent-2",
-            "label": "Accent 2"
-          },
-          {
-            "value": "fill-accent-3",
-            "label": "Accent 3"
-          },
-          {
-            "value": "fill-white",
-            "label": "White"
-          },
-          {
-            "value": "fill-grey",
-            "label": "Grey"
-          },
-          {
-            "value": "fill-off-black",
-            "label": "Off-Black"
-          },
-          {
-            "value": "fill-black",
-            "label": "Black"
-          }
-        ],
-        "default": "fill-brand-primary"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_snapchat",
-        "label": "Enable Snapchat Link",
-        "default": true
-      },
-      {
-        "type": "select",
-        "id": "snapchat_icon_color",
-        "label": "Snapchat Icon color",
-        "options": [
-          {
-            "value": "fill-brand-primary",
-            "label": "Primary"
-          },
-          {
-            "value": "fill-brand-secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "fill-accent-1",
-            "label": "Accent 1"
-          },
-          {
-            "value": "fill-accent-2",
-            "label": "Accent 2"
-          },
-          {
-            "value": "fill-accent-3",
-            "label": "Accent 3"
-          },
-          {
-            "value": "fill-white",
-            "label": "White"
-          },
-          {
-            "value": "fill-grey",
-            "label": "Grey"
-          },
-          {
-            "value": "fill-off-black",
-            "label": "Off-Black"
-          },
-          {
-            "value": "fill-black",
-            "label": "Black"
-          }
-        ],
-        "default": "fill-brand-primary"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_tumblr",
-        "label": "Enable Tumblr Link",
-        "default": true
-      },
-      {
-        "type": "select",
-        "id": "tumblr_icon_color",
-        "label": "Tumblr Icon color",
-        "options": [
-          {
-            "value": "fill-brand-primary",
-            "label": "Primary"
-          },
-          {
-            "value": "fill-brand-secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "fill-accent-1",
-            "label": "Accent 1"
-          },
-          {
-            "value": "fill-accent-2",
-            "label": "Accent 2"
-          },
-          {
-            "value": "fill-accent-3",
-            "label": "Accent 3"
-          },
-          {
-            "value": "fill-white",
-            "label": "White"
-          },
-          {
-            "value": "fill-grey",
-            "label": "Grey"
-          },
-          {
-            "value": "fill-off-black",
-            "label": "Off-Black"
-          },
-          {
-            "value": "fill-black",
-            "label": "Black"
-          }
-        ],
-        "default": "fill-brand-primary"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_youtube",
-        "label": "Enable YouTube Link",
-        "default": true
-      },
-      {
-        "type": "select",
-        "id": "youtube_icon_color",
-        "label": "YouTube Icon color",
-        "options": [
-          {
-            "value": "fill-brand-primary",
-            "label": "Primary"
-          },
-          {
-            "value": "fill-brand-secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "fill-accent-1",
-            "label": "Accent 1"
-          },
-          {
-            "value": "fill-accent-2",
-            "label": "Accent 2"
-          },
-          {
-            "value": "fill-accent-3",
-            "label": "Accent 3"
-          },
-          {
-            "value": "fill-white",
-            "label": "White"
-          },
-          {
-            "value": "fill-grey",
-            "label": "Grey"
-          },
-          {
-            "value": "fill-off-black",
-            "label": "Off-Black"
-          },
-          {
-            "value": "fill-black",
-            "label": "Black"
-          }
-        ],
-        "default": "fill-brand-primary"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_vimeo",
-        "label": "Enable Vimeo Link",
-        "default": true
-      },
-      {
-        "type": "select",
-        "id": "vimeo_icon_color",
-        "label": "Vimeo Icon color",
-        "options": [
-          {
-            "value": "fill-brand-primary",
-            "label": "Primary"
-          },
-          {
-            "value": "fill-brand-secondary",
-            "label": "Secondary"
-          },
-          {
-            "value": "fill-accent-1",
-            "label": "Accent 1"
-          },
-          {
-            "value": "fill-accent-2",
-            "label": "Accent 2"
-          },
-          {
-            "value": "fill-accent-3",
-            "label": "Accent 3"
-          },
-          {
-            "value": "fill-white",
-            "label": "White"
-          },
-          {
-            "value": "fill-grey",
-            "label": "Grey"
-          },
-          {
-            "value": "fill-off-black",
-            "label": "Off-Black"
-          },
-          {
-            "value": "fill-black",
-            "label": "Black"
-          }
-        ],
-        "default": "fill-brand-primary"
-      }
-    ]
-  }
+{
+  "name": "Information Sidebar",
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "contact_info_block",
+      "name": "Contact Info Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "info_img",
+          "label": "Icon Image",
+          "info": "If no image is uploaded, the icon selected below will be used instead."
+        },
+        {
+          "type": "select",
+          "id": "info_icon",
+          "label": "Icon",
+          "options": [
+            { "label": "Info", "value": "info" },
+            { "label": "Customer Service", "value": "person" },
+            { "label": "Hours of Operation", "value": "clock" },
+            { "label": "Phone Number", "value": "phone" },
+            { "label": "Address", "value": "location" }
+          ],
+          "default": "info",
+          "info": "Selected icon will only be used if no image is uploaded above."
+        },
+        {
+          "type": "text",
+          "id": "info_header",
+          "label": "Heading"
+        },
+        {
+          "type": "textarea",
+          "id": "info_copy",
+          "label": "Information / Copy"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    { "type": "header", "content": "Text Color" },
+    {
+      "type": "select",
+      "id": "text_color",
+      "label": "Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
+      "default": "color-black"
+    },
+    { "type": "header", "content": "Background Color" },
+    {
+      "type": "select",
+      "id": "bg_color",
+      "label": "Color",
+      "options": [
+        { "label": "None", "value": "" },
+        { "label": "Primary", "value": "bg-brand-primary" },
+        { "label": "Secondary", "value": "bg-brand-secondary" },
+        { "label": "Accent 1", "value": "bg-accent-1" },
+        { "label": "Accent 2", "value": "bg-accent-2" },
+        { "label": "Accent 3", "value": "bg-accent-3" },
+        { "label": "Accent 4", "value": "bg-accent-4" },
+        { "label": "Accent 5", "value": "bg-accent-5" },
+        { "label": "White", "value": "bg-white" },
+        { "label": "Light Grey", "value": "bg-light-grey" },
+        { "label": "Grey", "value": "bg-grey" },
+        { "label": "Off Black", "value": "bg-off-black" },
+        { "label": "Black", "value": "bg-black" }
+      ],
+      "default": "bg-grey"
+    },
+    {
+      "type": "select",
+      "id": "icon_color",
+      "label": "Icon color",
+      "options": [
+        {
+          "value": "fill-brand-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "fill-brand-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "fill-accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "fill-accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "fill-accent-3",
+          "label": "Accent 3"
+        },
+        {
+          "value": "fill-white",
+          "label": "White"
+        },
+        {
+          "value": "fill-grey",
+          "label": "Grey"
+        },
+        {
+          "value": "fill-off-black",
+          "label": "Off-Black"
+        },
+        {
+          "value": "fill-black",
+          "label": "Black"
+        }
+      ],
+      "default": "fill-brand-primary"
+    },
+    { "type": "header", "content": "Phone" },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number",
+      "info": "Leave blank to omit"
+    },
+    { "type": "header", "content": "Address" },
+    {
+      "type": "checkbox",
+      "id": "enable_address",
+      "label": "Enable Address"
+    },
+    {
+      "type": "text",
+      "id": "street",
+      "label": "Line 1 (Street)"
+    },
+    {
+      "type": "text",
+      "id": "city",
+      "label": "Line 2 (City, State, Zip)"
+    },
+    {
+      "type": "text",
+      "id": "country",
+      "label": "Line 3 (Country)",
+      "default": "USA"
+    },
+    {
+      "type": "header",
+      "content": "Social Media",
+      "info": "To configure the social links, click the back arrow above and use the 'Social Media' section under the 'Theme Settings' tab."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_social",
+      "label": "Enable/Disable All Social Media Links",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_twitter",
+      "label": "Enable Twitter Link",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "twitter_icon_color",
+      "label": "Twitter Icon color",
+      "options": [
+        {
+          "value": "fill-brand-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "fill-brand-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "fill-accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "fill-accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "fill-accent-3",
+          "label": "Accent 3"
+        },
+        {
+          "value": "fill-white",
+          "label": "White"
+        },
+        {
+          "value": "fill-grey",
+          "label": "Grey"
+        },
+        {
+          "value": "fill-off-black",
+          "label": "Off-Black"
+        },
+        {
+          "value": "fill-black",
+          "label": "Black"
+        }
+      ],
+      "default": "fill-brand-primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_instagram",
+      "label": "Enable Instagram Link",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "instagram_icon_color",
+      "label": "Instagram Icon color",
+      "options": [
+        {
+          "value": "fill-brand-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "fill-brand-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "fill-accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "fill-accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "fill-accent-3",
+          "label": "Accent 3"
+        },
+        {
+          "value": "fill-white",
+          "label": "White"
+        },
+        {
+          "value": "fill-grey",
+          "label": "Grey"
+        },
+        {
+          "value": "fill-off-black",
+          "label": "Off-Black"
+        },
+        {
+          "value": "fill-black",
+          "label": "Black"
+        }
+      ],
+      "default": "fill-brand-primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_facebook",
+      "label": "Enable Facebook Link",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "facebook_icon_color",
+      "label": "Facebook Icon color",
+      "options": [
+        {
+          "value": "fill-brand-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "fill-brand-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "fill-accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "fill-accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "fill-accent-3",
+          "label": "Accent 3"
+        },
+        {
+          "value": "fill-white",
+          "label": "White"
+        },
+        {
+          "value": "fill-grey",
+          "label": "Grey"
+        },
+        {
+          "value": "fill-off-black",
+          "label": "Off-Black"
+        },
+        {
+          "value": "fill-black",
+          "label": "Black"
+        }
+      ],
+      "default": "fill-brand-primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_pinterest",
+      "label": "Enable Pinterest Link",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "pinterest_icon_color",
+      "label": "Pinterest Icon color",
+      "options": [
+        {
+          "value": "fill-brand-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "fill-brand-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "fill-accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "fill-accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "fill-accent-3",
+          "label": "Accent 3"
+        },
+        {
+          "value": "fill-white",
+          "label": "White"
+        },
+        {
+          "value": "fill-grey",
+          "label": "Grey"
+        },
+        {
+          "value": "fill-off-black",
+          "label": "Off-Black"
+        },
+        {
+          "value": "fill-black",
+          "label": "Black"
+        }
+      ],
+      "default": "fill-brand-primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_snapchat",
+      "label": "Enable Snapchat Link",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "snapchat_icon_color",
+      "label": "Snapchat Icon color",
+      "options": [
+        {
+          "value": "fill-brand-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "fill-brand-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "fill-accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "fill-accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "fill-accent-3",
+          "label": "Accent 3"
+        },
+        {
+          "value": "fill-white",
+          "label": "White"
+        },
+        {
+          "value": "fill-grey",
+          "label": "Grey"
+        },
+        {
+          "value": "fill-off-black",
+          "label": "Off-Black"
+        },
+        {
+          "value": "fill-black",
+          "label": "Black"
+        }
+      ],
+      "default": "fill-brand-primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_tumblr",
+      "label": "Enable Tumblr Link",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "tumblr_icon_color",
+      "label": "Tumblr Icon color",
+      "options": [
+        {
+          "value": "fill-brand-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "fill-brand-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "fill-accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "fill-accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "fill-accent-3",
+          "label": "Accent 3"
+        },
+        {
+          "value": "fill-white",
+          "label": "White"
+        },
+        {
+          "value": "fill-grey",
+          "label": "Grey"
+        },
+        {
+          "value": "fill-off-black",
+          "label": "Off-Black"
+        },
+        {
+          "value": "fill-black",
+          "label": "Black"
+        }
+      ],
+      "default": "fill-brand-primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_youtube",
+      "label": "Enable YouTube Link",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "youtube_icon_color",
+      "label": "YouTube Icon color",
+      "options": [
+        {
+          "value": "fill-brand-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "fill-brand-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "fill-accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "fill-accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "fill-accent-3",
+          "label": "Accent 3"
+        },
+        {
+          "value": "fill-white",
+          "label": "White"
+        },
+        {
+          "value": "fill-grey",
+          "label": "Grey"
+        },
+        {
+          "value": "fill-off-black",
+          "label": "Off-Black"
+        },
+        {
+          "value": "fill-black",
+          "label": "Black"
+        }
+      ],
+      "default": "fill-brand-primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_vimeo",
+      "label": "Enable Vimeo Link",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "vimeo_icon_color",
+      "label": "Vimeo Icon color",
+      "options": [
+        {
+          "value": "fill-brand-primary",
+          "label": "Primary"
+        },
+        {
+          "value": "fill-brand-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "fill-accent-1",
+          "label": "Accent 1"
+        },
+        {
+          "value": "fill-accent-2",
+          "label": "Accent 2"
+        },
+        {
+          "value": "fill-accent-3",
+          "label": "Accent 3"
+        },
+        {
+          "value": "fill-white",
+          "label": "White"
+        },
+        {
+          "value": "fill-grey",
+          "label": "Grey"
+        },
+        {
+          "value": "fill-off-black",
+          "label": "Off-Black"
+        },
+        {
+          "value": "fill-black",
+          "label": "Black"
+        }
+      ],
+      "default": "fill-brand-primary"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Information Sidebar"
+    }
+  ]
+}
 {% endschema %}
-

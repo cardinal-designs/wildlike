@@ -25,7 +25,7 @@
       :slides-to-show="featuredProductSlidesToShow"
       :center-mode="($mq === 'mobile')">
       {%- for product in collection.products -%}
-        <slide>{%- include 'product-tile', product: product -%}</slide>
+        <slide>{%- render 'product-tile', product: product -%}</slide>
       {%- endfor -%}
     </carousel>
   </div>

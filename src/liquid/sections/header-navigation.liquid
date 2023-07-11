@@ -16,14 +16,14 @@
                 {%- assign child_list = linklists[list_handle] -%}
                 {% if link.title contains '|' %}
                   {% assign featured_image_title = link.title | split: '|' %}
-                  {% assign featured_image = feature_image_title | last %}
-                  {% assign featured_title = feature_image_title | first %}
+                  {% assign featured_image = featured_image_title | last %}
+                  {% assign featured_title = featured_image_title | first %}
                     {
                     "title": "{{ featured_image_title | first }}", "url": "{{ link.url }}", "handle": "{{ list_handle }}",
                     "image": "{{ featured_image_title | last }}"
                     {%- if child_list != blank -%}
                       ,
-                      "children": {%- include 'json--linklist', linklist: child_list.links -%}
+                      "children": {%- render 'json--linklist', linklist: child_list.links -%}
                     {%- endif -%}
                   }{%- unless forloop.last -%},{%- endunless -%}
                 {% else %}
@@ -31,7 +31,7 @@
                   "title": "{{ link.title }}", "url": "{{ link.url }}", "handle": "{{ list_handle }}"
                   {%- if child_list != blank -%}
                     ,
-                    "children": {%- include 'json--linklist', linklist: child_list.links -%}
+                    "children": {%- render 'json--linklist', linklist: child_list.links -%}
                   {%- endif -%}
                 }{%- unless forloop.last -%},{%- endunless -%}
                 {% endif %}
@@ -59,14 +59,14 @@
 
                   {% if link.title contains '|' %}
                     {% assign featured_image_title = link.title | split: '|' %}
-                    {% assign featured_image = feature_image_title | last %}
-                    {% assign featured_title = feature_image_title | first %}
+                    {% assign featured_image = featured_image_title | last %}
+                    {% assign featured_title = featured_image_title | first %}
                       {
                       "title": "{{ featured_image_title | first }}", "url": "{{ link.url }}", "handle": "{{ list_handle }}",
                       "image": "{{ featured_image_title | last }}"
                       {%- if child_list != blank -%}
                         ,
-                        "children": {%- include 'json--linklist', linklist: child_list.links -%}
+                        "children": {%- render 'json--linklist', linklist: child_list.links -%}
                       {%- endif -%}
                     }{%- unless forloop.last -%},{%- endunless -%}
                   {% else %}
@@ -74,7 +74,7 @@
                     "title": "{{ link.title | remove:'::Featured' }}", "url": "{{ link.url }}", "handle": "{{ list_handle }}"
                     {%- if child_list != blank -%}
                       ,
-                      "children": {%- include 'json--linklist', linklist: child_list.links -%}
+                      "children": {%- render 'json--linklist', linklist: child_list.links -%}
                     {%- endif -%}
                   }{%- unless forloop.last -%},{%- endunless -%}
                   {% endif %}
@@ -93,7 +93,7 @@
 {%- endcapture -%}
 
 {%- capture helper_data -%}
-  {%- include 'json--helper-links' -%}
+  {%- render 'json--helper-links' -%}
 {%- endcapture -%}
 
 {% capture cart_bubble_colors %}
@@ -105,7 +105,7 @@
 
 {% assign greet = settings.welcome_text | json %}
 {% assign background = settings.welcome_bg | json %}
-<!-- {% assign greet_img = settings.welcome_img | img_url: 'master', crop: 'center'| json %} -->
+{% # assign greet_img = settings.welcome_img | img_url: 'master', crop: 'center'| json %}
 {% assign greet_img_alt = settings.welcome_img.alt | json %}
 {% assign text_color = settings.welcome_text_color | json %}
 
@@ -129,192 +129,191 @@
   :cart-bubble-colors="{{ cart_bubble_colors | escape | strip }}"
   :customer="{% if name %}{{name | escape}}{% else %}null{% endif %}"
   :enable-predictive-search="{{ settings.enable_predictive_search | json }}"
-  >
+>
 </navbar>
 
-
 {% schema %}
-  {
-    "name": "Logo + Header",
-    "max_blocks": 8,
-    "settings":[
-      { "type": "header", "content": "Logo Image Upload" },
-      {
-        "type": "image_picker",
-        "id": "logo_image",
-        "label": "Logo image",
-        "info": "Upload an image. (Recommended size: 211px x 399px)"
-      },
-      { "type": "header", "content": "Or add an SVG image" },
-      {
-        "type": "text",
-        "id": "logo_svg",
-        "label": "Logo image SVG",
-        "info": "Paste a url for SVG image. (Recommended size: 211px x 399px)"
-      },
-      {
-        "type": "text",
-        "id": "search_bar_placeholder",
-        "label": "Search Bar Placeholder Text",
-        "default": "Search jewelry, designers and more",
-        "info": "Default is 'Search jewelry, designers and more'"
-      }
-    ],
-    "blocks": [
-      {
+{
+  "name": "Logo + Header",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "header", "content": "Logo Image Upload" },
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo image",
+      "info": "Upload an image. (Recommended size: 211px x 399px)"
+    },
+    { "type": "header", "content": "Or add an SVG image" },
+    {
+      "type": "text",
+      "id": "logo_svg",
+      "label": "Logo image SVG",
+      "info": "Paste a url for SVG image. (Recommended size: 211px x 399px)"
+    },
+    {
+      "type": "text",
+      "id": "search_bar_placeholder",
+      "label": "Search Bar Placeholder Text",
+      "default": "Search jewelry, designers and more",
+      "info": "Default is 'Search jewelry, designers and more'"
+    }
+  ],
+  "blocks": [
+    {
       "type": "text_small_image_blocks",
       "name": "Links + 3 small Images",
-        "settings": [
-          {
-            "type": "header",
-            "content": "Main Header Link"
-          },
-          {
-              "type":"text",
-              "id":"title",
-              "label":"Link Name"
-          },
-          {
-              "type":"url",
-              "id":"menu_item_url",
-              "label":"Link URL"
-          },
-          {
-            "type": "header",
-            "content": "Link List from Navigation"
-          },
-          {
-            "type": "link_list",
-            "id": "menu_link_list",
-            "label": "Link List"
-          },
-          {
-            "type": "checkbox",
-            "id": "disable_mega_menu",
-            "label": "Show Mega Menu",
-            "default": true
-          },
-          {
-            "type": "checkbox",
-            "id": "expand_mobile",
-            "label": "Expand Menu on Mobile",
-            "default": false
-          },
-          {
-            "type": "header",
-            "content": "3 Small Image Blocks"
-          },
-          {
-            "type": "image_picker",
-            "id": "menu_image_1",
-            "label": "Image 1",
-            "info": "Recommended: 392px × 522px"
-          },
-          {
-            "type":"url",
-            "id":"menu_image_1_url",
-            "label":"Image 1 URL"
-          },
-          {
-            "type":"text",
-            "id":"menu_image_1_text",
-            "label":"Image 1 Description"
-          },
-          {
-            "type": "image_picker",
-            "id": "menu_image_2",
-            "label": "Image 2",
-            "info": "Recommended: 392px × 522px"
-          },
-          {
-            "type":"url",
-            "id":"menu_image_2_url",
-            "label":"Image 2 URL"
-          },
-          {
-            "type":"text",
-            "id":"menu_image_2_text",
-            "label":"Image 2 Description"
-          },
-          {
-            "type": "image_picker",
-            "id": "menu_image_3",
-            "label": "Image 3",
-            "info": "Recommended: 392px × 522px"
-          },
-          {
-            "type":"url",
-            "id":"menu_image_3_url",
-            "label":"Image 3 URL"
-          },
-          {
-            "type":"text",
-            "id":"menu_image_3_text",
-            "label":"Image 3 Description"
-          }
-        ]
-      },
-      {
+      "settings": [
+        {
+          "type": "header",
+          "content": "Main Header Link"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link Name"
+        },
+        {
+          "type": "url",
+          "id": "menu_item_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "header",
+          "content": "Link List from Navigation"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_link_list",
+          "label": "Link List"
+        },
+        {
+          "type": "checkbox",
+          "id": "disable_mega_menu",
+          "label": "Show Mega Menu",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "expand_mobile",
+          "label": "Expand Menu on Mobile",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "3 Small Image Blocks"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_image_1",
+          "label": "Image 1",
+          "info": "Recommended: 392px × 522px"
+        },
+        {
+          "type": "url",
+          "id": "menu_image_1_url",
+          "label": "Image 1 URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_image_1_text",
+          "label": "Image 1 Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_image_2",
+          "label": "Image 2",
+          "info": "Recommended: 392px × 522px"
+        },
+        {
+          "type": "url",
+          "id": "menu_image_2_url",
+          "label": "Image 2 URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_image_2_text",
+          "label": "Image 2 Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_image_3",
+          "label": "Image 3",
+          "info": "Recommended: 392px × 522px"
+        },
+        {
+          "type": "url",
+          "id": "menu_image_3_url",
+          "label": "Image 3 URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_image_3_text",
+          "label": "Image 3 Description"
+        }
+      ]
+    },
+    {
       "type": "text_large_image",
       "name": "Links + 1 Large Image",
-        "settings": [
-          {
-            "type": "header",
-            "content": "Main Header Link"
-          },
-          {
-              "type":"text",
-              "id":"title",
-              "label":"Link Name"
-          },
-          {
-              "type":"url",
-              "id":"menu_item_url",
-              "label":"Link URL"
-          },
-          {
-            "type": "header",
-            "content": "Link List from Navigation"
-          },
-          {
-            "type": "link_list",
-            "id": "menu_link_list",
-            "label": "Link List"
-          },
-          {
-            "type": "checkbox",
-            "id": "disable_mega_menu",
-            "label": "Show Mega Menu",
-            "default": true
-          },
-          {
-            "type": "checkbox",
-            "id": "expand_mobile",
-            "label": "Expand Menu on Mobile",
-            "default": false
-          },
-          {
-            "type": "header",
-            "content": "Large Image Block"
-          },
-          {
-            "type": "image_picker",
-            "id": "large_image",
-            "label": "Image",
-            "info": "Recommended: 858px × 522px"
-          },
-          {
-            "type":"url",
-            "id":"large_image_link",
-            "label":"Link"
-          },
-          {
-            "type":"text",
-            "id":"large_image_link_text",
-            "label":"Link Text"
-          }
-        ]
-      }
-    ]
-  }
+      "settings": [
+        {
+          "type": "header",
+          "content": "Main Header Link"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link Name"
+        },
+        {
+          "type": "url",
+          "id": "menu_item_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "header",
+          "content": "Link List from Navigation"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_link_list",
+          "label": "Link List"
+        },
+        {
+          "type": "checkbox",
+          "id": "disable_mega_menu",
+          "label": "Show Mega Menu",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "expand_mobile",
+          "label": "Expand Menu on Mobile",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Large Image Block"
+        },
+        {
+          "type": "image_picker",
+          "id": "large_image",
+          "label": "Image",
+          "info": "Recommended: 858px × 522px"
+        },
+        {
+          "type": "url",
+          "id": "large_image_link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "large_image_link_text",
+          "label": "Link Text"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

@@ -1,0 +1,112 @@
+{
+  "sections": {
+    "8743b147-3811-4daa-b51d-bce799d6081c": {
+      "type": "hero-banner-booking",
+      "disabled": true,
+      "settings": {
+        "service_product": "",
+        "max_width": "none",
+        "top_margin": 0,
+        "bottom_margin": 0,
+        "layout": "short",
+        "enable_text_box": true,
+        "text_box_bg_color": "",
+        "text_box_bg_image": "shopify:\/\/shop_images\/Wildlike-Website-Press-Page-Image-1654x574_d283c096-2996-42e4-bdad-9fa97fba813f.jpg",
+        "mobile_layout": "overlay",
+        "mobile_text_alignment": "left",
+        "horizontal_layout": "left",
+        "vertical_layout": "top",
+        "enable_mobile_image": false,
+        "video_url": "",
+        "enable_overlay": true,
+        "overlay_color": "bg-brand-primary",
+        "content_background_color": "#ffffff",
+        "overlay_opacity": 50,
+        "pre_heading": "",
+        "heading": "",
+        "sub_heading": "",
+        "body_copy": "",
+        "pre_heading_color": "color-black",
+        "heading_color": "color-black",
+        "sub_heading_color": "color-black",
+        "body_copy_color": "color-black",
+        "mobile_bg_color": "bg-brand-primary",
+        "pre_heading_color_mobile": "color-black",
+        "heading_color_mobile": "color-black",
+        "sub_heading_color_mobile": "color-black",
+        "body_copy_color_mobile": "color-black",
+        "enable_cta": false,
+        "cta_color": "#231a22",
+        "cta_bordercolor": "#231a22",
+        "cta_textcolor": "#ffffff",
+        "cta_text": "",
+        "cta_url": ""
+      }
+    },
+    "page-hero": {
+      "type": "page-hero",
+      "settings": {
+      }
+    },
+    "page-content": {
+      "type": "page-content",
+      "settings": {
+      }
+    },
+    "8daf4fd2-1fcd-4200-a9e4-45c9097302db": {
+      "type": "fifty-fifty",
+      "settings": {
+        "max_width": "none",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "ff_layout": "",
+        "ff_image_desktop": "shopify:\/\/shop_images\/8WildLike.21_2f51d3d0-47da-48ce-a479-a894e11f0f67.jpg",
+        "ff_image_width": "sw--50",
+        "ff_preheader": "",
+        "ff_header": "",
+        "ff_subheader": "",
+        "ff_body": "<p><strong>OUR DALLAS STORE<\/strong><\/p><p><strong>-<\/strong><\/p><p>4218 Oak Lawn Ave<br\/>Dallas, TX 75219<br\/><a href=\"tel:1-214-612-7690\">1.214.612.7690<\/a><br\/><a href=\"https:\/\/www.google.com\/maps\/place\/Wildlike\/@32.8138554,-96.8841718,12z\/data=!4m9!1m2!2m1!1swildlike+dallas!3m5!1s0x0:0x3de77ee3c9da03b9!8m2!3d32.8202459!4d-96.8020967!15sCg93aWxkbGlrZSBkYWxsYXOSARJib2R5X3BpZXJjaW5nX3Nob3A\" target=\"_blank\" title=\"Directions to Wildlike\">Get directions<\/a><\/p><p>-<\/p><p><strong>STORE HOURS<\/strong><br\/>Mon - Fri: 10 am - 7 pm<br\/>Sat: 10 am - 6 pm<br\/>Sun: Noon - 5 pm<\/p><p>-<\/p><p><strong>Customer Service<\/strong><\/p><p>1.214.612.7690<\/p><p><a href=\"https:\/\/www.wildlike.com\/pages\/contact-us\"><strong>Email Us<\/strong><\/a><\/p>",
+        "ff_text_alignment": "text-center",
+        "ff_background_color": "",
+        "ff_preheader_color": "color-black",
+        "ff_header_color": "color-black",
+        "ff_subheader_color": "color-black",
+        "ff_body_color": "color-black",
+        "ff_cta_text": "",
+        "ff_cta_url": "",
+        "ff_cta_style": "button button--primary"
+      }
+    },
+    "72b63f6d-c904-4229-9e96-183541812743": {
+      "type": "fifty-fifty",
+      "settings": {
+        "max_width": "none",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "ff_layout": "sw--reverse",
+        "ff_image_desktop": "shopify:\/\/shop_images\/Cam1_230530_1.jpg",
+        "ff_image_width": "sw--50",
+        "ff_preheader": "",
+        "ff_header": "",
+        "ff_subheader": "",
+        "ff_body": "<p><strong>NEW YORK CITY (Coming Fall 2023!)<\/strong><\/p><p><strong>-<\/strong><\/p><p>49 Bond Street <\/p><p>New York, NY 10012<\/p><p>-<\/p><p><a href=\"mailto:careers@wildlike.com\" target=\"_blank\" title=\"mailto:careers@wildlike.com\"><strong>Careers<\/strong><\/a><\/p>",
+        "ff_text_alignment": "text-center",
+        "ff_background_color": "",
+        "ff_preheader_color": "color-black",
+        "ff_header_color": "color-black",
+        "ff_subheader_color": "color-black",
+        "ff_body_color": "color-black",
+        "ff_cta_text": "",
+        "ff_cta_url": "",
+        "ff_cta_style": "button button--primary"
+      }
+    }
+  },
+  "order": [
+    "8743b147-3811-4daa-b51d-bce799d6081c",
+    "page-hero",
+    "page-content",
+    "8daf4fd2-1fcd-4200-a9e4-45c9097302db",
+    "72b63f6d-c904-4229-9e96-183541812743"
+  ]
+}

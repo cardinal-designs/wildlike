@@ -16,176 +16,235 @@
 <product-set :schema="{{ schema | escape | strip }}"></product-set>
 
 {% schema %}
-  {
-    "name": "Product Set",
-    "class": "product-set container",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Header Display"
-      },
-      {
-        "type": "select",
-        "id": "layout",
-        "label": "Product Set Layout",
-        "options": [
-          {
-            "label": "Full Width",
-            "value": "full"
-          },
-          {
-            "label": "Half Width",
-            "value": "half"
-          }
-        ],
-        "default": "full"
-      },
-      {
-        "type": "header",
-        "content": "Section Padding",
-        "info": "Customize the padding/spacing on the top and bottom of this section."
-      },
-      {
-        "type": "range",
-        "label": "Top Padding",
-        "id": "topPadding",
-        "step": 4,
-        "min": 0,
-        "max": 100,
-        "default": 56,
-        "unit": "px"
-      },
-      {
-        "type": "range",
-        "label": "Bottom Padding",
-        "id": "bottomPadding",
-        "step": 4,
-        "min": 0,
-        "max": 100,
-        "default": 56,
-        "unit": "px"
-      },
-      {
-        "type": "header",
-        "content": "Section Info"
-      },
-      {
-        "type": "text",
-        "id": "sectionTitle",
-        "label": "Section Title"
-      },
-      {
-        "type": "select",
-        "id": "sectionTitleColor",
-        "label": "Section Title Color",
-        "options": <%- uikit.colorOptions -%>,
-        "default": "color-brand-primary"
-      },
-      {
-        "type": "select",
-        "id": "sectionBgColor",
-        "label": "Section Background Color",
-        "options": <%- uikit.backgroundOptions -%>,
-        "default": "bg-white"
-      },
-      {
-        "type": "header",
-        "content": "Collection"
-      },
-      {
-        "type": "collection",
-        "id": "collection",
-        "label": "Select a Collection"
-      },
-      {
-        "type": "image_picker",
-        "id": "collectionImage",
-        "label": "Collection Image",
-        "info": "Recommended Dimensions: 1200x400"
-      },
-      {
-        "type": "image_picker",
-        "id": "collectionImageMobile",
-        "label": "Mobile Collection Image",
-        "info": "Recommended Dimensions: 768x224"
-      },
-      {
-        "type": "header",
-        "content": "Collection Text"
-      },
-      {
-        "type": "text",
-        "id": "collectionTitle",
-        "label": "Collection Title"
-      },
-      {
-        "type": "text",
-        "id": "collectionDescription",
-        "label": "Collection Description"
-      },
-      {
-        "type": "text",
-        "id": "ctaText",
-        "label": "CTA Text"
-      },
-      {
-        "type": "select",
-        "id": "ctaLayout",
-        "label": "CTA Style",
-        "options": <%- uikit.buttonAndLinkOptions -%>,
-        "default": "button button--primary"
-      },
-      {
-        "type": "select",
-        "id": "textColor",
-        "label": "Text Color",
-        "options": <%- uikit.colorOptions -%>,
-        "default": "color-brand-primary"
-      },
-      {
-        "type": "select",
-        "id": "textBgColorMobile",
-        "label": "Mobile Text Background Color",
-        "options": <%- uikit.backgroundOptions -%>,
-        "default": "bg-accent-3",
-        "info": "Only for full width layout"
-      },
-      {
-        "type": "checkbox",
-        "id": "enableOverlay",
-        "label": "Enable Image Overlay"
-      },
-      {
-        "type": "select",
-        "id": "imageOverlayColor",
-        "label": "Image Overlay Color",
-        "options": [
-          {
-            "label": "Dark",
-            "value": "dark"
-          },
-          {
-            "label": "Light",
-            "value": "light"
-          }
-        ],
-        "default": "light"
-      },
-      {
-        "type": "range",
-        "id": "overlayOpacity",
-        "step": 1,
-        "min": 0,
-        "max": 100,
-        "default": 0,
-        "label": "Overlay Opacity"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Product Set",
-        "category": "Products"
-      }
-    ]
-  }
+{
+  "name": "Product Set",
+  "class": "product-set container",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Display"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Product Set Layout",
+      "options": [
+        {
+          "label": "Full Width",
+          "value": "full"
+        },
+        {
+          "label": "Half Width",
+          "value": "half"
+        }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding",
+      "info": "Customize the padding/spacing on the top and bottom of this section."
+    },
+    {
+      "type": "range",
+      "label": "Top Padding",
+      "id": "topPadding",
+      "step": 4,
+      "min": 0,
+      "max": 100,
+      "default": 56,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "label": "Bottom Padding",
+      "id": "bottomPadding",
+      "step": 4,
+      "min": 0,
+      "max": 100,
+      "default": 56,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Section Info"
+    },
+    {
+      "type": "text",
+      "id": "sectionTitle",
+      "label": "Section Title"
+    },
+    {
+      "type": "select",
+      "id": "sectionTitleColor",
+      "label": "Section Title Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
+      "default": "color-brand-primary"
+    },
+    {
+      "type": "select",
+      "id": "sectionBgColor",
+      "label": "Section Background Color",
+      "options": [
+        { "label": "None", "value": "" },
+        { "label": "Primary", "value": "bg-brand-primary" },
+        { "label": "Secondary", "value": "bg-brand-secondary" },
+        { "label": "Accent 1", "value": "bg-accent-1" },
+        { "label": "Accent 2", "value": "bg-accent-2" },
+        { "label": "Accent 3", "value": "bg-accent-3" },
+        { "label": "Accent 4", "value": "bg-accent-4" },
+        { "label": "Accent 5", "value": "bg-accent-5" },
+        { "label": "White", "value": "bg-white" },
+        { "label": "Light Grey", "value": "bg-light-grey" },
+        { "label": "Grey", "value": "bg-grey" },
+        { "label": "Off Black", "value": "bg-off-black" },
+        { "label": "Black", "value": "bg-black" }
+      ],
+      "default": "bg-white"
+    },
+    {
+      "type": "header",
+      "content": "Collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select a Collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "collectionImage",
+      "label": "Collection Image",
+      "info": "Recommended Dimensions: 1200x400"
+    },
+    {
+      "type": "image_picker",
+      "id": "collectionImageMobile",
+      "label": "Mobile Collection Image",
+      "info": "Recommended Dimensions: 768x224"
+    },
+    {
+      "type": "header",
+      "content": "Collection Text"
+    },
+    {
+      "type": "text",
+      "id": "collectionTitle",
+      "label": "Collection Title"
+    },
+    {
+      "type": "text",
+      "id": "collectionDescription",
+      "label": "Collection Description"
+    },
+    {
+      "type": "text",
+      "id": "ctaText",
+      "label": "CTA Text"
+    },
+    {
+      "type": "select",
+      "id": "ctaLayout",
+      "label": "CTA Style",
+      "options": [
+        { "label": "Primary Button", "value": "button button--primary" },
+        { "label": "Default Button", "value": "button button--secondary" },
+        { "label": "Primary Text Link", "value": "link link--primary" },
+        { "label": "Secondary Text Link", "value": "link link--secondary" }
+      ],
+      "default": "button button--primary"
+    },
+    {
+      "type": "select",
+      "id": "textColor",
+      "label": "Text Color",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
+      "default": "color-brand-primary"
+    },
+    {
+      "type": "select",
+      "id": "textBgColorMobile",
+      "label": "Mobile Text Background Color",
+      "options": [
+        { "label": "None", "value": "" },
+        { "label": "Primary", "value": "bg-brand-primary" },
+        { "label": "Secondary", "value": "bg-brand-secondary" },
+        { "label": "Accent 1", "value": "bg-accent-1" },
+        { "label": "Accent 2", "value": "bg-accent-2" },
+        { "label": "Accent 3", "value": "bg-accent-3" },
+        { "label": "Accent 4", "value": "bg-accent-4" },
+        { "label": "Accent 5", "value": "bg-accent-5" },
+        { "label": "White", "value": "bg-white" },
+        { "label": "Light Grey", "value": "bg-light-grey" },
+        { "label": "Grey", "value": "bg-grey" },
+        { "label": "Off Black", "value": "bg-off-black" },
+        { "label": "Black", "value": "bg-black" }
+      ],
+      "default": "bg-accent-3",
+      "info": "Only for full width layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "enableOverlay",
+      "label": "Enable Image Overlay"
+    },
+    {
+      "type": "select",
+      "id": "imageOverlayColor",
+      "label": "Image Overlay Color",
+      "options": [
+        {
+          "label": "Dark",
+          "value": "dark"
+        },
+        {
+          "label": "Light",
+          "value": "light"
+        }
+      ],
+      "default": "light"
+    },
+    {
+      "type": "range",
+      "id": "overlayOpacity",
+      "step": 1,
+      "min": 0,
+      "max": 100,
+      "default": 0,
+      "label": "Overlay Opacity"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Set",
+      "category": "Products"
+    }
+  ]
+}
 {% endschema %}

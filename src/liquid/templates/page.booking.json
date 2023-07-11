@@ -1,0 +1,208 @@
+{
+  "wrapper": "div.booking",
+  "sections": {
+    "hero-banner-booking": {
+      "type": "hero-banner-booking",
+      "settings": {
+        "service_product": "aaa-piercing-general",
+        "max_width": "1440px",
+        "top_margin": 0,
+        "bottom_margin": 0,
+        "layout": "short",
+        "enable_text_box": false,
+        "text_box_bg_color": "",
+        "mobile_layout": "below",
+        "mobile_text_alignment": "center",
+        "horizontal_layout": "left",
+        "vertical_layout": "middle",
+        "background_image": "shopify:\/\/shop_images\/WLBookingPage_6.1_V2.jpg",
+        "enable_mobile_image": true,
+        "background_image_mobile": "shopify:\/\/shop_images\/Wildlike-2022-05-27-Booking-Page-Mobile-750x480.jpg",
+        "video_url": "",
+        "enable_overlay": true,
+        "overlay_color": "bg-brand-primary",
+        "content_background_color": "#ffffff",
+        "overlay_opacity": 43,
+        "pre_heading": "Get Pierced",
+        "heading": "Book an Appointment",
+        "sub_heading": "",
+        "body_copy": "Choose a service, time and checkout to confirm the appointment. \n\nOne appointment is for one person to get pierced.  \n\nIf more than one person is getting pierced, please book consecutive appointments.\n\nIf you no show or cancel within 24 hours of your appointment, we will charge you in full.",
+        "pre_heading_color": "color-black",
+        "heading_color": "color-black",
+        "sub_heading_color": "color-black",
+        "body_copy_color": "color-black",
+        "mobile_bg_color": "",
+        "pre_heading_color_mobile": "color-black",
+        "heading_color_mobile": "color-black",
+        "sub_heading_color_mobile": "color-black",
+        "body_copy_color_mobile": "color-black",
+        "enable_cta": true,
+        "cta_color": "#231a22",
+        "cta_bordercolor": "#231a22",
+        "cta_textcolor": "#ffffff",
+        "cta_text": "",
+        "cta_url": ""
+      }
+    },
+    "booking-value-props": {
+      "type": "booking-value-props",
+      "blocks": {
+        "e959f197-f72e-4ee1-8a4f-4a697efce262": {
+          "type": "value_prop",
+          "settings": {
+            "title": "Test Here",
+            "body": "<p>This is the text to add description<\/p>"
+          }
+        },
+        "092db444-c108-4679-940f-6ab877e6acb9": {
+          "type": "value_prop",
+          "settings": {
+            "title": "This the second heading",
+            "body": "<p>This is another text here for me to enter <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "e959f197-f72e-4ee1-8a4f-4a697efce262",
+        "092db444-c108-4679-940f-6ab877e6acb9"
+      ],
+      "settings": {
+        "background_color": "#f7f6f2"
+      }
+    },
+    "booking-image-heading": {
+      "type": "booking-image-heading",
+      "blocks": {
+        "c20dab18-8192-43cd-9c96-aea452844e59": {
+          "type": "testimonial_block",
+          "disabled": true,
+          "settings": {
+            "itp_logo": "shopify:\/\/shop_images\/maria_tash_booking_page.jpg",
+            "itp_url": "shopify:\/\/collections\/maria-tash",
+            "itp_link_target": "_self"
+          }
+        },
+        "49bb3ded-65f4-4e68-b7d0-7bc528f725e9": {
+          "type": "testimonial_block",
+          "disabled": true,
+          "settings": {
+            "itp_logo": "shopify:\/\/shop_images\/pamela_love_booking_page.jpg",
+            "itp_url": "shopify:\/\/collections\/pamela-love",
+            "itp_link_target": "_self"
+          }
+        },
+        "22b7f5a1-06bb-4618-a916-80e261361e4f": {
+          "type": "testimonial_block",
+          "disabled": true,
+          "settings": {
+            "itp_logo": "shopify:\/\/shop_images\/bvla_booking_page.jpg",
+            "itp_url": "shopify:\/\/collections\/bvla",
+            "itp_link_target": "_self"
+          }
+        }
+      },
+      "block_order": [
+        "c20dab18-8192-43cd-9c96-aea452844e59",
+        "49bb3ded-65f4-4e68-b7d0-7bc528f725e9",
+        "22b7f5a1-06bb-4618-a916-80e261361e4f"
+      ],
+      "settings": {
+        "section_header": "",
+        "margin_top": 56,
+        "margin_bottom": 40
+      }
+    },
+    "booking-collection-grid": {
+      "type": "booking-collection-grid",
+      "blocks": {
+        "e9497398-8a70-4f78-9129-869447de064b": {
+          "type": "collection_section",
+          "disabled": true,
+          "settings": {
+            "tile_image": "shopify:\/\/shop_images\/Wildlike.jpg",
+            "tile_cta_link": "shopify:\/\/collections\/wildlike",
+            "tile_cta_text": "CTA Text",
+            "tile_preheader": "",
+            "tile_header": "Shop Wildlike",
+            "tile_description": ""
+          }
+        },
+        "3b46c39f-049c-4754-9784-419cb1994ad6": {
+          "type": "collection_section",
+          "disabled": true,
+          "settings": {
+            "tile_image": "shopify:\/\/shop_images\/Diamonds_1654x574_1670x_98fb6689-5d46-4ab3-8c6a-dfa5db178df9.jpg",
+            "tile_cta_link": "shopify:\/\/collections\/piercing-studs",
+            "tile_cta_text": "",
+            "tile_preheader": "",
+            "tile_header": "Shop Piercing Studs",
+            "tile_description": ""
+          }
+        },
+        "c7e00190-5b58-49c7-b5b3-3258ab27083e": {
+          "type": "collection_section",
+          "disabled": true,
+          "settings": {
+            "tile_image": "shopify:\/\/shop_images\/Hoops_with_Charms_1654x574_1670x_0bcf07d7-86c4-43b8-86c9-98722d81285f.jpg",
+            "tile_cta_link": "shopify:\/\/collections\/hoops",
+            "tile_cta_text": "",
+            "tile_preheader": "",
+            "tile_header": "Shop Piercing Hoops",
+            "tile_description": ""
+          }
+        }
+      },
+      "block_order": [
+        "e9497398-8a70-4f78-9129-869447de064b",
+        "3b46c39f-049c-4754-9784-419cb1994ad6",
+        "c7e00190-5b58-49c7-b5b3-3258ab27083e"
+      ],
+      "settings": {
+        "margin_top": 16,
+        "margin_bottom": 56,
+        "collection_tiles_number_of_tiles": "3",
+        "collection_tiles_show_text_on_hover": false,
+        "collection_tiles_background_color": "#ffffff",
+        "collection_tiles_header_color": "#231a22"
+      }
+    },
+    "shoppable-instagram": {
+      "type": "shoppable-instagram",
+      "settings": {
+        "title": "get shoppy with us"
+      }
+    },
+    "featured-designers": {
+      "type": "featured-designers",
+      "settings": {
+        "margin_top": 16,
+        "margin_bottom": 48,
+        "featured_designer_name": "",
+        "nameColor": "color-brand-primary",
+        "featured_designer_excerpt": "",
+        "excerptColor": "color-brand-primary",
+        "featured_designer_image": "shopify:\/\/shop_images\/IMG_2210_1.jpg",
+        "featured_designer_image_mb": "shopify:\/\/shop_images\/IMG_2210_1.jpg",
+        "enable_cta": false,
+        "cta_text": "Shop All",
+        "cta_color": "#ffffff",
+        "cta_layout": "button button--primary",
+        "cta_icon_color": "fill-black",
+        "arrow_color": "fill-black",
+        "featured_collection": "new-arrivals",
+        "heading": "Shop New Arrivals",
+        "amount": 18,
+        "bg_color": "bg-brand-primary",
+        "heading_color": "color-black"
+      }
+    }
+  },
+  "order": [
+    "hero-banner-booking",
+    "booking-value-props",
+    "booking-image-heading",
+    "booking-collection-grid",
+    "shoppable-instagram",
+    "featured-designers"
+  ]
+}

@@ -1,0 +1,43 @@
+<div style="display: flex; flex-direction: column; padding-left: 20px; padding-right: 20px;">
+
+  <div style="margin-right: 180px;">
+    <p style="margin-bottom: 40px;" class="body-sm">Color Logo Primary:</p>
+    <p class="body-sm">As an img tag:</p>
+    <div style="width: 280px;">
+      {{ 'logo.svg' | asset_url | img_tag }}
+    </div>
+    <p class="body-sm">As an inline SVG included as a snippet</p>
+    <div style="width: 280px;">
+      {%- render 'logo' -%}
+    </div>
+  </div>
+
+  <div style="margin-right: 180px;">
+    <p style="margin-bottom: 40px;" class="body-sm">Black Logo:</p>
+    <p class="body-sm">As an img tag:</p>
+    <div style="width: 280px;">
+      {{ 'logo-black.svg' | asset_url | img_tag }}
+    </div>
+    <p class="body-sm">As an inline SVG included as a snippet</p>
+    <div style="width: 280px;">
+      {%- render 'logo-black' -%}
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <p style="margin-bottom: 40px;" class="body-sm">White Logo:</p>
+      <div style="background-color: #231A23;">
+        <p class="body-sm" style="color: white; padding-left: 10px;">As an img tag:</p>
+        <div style="width: 280px;">
+          {{ 'logo-white.svg' | asset_url | img_tag }}
+        </div>
+        <p class="body-sm" style="color: white; padding-left: 10px;">As an inline SVG included as a snippet</p>
+        <div style="width: 280px;">
+          {%- render 'logo-white', fill_color: '#231A22' -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

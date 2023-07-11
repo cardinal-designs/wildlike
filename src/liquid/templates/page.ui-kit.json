@@ -1,0 +1,13 @@
+{
+  "layout": "ui-kit",
+  "sections": {
+    "ui-kit": {
+      "type": "ui-kit",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "ui-kit"
+  ]
+}

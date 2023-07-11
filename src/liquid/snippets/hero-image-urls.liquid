@@ -1,0 +1,77 @@
+{%- comment -%}This snippet is responsible for normalizing different image src/srcset attribute values, depending on whether a image_filter can be used (shopify asset) or if string manipulation needs to happen (Bonify custom field asset){%- endcomment -%}
+
+{% if should_manually_build_urls %}
+  {% comment %} Mobile Image {% endcomment %}
+  {% assign mobile_image_url = mobile_image %}
+  {% assign split_mobile_image_url = mobile_image | split: '.' %}
+  {% assign image_name_url_fragment_mobile = split_mobile_image_url[-2] %}
+  {% assign image_name_url_fragment_mobile_1x = image_name_url_fragment_mobile | append: '_480x' %}
+  {% assign image_name_url_fragment_mobile_2x = image_name_url_fragment_mobile | append: '_960x' %}
+  {% assign mobile_image_url_1x = mobile_image_url | replace: image_name_url_fragment_mobile, image_name_url_fragment_mobile_1x %}
+  {% assign mobile_image_url_2x = mobile_image_url | replace: image_name_url_fragment_mobile, image_name_url_fragment_mobile_2x %}
+
+  {% comment %} Destop Image {% endcomment %}
+  {% assign desktop_image_url = desktop_image %}
+  {% assign split_desktop_image_url = desktop_image | split: '.' %}
+  {% assign image_name_url_fragment_desktop = split_desktop_image_url[-2] %}
+
+  {% assign image_name_url_fragment_desktop_a_1x = image_name_url_fragment_desktop | append: '_2560x' %}
+  {% assign image_name_url_fragment_desktop_a_2x = image_name_url_fragment_desktop | append: '_5120x' %}
+  {% assign desktop_image_url_a_1x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_a_1x %}
+  {% assign desktop_image_url_a_2x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_a_2x %}
+
+  {% assign image_name_url_fragment_desktop_b_1x = image_name_url_fragment_desktop | append: '_2304x' %}
+  {% assign image_name_url_fragment_desktop_b_2x = image_name_url_fragment_desktop | append: '_4608x' %}
+  {% assign desktop_image_url_b_1x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_b_1x %}
+  {% assign desktop_image_url_b_2x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_b_2x %}
+
+  {% assign image_name_url_fragment_desktop_c_1x = image_name_url_fragment_desktop | append: '_2160x' %}
+  {% assign image_name_url_fragment_desktop_c_2x = image_name_url_fragment_desktop | append: '_4320x' %}
+  {% assign desktop_image_url_c_1x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_c_1x %}
+  {% assign desktop_image_url_c_2x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_c_2x %}
+
+  {% assign image_name_url_fragment_desktop_d_1x = image_name_url_fragment_desktop | append: '_1920x' %}
+  {% assign image_name_url_fragment_desktop_d_2x = image_name_url_fragment_desktop | append: '_3840x' %}
+  {% assign desktop_image_url_d_1x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_d_1x %}
+  {% assign desktop_image_url_d_2x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_d_2x %}
+
+  {% assign image_name_url_fragment_desktop_e_1x = image_name_url_fragment_desktop | append: '_1440x' %}
+  {% assign image_name_url_fragment_desktop_e_2x = image_name_url_fragment_desktop | append: '_2880x' %}
+  {% assign desktop_image_url_e_1x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_e_1x %}
+  {% assign desktop_image_url_e_2x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_e_2x %}
+
+  {% assign image_name_url_fragment_desktop_f_1x = image_name_url_fragment_desktop | append: '_1200x' %}
+  {% assign image_name_url_fragment_desktop_f_2x = image_name_url_fragment_desktop | append: '_2400x' %}
+  {% assign desktop_image_url_f_1x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_f_1x %}
+  {% assign desktop_image_url_f_2x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_f_2x %}
+
+  {% assign image_name_url_fragment_desktop_g_1x = image_name_url_fragment_desktop | append: '_1024x' %}
+  {% assign image_name_url_fragment_desktop_g_2x = image_name_url_fragment_desktop | append: '_2048x' %}
+  {% assign desktop_image_url_g_1x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_g_1x %}
+  {% assign desktop_image_url_g_2x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_g_2x %}
+
+  {% assign image_name_url_fragment_desktop_h_1x = image_name_url_fragment_desktop | append: '_768x' %}
+  {% assign image_name_url_fragment_desktop_h_2x = image_name_url_fragment_desktop | append: '_1536x' %}
+  {% assign desktop_image_url_h_1x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_h_1x %}
+  {% assign desktop_image_url_h_2x = desktop_image_url | replace: image_name_url_fragment_desktop, image_name_url_fragment_desktop_h_2x %}
+{% else %}
+  {% assign mobile_image_url_1x = mobile_image | img_url: '480x' %}
+  {% assign mobile_image_url_2x = mobile_image | img_url: '960x' %}
+  {% assign desktop_image_url_a_1x = desktop_image | img_url: '2880x' %}
+  {% assign desktop_image_url_a_2x = desktop_image | img_url: '5760x' %}
+  {% assign desktop_image_url_b_1x = desktop_image | img_url: '2304x' %}
+  {% assign desktop_image_url_b_2x = desktop_image | img_url: '4608x' %}
+  {% assign desktop_image_url_c_1x = desktop_image | img_url: '2160x' %}
+  {% assign desktop_image_url_c_2x = desktop_image | img_url: '4320x' %}
+  {% assign desktop_image_url_d_1x = desktop_image | img_url: '1920x' %}
+  {% assign desktop_image_url_d_2x = desktop_image | img_url: '3840x' %}
+  {% assign desktop_image_url_e_1x = desktop_image | img_url: '1440x' %}
+  {% assign desktop_image_url_e_2x = desktop_image | img_url: '2880x' %}
+  {% assign desktop_image_url_f_1x = desktop_image | img_url: '1200x' %}
+  {% assign desktop_image_url_f_2x = desktop_image | img_url: '2400x' %}
+  {% assign desktop_image_url_g_1x = desktop_image | img_url: '1024x' %}
+  {% assign desktop_image_url_g_2x = desktop_image | img_url: '2048x' %}
+  {% assign desktop_image_url_h_1x = desktop_image | img_url: '768x'  %}
+  {% assign desktop_image_url_h_2x = desktop_image | img_url: '1536x' %}
+{% endif %}
+

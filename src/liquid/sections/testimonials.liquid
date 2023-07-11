@@ -25,97 +25,124 @@
 <testimonial-carousel :schema="{{ schema | escape | strip }}" />
 
 {% schema %}
-  {
-    "name": "Testimonials",
-    "max_blocks": 3,
-    "settings": [
-      {
-        "type": "header",
-        "content": "Section Margins",
-        "info": "Customize the margin spacing on the top and bottom of this section."
-      },
-      { 
-        "label": "Top Padding",
-        "id": "margin_top",
-        "type": "range",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "default": 56
-      },
-      { 
-        "label": "Bottom Padding",
-        "id": "margin_bottom",
-        "type": "range",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "default": 56
-      },
-      { 
-        "label": "Section Header",
-        "id": "testimonials_section_header",
-        "type": "text",
-        "default": "Section Header"
-      },
-      { 
-        "label": "Section Header Color",
-        "id": "testimonials_header_color",
-        "type": "select",
-        "options": <%- uikit.colorOptions -%>,
-        "default": "color-black"
-      },
-      { 
-        "label": "Text Color",
-        "id": "testimonials_text_color",
-        "type": "select",
-        "options": [
-          {"label": "Light", "value": "color-white"},
-          {"label": "Dark", "value": "color-black"}
-        ],
-        "default": "color-black"
-      },
-      { 
-        "label": "Block Background Color",
-        "id": "testimonials_background_color",
-        "type": "select",
-        "options": <%- uikit.backgroundOptions -%>,
-        "default": "bg-white"
-      }
-    ],
-    "blocks": [
-      {
-        "name": "Testimonial",
-        "type": "testimonial_block",
-        "settings": [
-          {
-            "label": "Logo or Quotation Image",
-            "type": "image_picker",
-            "id": "testimonial_logo",
-            "info": "Recommended size: 386px x 130px"
-          },
-          {
-            "label": "Testimonial",
-            "type": "richtext",
-            "id": "testimonial_body",
-            "default": "<p>&quot;Dark star crashes, pouring its Light into ashes. Reason tatters, the forces tear loose from the axis. Searchlight casting for faults in the clouds of delusion.&quot;</p>"
-          },
-          {
-            "label": "Written By",
-            "type": "text",
-            "id": "testimonial_source",
-            "default": "Jerry Garcia"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Testimonials",
-        "category": "Content Blocks"
-      }
-    ]
-  }
+{
+  "name": "Testimonials",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Margins",
+      "info": "Customize the margin spacing on the top and bottom of this section."
+    },
+    {
+      "label": "Top Padding",
+      "id": "margin_top",
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "label": "Bottom Padding",
+      "id": "margin_bottom",
+      "type": "range",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "label": "Section Header",
+      "id": "testimonials_section_header",
+      "type": "text",
+      "default": "Section Header"
+    },
+    {
+      "label": "Section Header Color",
+      "id": "testimonials_header_color",
+      "type": "select",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
+      "default": "color-black"
+    },
+    {
+      "label": "Text Color",
+      "id": "testimonials_text_color",
+      "type": "select",
+      "options": [
+        { "label": "Light", "value": "color-white" },
+        { "label": "Dark", "value": "color-black" }
+      ],
+      "default": "color-black"
+    },
+    {
+      "label": "Block Background Color",
+      "id": "testimonials_background_color",
+      "type": "select",
+      "options": [
+        { "label": "None", "value": "" },
+        { "label": "Primary", "value": "bg-brand-primary" },
+        { "label": "Secondary", "value": "bg-brand-secondary" },
+        { "label": "Accent 1", "value": "bg-accent-1" },
+        { "label": "Accent 2", "value": "bg-accent-2" },
+        { "label": "Accent 3", "value": "bg-accent-3" },
+        { "label": "Accent 4", "value": "bg-accent-4" },
+        { "label": "Accent 5", "value": "bg-accent-5" },
+        { "label": "White", "value": "bg-white" },
+        { "label": "Light Grey", "value": "bg-light-grey" },
+        { "label": "Grey", "value": "bg-grey" },
+        { "label": "Off Black", "value": "bg-off-black" },
+        { "label": "Black", "value": "bg-black" }
+      ],
+      "default": "bg-white"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Testimonial",
+      "type": "testimonial_block",
+      "settings": [
+        {
+          "label": "Logo or Quotation Image",
+          "type": "image_picker",
+          "id": "testimonial_logo",
+          "info": "Recommended size: 386px x 130px"
+        },
+        {
+          "label": "Testimonial",
+          "type": "richtext",
+          "id": "testimonial_body",
+          "default": "<p>&quot;Dark star crashes, pouring its Light into ashes. Reason tatters, the forces tear loose from the axis. Searchlight casting for faults in the clouds of delusion.&quot;</p>"
+        },
+        {
+          "label": "Written By",
+          "type": "text",
+          "id": "testimonial_source",
+          "default": "Jerry Garcia"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "Content Blocks"
+    }
+  ]
+}
 {% endschema %}

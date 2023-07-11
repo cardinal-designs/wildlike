@@ -2,7 +2,8 @@
   "sections": {
     "article-press": {
       "type": "article-press",
-      "settings": {}
+      "settings": {
+      }
     }
   },
   "order": [

@@ -1,28 +1,32 @@
+{% unless product.type == 'Gift Card' %}
+
 {% capture json_product %}{% render 'json--product' %}{% endcapture %}
-{% if product.metafields.custom_fields.magnet_product != blank and product.metafields.custom_fields.magnet_product != '' %}
+{% if product.metafields.custom_fields.magnet_product != blank
+  and product.metafields.custom_fields.magnet_product != ''
+%}
   {% assign magnet_product = all_products[product.metafields.custom_fields.magnet_product] %}
-{% capture json_magnet_product %}{% render 'json--product', product: magnet_product %}{% endcapture %}
+  {% capture json_magnet_product %}{% render 'json--product', product: magnet_product %}{% endcapture %}
 {% endif %}
 
-
-{% if product.metafields.custom_fields["designer_collection"] != blank %}
-{% assign designer_collection = collections[product.metafields.custom_fields.designer_collection] %}
-{% capture json_designer_collection %}
+{% if product.metafields.custom_fields.designer_collection != blank %}
+  {% assign designer_collection = collections[product.metafields.custom_fields.designer_collection] %}
+  {% capture json_designer_collection %}
   {
     description: {{ designer_collection.description | json }}
   }
 {% endcapture %}
 {% endif %}
 
-
 {% assign upsell_product = all_products[product.metafields.custom_fields.d2_upsell_product] %}
 {% capture upsell_product_json %}{% render 'json--product', product: upsell_product %}{% endcapture %}
 
-{% assign sidebar_collection_handle = product.metafields.custom_fields.d2_product_widget_collection | default: product.metafields.custom_fields.d2_collection_link %}
+{% assign sidebar_collection_handle = product.metafields.custom_fields.d2_product_widget_collection
+  | default: product.metafields.custom_fields.d2_collection_link
+%}
 {% capture recommendationsSidebarCollection %}
-  {% assign collection_items = collections[sidebar_collection_handle].products | limit: 3 %}
+  {% assign collection_items = collections[sidebar_collection_handle].products %}
   [
-  {% for collection_item in collection_items %}
+  {% for collection_item in collection_items limit: 3 %}
     {% render 'json--product', product: collection_item %}
     {% unless forloop.last %},{% endunless %}
   {% endfor %}
@@ -116,6 +120,8 @@
   }
 {% endcapture %}
 
+{% endunless %}
+
 {% capture featured_collections %}
 {
   "heading": {{ section.settings.cl_heading | json }},
@@ -173,7 +179,7 @@
 {% capture _swym %}
   {
     "settings": {{ shop.metafields.swym | json }},
-    shop: {{ shop | json }}
+    "shop": {{ shop | json }}
   }
 {% endcapture %}
 
@@ -186,225 +192,251 @@
   :display-vendor="{{ settings.display_vendor_pdp }}"
   :customer="{{ customer.has_account | json }}"
   {% if magnet_product %}
-  :magnet-product="{{ json_magnet_product | escape | strip }}"
+    :magnet-product="{{ json_magnet_product | escape | strip }}"
   {% endif %}
-  product-tile-text-alignment={{ settings.product_tile_text_alignment | json }}
+  product-tile-text-alignment="{{ settings.product_tile_text_alignment }}"
   {% if json_designer_collection %}
-  :json-designer-collection="{{ json_designer_collection | escape | strip }}"
+    :json-designer-collection="{{ json_designer_collection | escape | strip }}"
   {% endif %}
-  :swym="{{ _swym | escape | strip }}"
-  />
-
+  :swym='{{ _swym | escape | strip }}'
+></product-display>
 
 {% schema %}
-  {
-    "name": "Product Page",
-    "settings": [
-      {
-        "type": "paragraph",
-        "content": "The following content is global and will appear on all product pages across the site."
-      },
-      {
-        "type": "header",
-        "content": "Shipping Details"
-      },
-      {
-        "type": "text",
-        "label": "Section Name",
-        "id": "pdp_accordion_name",
-        "default": "Shipping",
-        "info": "Defaults to \"Shipping\""
-      },
-      {
-        "type": "richtext",
-        "label": "Section Content",
-        "id": "pdp_accordion_content",
-        "info": "If left blank, this accordion will not appear on the PDP."
-      },
-      {
-        "type": "header",
-        "content": "Product Recommendations"
-      },
-      {
-        "type": "text",
-        "label": "Heading",
-        "id": "pdp_recommendations_heading",
-        "default": "You May Also Like",
-        "info": "Defaults to \"You May Also Like\""
-      },
-      {
-        "type": "header",
-        "content": "Reviews"
-      },
-      {
-        "type": "checkbox",
-        "label": "Hide Reviews",
-        "id": "pdp_hide_reviews",
-        "info": "Check the box if you don’t want reviews to display on the product pages."
-      },
-      {
-        "type": "header",
-        "content": "Global Product Info Section"
-      },
-      {
-        "type": "paragraph",
-        "content": "These are the Global Product Info Section settings. If an image is selected below, this section will show on every product page."
-      },
-      {
-        "label": "Global Product Info Section Image",
-        "type": "image_picker",
-        "id": "pdp_global_info_section_img",
-        "info": "Recommended size is "
-      },
-      {
-        "label": "Global Product Info Section Heading",
-        "type": "text",
-        "id": "pdp_global_info_section_heading"
-      },
-      {
-        "label": "Global Product Info Section Heading Color",
-        "type": "color",
-        "id": "pdp_global_info_section_heading_color",
-        "default" : "#ffffff"
-      },
-      {
-        "type": "header",
-        "content": "Related Products Widget"
-      },
-      {
-        "label": "Heading",
-        "type": "text",
-        "id": "pdp_product_rec_sidebar_heading",
-        "info": "Displays in the right column of PDP if enabled on a product and viewport width > 1440px"
-      },
-      {
-        "type": "header",
-        "content": "Value Props"
-      },
-      {
-        "type": "paragraph",
-        "content": "Add content here for this section if the content will be the same for all products."
-      },
-      {
-        "type": "color",
-        "id": "pdp_value_props_background_color",
-        "label": "Background Color",
-        "default": "#F7F6F2"
-      },
-      {
-        "type": "image_picker",
-        "id": "pdp_vp_icon_0",
-        "label": "Prop 1 - Image"
-      },
-      {
-        "type": "text",
-        "id": "pdp_vp_title_0",
-        "label": "Prop 1 - Heading"
-      },
-      {
-        "type": "textarea",
-        "id": "pdp_vp_body_0",
-        "label": "Prop 1 - Text"
-      },
-      {
-        "type": "image_picker",
-        "id": "pdp_vp_icon_1",
-        "label": "Prop 2 - Image"
-      },
-      {
-        "type": "text",
-        "id": "pdp_vp_title_1",
-        "label": "Prop 2 - Heading"
-      },
-      {
-        "type": "textarea",
-        "id": "pdp_vp_body_1",
-        "label": "Prop 2 - Text"
-      },
-      {
-        "type": "image_picker",
-        "id": "pdp_vp_icon_2",
-        "label": "Prop 3 - Image"
-      },
-      {
-        "type": "text",
-        "id": "pdp_vp_title_2",
-        "label": "Prop 3 - Heading"
-      },
-      {
-        "type": "textarea",
-        "id": "pdp_vp_body_2",
-        "label": "Prop 3 - Text"
-      },
-      {
-        "type": "image_picker",
-        "id": "pdp_vp_icon_3",
-        "label": "Prop 4 - Image"
-      },
-      {
-        "type": "text",
-        "id": "pdp_vp_title_3",
-        "label": "Prop 4 - Heading"
-      },
-      {
-        "type": "textarea",
-        "id": "pdp_vp_body_3",
-        "label": "Prop 4 - Text"
-      },
-      {
-        "type": "header",
-        "content": "Featured Collections"
-      },
-      {
-        "type": "paragraph",
-        "content": "The below settings are used inconjunction with \"Collection\" blocks"
-      },
-      {
-        "label": "Section Heading",
-        "id": "cl_heading",
-        "type": "text",
-        "info": "Optional"
-      },
-      {
-        "label": "Section Heading Color",
-        "id": "cl_heading_color",
-        "type": "select",
-        "options": <%- uikit.colorOptions -%>,
-        "default": "color-black"
-      },
-      {
-        "label": "Section Background Color ",
-        "id": "cl_background_color",
-        "type": "select",
-        "options": <%- uikit.backgroundOptions -%>,
-        "default": "bg-white"
-      }
-    ],
-    "blocks": [
-      {
-        "name": "Collection",
-        "type": "cl_collection",
-        "limit": 6,
-        "settings": [
-          {
-            "label": "Link",
-            "id": "cl_link",
-            "type": "url"
-          },
-          {
-            "label": "Link Text",
-            "id": "cl_link_text",
-            "type": "text",
-            "info": "Optional"
-          },
-          {
-            "label": "Image",
-            "id": "cl_image",
-            "type": "image_picker",
-            "info": "Recommended minumum image dimensions: 336x82px"
-          }
-        ]
-      }
-    ]
-  }
+{
+  "name": "Product Page",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "The following content is global and will appear on all product pages across the site."
+    },
+    {
+      "type": "header",
+      "content": "Shipping Details"
+    },
+    {
+      "type": "text",
+      "label": "Section Name",
+      "id": "pdp_accordion_name",
+      "default": "Shipping",
+      "info": "Defaults to \"Shipping\""
+    },
+    {
+      "type": "richtext",
+      "label": "Section Content",
+      "id": "pdp_accordion_content",
+      "info": "If left blank, this accordion will not appear on the PDP."
+    },
+    {
+      "type": "header",
+      "content": "Product Recommendations"
+    },
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "pdp_recommendations_heading",
+      "default": "You May Also Like",
+      "info": "Defaults to \"You May Also Like\""
+    },
+    {
+      "type": "header",
+      "content": "Reviews"
+    },
+    {
+      "type": "checkbox",
+      "label": "Hide Reviews",
+      "id": "pdp_hide_reviews",
+      "info": "Check the box if you don’t want reviews to display on the product pages."
+    },
+    {
+      "type": "header",
+      "content": "Global Product Info Section"
+    },
+    {
+      "type": "paragraph",
+      "content": "These are the Global Product Info Section settings. If an image is selected below, this section will show on every product page."
+    },
+    {
+      "label": "Global Product Info Section Image",
+      "type": "image_picker",
+      "id": "pdp_global_info_section_img",
+      "info": "Recommended size is "
+    },
+    {
+      "label": "Global Product Info Section Heading",
+      "type": "text",
+      "id": "pdp_global_info_section_heading"
+    },
+    {
+      "label": "Global Product Info Section Heading Color",
+      "type": "color",
+      "id": "pdp_global_info_section_heading_color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Related Products Widget"
+    },
+    {
+      "label": "Heading",
+      "type": "text",
+      "id": "pdp_product_rec_sidebar_heading",
+      "info": "Displays in the right column of PDP if enabled on a product and viewport width > 1440px"
+    },
+    {
+      "type": "header",
+      "content": "Value Props"
+    },
+    {
+      "type": "paragraph",
+      "content": "Add content here for this section if the content will be the same for all products."
+    },
+    {
+      "type": "color",
+      "id": "pdp_value_props_background_color",
+      "label": "Background Color",
+      "default": "#F7F6F2"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdp_vp_icon_0",
+      "label": "Prop 1 - Image"
+    },
+    {
+      "type": "text",
+      "id": "pdp_vp_title_0",
+      "label": "Prop 1 - Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "pdp_vp_body_0",
+      "label": "Prop 1 - Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdp_vp_icon_1",
+      "label": "Prop 2 - Image"
+    },
+    {
+      "type": "text",
+      "id": "pdp_vp_title_1",
+      "label": "Prop 2 - Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "pdp_vp_body_1",
+      "label": "Prop 2 - Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdp_vp_icon_2",
+      "label": "Prop 3 - Image"
+    },
+    {
+      "type": "text",
+      "id": "pdp_vp_title_2",
+      "label": "Prop 3 - Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "pdp_vp_body_2",
+      "label": "Prop 3 - Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "pdp_vp_icon_3",
+      "label": "Prop 4 - Image"
+    },
+    {
+      "type": "text",
+      "id": "pdp_vp_title_3",
+      "label": "Prop 4 - Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "pdp_vp_body_3",
+      "label": "Prop 4 - Text"
+    },
+    {
+      "type": "header",
+      "content": "Featured Collections"
+    },
+    {
+      "type": "paragraph",
+      "content": "The below settings are used inconjunction with \"Collection\" blocks"
+    },
+    {
+      "label": "Section Heading",
+      "id": "cl_heading",
+      "type": "text",
+      "info": "Optional"
+    },
+    {
+      "label": "Section Heading Color",
+      "id": "cl_heading_color",
+      "type": "select",
+      "options": [
+        { "label": "Primary", "value": "color-brand-primary" },
+        { "label": "Secondary", "value": "color-brand-secondary" },
+        { "label": "Accent 1", "value": "color-accent-1" },
+        { "label": "Accent 2", "value": "color-accent-2" },
+        { "label": "Accent 3", "value": "color-accent-3" },
+        { "label": "Accent 4", "value": "color-accent-4" },
+        { "label": "Accent 5", "value": "color-accent-5" },
+        { "label": "White", "value": "color-white" },
+        { "label": "Light Grey", "value": "color-light-grey" },
+        { "label": "Grey", "value": "color-grey" },
+        { "label": "Off Black", "value": "color-off-black" },
+        { "label": "Black", "value": "color-black" }
+      ],
+      "default": "color-black"
+    },
+    {
+      "label": "Section Background Color ",
+      "id": "cl_background_color",
+      "type": "select",
+      "options": [
+        { "label": "None", "value": "" },
+        { "label": "Primary", "value": "bg-brand-primary" },
+        { "label": "Secondary", "value": "bg-brand-secondary" },
+        { "label": "Accent 1", "value": "bg-accent-1" },
+        { "label": "Accent 2", "value": "bg-accent-2" },
+        { "label": "Accent 3", "value": "bg-accent-3" },
+        { "label": "Accent 4", "value": "bg-accent-4" },
+        { "label": "Accent 5", "value": "bg-accent-5" },
+        { "label": "White", "value": "bg-white" },
+        { "label": "Light Grey", "value": "bg-light-grey" },
+        { "label": "Grey", "value": "bg-grey" },
+        { "label": "Off Black", "value": "bg-off-black" },
+        { "label": "Black", "value": "bg-black" }
+      ],
+      "default": "bg-white"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Collection",
+      "type": "cl_collection",
+      "limit": 6,
+      "settings": [
+        {
+          "label": "Link",
+          "id": "cl_link",
+          "type": "url"
+        },
+        {
+          "label": "Link Text",
+          "id": "cl_link_text",
+          "type": "text",
+          "info": "Optional"
+        },
+        {
+          "label": "Image",
+          "id": "cl_image",
+          "type": "image_picker",
+          "info": "Recommended minumum image dimensions: 336x82px"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

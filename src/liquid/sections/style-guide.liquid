@@ -1,0 +1,94 @@
+<div class="container">
+  <h1 style="text-align: center; margin: 50px auto;">Style Guide</h1>
+
+  <div style="padding: 55px 40px">
+    <div style="display: flex; flex-direction: row; margin-bottom: 76px;">
+      <h2 class="h7">01 | LOGO</h2>
+    </div>
+    {%- include 'logo-style-guide-section' -%}
+  </div>
+
+  <div style="padding: 55px 40px">
+    <div style="display: flex; flex-direction: row; margin-bottom: 76px;">
+      <h2 style="font-style: italic; font-weight: 900; font-size: 16px; line-height: 16px; letter-spacing: 1px;">02 | BREAKPOINTS</h2>
+    </div>
+    <div style="display: flex; justify-content: space-around;">
+      <div style="text-align: center;">
+        <h6 style="padding-bottom: 2px;" style="padding-bottom: 2px;">Mobile</h6>
+        <p class="body-sm">&lt;605px</p>
+      </div>
+      <div style="text-align: center;">
+        <h6 style="padding-bottom: 2px;">Tablet</h6>
+        <p class="body-sm">605-992px</p>
+      </div>
+      <div style="text-align: center;">
+        <h6 style="padding-bottom: 2px;">Desktop</h6>
+        <p class="body-sm">&gt;992px</p>
+      </div>
+      <div style="text-align: center;">
+        <h6 style="padding-bottom: 2px;">"Full Width"</h6>
+        <p class="body-sm">2560px</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 55px 40px">
+    <div style="display: flex; flex-direction: row; margin-bottom: 76px;">
+      <h2 style="font-style: italic; font-weight: 900; font-size: 16px; line-height: 16px; letter-spacing: 1px;">03 | GRID & MODULAR SCALE</h2>
+    </div>
+    <p>Unchanged</p>
+  </div>
+
+  <div style="padding: 55px 40px">
+    <div style="display: flex; flex-direction: row; margin-bottom: 76px;">
+      <h2 style="font-style: italic; font-weight: 900; font-size: 16px; line-height: 16px; letter-spacing: 1px;">04 | COLORS</h2>
+    </div>
+    {%- include 'colors-style-guide-section' -%}
+  </div>
+
+  <div style="padding: 55px 40px">
+    <div style="display: flex; flex-direction: row; margin-bottom: 76px;">
+      <h2 style="font-style: italic; font-weight: 900; font-size: 16px; line-height: 16px; letter-spacing: 1px;">TYPOGRAPHY</h2>
+    </div>
+    {%- include 'typography-style-guide-section' -%}
+  </div>
+
+  <div style="padding: 55px 40px">
+    <div style="display: flex; flex-direction: row; margin-bottom: 76px;">
+      <h2 style="font-style: italic; font-weight: 900; font-size: 16px; line-height: 16px; letter-spacing: 1px;">COPY + CTA SPACING</h2>
+    </div>
+    {%- include 'copy-cta-guide-section' -%}
+  </div>
+
+  <div style="padding: 55px 40px">
+    <div style="display: flex; flex-direction: row; margin-bottom: 76px;">
+      <h2 style="font-style: italic; font-weight: 900; font-size: 16px; line-height: 16px; letter-spacing: 1px;">06 | BUTTONS & LINKS</h2>
+    </div>
+    {%- include 'buttons-style-guide-section' -%}
+  </div>
+
+  <div style="padding: 55px 40px">
+    <div style="display: flex; flex-direction: row; margin-bottom: 76px;">
+      <h2 style="font-style: italic; font-weight: 900; font-size: 16px; line-height: 16px; letter-spacing: 1px;">07 | FORMS, INPUTS, AND MISC</h2>
+    </div>
+    {%- include 'form-elements-style-guide-section' -%}
+  </div>
+
+  <div style="padding: 55px 40px">
+    <div style="display: flex; flex-direction: row; margin-bottom: 76px;">
+      <h2 style="font-style: italic; font-weight: 900; font-size: 16px; line-height: 16px; letter-spacing: 1px;">08 | ICONOGRAPHY</h2>
+    </div>
+    {%- include 'icons-style-guide-section' -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Style Guide",
+  "presets": [
+    {
+      "name": "Style Guide"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "gsx": {
+      "type": "gsx",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "gsx"
+  ]
+}

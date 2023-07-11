@@ -10,8 +10,8 @@
   <link rel="canonical" href="{{ canonical_url }}" />
 {% endif %}
 
-{%- include 'bva-datalayer-head' -%}
-{%- include 'gtm-head-script' -%}
+{%- render 'bva-datalayer-head' -%}
+{%- render 'gtm-head-script' -%}
 
 {%- if settings.favicon != blank -%}
   <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
@@ -30,7 +30,7 @@
   <meta name="description" content="{{ page_description | escape }}">
 {%- endif -%}
 
-{%- include 'social-meta-tags' -%}
+{%- render 'social-meta-tags' -%}
 
 {{ 'bvaccel.css' | asset_url | stylesheet_tag }}
 {{ 'bvaccel-app.css' | asset_url | stylesheet_tag }}
@@ -41,9 +41,9 @@
   window.bvaccel = {% render 'json--global' %};
 </script>
 
-{%- include 'webpack-setup' -%}
+{%- render 'webpack-setup' -%}
 
-{% include 'scripts--rakuten' %}
+{% render 'scripts--rakuten' %}
 
 <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Element.prototype.append%2CElement.prototype.before%2CElement.prototype.classList%2Cdocument.getElementsByClassName%2Cdocument.querySelector%2CElement.prototype.closest%2CArray.prototype.includes%2CArray.prototype.indexOf%2CArray.prototype.keys%2CArray.prototype.lastIndexOf%2CArray.prototype.map%2CArray.prototype.reduce%2CArray.prototype.reduceRight%2CArray.prototype.some%2CArray.prototype.values%2CArray.prototype.forEach%2CArray.prototype.flatMap%2CArray.prototype.flat%2CArray.prototype.findIndex%2CArray.of%2CArray.prototype.%40%40iterator%2CArray.prototype.copyWithin%2CArray.prototype.every%2CArray.prototype.entries%2CArray.prototype.fill%2CArray.prototype.filter%2CArray.prototype.find%2CArray.isArray%2CArray.from%2CString.prototype.includes%2Csmoothscroll"></script>
 

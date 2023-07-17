@@ -1,4 +1,8 @@
 .press-article {
+  .article__image {
+    height: auto;
+  }
+  
   .article {
     &__top-line {
       height: 100%;

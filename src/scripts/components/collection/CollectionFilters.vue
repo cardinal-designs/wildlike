@@ -1,3 +1,4 @@
+
 <template lang="pug">
   //- Desktop -//
   .collection-filters(v-if="$mq !== 'mobile' && filterGroups.length")
@@ -6,8 +7,8 @@
         //- Showing the Filters
         transition-group(name="fade" :duration="{enter: 600, leave: 200}")
           .collection-filters__filter-panel(v-for="filterGroup in filterGroups" :key="filterGroup.urlParam" v-if="!fetchingStatus.status")
-            collection-accordion(:ref="`accordion${filterGroup.urlParam}`" iconSize="16px" :autoClose="false")
-              template(v-slot:heading) {{ unhandleizeFilter(filterGroup.name) }}
+            collection-accordion( v-if="filterGroup.name != 'price' " :ref="`accordion${filterGroup.urlParam}`" iconSize="16px" :autoClose="false")
+              template(v-slot:heading) {{ unhandleizeFilter(filterGroup) }}
                 span.accordion__menu-title(v-if="containsCurrentFilters(filterGroup.urlParam)")
               template(v-slot)
                 span.collection-filters__filter-panel-clear-filters(v-if="containsCurrentFilters(filterGroup.urlParam)" @click="clearFilterFilters(filterGroup.urlParam)") Clear
@@ -98,7 +99,7 @@
       }),
       splitTags() {
         return this.currentTags.map((tag) => {
-          const valueArray = tag.split('::')
+          const valueArray = tag.split('::') 
           return {tag: handleize(valueArray[0]), value: valueArray[1]}
         })
       },
@@ -117,7 +118,10 @@
             filterGroup.values.push(
               {
                 "name": value.name,
-                "url": value.url
+                "url": value.url,
+                "param_name":value.param_name,
+                "active": value.active,
+                "count": value.count 
               }
             );
           })
@@ -173,7 +177,16 @@
         }
       },
       unhandleizeFilter(handleizedFilter) {
-        return unhandleize(handleizedFilter)
+        let selectedFilterCount=0
+        const filterVaues=handleizedFilter.values
+        for (let index = 0; index < filterVaues.length; index++) {
+          const value = filterVaues[index];
+          if(this.currentFilterArray.includes(value.url)){
+            selectedFilterCount=selectedFilterCount+1
+          }     
+        }
+        const showSelectedFilterCount=selectedFilterCount > 0?`(${selectedFilterCount})`:''
+        return `${unhandleize(handleizedFilter.name)} ${showSelectedFilterCount}`
       },
       handleizedFilter(unhandelizedFilter) {
         return handleize(unhandelizedFilter, false)

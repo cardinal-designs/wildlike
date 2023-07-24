@@ -29,8 +29,9 @@
       unhandleizeFilter(handleizedFilter) {
         return unhandleize(handleizedFilter)
       },
-      splitAndDecodeFilter(filter) {
-        return decodeURIComponent(filter.split('=')[1].replaceAll('+', ' '))
+      splitAndDecodeFilter(filter) {   
+        let activeFilterType=filter.slice(filter.lastIndexOf(".")+1).split('=')[0].replaceAll("_"," ") // get active filter type
+       return `${activeFilterType} ${decodeURIComponent(filter.split('=')[1].replaceAll('+', ' '))}`// return active filter type and value
       },
       removeFilter(filter) {
         let newCurrentFilters = this.currentFilters.splice(this.currentFilters.indexOf(filter), 1)
@@ -85,6 +86,7 @@
       }
       span {
         margin-right: 8px;
+        text-transform: capitalize;
       }
     }
     &__filters-clear {

@@ -3,7 +3,7 @@
     span.collection-filters__title
     .collection-filters__active-filters
       .collection-filters__active-filter(v-for="filter in currentFilters" @click="removeFilter(filter)")
-        span {{unhandleizeFilter(filter)}}
+        span {{splitAndDecodeFilter(filter)}}
         icon(name="close" size="10px")
       .collection-filters__filters-clear
           v-link.text-sm(v-if="currentFilters.length" :secondary="true" @click="removeAllFilters") Clear All
@@ -28,6 +28,9 @@
     methods: {
       unhandleizeFilter(handleizedFilter) {
         return unhandleize(handleizedFilter)
+      },
+      splitAndDecodeFilter(filter) {
+        return decodeURIComponent(filter.split('=')[1].replaceAll('+', ' '))
       },
       removeFilter(filter) {
         let newCurrentFilters = this.currentFilters.splice(this.currentFilters.indexOf(filter), 1)

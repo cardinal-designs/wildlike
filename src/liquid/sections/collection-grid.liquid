@@ -1,277 +1,277 @@
 {% if collection.metafields.custom_fields["enable_promo_tile"] == 1 %}
-	{% assign pagination_count = settings.collection_pagination_count | minus: 1 %}
+  {% assign pagination_count = settings.collection_pagination_count | minus: 1 %}
 {% else %}
-	{% assign pagination_count = settings.collection_pagination_count | plus: 0 %}
+  {% assign pagination_count = settings.collection_pagination_count | plus: 0 %}
 {% endif %}
 
 {% capture init_collection_data %}
-	{{ collection | json }}
+  {{ collection | json }}
 {% endcapture %}
 
 {% capture init_collection_products %}
-	{%- paginate collection.products by pagination_count -%}
-	[
-		{% for product in collection.products %}
-			{%- render 'json--product', product: product -%}
-			{%- unless forloop.last -%},{%- endunless -%}
-		{% endfor %}
-	]
-	{%- endpaginate -%}
+  {%- paginate collection.products by pagination_count -%}
+    [
+    {% for product in collection.products %}
+      {%- render 'json--product', product: product -%}
+      {%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+    ]
+  {%- endpaginate -%}
 {% endcapture %}
+
 
 {% capture filter_types %}
-	{%- capture default_filters -%}
-		{%- assign default_filters_array = settings.collections_global_filters | split: "," -%}
-		{%- for filter in default_filters_array -%}
-			{{- filter | handleize | json -}},
-		{%- endfor -%}
-	{%- endcapture -%}
-	{%- capture filters_string -%}
-		{%- for tag in collection.all_tags -%}
-			{%- if tag contains '::' -%}
-				{{- tag | split: '::' | first | handleize | json -}},
-			{%- endif -%}
-		{%- endfor -%}
-	{%- endcapture -%}
-	{% assign default_split = default_filters | split: ',' | uniq %}
-	{% assign filters_split = filters_string | split: ',' | uniq %}
-	{% assign filter_count = 0 %}
-	[
-		{% for filter in default_split %}
-			{%- if filters_split contains filter -%}
-				{%- if filter_count > 0 -%},{%- endif -%}
-				{% assign filter_count = filter_count | plus: 1 %}
-				{{ filter }}
-			{%- endif -%}
-		{% endfor %}
-	]
+  [
+  {% for filter in collection.filters %}
+    {
+    "label": "{{ filter.label }}",
+    "url_param": "{{ filter.param_name }}",
+    "values": [
+    {% for value in filter.values %}
+      {
+      "name": "{{ value.value }}",
+      "url": "{{ value.url_to_add | split: '?' | last }}"
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+    ]
+    }{%- unless forloop.last -%},{%- endunless -%}
+  {% endfor %}
+  ]
 {% endcapture %}
-
 {% capture all_tags %}
-	[
-		{% for tag in collection.all_tags %}
-			{{ tag | json }}
-			{%- unless forloop.last -%},{%- endunless -%}
-		{% endfor %}
-	]
+  [
+  {% for tag in collection.all_tags %}
+    {{ tag | json }}
+    {%- unless forloop.last -%},{%- endunless -%}
+  {% endfor %}
+  ]
 {% endcapture %}
 
 {% capture global_collection_menu %}
-	[
-		{% for link in linklists[settings.collection_global_linklist].links %}
-			{
-				"title": {{ link.title | json }},
-				"url": "{% if link.type != "http_link" %}{{ shop.url }}{% endif %}{{ link.url }}",
-				"links": [
-					{% for linkLevel1 in link.links %}
-						{
-							"title": {{ linkLevel1.title | json }},
-							"url": "{% if linkLevel1.type != "http_link" %}{{ shop.url }}{% endif %}{{ linkLevel1.url }}"
-						}
-						{%- unless forloop.last -%},{%- endunless -%}
-					{% endfor %}
-				]
-			}
-			{%- unless forloop.last -%},{%- endunless -%}
-		{% endfor %}
-	]
+  [
+  {% for link in linklists[settings.collection_global_linklist].links %}
+    {
+    "title": {{ link.title | json }},
+    "url": "{% if link.type != "http_link" %}
+      {{ shop.url }}{% endif %}
+    {{ link.url }}",
+    "links": [
+    {% for linkLevel1 in link.links %}
+      {
+      "title": {{ linkLevel1.title | json }},
+      "url": "{% if linkLevel1.type != "http_link" %}
+        {{ shop.url }}{% endif %}
+      {{ linkLevel1.url }}"
+      }
+      {%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+    ]
+    }
+    {%- unless forloop.last -%},{%- endunless -%}
+  {% endfor %}
+  ]
 {% endcapture %}
 
 {% if collection.metafields.custom_fields["collection_sidebar_linklist"] != blank %}
-	{% assign collection_menu = collection.metafields.custom_fields["collection_sidebar_linklist"]%}
+  {% assign collection_menu = collection.metafields.custom_fields["collection_sidebar_linklist"] %}
 {% else %}
-	{% assign collection_menu = settings.collection_default_custom_linklist %}
+  {% assign collection_menu = settings.collection_default_custom_linklist %}
 {% endif %}
 
 {% if collection.metafields.custom_fields["collection_sidebar_linklist"] != blank %}
-	{% assign collection_menu_title = collection.metafields.custom_fields["collection_sidebar_linklist"] %}
+  {% assign collection_menu_title = collection.metafields.custom_fields["collection_sidebar_linklist"] %}
 {% else %}
-	{% assign collection_menu_title = 'collection menu' %}
+  {% assign collection_menu_title = 'collection menu' %}
 {% endif %}
 
 {% capture collection_menu_linklist %}
-	[
-		{% for link in linklists[collection_menu].links %}
-			{
-				"title": {{ link.title | json }},
-				"url": "{% if link.type != "http_link" %}{{ shop.url }}{% endif %}{{ link.url }}",
-				"links": [
-					{% for linkLevel1 in link.links %}
-						{
-							"title": {{ linkLevel1.title | json }},
-							"url": "{% if linkLevel1.type != "http_link" %}{{ shop.url }}{% endif %}{{ linkLevel1.url }}"
-						}
-						{%- unless forloop.last -%},{%- endunless -%}
-					{% endfor %}
-				]
-			}
-			{%- unless forloop.last -%},{%- endunless -%}
-		{% endfor %}
-	]
+  [
+  {% for link in linklists[collection_menu].links %}
+    {
+    "title": {{ link.title | json }},
+    "url": "{% if link.type != "http_link" %}
+      {{ shop.url }}{% endif %}
+    {{ link.url }}",
+    "links": [
+    {% for linkLevel1 in link.links %}
+      {
+      "title": {{ linkLevel1.title | json }},
+      "url": "{% if linkLevel1.type != "http_link" %}
+        {{ shop.url }}{% endif %}
+      {{ linkLevel1.url }}"
+      }
+      {%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+    ]
+    }
+    {%- unless forloop.last -%},{%- endunless -%}
+  {% endfor %}
+  ]
 {% endcapture %}
 
 {% capture promo_tile %}
-	{
-		{% if collection.metafields.custom_fields["enable_promo_tile"] != blank %}
-			"enabled": {{ collection.metafields.custom_fields["enable_promo_tile"] }},
-		{% endif %}
-		{% if collection.metafields.custom_fields["promo_tile_position"] != blank %}
-			"position": {{ collection.metafields.custom_fields["promo_tile_position"] }},
-		{% endif %}
-		"url": {{ collection.metafields.custom_fields["promo_tile_url"] | json }},
-		"bgColor": {{ collection.metafields.custom_fields["promo_tile_bg_color"] | json }},
-		"textColor": {{ collection.metafields.custom_fields["promo_tile_text_color"] | json }},
-		"imageUrl": {{ collection.metafields.custom_fields["promo_tile_image_url"] | json }},
-		"title": {{ collection.metafields.custom_fields["promo_tile_title"] | json }},
-		"copy": {{ collection.metafields.custom_fields["promo_tile_copy"] | json }}
-	}
+  {
+  {% if collection.metafields.custom_fields["enable_promo_tile"] != blank %}
+    "enabled": {{ collection.metafields.custom_fields["enable_promo_tile"] }},
+  {% endif %}
+  {% if collection.metafields.custom_fields["promo_tile_position"] != blank %}
+    "position": {{ collection.metafields.custom_fields["promo_tile_position"] }},
+  {% endif %}
+  "url": {{ collection.metafields.custom_fields["promo_tile_url"] | json }},
+  "bgColor": {{ collection.metafields.custom_fields["promo_tile_bg_color"] | json }},
+  "textColor": {{ collection.metafields.custom_fields["promo_tile_text_color"] | json }},
+  "imageUrl": {{ collection.metafields.custom_fields["promo_tile_image_url"] | json }},
+  "title": {{ collection.metafields.custom_fields["promo_tile_title"] | json }},
+  "copy": {{ collection.metafields.custom_fields["promo_tile_copy"] | json }}
+  }
 {% endcapture %}
 
 {% capture visibility_settings %}
-	{
-		"sidebarDisabled": {{ settings.disable_collection_sidebar | json }},
-		"filtersDisabled": {{ settings.disable_collection_filters | json }},
-		"badgesDisabled": {% if collection.metafields.custom_fields.disable_collection_badges == 1 %}true{% else %}false{% endif %}
-	}
+  {
+  "sidebarDisabled": {{ settings.disable_collection_sidebar | json }},
+  "filtersDisabled": {{ settings.disable_collection_filters | json }},
+  "badgesDisabled":
+  {% if collection.metafields.custom_fields.disable_collection_badges == 1 %}true{% else %}false{% endif %}
+  }
 {% endcapture %}
 
 {% if collection.metafields.custom_fields["toggle_logo_badge"] == 1 %}
-	{% assign disable_logo_badge = true %}
+  {% assign disable_logo_badge = true %}
 {% else %}
-	{% assign disable_logo_badge = false %}
+  {% assign disable_logo_badge = false %}
 {% endif %}
 
 {% capture collection_section_settings %}
-	{
-		"enableBanner": {{ collection.metafields.custom_fields["enable_banner"] | json }},
-		"enableCategoryImages": {{ collection.metafields.custom_fields["enable_category_images"] | json }},
-		"enableCategoryLinks": {{ collection.metafields.custom_fields["enable_category_links"] | json }}
-	}
+  {
+  "enableBanner": {{ collection.metafields.custom_fields["enable_banner"] | json }},
+  "enableCategoryImages": {{ collection.metafields.custom_fields["enable_category_images"] | json }},
+  "enableCategoryLinks": {{ collection.metafields.custom_fields["enable_category_links"] | json }}
+  }
 {% endcapture %}
 
 {% capture section_banner %}
-	{
-		"desktopImage": {{ collection.metafields.custom_fields["banner_image_desktop"] | json }},
-		"mobileImage": {{ collection.metafields.custom_fields["banner_image_mobile"] | json }},
-		"heading": {{ collection.metafields.custom_fields["banner_heading"] | json }},
-		"copy": {{ collection.metafields.custom_fields["banner_copy"] | json }},
-		"ctaText": {{ collection.metafields.custom_fields["banner_cta_text"] | json }},
-		"ctaUrl": {{ collection.metafields.custom_fields["banner_cta_link"] | json }},
-		"ctaStyle": {{ collection.metafields.custom_fields["banner_cta_style"] | json }},
-		"textColor": {{ collection.metafields.custom_fields["banner_text_color"] | json }},
-		"overlayColor": {{ collection.metafields.custom_fields["banner_color_overlay"] | json }},
-		"overlayOpacity": {{ collection.metafields.custom_fields["banner_overlay_opacity"] | json }},
-		"textAlignment": {{ collection.metafields.custom_fields["banner_text_alignment"] | json }}
-	}
+  {
+  "desktopImage": {{ collection.metafields.custom_fields["banner_image_desktop"] | json }},
+  "mobileImage": {{ collection.metafields.custom_fields["banner_image_mobile"] | json }},
+  "heading": {{ collection.metafields.custom_fields["banner_heading"] | json }},
+  "copy": {{ collection.metafields.custom_fields["banner_copy"] | json }},
+  "ctaText": {{ collection.metafields.custom_fields["banner_cta_text"] | json }},
+  "ctaUrl": {{ collection.metafields.custom_fields["banner_cta_link"] | json }},
+  "ctaStyle": {{ collection.metafields.custom_fields["banner_cta_style"] | json }},
+  "textColor": {{ collection.metafields.custom_fields["banner_text_color"] | json }},
+  "overlayColor": {{ collection.metafields.custom_fields["banner_color_overlay"] | json }},
+  "overlayOpacity": {{ collection.metafields.custom_fields["banner_overlay_opacity"] | json }},
+  "textAlignment": {{ collection.metafields.custom_fields["banner_text_alignment"] | json }}
+  }
 {% endcapture %}
 
 {% capture section_category_images %}
-		{
-			"heading": {{ collection.metafields.custom_fields["category_images_heading"] | json }},
-			"images": [
-				{% if collection.metafields.custom_fields["section_category_images"] != blank %}
-					{% assign separator = "|###|" %}
-					{% assign category_image_array = collection.metafields.custom_fields["category_image"] | split: separator %}
-					{% assign category_images_url_array = collection.metafields.custom_fields["category_images_url"] | split: separator %}
-					{% assign category_images_text_array = collection.metafields.custom_fields["category_images_text"] | split: separator %}
-					{% assign fc_keys = collection.metafields.custom_fields["section_category_images"] | split: "," %}
-					{% for i in fc_keys %}
-						{% assign index = i | plus: 0 %}
-						{
-							"imageUrl": {{ category_image_array[index] | json }},
-							"url": {{ category_images_url_array[index] | json }},
-							"text": {{ category_images_text_array[index] | json }}
-						}
-						{%- unless forloop.last -%},{%- endunless -%}
-					{% endfor %}
-				{% endif %}
-			]
-		}
+  {
+  "heading": {{ collection.metafields.custom_fields["category_images_heading"] | json }},
+  "images": [
+  {% if collection.metafields.custom_fields["section_category_images"] != blank %}
+    {% assign separator = "|###|" %}
+    {% assign category_image_array = collection.metafields.custom_fields["category_image"] | split: separator %}
+    {% assign category_images_url_array = collection.metafields.custom_fields["category_images_url"] | split: separator %}
+    {% assign category_images_text_array = collection.metafields.custom_fields["category_images_text"] | split: separator %}
+    {% assign fc_keys = collection.metafields.custom_fields["section_category_images"] | split: "," %}
+    {% for i in fc_keys %}
+      {% assign index = i | plus: 0 %}
+      {
+      "imageUrl": {{ category_image_array[index] | json }},
+      "url": {{ category_images_url_array[index] | json }},
+      "text": {{ category_images_text_array[index] | json }}
+      }
+      {%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+  {% endif %}
+  ]
+  }
 {% endcapture %}
 
 {% capture section_category_links %}
-	{
-		"heading": {{ collection.metafields.custom_fields["category_links_heading"] | json }},
-		"links": [
-			{% if collection.metafields.custom_fields["section_category_links"] != blank %}
-				{% assign separator = "|###|" %}
-				{% assign category_link_array = collection.metafields.custom_fields["category_link"] | split: separator %}
-				{% assign category_link_text_array = collection.metafields.custom_fields["category_link_text"] | split: separator %}
-				{% assign fc_keys = collection.metafields.custom_fields["section_category_links"] | split: "," %}
-				{% for i in fc_keys %}
-					{% assign index = i | plus: 0 %}
-					{
-						"url": {{ category_link_array[index] | json }},
-						"text": {{ category_link_text_array[index] | json }}
-					}
-					{%- unless forloop.last -%},{%- endunless -%}
-				{% endfor %}
-			{% endif %}
-		]
-	}
+  {
+  "heading": {{ collection.metafields.custom_fields["category_links_heading"] | json }},
+  "links": [
+  {% if collection.metafields.custom_fields["section_category_links"] != blank %}
+    {% assign separator = "|###|" %}
+    {% assign category_link_array = collection.metafields.custom_fields["category_link"] | split: separator %}
+    {% assign category_link_text_array = collection.metafields.custom_fields["category_link_text"] | split: separator %}
+    {% assign fc_keys = collection.metafields.custom_fields["section_category_links"] | split: "," %}
+    {% for i in fc_keys %}
+      {% assign index = i | plus: 0 %}
+      {
+      "url": {{ category_link_array[index] | json }},
+      "text": {{ category_link_text_array[index] | json }}
+      }
+      {%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+  {% endif %}
+  ]
+  }
 {% endcapture %}
 
 {% capture related_collections %}
-	[
-		{% if collection.metafields.custom_fields["related_collections"] != blank %}
-			{% assign separator = "|###|" %}
-			{% assign link_url = collection.metafields.custom_fields["link_url"] | split: separator %}
-			{% assign link_text = collection.metafields.custom_fields["link_text"] | split: separator %}
-			{% assign fc_keys = collection.metafields.custom_fields["related_collections"] | split: "," %}
-			{% for i in fc_keys %}
-				{% assign index = i | plus: 0 %}
-				{
-					"url": {{ link_url[index] | json }},
-					"text": {{ link_text[index] | json }}
-				}
-				{%- unless forloop.last -%},{%- endunless -%}
-			{% endfor %}
-		{% endif %}
-	]
+  [
+  {% if collection.metafields.custom_fields["related_collections"] != blank %}
+    {% assign separator = "|###|" %}
+    {% assign link_url = collection.metafields.custom_fields["link_url"] | split: separator %}
+    {% assign link_text = collection.metafields.custom_fields["link_text"] | split: separator %}
+    {% assign fc_keys = collection.metafields.custom_fields["related_collections"] | split: "," %}
+    {% for i in fc_keys %}
+      {% assign index = i | plus: 0 %}
+      {
+      "url": {{ link_url[index] | json }},
+      "text": {{ link_text[index] | json }}
+      }
+      {%- unless forloop.last -%},{%- endunless -%}
+    {% endfor %}
+  {% endif %}
+  ]
 {% endcapture %}
 
 {% capture collection_sections %}
-	{
-		"settings": {{ collection_section_settings }},
-		"banner": {{ section_banner }},
-		"categoryImages": {{ section_category_images }},
-		"categoryLinks": {{ section_category_links }}
-	}
+  {
+  "settings": {{ collection_section_settings }},
+  "banner": {{ section_banner }},
+  "categoryImages": {{ section_category_images }},
+  "categoryLinks": {{ section_category_links }}
+  }
 {% endcapture %}
 
 {% capture hero_settings %}
-	{
-		"backgroundColor": {{ collection.metafields.custom_fields["hero_background_color"] | default: settings.collection_hero_bg_color | json }},
-		"headingColor": {{ collection.metafields.custom_fields["hero_heading_color"] | default: settings.collection_hero_heading_color | json }}
-	}
+  {
+  "backgroundColor": {{ collection.metafields.custom_fields["hero_background_color"] | default: settings.collection_hero_bg_color | json }},
+  "headingColor": {{ collection.metafields.custom_fields["hero_heading_color"] | default: settings.collection_hero_heading_color | json }}
+  }
 {% endcapture %}
 
 <collection-grid
-	handle="{{ collection.handle }}"
-	:related-collections="{{ related_collections | escape | strip }}"
-	:total-products="{{ collection.products_count }}"
-	:pagination-amount="{{ pagination_count }}"
-	:filters="{{ filter_types | escape | strip }}"
-	:tags="{{ all_tags | escape | strip }}"
-	:promo-tile="{{ promo_tile | escape | strip }}"
-	:init-collection-data="{{ init_collection_data | escape | strip }}"
-	:init-collection-total="{{ collection.all_products_count }}"
-	:init-collection-products="{{ init_collection_products | escape | strip }}"
-	:global-menu="{{ global_collection_menu  | escape | strip }}"
-	:collection-menu="{{ collection_menu_linklist | escape | strip }}"
-	collection-menu-title="{{ collection_menu_title }}"
-	:visibility-settings="{{ visibility_settings | escape | strip }}"
-	{% if settings.collection_template == 'b'%}
-		{% if collection.handle != 'all' %}
-			:collection-sections="{{ collection_sections | escape | strip }}"
-		{% endif %}
-		:hero-settings="{{ hero_settings | escape | strip }}"
-	{% endif %}
-	:disable-logo-badge="{{ disable_logo_badge }}"
-	collection-template="{{ settings.collection_template }}"
-	:wishlist-enabled="{{ settings.wishlist_enabled }}">
-	{%- for product in collection.products -%}
-		<h2>{{ product.title }}</h2>
-		<a href="{{ product.url }}">Shop Now</a>
-	{%- endfor -%}
+  handle="{{ collection.handle }}"
+  :related-collections="{{ related_collections | escape | strip }}"
+  :total-products="{{ collection.products_count }}"
+  :pagination-amount="{{ pagination_count }}"
+  :filters="{{ filter_types | escape | strip }}"
+  :tags="{{ all_tags | escape | strip }}"
+  :promo-tile="{{ promo_tile | escape | strip }}"
+  :init-collection-data="{{ init_collection_data | escape | strip }}"
+  :init-collection-total="{{ collection.all_products_count }}"
+  :init-collection-products="{{ init_collection_products | escape | strip }}"
+  :global-menu="{{ global_collection_menu  | escape | strip }}"
+  :collection-menu="{{ collection_menu_linklist | escape | strip }}"
+  collection-menu-title="{{ collection_menu_title }}"
+  :visibility-settings="{{ visibility_settings | escape | strip }}"
+  {% if settings.collection_template == 'b' %}
+  {% if collection.handle != 'all' %}
+  :collection-sections="{{ collection_sections | escape | strip }}"
+  {% endif %}
+  :hero-settings="{{ hero_settings | escape | strip }}"
+  {% endif %}
+  :disable-logo-badge="{{ disable_logo_badge }}"
+  collection-template="{{ settings.collection_template }}"
+  :wishlist-enabled="{{ settings.wishlist_enabled }}">
+  {%- for product in collection.products -%}
+    <h2>{{ product.title }}</h2>
+    <a href="{{ product.url }}">Shop Now</a>
+  {%- endfor -%}
 </collection-grid>

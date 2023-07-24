@@ -215,9 +215,9 @@ const filterSortUrlBuilder = (isJSON = true, page) => {
   let url = '';
   let baseUrl = `/collections/${state.currentHandle}/`;
   if (state.currentFilters.length) {
-    let handleizedArray = state.currentFilters.map((filter) => handleize(filter));
-    let concatenatedTags = handleizedArray.join('+');
-    url = `${baseUrl}${concatenatedTags}?${isJSON ? 'view=json&' : ''}page=${pageToRequest}&sort_by=${state.currentSort}`;
+    let handleizedArray = state.currentFilters;
+    let concatenatedTags = handleizedArray.join('&');
+    url = `${baseUrl}?${isJSON ? 'view=json&' : ''}page=${pageToRequest}&sort_by=${state.currentSort}&${concatenatedTags}`;
   }
   if (!state.currentFilters.length && state.currentSort.length) {
     url = `${baseUrl}?${isJSON ? 'view=json&' : ''}page=${pageToRequest}&sort_by=${state.currentSort}`;

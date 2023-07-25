@@ -124,7 +124,7 @@ const actions = {
     commit('SET_CURRENT_SCROLL_POS', pos);
   },
   fetchProducts({ commit }, append = false) {
-    commit('SET_FETCHING_STATUS', { status: true, coverAll: !append });
+    commit('SET_FETCHING_STATUS', { status: false, coverAll: !append });
     const mutation = append ? 'APPEND_PRODUCTS' : 'SET_CURRENT_PRODUCTS';
     let url = filterSortUrlBuilder();
     return axios

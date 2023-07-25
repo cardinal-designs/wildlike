@@ -35,9 +35,9 @@
     fade-transition(:duration="{enter: 600, leave: 200}")
       div
         .collection-filters__filter-accordion(v-for="filterGroup in filterGroups" :key="filterGroup.urlParam" v-if="!fetchingStatus.status")
-          .collection-filters__filter-accordion-header(@click="setCurrentMobileFilter(filterGroup.urlParam)")
+          .collection-filters__filter-accordion-header(@click="setCurrentMobileFilter(filterGroup.urlParam)"  v-if="filterGroup.name != 'price' ")
             .collection-filters__filter-accordion-title.body-md
-              h5.collection-filters__filter-accordion-title-span {{unhandleizeFilter(filterGroup.name)}}
+              h5.collection-filters__filter-accordion-title-span {{unhandleizeFilter(filterGroup)}}
             icon.vertical-aligned-icon(v-if="currentFilterPanel !== filterGroup.urlParam" name="chevron-down" size="12px")
             icon.vertical-aligned-icon(v-if="currentFilterPanel === filterGroup.urlParam" name="chevron-up" size="12px")
           collapse-transition
@@ -179,12 +179,15 @@
       unhandleizeFilter(handleizedFilter) {
         let selectedFilterCount=0
         const filterVaues=handleizedFilter.values
-        for (let index = 0; index < filterVaues.length; index++) {
+        if(filterVaues.length){
+          for (let index = 0; index < filterVaues.length; index++) {
           const value = filterVaues[index];
           if(this.currentFilterArray.includes(value.url)){
             selectedFilterCount=selectedFilterCount+1
           }     
         }
+        }
+        
         const showSelectedFilterCount=selectedFilterCount > 0?`(${selectedFilterCount})`:''
         return `${unhandleize(handleizedFilter.name)} ${showSelectedFilterCount}`
       },

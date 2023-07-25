@@ -1,3 +1,4 @@
+
 <template lang="pug">
   //- Desktop -//
   .collection-filters(v-if="$mq !== 'mobile' && filterGroups.length")
@@ -5,23 +6,24 @@
       .collection-filters__filter-panels
         //- Showing the Filters
         transition-group(name="fade" :duration="{enter: 600, leave: 200}")
-          .collection-filters__filter-panel(v-for="filterGroup in filterGroups" :key="filterGroup.name" v-if="!fetchingStatus.status")
-            collection-accordion(:ref="`accordion${filterGroup.name}`" iconSize="16px")
-              template(v-slot:heading) {{unhandleizeFilter(filterGroup.name)}}
-                span.accordion__menu-title(v-if="containsCurrentFilters(filterGroup.name)")
-                  |&nbsp;({{currentFilterCount(filterGroup.name)}})
+          .collection-filters__filter-panel(v-for="filterGroup in filterGroups" :key="filterGroup.urlParam" v-if="!fetchingStatus.status")
+            collection-accordion( v-if="filterGroup.name != 'price' " :ref="`accordion${filterGroup.urlParam}`" iconSize="16px" :autoClose="false")
+              template(v-slot:heading) {{ unhandleizeFilter(filterGroup) }}
+                span.accordion__menu-title(v-if="containsCurrentFilters(filterGroup.urlParam)")
               template(v-slot)
-                span.collection-filters__filter-panel-clear-filters(v-if="containsCurrentFilters(filterGroup.name)" @click="clearFilterFilters(filterGroup.name)") Clear
+                span.collection-filters__filter-panel-clear-filters(v-if="containsCurrentFilters(filterGroup.urlParam)" @click="clearFilterFilters(filterGroup.urlParam)") Clear
                 .collection-filters__filter-panel-filters
                   .collection-filters__filter-panel-filter(
-                      v-for="filter in returnExpandedUnexpanded(filterGroup.name)"
-                      :key="`${filterGroup.name}-${filter}`")
+                    v-for="filter in returnExpandedUnexpanded(filterGroup.name)"
+                    :key="filter.url"
+                  )
                     input.input--checkbox(
-                      :id="`${filterGroup.name}-${handleizedFilter(filter)}`"
-                      :value="`${filterGroup.name}-${handleizedFilter(filter)}`"
-                      type="checkbox" :checked="isCurrentFilter(`${filterGroup.name}-${handleizedFilter(filter)}`)"
+                      :id="`${filterGroup.name}-${handleizedFilter(filter.name)}`"
+                      :value="filter.url"
+                      type="checkbox"
+                      :checked="isCurrentFilter(filter.url)"
                       @change="updateFilterArray")
-                    label(:for="`${filterGroup.name}-${handleizedFilter(filter)}`") {{filter}}
+                    label(:for="`${filterGroup.name}-${handleizedFilter(filter.name)}`" v-html="decodedFilter(filter.name)")
         //- Showing a loading Skeleton while loading
         fade-transition(:duration="{enter: 600, leave: 200}")
           collection-filters-skeleton(v-if="fetchingStatus.status" collection="b")
@@ -32,21 +34,22 @@
     //- Showing the Filters
     fade-transition(:duration="{enter: 600, leave: 200}")
       div
-        .collection-filters__filter-accordion(v-for="filterGroup in filterGroups" :key="filterGroup.name" v-if="!fetchingStatus.status")
-          .collection-filters__filter-accordion-header(@click="setCurrentMobileFilter(filterGroup.name)")
+        .collection-filters__filter-accordion(v-for="filterGroup in filterGroups" :key="filterGroup.urlParam" v-if="!fetchingStatus.status")
+          .collection-filters__filter-accordion-header(@click="setCurrentMobileFilter(filterGroup.urlParam)"  v-if="filterGroup.name != 'price' ")
             .collection-filters__filter-accordion-title.body-md
-              h5.collection-filters__filter-accordion-title-span {{unhandleizeFilter(filterGroup.name)}} {{currentFilterCount(filterGroup.name) > 0 ? `(${currentFilterCount(filterGroup.name)})` : ''}}
-            icon.vertical-aligned-icon(v-if="currentFilterPanel !== filterGroup.name" name="chevron-down" size="12px")
-            icon.vertical-aligned-icon(v-if="currentFilterPanel === filterGroup.name" name="chevron-up" size="12px")
+              h5.collection-filters__filter-accordion-title-span {{unhandleizeFilter(filterGroup)}}
+            icon.vertical-aligned-icon(v-if="currentFilterPanel !== filterGroup.urlParam" name="chevron-down" size="12px")
+            icon.vertical-aligned-icon(v-if="currentFilterPanel === filterGroup.urlParam" name="chevron-up" size="12px")
           collapse-transition
-            .collection-filters__filter-panel-filters.column(v-if="currentFilterPanel == filterGroup.name")
-              .collection-filters__filter-panel-filter(v-for="filter in filterGroup.allTags" :key="`${filterGroup.name}-${filter}`")
+            .collection-filters__filter-panel-filters.column(v-if="currentFilterPanel == filterGroup.urlParam")
+              .collection-filters__filter-panel-filter(v-for="filter in filterGroup.values" :key="filter.url")
                 input.collection-filters__filter-panel-filter-checkbox.input--checkbox(
-                  :id="`${filterGroup.name}-${handleizedFilter(filter)}`"
-                  :value="`${filterGroup.name}-${handleizedFilter(filter)}`"
-                  type="checkbox" :checked="isCurrentFilter(`${filterGroup.name}-${handleizedFilter(filter)}`)"
+                  :id="`${filterGroup.name}-${handleizedFilter(filter.name)}`"
+                  :value="filter.url"
+                  type="checkbox"
+                  :checked="isCurrentFilter(filter.url)"
                   @change="updateFilterArray")
-                label.body-sm(:for="`${filterGroup.name}-${handleizedFilter(filter)}`") {{filter}}
+                label.body-sm(:for="`${filterGroup.name}-${handleizedFilter(filter.name)}`" v-html="decodedFilter(filter.name)")
     //- Showing a loading Skeleton while loading
     fade-transition(:duration="{enter: 600, leave: 200}")
       collection-filters-skeleton(v-if="fetchingStatus.status" collection="b")
@@ -58,7 +61,6 @@
   import isEqual from 'lodash/isEqual';
 
   import { handleize, unhandleize } from 'scripts/filters/string.js'
-  import { fileUrl } from 'scripts/helpers/util';
   import { scrollToId } from 'scripts/helpers/scroll.js';
   import { getCollectionCacheState } from 'scripts/helpers/collections';
 
@@ -76,10 +78,7 @@
         type: Array,
         required: true
       },
-      tags: {
-        type: Array,
-        required: true
-      },
+      tags: Array,
       heroSettings: Object
     },
     data() {
@@ -100,20 +99,35 @@
       }),
       splitTags() {
         return this.currentTags.map((tag) => {
-          const valueArray = tag.split('::')
+          const valueArray = tag.split('::') 
           return {tag: handleize(valueArray[0]), value: valueArray[1]}
         })
       },
       filterGroups() {
-        let filterGroups = []
+        let filterGroups = [];
+
         this.filtersWithoutDuplicates.forEach(filter => {
           let filterGroup = {
-            name: filter,
-            allTags: []
+            name: handleize(filter.label),
+            urlParam: filter.url_param,
+            allTags: [],
+            values: []
           }
 
+          filter.values.forEach(value => {
+            filterGroup.values.push(
+              {
+                "name": value.name,
+                "url": value.url,
+                "param_name":value.param_name,
+                "active": value.active,
+                "count": value.count 
+              }
+            );
+          })
+
           this.splitTags.forEach(tag => {
-            if (tag.tag === filter && tag.value) {
+            if (tag.tag === handleize(filter.label) && tag.value) {
               filterGroup.allTags.push(tag.value)
             }
           })
@@ -130,7 +144,8 @@
           if (filterGroup.allTags.length > 0) {
             filterGroups.push(filterGroup)
           }
-        })
+        });
+
         return filterGroups
       },
       currentFilterArrayUnhandelized() {
@@ -162,30 +177,34 @@
         }
       },
       unhandleizeFilter(handleizedFilter) {
-        return unhandleize(handleizedFilter)
+        let selectedFilterCount=0
+        const filterVaues=handleizedFilter.values
+        if(filterVaues.length){
+          for (let index = 0; index < filterVaues.length; index++) {
+          const value = filterVaues[index];
+          if(this.currentFilterArray.includes(value.url)){
+            selectedFilterCount=selectedFilterCount+1
+          }     
+        }
+        }
+        
+        const showSelectedFilterCount=selectedFilterCount > 0?`(${selectedFilterCount})`:''
+        return `${unhandleize(handleizedFilter.name)} ${showSelectedFilterCount}`
       },
       handleizedFilter(unhandelizedFilter) {
         return handleize(unhandelizedFilter, false)
+      },
+      decodedFilter(filter) {
+        return decodeURI(filter)
+      },
+      unescapeAndEncodeFilter(unhandleizedFilter) {
+        return encodeURIComponent(unhandleizedFilter.replace("'", "%27"))
       },
       removeFilter(filter) {
         this.currentFilterArray.splice(this.currentFilterArray.indexOf(filter), 1)
       },
       removeAllFilters() {
         this.currentFilterArray = []
-      },
-      setCurrentFilterPanel(filter) {
-        if (this.currentFilterPanel === filter) {
-          this.currentFilterPanel = ""
-          this.$forceUpdate()
-          this.filterPanelOpen = !this.filterPanelOpen
-        } else if (!this.filterPanelOpen) {
-          this.currentFilterPanel = filter
-          this.$forceUpdate()
-          this.filterPanelOpen = !this.filterPanelOpen
-        } else {
-          this.currentFilterPanel = filter
-          this.$forceUpdate()
-        }
       },
       setCurrentMobileFilter(filter) {
         if(filter === this.currentFilterPanel) {
@@ -196,44 +215,15 @@
           this.$forceUpdate()
         }
       },
-      isUseableFilter(currentFilter) {
-        return this.splitTags.some(filter => {return filter.tag === currentFilter})
-      },
-      getMobilePanelFilters(filterName) {
-        if (this.currentFilters.length) {
-          let filters = this.currentFilters.map(filter => {
-            if (filter.includes(filterName) && !filter.includes(`-${filterName}`)) {
-              return filter
-            } return ''
-          })
-
-          let activeFilters = filters.filter(filter => filter !== "")
-
-          if (activeFilters.length) {
-            let unhandelizedFilters = activeFilters.map(filter => {
-              let replacedFilter = filter.replace(`${filterName}`, '')
-              return unhandleize(replacedFilter)
-            })
-            let joinedFilters = unhandelizedFilters.join(', ').slice(0,30)
-            return `${joinedFilters}${joinedFilters.length >= 30 ? '...' : ''}`
-          } return ''
-        } return ''
-      },
       containsCurrentFilters(filterName) {
-        if (this.currentFilters && this.currentFilters.length)
-          return this.currentFilters.some(filter => filter.startsWith(filterName) && this.currentTags.some((tag) => {
-          const valueArray = tag.split('::')
-          return handleize(tag) == filter && handleize(valueArray[0]) == filterName
-        }))
-      },
-      // currentFilterCount(filterName) {
-      //   return this.currentFilters.filter(filter => filter.startsWith(filterName)).length
-      // },
-      currentFilterCount(filterName) {
-        return this.currentFilters.filter(filter => filter.startsWith(filterName) && this.currentTags.some((tag) => {
-          const valueArray = tag.split('::')
-          return handleize(tag) == filter && handleize(valueArray[0]) == filterName
-        })).length
+        if (this.currentFilters && this.currentFilters != undefined && this.currentFilters.length) {
+          if (this.currentAvailableTags) {
+            return this.currentFilters.some(filter => filter.startsWith(filterName) && this.currentAvailableTags.some((tag) => {
+              const valueArray = tag.split('::')
+              return handleize(tag) == filter && handleize(valueArray[0]) == filterName
+            }))
+          }
+        }
       },
       clearFilterFilters(filterName) {
         let newCurrentFilters = this.currentFilters
@@ -251,7 +241,7 @@
       },
       returnExpandedUnexpanded(filterName) {
         let filterIndex = this.filterGroups.findIndex(filter => filter.name === filterName)
-        return this.filterGroups[filterIndex].allTags
+        return this.filterGroups[filterIndex].values
       },
       isCurrentFilter(filterName) {
         return this.currentFilterArray.includes(filterName);
@@ -283,7 +273,7 @@
     created() {
       let expandedFilters = this.filterGroups.map((filterGroup => {
         return {
-          "name": filterGroup.name,
+          "name": filterGroup.urlParam,
           "expanded": false
         }
       }))
@@ -373,7 +363,7 @@
       display: block;
       margin-bottom: 16px;
       cursor: pointer;
-      color: $color-accent-2-700;
+      color: $color-brand-primary;
       &:hover {
         text-decoration: underline;
       }
@@ -453,10 +443,9 @@
       }
       &-title {
         &-span {
-          font-family: $font-family-primary;
+          font-family: $font-family-secondary;
           font-size: rem(18);
-          font-style: italic;
-          font-weight: 900;
+          font-weight: 700;
           letter-spacing: 2.3px;
           line-height: 24px;
 

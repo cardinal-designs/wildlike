@@ -3,7 +3,7 @@
     span.collection-filters__title
     .collection-filters__active-filters
       .collection-filters__active-filter(v-for="filter in currentFilters" @click="removeFilter(filter)")
-        span {{unhandleizeFilter(filter)}}
+        span {{splitAndDecodeFilter(filter)}}
         icon(name="close" size="10px")
       .collection-filters__filters-clear
           v-link.text-sm(v-if="currentFilters.length" :secondary="true" @click="removeAllFilters") Clear All
@@ -28,6 +28,10 @@
     methods: {
       unhandleizeFilter(handleizedFilter) {
         return unhandleize(handleizedFilter)
+      },
+      splitAndDecodeFilter(filter) {   
+        let activeFilterType=filter.slice(filter.lastIndexOf(".")+1).split('=')[0].replaceAll("_"," ") // get active filter type
+       return `${activeFilterType} ${decodeURIComponent(filter.split('=')[1].replaceAll('+', ' '))}`// return active filter type and value
       },
       removeFilter(filter) {
         let newCurrentFilters = this.currentFilters.splice(this.currentFilters.indexOf(filter), 1)
@@ -82,6 +86,7 @@
       }
       span {
         margin-right: 8px;
+        text-transform: capitalize;
       }
     }
     &__filters-clear {

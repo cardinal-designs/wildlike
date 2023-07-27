@@ -304,9 +304,8 @@ export default {
     background: $color-primary-500;
   }
   .swiper-slide.swiper-slide-duplicate{
-    //display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
+    opacity: 0 ;
+    visibility: hidden;
   }
   .pdp-gallery {
     margin: 0;

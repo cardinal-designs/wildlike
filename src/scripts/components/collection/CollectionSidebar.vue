@@ -81,7 +81,10 @@
     border-top: 1px solid $color-black-300;
     position: sticky;
     top: 139px;
-
+    &.relative{
+      position: relative !important;
+      top: 0 !important;
+    }
     &__global-menu {
       display: flex;
       flex-direction: column;

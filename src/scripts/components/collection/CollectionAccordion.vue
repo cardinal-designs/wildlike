@@ -115,7 +115,7 @@
           'max-height': `${ this.expandMaxHeight || (height + containerPadding) }px`
         }
       },
-      activate () {
+      activate (e) {
         if (this.$parent.activate && !this.active) {
           this.$parent.activate(this)
           this.$emit("active")
@@ -123,8 +123,29 @@
           this.active = !this.active
         }
 
-        if(this.active)
+        if(this.active){
           this.$nextTick(() => this.setContentHeight())
+        }
+      // scroll to current collection dropdown filter 
+      const parent =e.currentTarget.closest(".collection-filters__filter-panel")   
+      let headerHeight = document.querySelector('.navbar.main-header-nav-container') ||  0;
+      const collectionSidebar=document.querySelector(".collection-sidebar");
+      if(collectionSidebar){
+        collectionSidebar.classList.add("relative")
+      }
+      let topHeaderHeight =document.querySelector(".top-header__container") || 0
+        if(headerHeight ){
+          headerHeight =headerHeight.clientHeight
+        }
+        if(topHeaderHeight){
+          topHeaderHeight=topHeaderHeight.clientHeight
+        }
+      const totalHeaderHeight=headerHeight +  topHeaderHeight
+      const y = parent.getBoundingClientRect().top + window.scrollY - totalHeaderHeight;
+      window.scroll({
+        top: y,
+        behavior: 'smooth'
+      });
       },
       addMaxHeight() {
         this.$nextTick(() => this.setContentHeight())

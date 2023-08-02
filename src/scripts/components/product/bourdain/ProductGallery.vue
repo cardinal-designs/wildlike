@@ -236,7 +236,7 @@ export default {
     thumbSlideTo(index) {
       // Get array of non duplicate slides
       const nonDupSlides = [...this.$refs.thumbSwiper.swiper.slides].filter((el) => !el.matches('.swiper-slide-duplicate'));
-
+     
       // Slide main swiper to index
       this.$refs.swiper.swiper.slideToLoop(index);
 
@@ -303,15 +303,17 @@ export default {
   /deep/ .swiper-pagination-bullet-active {
     background: $color-primary-500;
   }
-
+  .swiper-slide.swiper-slide-duplicate{
+    opacity: 0 ;
+    visibility: hidden;
+  }
   .pdp-gallery {
     margin: 0;
     width: 100%;
     @include mobile-only {
       margin-bottom: 15px;
     }
-
-    &__main {
+       &__main {
       position: relative;
       overflow: hidden;
       max-width: 100%;

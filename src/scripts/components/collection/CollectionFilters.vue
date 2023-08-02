@@ -7,7 +7,7 @@
         //- Showing the Filters
         transition-group(name="fade" :duration="{enter: 600, leave: 200}")
           .collection-filters__filter-panel(v-for="filterGroup in filterGroups" :key="filterGroup.urlParam" v-if="!fetchingStatus.status")
-            collection-accordion( v-if="filterGroup.name != 'price' " :ref="`accordion${filterGroup.urlParam}`" iconSize="16px" :autoClose="false")
+            collection-accordion(:ref="`accordion${filterGroup.urlParam}`" iconSize="16px" :autoClose="false")
               template(v-slot:heading) {{ unhandleizeFilter(filterGroup) }}
                 span.accordion__menu-title(v-if="containsCurrentFilters(filterGroup.urlParam)")
               template(v-slot)

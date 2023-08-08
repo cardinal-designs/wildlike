@@ -174,12 +174,14 @@ export default {
 
   .category-slider__detail,
     .category-slider__detail p {
-      font-weight: 700;
-      font-size: 0.875rem;
-      line-height: 24px;
-      margin-bottom: 2px;
-      text-transform: uppercase;
       margin: 0;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 100%;
+      font-size: 1.25rem;
+      font-family: korolev,sans-serif;
+      letter-spacing: 1px;
+      font-style: italic;
     }
 }
 .icon.icon--arrow_long_right {

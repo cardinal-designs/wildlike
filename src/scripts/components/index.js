@@ -96,7 +96,8 @@ import ProductSet from 'scripts/components/sections/ProductSet.vue';
 
 import FeaturedOffersContainer from 'scripts/components/featured-offers/FeaturedOffersContainer.vue';
 import EditorialSets from 'scripts/components/sections/EditorialSets.vue';
-
+// home page category slider section
+import CategorySlider from './sections/CategorySlider.vue'
 // Pages
 import SubNav from 'scripts/components/pages/SubNav.vue';
 import FAQs from 'scripts/components/pages/FAQs.vue';
@@ -209,7 +210,7 @@ export default {
   SeoCollectionBlock,
   CollectionLinks,
   ProductSet,
-
+  CategorySlider,
   // pages
   SubNav,
   faqs: FAQs,

@@ -1,30 +1,64 @@
 {
   "sections": {
+    "90f0468d-8fa3-4567-ad26-ee838ebe5093": {
+      "type": "hero-banner",
+      "settings": {
+        "max_width": "none",
+        "top_margin": 16,
+        "bottom_margin": 56,
+        "layout": "short",
+        "enable_text_box": false,
+        "text_box_bg_color": "",
+        "mobile_layout": "overlay",
+        "mobile_text_alignment": "left",
+        "horizontal_layout": "left",
+        "vertical_layout": "top",
+        "background_image": "shopify:\/\/shop_images\/image9.png",
+        "enable_mobile_image": false,
+        "hero_url": "",
+        "url_aria_label": "",
+        "video_url": "",
+        "enable_overlay": false,
+        "overlay_color": "bg-brand-primary",
+        "content_background_color": "#ffffff",
+        "overlay_opacity": 50,
+        "pre_heading": "",
+        "heading": "",
+        "sub_heading": "",
+        "body_copy": "",
+        "pre_heading_color": "color-black",
+        "heading_color": "color-black",
+        "sub_heading_color": "color-black",
+        "body_copy_color": "color-black",
+        "mobile_bg_color": "bg-brand-primary",
+        "pre_heading_color_mobile": "color-black",
+        "heading_color_mobile": "color-black",
+        "sub_heading_color_mobile": "color-black",
+        "body_copy_color_mobile": "color-black",
+        "enable_cta": false,
+        "cta_color": "#231A22",
+        "cta_bordercolor": "#231A22",
+        "cta_textcolor": "#ffffff",
+        "cta_text": "",
+        "cta_url": ""
+      }
+    },
     "1620323707b30ce32c": {
       "type": "image-strip",
       "blocks": {
         "d3937ccc-90cd-479a-bdbd-d7a30b9e6b1c": {
           "type": "testimonial_block",
           "settings": {
-            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-1A-686x460x2_61893249-056c-452f-be39-1b4a822163b7.jpg",
-            "itp_url": "shopify:\/\/collections\/diamond",
+            "itp_logo": "shopify:\/\/shop_images\/image3_a053dbdb-6274-43d4-a645-c9583e5a8dc5.png",
+            "itp_url": "",
             "itp_link_target": "_self",
-            "link_aria_label": "Link to Diamond earrings"
+            "link_aria_label": ""
           }
         },
         "bc5f7eb3-7fc9-49e1-8d72-d98b2e9e8a77": {
           "type": "testimonial_block",
           "settings": {
-            "itp_logo": "shopify:\/\/shop_images\/Wildlike-Position-1B-686x460x2_96432272-f9ea-46c5-9c75-6c8515817b54.jpg",
-            "itp_url": "https:\/\/wildlike.com\/pages\/booking",
-            "itp_link_target": "_self",
-            "link_aria_label": "Link to book an appointment."
-          }
-        },
-        "f3473203-4d42-4bc0-876f-983d30c4ae46": {
-          "type": "testimonial_block",
-          "disabled": true,
-          "settings": {
+            "itp_logo": "shopify:\/\/shop_images\/image1.png",
             "itp_url": "",
             "itp_link_target": "_self",
             "link_aria_label": ""
@@ -33,8 +67,7 @@
       },
       "block_order": [
         "d3937ccc-90cd-479a-bdbd-d7a30b9e6b1c",
-        "bc5f7eb3-7fc9-49e1-8d72-d98b2e9e8a77",
-        "f3473203-4d42-4bc0-876f-983d30c4ae46"
+        "bc5f7eb3-7fc9-49e1-8d72-d98b2e9e8a77"
       ],
       "settings": {
         "margin_top": 36,
@@ -53,6 +86,7 @@
     },
     "16203239092c717241": {
       "type": "image-strip",
+      "disabled": true,
       "blocks": {
         "0ff0a048-c363-43df-aab6-191ba5061939": {
           "type": "testimonial_block",
@@ -104,6 +138,7 @@
     },
     "1620323993ee214c52": {
       "type": "featured-designers",
+      "disabled": true,
       "settings": {
         "margin_top": 4,
         "margin_bottom": 8,
@@ -204,6 +239,7 @@
     }
   },
   "order": [
+    "90f0468d-8fa3-4567-ad26-ee838ebe5093",
     "1620323707b30ce32c",
     "1620323841d0a03e27",
     "16203239092c717241",

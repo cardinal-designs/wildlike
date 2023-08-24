@@ -158,16 +158,17 @@ export default {
           marginTop: px(topMargin / 2),
           marginBottom: px(bottomMargin / 2),
           maxWidth,
-          paddingLeft: this.heroSchema.maxWidth === '1440px' ? '25px' : '0px',
-          paddingRight: this.heroSchema.maxWidth === '1440px' ? '25px' : '0px'
+          paddingLeft: this.heroSchema.maxWidth === '1440px' ? '16px' : '0px',
+          paddingRight: this.heroSchema.maxWidth === '1440px' ? '16px' : '0px'
         };
       }
+
       return {
         marginTop: px(topMargin),
         marginBottom: px(bottomMargin),
         maxWidth,
-        paddingLeft: this.heroSchema.maxWidth === '1440px' ? '25px' : '0px',
-        paddingRight: this.heroSchema.maxWidth === '1440px' ? '25px' : '0px'
+        paddingLeft: this.heroSchema.maxWidth === '1440px' ? '20px' : '0px',
+        paddingRight: this.heroSchema.maxWidth === '1440px' ? '20px' : '0px'
       };
     },
     layoutStyle() {
@@ -222,7 +223,6 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   &__cta {
     &:hover{
       background-color: $color-brand-primary !important;

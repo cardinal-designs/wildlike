@@ -2,7 +2,8 @@
     section.itp-section-padded(
       :style="paddingStyles"
     )
-      div.itp.text-center.container(
+     h2(v-if="schema.settings.title") {{schema.settings.title }}
+     div.itp.text-center.container(
         v-if="schema.blocks.length >= 2"
       )
         .itp__blocks.itp__static
@@ -51,6 +52,10 @@ export default {
 <style lang="scss" scoped>
   .itp-section-padded {
     padding: 0 24px;
+    h2{
+    text-align: center;
+    margin-bottom: 32px;
+    }
     @include mobile-only {
       padding: 0;
     }
@@ -123,6 +128,7 @@ export default {
         display: flex;
         justify-content: center;
         flex-direction: column;
+        row-gap: 10px;
       }
     }
   }

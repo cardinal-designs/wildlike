@@ -1,30 +1,30 @@
 {%- capture featured_designer -%}
   {
-    heading: {{ section.settings.heading | json }},
-    enableCta: {{ section.settings.enable_cta | json }},
-    ctaText: {{ section.settings.cta_text | json }},
-    ctaLayout: {{ section.settings.cta_layout | json }},
-    ctaColor: {{ section.settings.cta_color | json }},
-    ctaIconColor: {{ section.settings.cta_icon_color | json }},
-    ctaLink: {{ collections[section.settings.featured_collection].url | json }},
-    bgColor: {{ section.settings.bg_color | json }},
-    headingColor: {{ section.settings.heading_color | json }},
-    arrowColor: {{ section.settings.arrow_color | json }},
-    marginTop: {{ section.settings.margin_top | json }},
-    marginBottom: {{ section.settings.margin_bottom | json }},
-    designerDetails: {
-        name: {{ section.settings.featured_designer_name | json }},
-        nameColor: {{ section.settings.nameColor | json }},
-        excerpt: {{ section.settings.featured_designer_excerpt | json }},
-        excerptColor: {{ section.settings.excerptColor | json }},
-        image: {{ section.settings.featured_designer_image | json }},
-        imageMobile: {{ section.settings.featured_designer_image_mb | json }}
-    },
-    products: [
-      {% for product in collections[section.settings.featured_collection].products limit: section.settings.amount  %}
-        {%- render 'json--product', product: product, order: forloop.index -%}{%- unless forloop.last -%},{%- endunless -%}
-      {% endfor %}
-    ]
+  heading: {{ section.settings.heading | json }},
+  enableCta: {{ section.settings.enable_cta | json }},
+  ctaText: {{ section.settings.cta_text | json }},
+  ctaLayout: {{ section.settings.cta_layout | json }},
+  ctaColor: {{ section.settings.cta_color | json }},
+  ctaIconColor: {{ section.settings.cta_icon_color | json }},
+  ctaLink: {{ collections[section.settings.featured_collection].url | json }},
+  bgColor: {{ section.settings.bg_color | json }},
+  headingColor: {{ section.settings.heading_color | json }},
+  arrowColor: {{ section.settings.arrow_color | json }},
+  marginTop: {{ section.settings.margin_top | json }},
+  marginBottom: {{ section.settings.margin_bottom | json }},
+  designerDetails: {
+              name: {{ section.settings.featured_designer_name | json }},
+  nameColor: {{ section.settings.nameColor | json }},
+  excerpt: {{ section.settings.featured_designer_excerpt | json }},
+  excerptColor: {{ section.settings.excerptColor | json }},
+  image: {{ section.settings.featured_designer_image | json }},
+  imageMobile: {{ section.settings.featured_designer_image_mb | json }}
+  },
+  products: [
+  {% for product in collections[section.settings.featured_collection].products limit: section.settings.amount %}
+    {%- render 'json--product', product: product, order: forloop.index -%}{%- unless forloop.last -%},{%- endunless -%}
+  {% endfor %}
+  ]
   }
 {%- endcapture -%}
 
@@ -33,251 +33,412 @@
   :enable-simple-tile="{{ settings.enable_simple_tile }}"
   :enable-simple-tile-cta="{{ settings.enable_simple_tile_cta }}"
   collection-template="{{ settings.collection_template }}"
-  product-tile-text-alignment="{{ settings.product_tile_text_alignment }}"
-/>
+  product-tile-text-alignment="{{ settings.product_tile_text_alignment }}" />
 
 {% schema %}
-{
-  "name": "Featured Designer",
-  "class": "featured-designer",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Section Margins",
-      "info": "Customize the margin spacing on the top and bottom of this section."
-    },
-    {
-      "label": "Top Padding",
-      "id": "margin_top",
-      "type": "range",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "default": 56
-    },
-    {
-      "label": "Bottom Padding",
-      "id": "margin_bottom",
-      "type": "range",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "default": 56
-    },
-    {
-      "type": "header",
-      "content": "Designer Details"
-    },
-    {
-      "type": "text",
-      "id": "featured_designer_name",
-      "label": "Name",
-      "info": "Enter the name of the designer."
-    },
-    {
-      "type": "select",
-      "id": "nameColor",
-      "label": "Name - Color",
-      "options": [
-        { "label": "Primary", "value": "color-brand-primary" },
-        { "label": "Secondary", "value": "color-brand-secondary" },
-        { "label": "Accent 1", "value": "color-accent-1" },
-        { "label": "Accent 2", "value": "color-accent-2" },
-        { "label": "Accent 3", "value": "color-accent-3" },
-        { "label": "Accent 4", "value": "color-accent-4" },
-        { "label": "Accent 5", "value": "color-accent-5" },
-        { "label": "White", "value": "color-white" },
-        { "label": "Light Grey", "value": "color-light-grey" },
-        { "label": "Grey", "value": "color-grey" },
-        { "label": "Off Black", "value": "color-off-black" },
-        { "label": "Black", "value": "color-black" }
-      ],
-      "default": "color-brand-primary"
-    },
-    {
-      "type": "textarea",
-      "id": "featured_designer_excerpt",
-      "label": "Excerpt",
-      "info": "Excerpt goes right below the designer name."
-    },
-    {
-      "type": "select",
-      "id": "excerptColor",
-      "label": "Excerpt - Color",
-      "options": [
-        { "label": "Primary", "value": "color-brand-primary" },
-        { "label": "Secondary", "value": "color-brand-secondary" },
-        { "label": "Accent 1", "value": "color-accent-1" },
-        { "label": "Accent 2", "value": "color-accent-2" },
-        { "label": "Accent 3", "value": "color-accent-3" },
-        { "label": "Accent 4", "value": "color-accent-4" },
-        { "label": "Accent 5", "value": "color-accent-5" },
-        { "label": "White", "value": "color-white" },
-        { "label": "Light Grey", "value": "color-light-grey" },
-        { "label": "Grey", "value": "color-grey" },
-        { "label": "Off Black", "value": "color-off-black" },
-        { "label": "Black", "value": "color-black" }
-      ],
-      "default": "color-brand-primary"
-    },
-    {
-      "type": "image_picker",
-      "id": "featured_designer_image",
-      "label": "Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "featured_designer_image_mb",
-      "label": "Image - Mobile"
-    },
-    {
-      "type": "header",
-      "content": "CTA",
-      "info": "CTA config"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_cta",
-      "label": "Enable CTA",
-      "default": false
-    },
-    {
-      "type": "text",
-      "id": "cta_text",
-      "label": "CTA Text",
-      "default": "Shop All"
-    },
-    {
-      "type": "color",
-      "id": "cta_color",
-      "label": "CTA Color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "select",
-      "id": "cta_layout",
-      "label": "CTA Style",
-      "options": [
-        { "label": "Primary Button", "value": "button button--primary" },
-        { "label": "Default Button", "value": "button button--secondary" },
-        { "label": "Primary Text Link", "value": "link link--primary" },
-        { "label": "Secondary Text Link", "value": "link link--secondary" }
-      ],
-      "default": "button button--primary"
-    },
-    {
-      "type": "select",
-      "id": "cta_icon_color",
-      "label": "CTA Icon Color",
-      "options": [
-        { "label": "Primary", "value": "fill-brand-primary" },
-        { "label": "Secondary", "value": "fill-brand-secondary" },
-        { "label": "Accent 1", "value": "fill-accent-1" },
-        { "label": "Accent 2", "value": "fill-accent-2" },
-        { "label": "Accent 3", "value": "fill-accent-3" },
-        { "label": "Accent 4", "value": "fill-accent-4" },
-        { "label": "Accent 5", "value": "fill-accent-5" },
-        { "label": "White", "value": "fill-white" },
-        { "label": "Light Grey", "value": "fill-light-grey" },
-        { "label": "Grey", "value": "fill-grey" },
-        { "label": "Off Black", "value": "fill-off-black" },
-        { "label": "Black", "value": "fill-black" }
-      ],
-      "default": "fill-black"
-    },
-    {
-      "type": "select",
-      "id": "arrow_color",
-      "label": "Icon Color",
-      "options": [
-        { "label": "Primary", "value": "fill-brand-primary" },
-        { "label": "Secondary", "value": "fill-brand-secondary" },
-        { "label": "Accent 1", "value": "fill-accent-1" },
-        { "label": "Accent 2", "value": "fill-accent-2" },
-        { "label": "Accent 3", "value": "fill-accent-3" },
-        { "label": "Accent 4", "value": "fill-accent-4" },
-        { "label": "Accent 5", "value": "fill-accent-5" },
-        { "label": "White", "value": "fill-white" },
-        { "label": "Light Grey", "value": "fill-light-grey" },
-        { "label": "Grey", "value": "fill-grey" },
-        { "label": "Off Black", "value": "fill-off-black" },
-        { "label": "Black", "value": "fill-black" }
-      ],
-      "default": "fill-black"
-    },
-    {
-      "type": "header",
-      "content": "Featured Collection"
-    },
-    {
-      "type": "collection",
-      "id": "featured_collection",
-      "label": "Featured Collection",
-      "info": "Choose a collection to feature in the carousel."
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading"
-    },
-    {
-      "type": "range",
-      "id": "amount",
-      "min": 8,
-      "max": 32,
-      "step": 1,
-      "label": "Number of products from the collection to show in the carousel.",
-      "default": 8
-    },
-    {
-      "type": "select",
-      "id": "bg_color",
-      "label": "Background Color",
-      "options": [
-        { "label": "None", "value": "" },
-        { "label": "Primary", "value": "bg-brand-primary" },
-        { "label": "Secondary", "value": "bg-brand-secondary" },
-        { "label": "Accent 1", "value": "bg-accent-1" },
-        { "label": "Accent 2", "value": "bg-accent-2" },
-        { "label": "Accent 3", "value": "bg-accent-3" },
-        { "label": "Accent 4", "value": "bg-accent-4" },
-        { "label": "Accent 5", "value": "bg-accent-5" },
-        { "label": "White", "value": "bg-white" },
-        { "label": "Light Grey", "value": "bg-light-grey" },
-        { "label": "Grey", "value": "bg-grey" },
-        { "label": "Off Black", "value": "bg-off-black" },
-        { "label": "Black", "value": "bg-black" }
-      ],
-      "default": "bg-brand-primary"
-    },
-    {
-      "type": "select",
-      "id": "heading_color",
-      "label": "Heading Color",
-      "options": [
-        { "label": "Primary", "value": "color-brand-primary" },
-        { "label": "Secondary", "value": "color-brand-secondary" },
-        { "label": "Accent 1", "value": "color-accent-1" },
-        { "label": "Accent 2", "value": "color-accent-2" },
-        { "label": "Accent 3", "value": "color-accent-3" },
-        { "label": "Accent 4", "value": "color-accent-4" },
-        { "label": "Accent 5", "value": "color-accent-5" },
-        { "label": "White", "value": "color-white" },
-        { "label": "Light Grey", "value": "color-light-grey" },
-        { "label": "Grey", "value": "color-grey" },
-        { "label": "Off Black", "value": "color-off-black" },
-        { "label": "Black", "value": "color-black" }
-      ],
-      "default": "color-black"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Featured Designer",
-      "category": "Products"
-    }
-  ]
-}
+  {
+    "name": "Featured Designer",
+    "class": "featured-designer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section Margins",
+        "info": "Customize the margin spacing on the top and bottom of this section."
+      },
+      {
+        "label": "Top Padding",
+        "id": "margin_top",
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 56
+      },
+      {
+        "label": "Bottom Padding",
+        "id": "margin_bottom",
+        "type": "range",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 56
+      },
+      {
+        "type": "header",
+        "content": "Designer Details"
+      }, {
+        "type": "text",
+        "id": "featured_designer_name",
+        "label": "Name",
+        "info": "Enter the name of the designer."
+      }, {
+        "type": "select",
+        "id": "nameColor",
+        "label": "Name - Color",
+        "options": [
+          {
+            "label": "Primary",
+            "value": "color-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "color-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "color-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "color-accent-2"
+          }, {
+            "label": "Accent 3",
+            "value": "color-accent-3"
+          }, {
+            "label": "Accent 4",
+            "value": "color-accent-4"
+          }, {
+            "label": "Accent 5",
+            "value": "color-accent-5"
+          }, {
+            "label": "White",
+            "value": "color-white"
+          }, {
+            "label": "Light Grey",
+            "value": "color-light-grey"
+          }, {
+            "label": "Grey",
+            "value": "color-grey"
+          }, {
+            "label": "Off Black",
+            "value": "color-off-black"
+          }, {
+            "label": "Black",
+            "value": "color-black"
+          }
+        ],
+        "default": "color-brand-primary"
+      }, {
+        "type": "textarea",
+        "id": "featured_designer_excerpt",
+        "label": "Excerpt",
+        "info": "Excerpt goes right below the designer name."
+      }, {
+        "type": "select",
+        "id": "excerptColor",
+        "label": "Excerpt - Color",
+        "options": [
+          {
+            "label": "Primary",
+            "value": "color-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "color-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "color-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "color-accent-2"
+          }, {
+            "label": "Accent 3",
+            "value": "color-accent-3"
+          }, {
+            "label": "Accent 4",
+            "value": "color-accent-4"
+          }, {
+            "label": "Accent 5",
+            "value": "color-accent-5"
+          }, {
+            "label": "White",
+            "value": "color-white"
+          }, {
+            "label": "Light Grey",
+            "value": "color-light-grey"
+          }, {
+            "label": "Grey",
+            "value": "color-grey"
+          }, {
+            "label": "Off Black",
+            "value": "color-off-black"
+          }, {
+            "label": "Black",
+            "value": "color-black"
+          }
+        ],
+        "default": "color-brand-primary"
+      }, {
+        "type": "image_picker",
+        "id": "featured_designer_image",
+        "label": "Image",
+        "info": "Recommended size: 1800x1532"
+      }, {
+        "type": "image_picker",
+        "id": "featured_designer_image_mb",
+        "label": "Image - Mobile",
+        "info": "Recommended size: 1800x955"
+      }, {
+        "type": "header",
+        "content": "CTA",
+        "info": "CTA config"
+      }, {
+        "type": "checkbox",
+        "id": "enable_cta",
+        "label": "Enable CTA",
+        "default": false
+      }, {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "Shop All"
+      }, {
+        "type": "color",
+        "id": "cta_color",
+        "label": "CTA Color",
+        "default": "#ffffff"
+      }, {
+        "type": "select",
+        "id": "cta_layout",
+        "label": "CTA Style",
+        "options": [
+          {
+            "label": "Primary Button",
+            "value": "button button--primary"
+          }, {
+            "label": "Default Button",
+            "value": "button button--secondary"
+          }, {
+            "label": "Primary Text Link",
+            "value": "link link--primary"
+          }, {
+            "label": "Secondary Text Link",
+            "value": "link link--secondary"
+          }
+        ],
+        "default": "button button--primary"
+      }, {
+        "type": "select",
+        "id": "cta_icon_color",
+        "label": "CTA Icon Color",
+        "options": [
+          {
+            "label": "Primary",
+            "value": "fill-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "fill-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "fill-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "fill-accent-2"
+          }, {
+            "label": "Accent 3",
+            "value": "fill-accent-3"
+          }, {
+            "label": "Accent 4",
+            "value": "fill-accent-4"
+          }, {
+            "label": "Accent 5",
+            "value": "fill-accent-5"
+          }, {
+            "label": "White",
+            "value": "fill-white"
+          }, {
+            "label": "Light Grey",
+            "value": "fill-light-grey"
+          }, {
+            "label": "Grey",
+            "value": "fill-grey"
+          }, {
+            "label": "Off Black",
+            "value": "fill-off-black"
+          }, {
+            "label": "Black",
+            "value": "fill-black"
+          }
+        ],
+        "default": "fill-black"
+      }, {
+        "type": "select",
+        "id": "arrow_color",
+        "label": "Icon Color",
+        "options": [
+          {
+            "label": "Primary",
+            "value": "fill-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "fill-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "fill-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "fill-accent-2"
+          }, {
+            "label": "Accent 3",
+            "value": "fill-accent-3"
+          }, {
+            "label": "Accent 4",
+            "value": "fill-accent-4"
+          }, {
+            "label": "Accent 5",
+            "value": "fill-accent-5"
+          }, {
+            "label": "White",
+            "value": "fill-white"
+          }, {
+            "label": "Light Grey",
+            "value": "fill-light-grey"
+          }, {
+            "label": "Grey",
+            "value": "fill-grey"
+          }, {
+            "label": "Off Black",
+            "value": "fill-off-black"
+          }, {
+            "label": "Black",
+            "value": "fill-black"
+          }
+        ],
+        "default": "fill-black"
+      }, {
+        "type": "header",
+        "content": "Featured Collection"
+      }, {
+        "type": "collection",
+        "id": "featured_collection",
+        "label": "Featured Collection",
+        "info": "Choose a collection to feature in the carousel."
+      }, {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      }, {
+        "type": "range",
+        "id": "amount",
+        "min": 8,
+        "max": 32,
+        "step": 1,
+        "label": "Number of products from the collection to show in the carousel.",
+        "default": 8
+      }, {
+        "type": "select",
+        "id": "bg_color",
+        "label": "Background Color",
+        "options": [
+          {
+            "label": "None",
+            "value": ""
+          },
+          {
+            "label": "Primary",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "bg-accent-1"
+          }, {
+            "label": "Accent 2",
+            "value": "bg-accent-2"
+          }, {
+            "label": "Accent 3",
+            "value": "bg-accent-3"
+          }, {
+            "label": "Accent 4",
+            "value": "bg-accent-4"
+          }, {
+            "label": "Accent 5",
+            "value": "bg-accent-5"
+          }, {
+            "label": "White",
+            "value": "bg-white"
+          }, {
+            "label": "Light Grey",
+            "value": "bg-light-grey"
+          }, {
+            "label": "Grey",
+            "value": "bg-grey"
+          }, {
+            "label": "Off Black",
+            "value": "bg-off-black"
+          }, {
+            "label": "Black",
+            "value": "bg-black"
+          }
+        ],
+        "default": "bg-brand-primary"
+      }, {
+        "type": "select",
+        "id": "heading_color",
+        "label": "Heading Color",
+        "options": [
+          {
+            "label": "Primary",
+            "value": "color-brand-primary"
+          },
+          {
+            "label": "Secondary",
+            "value": "color-brand-secondary"
+          },
+          {
+            "label": "Accent 1",
+            "value": "color-accent-1"
+          },
+          {
+            "label": "Accent 2",
+            "value": "color-accent-2"
+          }, {
+            "label": "Accent 3",
+            "value": "color-accent-3"
+          }, {
+            "label": "Accent 4",
+            "value": "color-accent-4"
+          }, {
+            "label": "Accent 5",
+            "value": "color-accent-5"
+          }, {
+            "label": "White",
+            "value": "color-white"
+          }, {
+            "label": "Light Grey",
+            "value": "color-light-grey"
+          }, {
+            "label": "Grey",
+            "value": "color-grey"
+          }, {
+            "label": "Off Black",
+            "value": "color-off-black"
+          }, {
+            "label": "Black",
+            "value": "color-black"
+          }
+        ],
+        "default": "color-black"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Designer",
+        "category": "Products"
+      }
+    ]
+  }
 {% endschema %}

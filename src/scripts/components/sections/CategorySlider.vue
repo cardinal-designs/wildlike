@@ -41,7 +41,7 @@
             </div>
           </a>
         </div>
-
+        
       </div>
     </div>
   </section>
@@ -98,9 +98,11 @@ export default {
     display: flex;
     align-items: center;
     padding: 10px 0;
+
     p {
       color: #000000;
     }
+
     svg {
       margin: 0 0 0 5px;
     }
@@ -128,12 +130,15 @@ export default {
     }
    
   }
+
   &__btn__previous-slide {
     padding-right: 15px;
   }
+
   &__btn__next-slide {
     padding-left: 15px;
   }
+
   &__title {
     width: 80%;
     margin-left: 20%;
@@ -162,8 +167,10 @@ export default {
         width: calc(50% - 15px);
         margin-bottom: 15px;
       }
+
     }
   }
+
   .category-slider__detail,
     .category-slider__detail p {
       margin: 0;
@@ -171,9 +178,7 @@ export default {
       text-transform: uppercase;
       line-height: 100%;
       font-size: 1.25rem;
-      font-family: korolev,sans-serif;
       letter-spacing: 1px;
-      font-style: italic;
     }
 }
 .icon.icon--arrow_long_right {

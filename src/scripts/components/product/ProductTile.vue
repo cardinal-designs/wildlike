@@ -7,12 +7,12 @@
     @click="onClickTile"
   )
     div.product-tile__images
-      //- Product Badge
-      .product-tile__badge-container(v-if="!hideBadges")
-        span.product-tile__badge.badge(
-          :class='$store.state.badgeColorMap[productBadge]'
-          v-if='productBadge'
-        )
+      //- Product Badge we have hide the badges 
+      //- .product-tile__badge-container(v-if="!hideBadges")
+      //-   span.product-tile__badge.badge(
+      //-     :class='$store.state.badgeColorMap[productBadge]'
+      //-     v-if='productBadge'
+      //-   )
       //- Product image
       div
         svg.product-tile__img-main.product-tile__img-main--placeholder(

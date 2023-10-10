@@ -90,7 +90,6 @@ export default {
 <style scoped lang="scss">
 .category-slider {
   padding: 35px 0 35px 0;
-
   @media(max-width: 768px) {
     padding: 20px 0 20px 0;
   }
@@ -109,14 +108,12 @@ export default {
     }
     
   }
-
   &__title-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin-bottom: 35px;
-
     @media(max-width: 768px) {
       text-align: left;
       margin-bottom: 18px;
@@ -150,7 +147,6 @@ export default {
       margin-left: 0%;
     }
   }
-
     &__btn {
       width: 20%;
       display: flex;
@@ -163,7 +159,6 @@ export default {
       flex-wrap: wrap;
       column-gap: 25px;
       justify-content: center;
-
     .category-slider__slide-single {
       width: calc(25% - 25px);
       margin-right: 0;
@@ -183,13 +178,10 @@ export default {
       text-transform: uppercase;
       line-height: 100%;
       font-size: 1.25rem;
-      font-family: korolev,sans-serif;
       letter-spacing: 1px;
-      font-style: italic;
     }
 }
 .icon.icon--arrow_long_right {
   display: none !important;
 }
-
 </style>

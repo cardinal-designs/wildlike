@@ -138,6 +138,7 @@ export default {
     navigateToCollections(vendor) {
       const collectionHandel=`/collections/${vendor.toLowerCase().replaceAll(" ", "-").replaceAll("&","")}`
       window.location.href = collectionHandel.replace("--","-");
+      
     }
   }
 }

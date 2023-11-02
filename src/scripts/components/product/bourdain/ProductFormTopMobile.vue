@@ -136,7 +136,8 @@ export default {
   methods: {
     isCallForPrice,
     navigateToCollections(vendor) {
-      window.location.href = `/collections/${vendor.toLowerCase().replace(" ", "-")}`;
+      const collectionHandel=`/collections/${vendor.toLowerCase().replaceAll(" ", "-").replaceAll("&","")}`
+      window.location.href = collectionHandel.replace("--","-");
     }
   }
 }

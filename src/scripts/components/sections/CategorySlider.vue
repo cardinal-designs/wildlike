@@ -101,6 +101,8 @@ export default {
 
     p {
       color: #000000;
+      font-family: korolev,sans-serif;
+      font-style: italic;
     }
 
     svg {

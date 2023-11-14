@@ -18,7 +18,7 @@ function isLiquidOrJSON(file) {
 
 gulp.task("copy", function () {
   return gulp
-    .src(["src/liquid/**/*", "!src/liquid/config/settings_data.json"])
+  .src(["src/liquid/**/*", "!src/liquid/config/settings_data.json", "!src/liquid/templates/*.json", "!src/liquid/templates/**/*.json"])
     .pipe(
       gulpif(
         isAccountTemplate,
@@ -32,7 +32,7 @@ gulp.task("copy", function () {
 });
 
 gulp.task("copy:watch", function (done) {
-  watch(["src/liquid/**/*", "!src/liquid/config/settings_data.json"])
+  watch(["src/liquid/**/*", "!src/liquid/config/settings_data.json", "!src/liquid/templates/*.json", "!src/liquid/templates/**/*.json"])
     .pipe(
       gulpif(
         isAccountTemplate,

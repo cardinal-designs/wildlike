@@ -361,7 +361,7 @@ export default {
   }
   &__image-mobile {
     position: relative;
-    height: 240px;
+    height: calc(100vw / 1.169);
     width: 100%;
     background-size: cover;
     background-position: center;

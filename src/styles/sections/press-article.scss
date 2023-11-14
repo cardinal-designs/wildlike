@@ -78,6 +78,7 @@
     &__image {
       display: block;
       width: 311px;
+      height: auto;
       margin: 16px 16px 32px 16px;
 
       @include desktop-up {

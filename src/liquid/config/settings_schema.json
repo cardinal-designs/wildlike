@@ -4,12 +4,12 @@
     "theme_name": "Wildlike",
     "theme_version": "1.0.0",
     "theme_author": "BVA Commerce",
-    "theme_documentation_url": "https://www.ylang23.com/",
-    "theme_support_url": "https://www.ylang23.com/"
+    "theme_documentation_url": "https:\/\/www.ylang23.com\/",
+    "theme_support_url": "https:\/\/www.ylang23.com\/"
   },
   {
     "name": "Welcome Popup",
-    "settings":[
+    "settings": [
       {
         "type": "image_picker",
         "id": "welcome_img",
@@ -27,7 +27,6 @@
         "label": "Backgroud Color",
         "default": "#FFFFFF"
       },
-
       {
         "type": "color",
         "id": "welcome_text_color",
@@ -47,7 +46,7 @@
         "type": "image_picker",
         "id": "share_image",
         "label": "Image",
-        "info": "Shown when sharing a link on social media. [Learn more](https://help.shopify.com/manual/using-themes/troubleshooting/showing-social-media-thumbnail-images/) about image thumbnails."
+        "info": "Shown when sharing a link on social media. [Learn more](https:\/\/help.shopify.com\/manual\/using-themes\/troubleshooting\/showing-social-media-thumbnail-images\/) about image thumbnails."
       },
       {
         "type": "header",
@@ -173,7 +172,10 @@
         "id": "first_helper_url",
         "label": "Help Link URL"
       },
-      { "type": "header", "content": "Account Link" },
+      {
+        "type": "header",
+        "content": "Account Link"
+      },
       {
         "type": "text",
         "id": "second_helper_text",
@@ -212,12 +214,18 @@
         "label": "Mobile Account SVG URL (if not using above image)"
       },
       {
-        "type":      "select",
-        "id":        "help_account_color",
-        "label":     "Help and Account Main Link Color",
+        "type": "select",
+        "id": "help_account_color",
+        "label": "Help and Account Main Link Color",
         "options": [
-          {"label": "Light", "value": "helper-links__link--light"},
-          {"label": "Dark", "value": "helper-links__link--dark"}
+          {
+            "label": "Light",
+            "value": "helper-links__link--light"
+          },
+          {
+            "label": "Dark",
+            "value": "helper-links__link--dark"
+          }
         ],
         "default": "helper-links__link--light"
       }
@@ -233,14 +241,26 @@
         "info": "Fill this out to provide a global default filters. Filters should be handelized and comma separated. No spaces. (this-filter,that-filter,another-filter). Limit 5 for Design 1, no limit for Design 2."
       },
       {
-        "type":      "select",
-        "id":        "collection_pagination_count",
-        "label":     "Collection Pagination Count",
+        "type": "select",
+        "id": "collection_pagination_count",
+        "label": "Collection Pagination Count",
         "options": [
-          {"label": "12", "value": "12"},
-          {"label": "18", "value": "18"},
-          {"label": "24", "value": "24"},
-          {"label": "30", "value": "30"}
+          {
+            "label": "12",
+            "value": "12"
+          },
+          {
+            "label": "18",
+            "value": "18"
+          },
+          {
+            "label": "24",
+            "value": "24"
+          },
+          {
+            "label": "30",
+            "value": "30"
+          }
         ],
         "default": "24"
       },
@@ -257,46 +277,70 @@
         "info": "This disables the filters in collections."
       },
       {
-        "type":      "link_list",
-        "id":        "collection_global_linklist",
-        "label":     "Global Collection Linklist",
-        "info":      "Select the menu you wish to display on all collection pages"
+        "type": "link_list",
+        "id": "collection_global_linklist",
+        "label": "Global Collection Linklist",
+        "info": "Select the menu you wish to display on all collection pages"
       },
       {
-        "type":      "link_list",
-        "id":        "collection_default_custom_linklist",
-        "label":     "Default Custom Collection Linklist",
-        "info":      "Select the secondary custom menu you wish to display on all collection pages"
+        "type": "link_list",
+        "id": "collection_default_custom_linklist",
+        "label": "Default Custom Collection Linklist",
+        "info": "Select the secondary custom menu you wish to display on all collection pages"
       },
       {
-        "type":      "select",
-        "id":        "collection_hero_bg_color",
-        "label":     "Default Collection Hero Background Color",
+        "type": "select",
+        "id": "collection_hero_bg_color",
+        "label": "Default Collection Hero Background Color",
         "options": [
-          {"label": "Primary 1", "value": "bg-brand-primary"},
-          {"label": "Primary 2", "value": "bg-brand-secondary"},
-          {"label": "Light", "value": "bg-white"},
-          {"label": "Dark", "value": "bg-black"}
+          {
+            "label": "Primary 1",
+            "value": "bg-brand-primary"
+          },
+          {
+            "label": "Primary 2",
+            "value": "bg-brand-secondary"
+          },
+          {
+            "label": "Light",
+            "value": "bg-white"
+          },
+          {
+            "label": "Dark",
+            "value": "bg-black"
+          }
         ],
         "default": "bg-brand-primary"
       },
       {
-        "type":      "select",
-        "id":        "collection_hero_heading_color",
-        "label":     "Default Collection Hero Heading Color",
+        "type": "select",
+        "id": "collection_hero_heading_color",
+        "label": "Default Collection Hero Heading Color",
         "options": [
-          {"label": "Light", "value": "color-white"},
-          {"label": "Dark", "value": "color-black"}
+          {
+            "label": "Light",
+            "value": "color-white"
+          },
+          {
+            "label": "Dark",
+            "value": "color-black"
+          }
         ],
         "default": "color-black"
       },
       {
-        "type":      "select",
-        "id":        "collection_hero_copy_color",
-        "label":     "Default Collection Hero Copy Color",
+        "type": "select",
+        "id": "collection_hero_copy_color",
+        "label": "Default Collection Hero Copy Color",
         "options": [
-          {"label": "White", "value": "color-white"},
-          {"label": "Black", "value": "color-black"}
+          {
+            "label": "White",
+            "value": "color-white"
+          },
+          {
+            "label": "Black",
+            "value": "color-black"
+          }
         ],
         "default": "color-black"
       }
@@ -413,7 +457,7 @@
       },
       {
         "type": "header",
-        "content": "CCPA" 
+        "content": "CCPA"
       },
       {
         "type": "text",
@@ -507,19 +551,19 @@
     "name": "Cart",
     "settings": [
       {
-        "type":      "checkbox",
-        "id":        "cart_enable_modal",
-        "label":     "Enable Mini Cart Modal",
-        "default":   false
+        "type": "checkbox",
+        "id": "cart_enable_modal",
+        "label": "Enable Mini Cart Modal",
+        "default": false
       },
       {
         "type": "header",
         "content": "Colors"
       },
       {
-        "type":      "select",
-        "id":        "cart_bubble",
-        "label":     "Cart Bubble Color",
+        "type": "select",
+        "id": "cart_bubble",
+        "label": "Cart Bubble Color",
         "options": [
           {
             "label": "None",
@@ -577,12 +621,18 @@
         "default": "bg-accent-1"
       },
       {
-        "type":      "select",
-        "id":        "cart_bubble_text",
-        "label":     "Cart Bubble Text Color",
+        "type": "select",
+        "id": "cart_bubble_text",
+        "label": "Cart Bubble Text Color",
         "options": [
-          {"label": "White", "value": "color-white"},
-          {"label": "Black", "value": "color-black"}
+          {
+            "label": "White",
+            "value": "color-white"
+          },
+          {
+            "label": "Black",
+            "value": "color-black"
+          }
         ],
         "default": "color-black"
       },
@@ -611,9 +661,9 @@
         "info": "The message you wish to display when a user has reached the qualifying total."
       },
       {
-        "type":      "select",
-        "id":        "cart_shipping_bg",
-        "label":     "Shipping Promo Background Color",
+        "type": "select",
+        "id": "cart_shipping_bg",
+        "label": "Shipping Promo Background Color",
         "options": [
           {
             "label": "None",
@@ -671,24 +721,30 @@
         "default": "bg-brand-primary"
       },
       {
-        "type":      "select",
-        "id":        "cart_shipping_text",
-        "label":     "Shipping Promo Text Color",
+        "type": "select",
+        "id": "cart_shipping_text",
+        "label": "Shipping Promo Text Color",
         "options": [
-          {"label": "White", "value": "color-white"},
-          {"label": "Black", "value": "color-black"}
+          {
+            "label": "White",
+            "value": "color-white"
+          },
+          {
+            "label": "Black",
+            "value": "color-black"
+          }
         ],
         "default": "color-black"
       },
       {
-        "type":      "url",
-        "id":        "cart_continue_link",
-        "label":     "Continue Shopping Link"
+        "type": "url",
+        "id": "cart_continue_link",
+        "label": "Continue Shopping Link"
       },
       {
-        "type":      "select",
-        "id":        "cart_shipping_progress",
-        "label":     "Shipping Promo Progress Bar Color",
+        "type": "select",
+        "id": "cart_shipping_progress",
+        "label": "Shipping Promo Progress Bar Color",
         "options": [
           {
             "label": "None",
@@ -842,7 +898,7 @@
         "type": "html",
         "id": "html_block",
         "label": "HTML Block",
-        "info": "Custom content before the </body> tag"
+        "info": "Custom content before the <\/body> tag"
       }
     ]
   },
@@ -853,7 +909,7 @@
         "type": "html",
         "id": "css_block",
         "label": "CSS",
-        "info": "Custom CSS before the </body> tag"
+        "info": "Custom CSS before the <\/body> tag"
       }
     ]
   },
@@ -872,13 +928,19 @@
     "name": "Product",
     "settings": [
       {
-        "type":      "select",
-        "id":        "product_tile_text_alignment",
-        "label":     "Simple/Widget Product Tile Text Alignment",
-        "info": "Applies only to simple/widget product tiles.",
+        "type": "select",
+        "id": "product_tile_text_alignment",
+        "label": "Simple\/Widget Product Tile Text Alignment",
+        "info": "Applies only to simple\/widget product tiles.",
         "options": [
-          {"label": "Left", "value": "text-left"},
-          {"label": "Center", "value": "text-center"}
+          {
+            "label": "Left",
+            "value": "text-left"
+          },
+          {
+            "label": "Center",
+            "value": "text-center"
+          }
         ],
         "default": "text-left"
       },
@@ -919,9 +981,9 @@
         "content": "Sale Colors"
       },
       {
-        "type":      "select",
-        "id":        "compare_price_color",
-        "label":     "Sale Price Color",
+        "type": "select",
+        "id": "compare_price_color",
+        "label": "Sale Price Color",
         "info": "When a product is on sale, the product price will be displayed as this color.",
         "options": [
           {
@@ -980,9 +1042,9 @@
         "content": "Badge Colors"
       },
       {
-        "type":      "select",
-        "id":        "badge_sale_copy_color",
-        "label":     "Sale Copy Color",
+        "type": "select",
+        "id": "badge_sale_copy_color",
+        "label": "Sale Copy Color",
         "options": [
           {
             "label": "Primary",
@@ -1036,9 +1098,9 @@
         "default": "color-accent-5"
       },
       {
-        "type":      "select",
-        "id":        "badge_sale_bg_color",
-        "label":     "Sale Background Color",
+        "type": "select",
+        "id": "badge_sale_bg_color",
+        "label": "Sale Background Color",
         "options": [
           {
             "label": "None",
@@ -1096,9 +1158,9 @@
         "default": "bg-accent-1"
       },
       {
-        "type":      "select",
-        "id":        "badge_new_copy_color",
-        "label":     "New Copy Color",
+        "type": "select",
+        "id": "badge_new_copy_color",
+        "label": "New Copy Color",
         "options": [
           {
             "label": "Primary",
@@ -1152,9 +1214,9 @@
         "default": "color-black"
       },
       {
-        "type":      "select",
-        "id":        "badge_new_bg_color",
-        "label":     "New Background Color",
+        "type": "select",
+        "id": "badge_new_bg_color",
+        "label": "New Background Color",
         "options": [
           {
             "label": "None",
@@ -1212,9 +1274,9 @@
         "default": "bg-brand-primary"
       },
       {
-        "type":      "select",
-        "id":        "badge_limited_copy_color",
-        "label":     "Limited Copy Color",
+        "type": "select",
+        "id": "badge_limited_copy_color",
+        "label": "Limited Copy Color",
         "options": [
           {
             "label": "Primary",
@@ -1268,9 +1330,9 @@
         "default": "color-black"
       },
       {
-        "type":      "select",
-        "id":        "badge_limited_bg_color",
-        "label":     "Limited Background Color",
+        "type": "select",
+        "id": "badge_limited_bg_color",
+        "label": "Limited Background Color",
         "options": [
           {
             "label": "None",
@@ -1328,9 +1390,9 @@
         "default": "bg-brand-primary"
       },
       {
-        "type":      "select",
-        "id":        "badge_best_seller_copy_color",
-        "label":     "Best Seller Copy Color",
+        "type": "select",
+        "id": "badge_best_seller_copy_color",
+        "label": "Best Seller Copy Color",
         "options": [
           {
             "label": "Primary",
@@ -1384,9 +1446,9 @@
         "default": "color-black"
       },
       {
-        "type":      "select",
-        "id":        "badge_best_seller_bg_color",
-        "label":     "Best Seller Background Color",
+        "type": "select",
+        "id": "badge_best_seller_bg_color",
+        "label": "Best Seller Background Color",
         "options": [
           {
             "label": "None",
@@ -1444,9 +1506,9 @@
         "default": "bg-accent-1"
       },
       {
-        "type":      "select",
-        "id":        "badge_clearance_copy_color",
-        "label":     "Clearance Copy Color",
+        "type": "select",
+        "id": "badge_clearance_copy_color",
+        "label": "Clearance Copy Color",
         "options": [
           {
             "label": "Primary",
@@ -1500,9 +1562,9 @@
         "default": "color-black"
       },
       {
-        "type":      "select",
-        "id":        "badge_clearance_bg_color",
-        "label":     "Clearance Background Color",
+        "type": "select",
+        "id": "badge_clearance_bg_color",
+        "label": "Clearance Background Color",
         "options": [
           {
             "label": "None",
@@ -1560,9 +1622,9 @@
         "default": "bg-accent-1"
       },
       {
-        "type":      "select",
-        "id":        "badge_dotw_copy_color",
-        "label":     "\"Deal of the Week\" Copy Color",
+        "type": "select",
+        "id": "badge_dotw_copy_color",
+        "label": "\"Deal of the Week\" Copy Color",
         "options": [
           {
             "label": "Primary",
@@ -1616,9 +1678,9 @@
         "default": "color-black"
       },
       {
-        "type":      "select",
-        "id":        "badge_dotw_bg_color",
-        "label":     "\"Deal of the Week\" Background Color",
+        "type": "select",
+        "id": "badge_dotw_bg_color",
+        "label": "\"Deal of the Week\" Background Color",
         "options": [
           {
             "label": "None",
@@ -1692,8 +1754,14 @@
         "id": "review_source",
         "label": "Reviews Source",
         "options": [
-          { "label": "Shopify", "value": "shopify" },
-          { "label": "BazaarVoice", "value": "bazaarvoice" }
+          {
+            "label": "Shopify",
+            "value": "shopify"
+          },
+          {
+            "label": "BazaarVoice",
+            "value": "bazaarvoice"
+          }
         ],
         "default": "shopify"
       },

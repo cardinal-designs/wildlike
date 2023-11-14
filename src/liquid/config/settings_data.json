@@ -115,6 +115,18 @@
       "header-navigation": {
         "type": "header-navigation",
         "blocks": {
+          "4ec68c35-b2e9-4ce1-b6a6-43c57540d509": {
+            "type": "text_large_image",
+            "settings": {
+              "title": "NEW ARRIVALS",
+              "menu_item_url": "shopify:\/\/collections\/new-arrivals",
+              "menu_link_list": "",
+              "disable_mega_menu": false,
+              "expand_mobile": false,
+              "large_image_link": "",
+              "large_image_link_text": ""
+            }
+          },
           "556ab2e5-df18-4544-879d-7c02384151d2": {
             "type": "text_large_image",
             "settings": {
@@ -123,7 +135,7 @@
               "menu_link_list": "designers",
               "disable_mega_menu": true,
               "expand_mobile": false,
-              "large_image": "shopify:\/\/shop_images\/Wildlike_10_18_220415_new.jpg",
+              "large_image": "shopify:\/\/shop_images\/Wildlike_06_19_23_Front_Facing_Septum_DAITH_001new_bfa1a454-0c0f-4a8e-becc-0a0a4891de0f.jpg",
               "large_image_link": "shopify:\/\/collections\/wildlike",
               "large_image_link_text": "Shop the Wildlike Collection"
             }
@@ -136,18 +148,18 @@
               "menu_link_list": "get-pierced",
               "disable_mega_menu": true,
               "expand_mobile": true,
-              "menu_image_1": "shopify:\/\/shop_images\/BookNow_522x392_June2022.jpg",
+              "menu_image_1": "shopify:\/\/shop_images\/Wildlike_06_19_23_Curved_001updated_fe51b54e-6e45-4c3d-97cb-36a48f55029a.jpg",
               "menu_image_1_url": "#book-now",
               "menu_image_1_text": "Book a Piercing",
-              "menu_image_2": "shopify:\/\/shop_images\/Preshop_522x392-June2022.jpg",
-              "menu_image_2_url": "shopify:\/\/collections\/all-piercing-jewelry",
-              "menu_image_2_text": "Pre-Shop For Your Piercing",
+              "menu_image_2_url": "",
+              "menu_image_2_text": "",
               "menu_image_3_url": "",
               "menu_image_3_text": ""
             }
           },
           "9e07fdac-dc0e-41cc-885f-195f14c141ff": {
             "type": "text_large_image",
+            "disabled": true,
             "settings": {
               "title": "SALE",
               "menu_item_url": "shopify:\/\/collections\/sale-1",
@@ -180,6 +192,7 @@
           }
         },
         "block_order": [
+          "4ec68c35-b2e9-4ce1-b6a6-43c57540d509",
           "556ab2e5-df18-4544-879d-7c02384151d2",
           "9b8a0e2f-fd7a-4340-b1da-0ca44ab5d251",
           "9e07fdac-dc0e-41cc-885f-195f14c141ff",
@@ -442,7 +455,6 @@
       },
       "1620684162b2e2993b": {
         "type": "in-the-press",
-        "disabled": true,
         "blocks": {
           "060b254a-7c76-44f9-b50e-87567fecddd4": {
             "type": "testimonial_block",
@@ -502,6 +514,7 @@
           "11894cd9-aaa4-465f-8396-98ce332b6638",
           "1954c4cf-6fc0-4c77-aa5f-63905eef3f85"
         ],
+        "disabled": true,
         "settings": {
           "margin_top": 56,
           "margin_bottom": 56,
@@ -932,6 +945,55 @@
         "type": "title-booking",
         "settings": {
           "title_copy": "Types of piercings"
+        }
+      },
+      "page--about1": {
+        "type": "page--about1",
+        "blocks": {
+          "258d4256-d921-4715-bc5e-3b6714f4a94d": {
+            "type": "scrolling_text",
+            "settings": {
+              "title": "Amelia",
+              "content": "<p>My name is Amelia and I’ve been piercing for over four years! I have lived all over the country, but most recently moved from Colorado. I love Dallas but I miss skiing in Colorado!<br\/><br\/>My favorite piece from the Wildlike Collection is the single diamond baguette stud. The baguette is so sleek and petite that it would sit wonderfully in almost every part of the ear. Classic and feminine!<\/p>",
+              "image": "shopify:\/\/shop_images\/amelia-28_9c75e1fd-b5a2-4c73-a483-f7bda52e6290.jpg",
+              "text_group": "1"
+            }
+          },
+          "b7eb4200-fc86-42f7-ae74-bdd73d8aa28d": {
+            "type": "scrolling_text",
+            "settings": {
+              "title": "Heather",
+              "content": "<p>Hi, I’m Heather! I’ve been in the piercing industry since 2017 and I love every second of it! I’m originally from Washington D.C. but have been in Dallas for about 15 years now!<\/p><p>I have always had a passion for jewelry ever since I was little, I wanted to accessorize with everything I could and I loved organizing all of my jewelry.<\/p><p>My favorite piece from the Wildlike collection has to be the Pearl stud from our birthstone line! Pearls are my favorite, and this one is so dainty it could be put virtually anywhere.<\/p>",
+              "image": "shopify:\/\/shop_images\/IMG_1247.jpg",
+              "text_group": "1"
+            }
+          },
+          "8b84e438-446c-431b-8307-d837faf6163f": {
+            "type": "scrolling_text",
+            "settings": {
+              "title": "Drea",
+              "content": "<p>My name is Drea. I'm a mom to a very sweet little boy and we have a cat, snake and dog. I've been in the piercing industry for over 16 years!<\/p><p>I'm originally from Wisconsin but have lived and worked all over the country. I've been back in the Dallas area for the last 5 years helping people make their piercing goals come to life using some amazing pieces from a variety of jewelry brands. Creating fun looks with jewelry and placement to fit someone's unique anatomy is one of my favorite parts of being a piercer. <\/p><p>The diamond marquise is my favorite piece from the Wildlike collection. It's a classic shape that looks beautiful alone or paired with other styles.<\/p>",
+              "image": "shopify:\/\/shop_images\/wildlike_piercers_drea-5.jpg",
+              "text_group": "1"
+            }
+          },
+          "2c8681a0-b730-4536-89ce-6dde023add9e": {
+            "type": "scrolling_text",
+            "settings": {
+              "title": "Della",
+              "content": "<p>Hi! I'm Della! I've been piercing for over 6 years now. I've spent most of my life in DFW aside from the past few years working in California. I am highly passionate about bringing my clients the highest quality body jewelry available and have spent these last few years learning how to craft it and plan to continue that journey here at home. <\/p><p>I have a pug\/boston terrier mix, Fehu, who is my entire soul and I enjoy tending to my many plants.<\/p><p>My favorite Wildlike piece is the Three Diamond Baguette Earring.<\/p>",
+              "image": "shopify:\/\/shop_images\/wildlike_piercers_della-1-2.jpg",
+              "text_group": "1"
+            }
+          }
+        },
+        "block_order": [
+          "258d4256-d921-4715-bc5e-3b6714f4a94d",
+          "b7eb4200-fc86-42f7-ae74-bdd73d8aa28d",
+          "8b84e438-446c-431b-8307-d837faf6163f",
+          "2c8681a0-b730-4536-89ce-6dde023add9e"
+        ],
+        "settings": {
         }
       },
       "booking-value-props": {

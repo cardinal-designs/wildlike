@@ -18,7 +18,7 @@ function isLiquidOrJSON(file) {
 
 gulp.task("copy", function () {
   return gulp
-    .src(["src/liquid/**/*", "!src/liquid/config/settings_data.json", "!src/liquid/templates/*.json", "!src/liquid/templates/**/*.json"])
+  .src(["src/liquid/**/*", "!src/liquid/config/settings_data.json", "!src/liquid/templates/*.json", "!src/liquid/templates/**/*.json"])
     .pipe(
       gulpif(
         isAccountTemplate,
